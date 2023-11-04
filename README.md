@@ -1,3 +1,4 @@
 # lnu
-  - Projects done on school time
-  - School assignments
+
+- Projects done on school time
+- School assignments
