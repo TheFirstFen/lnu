@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'jacoco'
+    id "org.sonarqube" version "4.2.1.3168"
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group 'com.sb224sc'
+version '2.0 Release'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+application {
+    mainModule = 'com.sb224sc.rubik'
+    mainClass = 'com.sb224sc.rubik.Launcher'
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls']
+    String path = System.getenv("JAVAFX_PATH")
+    if (path != null && !path.isBlank()){
+        sdk = path
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation 'com.google.guava:guava:32.1.1-jre'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+javadoc {
+    options {
+        links 'https://docs.oracle.com/en/java/javase/17/docs/api/'
+    }
+}
+
+run {
+    standardInput = System.in
+}
+
+jacoco {
+    toolVersion = '0.8.10'
+}
+
+test {
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        xml.required = true
+    }
+}

@@ -1,0 +1,187 @@
+/* Header background image and responsiveness if screen slimer then 900px */
+header{
+    font-size: 1vw;
+    color: #FFF;
+    text-align: center;
+    background-image: url(https://charlesharropgriffiths.files.wordpress.com/2015/01/img_7392.jpg);
+}
+@media screen and (max-width: 900px){
+    header{
+        background-image: none;
+    }
+}
+/* End of "Header background image and responsiveness if screen slimer then 900px" */
+
+/* Grid creation and where the diffrent "main" tags are suppose to be located in that grid */
+.grid-container{
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    grid-template-rows: 10% 50% 50% 10%;
+    grid-gap: 12pt;
+}
+.grid-header{
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+.grid-left{
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    background-color: rgb(187, 187, 187);
+}
+.grid-right{
+    grid-column: 3 / 4;
+    grid-row: 1 / 5;
+    background-color: rgba(187, 187, 187, 1);
+}
+.grid-nav{
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+.grid-main{
+    grid-column: 2 / 3;
+    grid-row: 2 / 4;
+}
+.grid-footer{
+    grid-column: 1 / 4;
+    grid-row: 4 / 5;
+}
+/* End of grid creation */
+
+/* Start of NAV visuals */
+ul{
+    list-style-type: none;
+    margin: 0ex;
+    padding: 0em;
+    width: 100%;
+    height: 100%;
+    background-color: #bbb;
+}
+li a{
+    display: block;
+    color: hsl(180, 50%, 0%);
+    padding: 8px 16px;
+    text-decoration: none;
+}
+li a:link{
+    color: #000;
+}
+li a:visited{
+    color: #000;
+    background-color: #bbb;
+}
+li a:hover:not(.active){
+    background-color: gray;
+}
+li a.active{
+    background-color: #666;
+}
+article > p{
+    color: hsla(180, 50%, 0%, 1);
+    font-size: 1rem;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+/* End of NAV visuals */
+
+/* fixing size and position for h2s */
+h2{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+/* fixing size and position for h4s */
+h4{
+    text-align: left;
+}
+
+/* Making it possiable to read contact info with a backgrounds color */
+dl{
+    background-color: rgb(255, 255, 255, 1.0);
+}
+
+/* Creating of table and it visuals */
+table, tr, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td{
+    padding: 15px;
+    vertical-align: middle; /* to align content to the vertical middel of each box in the table */
+}
+tr:nth-child(even){
+    background-color: #dddddd;
+}
+tfoot{
+    border: none;
+}
+/* End of "Creating of table and it visuals" */
+
+iframe{
+    width: 500px;
+    height: 300px;
+}
+
+/* Internal NAV position in grid system */
+#grid-nav2{
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+}
+
+/* How the download button should be aligned and function */
+#download{
+    text-align: center;
+}
+#div-grid{
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    text-align: center;
+    font-size: 2vw;
+}
+#button{
+    position: absolute;
+    left: 45%;
+    background-color: #999;
+    border: none;
+    color: #000;
+    padding: 32px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition-delay: 0.4ms;
+    transition-duration: 0.4s;  /* transition and transform is used to make the button change size and switch color */
+    transform: scale(2);
+    border-radius: 12%;
+}
+#button:hover{
+    background-color: #bbb;
+}
+#button::after{
+    background-color: #0F0;
+}
+.disable{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* End  of "How the download button should be aligned and function" */
+
+/* Making it possiable to go from bottom of page to top of page */
+:target{
+    background-color: #999;
+    border: 1px solid black;
+    color: #000;
+    text-decoration: none;
+}
+
+/* Footer background image and responsiveness if screen slimer then 900px */
+footer{
+    min-height: 140px;
+    color: #000;
+    background-image: url(https://charlesharropgriffiths.files.wordpress.com/2015/01/img_7392.jpg);
+}
+@media screen and (max-width: 900px){
+    footer{
+        background-image: none;
+    }
+}
+/* End of "Footer background image and responsiveness if screen slimer then 900px" */

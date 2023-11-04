@@ -1,0 +1,13 @@
+/mnt/c/Users/samue/Documents/Visual Studio Code/LNU/rust_courses/combiner/target/debug/deps/gif-24a07e633e7a5984.rmeta: /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/lib.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/traits.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/common.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/mod.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/decoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/encoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/../README.md
+
+/mnt/c/Users/samue/Documents/Visual Studio Code/LNU/rust_courses/combiner/target/debug/deps/libgif-24a07e633e7a5984.rlib: /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/lib.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/traits.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/common.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/mod.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/decoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/encoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/../README.md
+
+/mnt/c/Users/samue/Documents/Visual Studio Code/LNU/rust_courses/combiner/target/debug/deps/gif-24a07e633e7a5984.d: /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/lib.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/traits.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/common.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/mod.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/decoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/encoder.rs /home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/../README.md
+
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/lib.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/traits.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/common.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/mod.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/reader/decoder.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/encoder.rs:
+/home/dev/.cargo/registry/src/github.com-1ecc6299db9ec823/gif-0.11.4/src/../README.md:

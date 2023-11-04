@@ -1,0 +1,42 @@
+[
+  {
+    "id": 0,
+    "dateTime": "2023-09-25 20:16:21",
+    "drugName": "Aspirin",
+    "quantity": 1,
+    "pricePerPackage": 209.99,
+    "totalCost": 209.99
+  },
+  {
+    "id": 1,
+    "dateTime": "2023-09-25 20:17:21",
+    "drugName": "Ipren",
+    "quantity": 10,
+    "pricePerPackage": 189.99,
+    "totalCost": 1899.9
+  },
+  {
+    "id": 2,
+    "dateTime": "2023-09-25 20:18:21",
+    "drugName": "Paracetamol",
+    "quantity": 5,
+    "pricePerPackage": 209.99,
+    "totalCost": 1049.95
+  },
+  {
+    "id": 3,
+    "dateTime": "2023-09-25 20:19:21",
+    "drugName": "Ibuprofen",
+    "quantity": 2,
+    "pricePerPackage": 199.99,
+    "totalCost": 399.98
+  },
+  {
+    "id": 4,
+    "dateTime": "2023-09-25 20:20:21",
+    "drugName": "Alvedon",
+    "quantity": 3,
+    "pricePerPackage": 199.99,
+    "totalCost": 599.97
+  }
+]

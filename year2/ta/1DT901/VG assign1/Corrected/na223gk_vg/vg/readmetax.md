@@ -1,0 +1,1 @@
+The `tax.py` program uses a simple algorithm to calculate the amount of income tax owed. The algorithm works by first determining the tax bracket for the given income. The tax bracket is then used to calculate the amount of tax owed. The amount of tax owed is then outputted to the console.

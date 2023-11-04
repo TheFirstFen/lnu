@@ -1,0 +1,296 @@
+<sa224pt>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good. 
+
+Grade: A
+
+------------------------------------------------------
+
+<jn223rk>
+
+sumofthree: Good!
+change: Good!
+taxes: Doesn't work for income above 50 000 as intended. Otherwise good.
+square color: Good!
+
+Overall: One major error (tax.py), Otherwise well done.
+
+Grade: B
+
+------------------------------------------------------
+
+<ll224hf>
+
+sumofthree: Good!
+change: Good!
+taxes: Good! Structure could have been nicer.
+square color: Good! Structure could have been nicer.
+
+Overall: Good! Start thinking about the structure
+to make it easier for yourself and others to read.
+Currently the structure feels neglected.
+
+Grade: A
+
+------------------------------------------------------
+
+<ws222gx>
+
+sumofthree: Good!
+change: Okay! Minor error can't handle larger sums.
+taxes: Good!
+square color: Good!
+
+Overall: Good! Rember when test running code to make sure it works
+try riducules values(change.py)
+
+Grade: A
+
+------------------------------------------------------
+
+<ma227kc>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Doesn't work. Only outputs "Tile does not exist"
+
+Overall: One major issue squarecolor.py doesn't work. Otherwise Good!
+
+Grade: B
+
+------------------------------------------------------
+
+<jb225rg>
+
+sumofthree: Good!
+change: Okay. Minor issue doesn't save rounded value to change.
+taxes: Good!
+square color: Good!
+
+Overall: Good! Always test run with the values given in task and others.
+
+Grade: A
+
+------------------------------------------------------
+
+<ya222hs>
+
+sumofthree: Good!
+change: Okay. Can't handle float inputs for the price as it should. Otherwise seems to work as intended.
+taxes: Good!
+square color: Good. Missing readme part.
+
+Overall: Okay. Always make sure your application can handle
+example input for task description. Always double check so that you
+send in everything that is needed.
+
+Grade: B
+
+------------------------------------------------------
+
+<fh223ag>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<sa225sh>
+
+sumofthree: Good!
+change: Good! Minor issue they want all diffrent type of bills printed even if there are 0 of them.
+taxes: Good!
+square color: Good!
+
+Overall: Looks good!
+
+Grade: A
+
+------------------------------------------------------
+
+<tp222ka>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<jp223uy>
+
+sumofthree: Good!
+change: Does not work as intended. Can't handle large change and can't give correct change for example in task description.
+taxes: Does not work as intended. Does not print my tax amount.
+square color: Empty file.
+
+Overall: Always test against values given in task example if there is one.
+
+Grade: C
+
+------------------------------------------------------
+
+<fm222ux>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<jn224ei>
+
+sumofthree: Good!
+change: Does not work as intended. Gives more bills then necessary.
+taxes: Good!
+square color: Only prints out black. tested: e5, e4, c6, c5
+
+Overall: The ones that work works really well the other not so much.
+
+Grade: B
+
+------------------------------------------------------
+
+<ss226jr>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<ad223ni>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<ob222pm>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Empty file.
+
+Overall: Everything that was done looked good.
+
+Grade: B
+
+------------------------------------------------------
+
+<zh222dq>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good.
+
+Grade: A
+
+------------------------------------------------------
+
+<ag224nx>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Works but not as intended when taking input. Ugly code, too many if statements.
+
+Overall: Good solutions for sumofthree, change and tax.
+For squarecolor always try to implement tasks so it looks as in
+the task example.
+
+Grade: B
+
+------------------------------------------------------
+
+<ak225jj>
+
+sumofthree: Good!
+change: Good!
+taxes: Good!
+square color: Good!
+
+Overall: Everything looks good code wise, readme missing content.
+
+Grade: B
+
+------------------------------------------------------
+
+<sm224dn>
+
+sumofthree: Good!
+change: Okay. Does not work for large sums of change.
+taxes: Good!
+square color: Good!
+
+Overall: Looks good. Some improvements are possible for change
+so it can handle large sums of change.
+
+Grade: A
+
+------------------------------------------------------
+
+<lh224hz>
+
+sumofthree: Good!
+change: Okay. Missing print for 1kr. Kinda ugly structure.
+taxes: Only works for income below 38 000.
+square color: Good!
+
+Overall: Okay. Always make sure it does as in task example
+when given the same input.
+
+Grade: B
+
+------------------------------------------------------
+
+<na223gk>
+
+sumofthree: Good!
+change: Good! Kinda ugly.
+taxes: Good! Rember to remove commented code.
+square color: Good!
+
+Overall: Okay. Make one readme.md file for all of the tasks at not one for each.
+
+Grade: A
+
+------------------------------------------------------
+
+Note: name zip file form here on out like this: [student-id]_assignmentX.zip

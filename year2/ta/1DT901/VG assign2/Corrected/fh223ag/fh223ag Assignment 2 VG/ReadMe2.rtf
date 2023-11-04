@@ -1,0 +1,68 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #abcd.py\
+Jag skapar en function som heter get_number s\'e5 vi kan \'94skapa\'94 integern p\'e5 4 siffror\
+Sen anv\'e4nder jag 4 for loopar f\'f6r att g\'e5 igenom 1-9 eller 0-9 f\'f6r a,b,c och d. \
+I slutet har jag en if sats f\'f6r att se om talet uppfyller kraven i uppgiften och anv\'e4nder sedan funktionen som vi skapade tidigare f\'f6r att \'94skapa\'94 numret.\
+\
+\
+#birthday_candles.py\
+Jag b\'f6rjar med att importera math modulen s\'e5 att vi kan anv\'e4nda oss av round().\
+Efter detta skapar jag n\'e5gra variabler f\'f6r att h\'e5lla koll p\'e5 \'e5lder, sparade ljus, hur m\'e5nga ljus som beh\'f6vs, hur m\'e5nga l\'e5dor som beh\'f6vs, hur m\'e5nga ljust som \'e4r i en l\'e5da samt hur m\'e5nga l\'e5dor som beh\'f6vs.\
+\
+Vi ska kolla \'e5ren 1 - 100, d\'e5 vi vet spannet som vi ska kolla anv\'e4nder jag mig av en for loop f\'f6r att g\'e5 igenom alla \'e5ren. \
+H\'e4r b\'f6rjar jag med att kolla hur m\'e5nga ljus vi beh\'f6ver samt om vi beh\'f6ver ljus. D\'e5 antalet l\'e5dor vi beh\'f6ver \'e4r ett flyttal s\'e5 avrundar jag upp\'e5t f\'f6r att f\'e5 fram hur m\'e5nga l\'e5dor som beh\'f6vs. \
+Jag sparar sedan de ljus som blir kvar efter f\'f6delsedagen , skriver ut hur m\'e5nga l\'e5dor som ska k\'f6pas och g\'e5r vidare till n\'e4sta iteration.\
+\
+\
+#countdigits.py\
+Jag b\'f6rjar med att skapa tre listor, en f\'f6r varje kategori av tal vi har.\
+Jag ber sedan anv\'e4ndaren om ett tal som jag g\'f6r om till integer f\'f6r att vi ska kunna r\'e4kna med det. Jag anv\'e4nder \'e4ven en koll f\'f6r att se s\'e5 att vi f\'e5r ett positivt nummer av anv\'e4ndaren och fr\'e5gar annars om till vi f\'e5r ett positivt tal av anv\'e4ndaren \
+Efter detta s\'e5 g\'f6r jag om talet till en str\'e4ng f\'f6r att kunna anv\'e4nda len()\
+\
+Nu s\'e5 g\'e5r jag igenom talet vi f\'e5tt f\'f6r att dela in talet i de tre olika listorna.\
+I slutet s\'e5 skriver jag ut resultatet\
+\
+\
+#drunken_sailor.py\
+Jag b\'f6rjar med att importera random f\'f6r att vi ska kunna simulera r\'f6relsen senare.\
+Jag skapar \'e4ven variabler f\'f6r att h\'e5lla koll p\'e5 steg, hur m\'e5nga som klarat det, hur m\'e5nga som inte klarar det samt seglarens x och y position\
+\
+Efter detta ber jag anv\'e4ndaren om input f\'f6r storlek p\'e5 planet, max antal steg och antalet sailors.\
+N\'e4r jag har gjort detta s\'e5 skapar jag gr\'e4nserna f\'f6r planet genom att s\'e4tta x min och max samt y min samt max.\
+\
+Nu skapar jag en funktion kallad on_grid() f\'f6r att se om sailorn \'e4r p\'e5 planet eller utanf\'f6r. Skulle sailorn hamna utanf\'f6r s\'e5 nollst\'e4ller jag stegen och positionen samt \'f6kar antalen som misslyckats med 1.\
+\
+Sen s\'e5 skapar jag en funktion som kallas take_step() som jag anv\'e4nder f\'f6r att simulera att sailorn tar ett steg. Skulle antal steg n\'e5 upp till max s\'e5 \'f6kar jag antalet som klarat det med 1. \
+Jag ser \'e4ven till att vi bara kan r\'f6ra oss upp/ner eller i sidled d\'e5 vi inte skulle simulera diagonala r\'f6relser.\
+Om vi \'f6kar/minskar x positionen s\'e5 l\'e4mnar vi y or\'f6rd och tv\'e4rtom.\
+\
+Nu kommer vi till simuleringen och den blir ganska kort tack vare funktionerna som vi skapat tidigare.\
+Sedan s\'e5 avslutar jag genom att skriva ut resultatet till anv\'e4ndaren.\
+\
+\
+#salary_revision.py\
+Jag b\'f6rjar med att fr\'e5ga anv\'e4ndaren om input. Sedan anv\'e4nder jag split() f\'f6r att dela upp l\'f6nerna i individuella objekt och konverterar dessa till ints.\
+\
+Nu s\'e5 ska jag b\'f6rja med att r\'e4kna ut average. Detta g\'f6r jag genom att l\'e4gga ihop alla objekt i listan och dela med antalet objekt. \
+Sen s\'e5 sorterar jag listan s\'e5 att vi kan r\'e4kna ut medianen.\
+\
+F\'f6r att r\'e4kna ut medianen m\'e5ste vi veta om det \'e4r ett udda antal objekt eller j\'e4mnt antal s\'e5 jag kollar vilket kategori som vi \'e4r i och sedan g\'f6r jag ber\'e4kningarna utifr\'e5n det.\
+\'c4r det ett udda antal objekt s\'e5 \'e4r det bara att ta mitten talet och \'e4r det udda m\'e5ste vi sl\'e5ihop de tv\'e5 mittersta och dela med 2 .\
+\
+N\'e4r jag ska r\'e4kna ut gapet s\'e5 \'e4r det bara att ta f\'f6rsta objektet i listan - det sista\
+Sedan skriver jag ut resultatet till anv\'e4ndaren.\
+\
+#pi_approx.py\
+Jag b\'f6rjar med att skapa lite variabler, en f\'f6r x koordinaten och en f\'f6r y koordinaten, en f\'f6r radien, en f\'f6r avst\'e5ndet fr\'e5n origo och tv\'e5 f\'f6r om punkten ligger i cirkeln eller kvadraten. N \'e4r till f\'f6r att \'e4ndra antalet punkter.\
+\
+Efter detta har vi en for loop f\'f6r att skapa n punkter en och en och sedan kolla om dessa ligger i cirkeln eller kvadraten. Om x**2 + y**2 \'e4r st\'f6rre en 1 s\'e5 \'e4r punkten utanf\'f6r cirkeln och i kvadraten annars tv\'e4rtom\
+\
+Nu s\'e5 kan vi kolla ration av antalet i cirkel och kvadraten f\'f6r att f\'e5 en approximation av pi.\
+Avslutas med att presentera resultatet\
+}

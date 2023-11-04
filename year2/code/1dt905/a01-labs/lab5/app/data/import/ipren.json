@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "dateTime": "2023-09-25 20:17:21",
+        "drugName": "Ipren",
+        "quantity": 10,
+        "pricePerPackage": 189.99
+    }
+]

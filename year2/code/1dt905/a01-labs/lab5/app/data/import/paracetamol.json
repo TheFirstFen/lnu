@@ -1,0 +1,9 @@
+[
+    {
+        "id": 2,
+        "dateTime": "2023-09-25 20:18:21",
+        "drugName": "Paracetamol",
+        "quantity": 5,
+        "pricePerPackage": 209.99
+    }
+]

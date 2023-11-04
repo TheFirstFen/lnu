@@ -1,0 +1,359 @@
+<ll224hf>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<jp223uy>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ws222gx>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ob222pm>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<fh223ag>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Works for you but not for me due to hard coded path. Path should be taken from `os.getcwd()`.
+
+Overall: Okay. You handeld paths correctly in the other tasks except for count_lines.
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<sa225sh>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Okay. Solved after consulting.
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Not working.
+
+Overall: The ones that worked were good. The other ones where small mistakes with big impact.
+
+Grade: B
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<jn224ei>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Okay. Wrong output format.
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Not working. Can't handle file names with spaces.
+
+Overall: Okay. minor errors here and there.
+
+Grade: B
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<tp222ka>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good! (Remember that a relative path is always more appropriate for applications that will be ran on any system outside of your working one)
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<fm222ux>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ak225jj>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<zh222dq>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<sm224dn>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ya222hs>
+
+G:
+    3. recursive_print: Works for you but not for me due to hard coded path. Path should be taken from `os.getcwd()`.
+    6. read_numbers: Not working as intended.
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: The ones that work good job, one the ones that didn't make it the paths relative instead of being hardcoded in. 
+
+Grade: F
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------**
+
+<gp222gp>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<jb225rg>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Everything looks good!
+
+Grade: A
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<lh224hz>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: B
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ad223ni>
+
+G:
+    3. recursive_print: Does not work as intended. Note we only want the names of files and dirs not paths.
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Does not work as intended. The output should be the exact same as in `output.txt`.
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Good!
+
+Overall: Try reading what each task requiers of you and if there is example output that is what you are supposed to have.
+
+Grade: F
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ss226jr>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: All that is handed in looks good.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------

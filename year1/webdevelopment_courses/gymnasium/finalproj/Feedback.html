@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zxx">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="CSS.css" type="text/css">
+        <title>GameHub | Feedback</title>
+    </head>
+    <body class="grid-container">
+        <header class="grid-header" role="banner">
+            <h1>Feedback</h1>
+        </header>
+        <div class="grid-left"></div>
+        <div class="grid-right"></div>
+        <nav class="grid-nav" role="navigation">
+            <ul>
+                <li><a href="StartPage.html">Start</a></li>
+                <li><a href="ChessPage.html">Chess</a></li>
+                <li><a href="SolitairePage.html">Solitaire</a></li>
+                <li><a href="TIC-TAC-TOE_Page.html">Tic Tac Toe</a></li>
+                <li><a href="PongPage.html">Pong</a></li>
+                <li><a href="TetrisPage.html">Tetris</a></li>
+                <li><a href="DownloadPage.html">Download</a></li>
+                <li><a href="Feedback.html" class="active">Feedback</a></li>
+            </ul>
+        </nav>
+        <main class="grid-main" role="main">
+            <article>
+                <h3>Fill in the form below</h3>
+                <form method="POST" action="/WebDevelopment-FinalProject/StartPage.html" novalidate>
+                    <fieldset>
+                        <legend>Feedback</legend>
+                        <select name="Feedback type">
+                            <option value="General feedback" selected>General feedback</option>
+                            <option value="Bugs">Bugs</option>
+                            <option value="Chrash report">Chrash report</option>
+                        </select>
+                        <br>
+                        <label for="email">E-mail:</label>
+                        <br>
+                        <input id="email" type="email" placeholder="E-mail" required>
+                        <br>
+                        <br>
+                        <label for="password">Password:</label>
+                        <br>
+                        <input id="password" type="password" name="password" placeholder="Password" required>
+                        <br>
+                        <br>
+                        <label for="checkbox">If extreamly important check the box below</label>
+                        <br>
+                        <input id="checkbox" type="checkbox" name="If important" checked>
+                        <br>
+                        <br>
+                        <label for="Gender">Gender:</label>
+                        <br>
+                        <label for="Gender-M" >Man</label>
+                        <br>
+                        <input id="Gender-M" type="radio" name="Gender">
+                        <br>
+                        <label for="Gender-W">Women</label>
+                        <br>
+                        <input id="Gender-W" type="radio" name="Gender" >
+                        <br>
+                        <br>
+                        <label for="feedback">Feedback:</label>
+                        <br>
+                        <textarea id="feedback" name="Feedback" cols="30" rows="10" required>
+
+                        </textarea>
+                        <br>
+                        <br>
+                        <label for="url">Picture of problem</label>
+                        <br>
+                        <input id="url" type="url">
+                        <br>
+                        <br>
+                        <textarea id="Gender" name="readonly"  cols="30" rows="1" readonly>
+Thank you for repoting this!
+                        </textarea>
+                        <br>
+                        <br>
+                        <input type="submit" value="Send">
+                    </fieldset>
+                </form>
+            </article>
+            <section>
+                <h4>If you want to listen to some music while filling in the form</h4>
+                <audio controls>
+                    <source src="audio.mp3" type="audio/mpeg">
+                </audio>
+            </section>
+        </main>
+        <footer class="grid-footer" role="contentinfo">
+            <dl>
+                <dt>Contact info</dt>
+                <dd><p>sabe01001@utb.vaxjo.se</p></dd>
+            </dl>
+        </footer>
+    </body>
+</html>

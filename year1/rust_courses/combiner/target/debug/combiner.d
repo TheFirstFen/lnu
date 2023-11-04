@@ -1,0 +1,1 @@
+/mnt/c/Users/samue/Documents/Visual\ Studio\ Code/LNU/rust_courses/combiner/target/debug/combiner: /mnt/c/Users/samue/Documents/Visual\ Studio\ Code/LNU/rust_courses/combiner/src/args.rs /mnt/c/Users/samue/Documents/Visual\ Studio\ Code/LNU/rust_courses/combiner/src/main.rs

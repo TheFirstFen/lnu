@@ -1,0 +1,6 @@
+{
+    "pharmacyName": "123-Pharmacy",
+    "importPath": "./data/import/",
+    "exportJSONPath": "./data/export/json/",
+    "exportCSVPath": "./data/export/csv/"
+}
