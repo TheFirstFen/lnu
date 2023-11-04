@@ -35,7 +35,7 @@ def read_ground_map(map_path):
 
 
 def plot_ground(plot_map, map_name):
-    rows = len(plot_map)  
+    rows = len(plot_map)
     cols = len(plot_map[0])
 
     plt.figure()
@@ -127,7 +127,7 @@ def setup_coverage():
     coverage = []
     pixels = 0
     for col in coord_map:
-        lst = [] # O = 0, L = 1, S = 2
+        lst = []    # Ex. O = 0, L = 1, S = 2
         for sym in col:
             coverage_symbol = 0     # 0 ==> not visted yet
             if sym == 2:
@@ -138,7 +138,8 @@ def setup_coverage():
             if coverage_symbol == 0:
                 pixels += N*N       # Lawn pixel count
 
-            for i in range(N):  # Add N versions of symbol to column ==> extend column
+            # Add N versions of symbol to column ==> extend column
+            for _ in range(N):
                 lst.append(coverage_symbol)
 
         coverage.append(lst)  # Add extended column
@@ -190,7 +191,7 @@ x0, y0 = find_start(coord_map)
 print(f"x0, y0 = {x0}, {y0}, xmax, ymax = {xmax}, {ymax}")
 
 # Plot ground map
-plot_ground(plot_map, map_name) 
+plot_ground(plot_map, map_name)
 
 # Simulate a time limited run
 print("\nSimulation starts")
@@ -209,7 +210,8 @@ plot_trace(trace, map_name)
 coverage, pixels = setup_coverage()
 szx = len(coverage)
 szy = len(coverage[0])
-print(f"\nCoverage map size {szx}x{szy} (= {szx*szy}), Unvisited lawn pixels {pixels}")
+print(f"\nCoverage map size {szx}x{szy} (= {szx*szy}),",
+      f"Unvisited lawn pixels {pixels}")
 
 
 # Map trace to coverage and plot coverage
@@ -223,6 +225,7 @@ for x, y in trace:
         coverage[xpos][ypos] = 1
         cover_cnt += 1
     else:
-        coverage[xpos][ypos] = cov + 1  # Count vists. Maybe a heat map afterwards?
+        coverage[xpos][ypos] = cov + 1
+        # Count vists. Maybe a heat map afterwards?
 print(f"Visted pixels {cover_cnt}, Lawn coverage {round(cover_cnt/pixels, 3)}")
 plot_coverage(coverage, map_name)
