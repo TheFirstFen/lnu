@@ -250,7 +250,7 @@ VG:
     4. pretty_recursive_print: Not handed in.
     9. count_lines: Not handed in.
 
-Overall: The ones that work good job, one the ones that didn't make it the paths relative instead of being hardcoded in. 
+Overall: The ones that work good job, one the ones that didn't make it the paths relative instead of being hardcoded in.
 
 Grade: F
 
@@ -353,6 +353,66 @@ VG:
 Overall: All that is handed in looks good.
 
 Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ag224nx>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Doesn't work as intended.
+    11. occurrences: Okay. No need to print the list before hand.
+    15. deque_main: Remove last not showing correct value. Showing 19 when it should be 10.
+
+VG:
+    4. pretty_recursive_print: Not working as intended.
+    9. count_lines: Not handed in.
+
+Overall: Better luck next time. read_numbers round the result according to example in task description and print for both files just not one. deque look at my comment on the task itself.
+
+Grade: F
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<na223gk>
+
+G:
+    3. recursive_print: Not working as intended.
+    6. read_numbers: Not running.
+    11. occurrences: Good!
+    15. deque_main: Not running.
+
+VG:
+    4. pretty_recursive_print: Not working as intended.
+    9. count_lines: Good!
+
+Overall: Better luck next time. read_numbers and deque errors out. recursive_print and pretty_recursive_print only show files in current dir not deeper as it should.
+
+Grade: F
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<sa224pt>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Okay. You forgot debugging code in there.
+
+VG:
+    4. pretty_recursive_print: Good!
+    9. count_lines: Not running.
+
+Overall: Well done!
+
+Grade: B
 
 Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
 
