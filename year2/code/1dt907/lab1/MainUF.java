@@ -49,8 +49,8 @@ public class MainUF {
             wquf.add(tempWQUF);
         }
 
-        System.out.println(quf.toString());
-        System.out.println(wquf.toString());
+        // System.out.println(quf.toString()); Used for collecting datapoint
+        // System.out.println(wquf.toString()); Used for collecting datapoints
     }
 
     private static void quickFindTest(QUnionFind quickFind, int size, Random rnd) {
