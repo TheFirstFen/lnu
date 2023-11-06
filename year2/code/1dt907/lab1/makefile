@@ -1,3 +1,3 @@
 all:
-	@javac ./algorithms/*.java && javac ./*.java
+	@javac ./*.java
 	@java MainUF
