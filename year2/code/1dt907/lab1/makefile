@@ -3,3 +3,4 @@ all:
 
 	@java MainUF
 #	@java Main3Sum
+#	@java Main8

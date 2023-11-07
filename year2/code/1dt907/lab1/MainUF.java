@@ -7,8 +7,8 @@ import algorithms.WQUnionFind;
 
 // * Problem 4
 public class MainUF {
-    protected static int unionTestSize = 1_000_0;
-    protected static int listSize = 1_000_00;
+    protected static int unionTestSize = 10_000;
+    protected static int listSize = 100_000;
 
     public static void main(String[] args) {
         Random rnd = new Random();
@@ -49,7 +49,7 @@ public class MainUF {
             wquf.add(tempWQUF);
         }
 
-        // System.out.println(quf.toString()); Used for collecting datapoint
+        // System.out.println(quf.toString()); Used for collecting datapoints
         // System.out.println(wquf.toString()); Used for collecting datapoints
     }
 

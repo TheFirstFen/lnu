@@ -21,15 +21,7 @@ public class WQUnionFind {
         return count;
     }
 
-    private void validate(int idx) {
-        int len = ufParent.length;
-        if (idx < 0 || idx >= len) {
-            throw new IllegalArgumentException("None valid index " + idx + ". Should be between 0 and " + (len - 1));
-        }
-    }
-
     private int find(int idx) {
-        validate(idx);
         while (idx != ufParent[idx])
             idx = ufParent[idx];
 
