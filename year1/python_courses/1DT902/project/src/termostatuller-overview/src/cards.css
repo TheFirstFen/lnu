@@ -1,0 +1,16 @@
+.Cards {
+    width: 15%;
+        height: 10%;
+        margin: auto;
+    float: left;
+}
+
+.tempCard {
+    margin-left: 30%;
+    margin-right: 5%;
+}
+
+.humidCard {
+    margin-right: 30%;
+    margin-left: 5%;
+}
