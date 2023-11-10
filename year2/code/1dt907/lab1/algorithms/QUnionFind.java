@@ -1,27 +1,34 @@
 package algorithms;
 
-// * Problem 1
 public class QUnionFind {
-    private int[] uf;
+    private int[] parent;
 
     public QUnionFind(int size) {
-        uf = new int[size];
+        parent = new int[size];
+        for (int i = 0; i < size; i++) {
+            parent[i] = i;
+        }
+    }
 
-        for (int i = 0; i < size; i++)
-            uf[i] = i;
+    private int find(int a) {
+        while (a != parent[a]) {
+            a = parent[a];
+        }
+        return a;
     }
 
     public boolean connected(int a, int b) {
-        return uf[a] == uf[b];
+        return find(a) == find(b);
     }
 
     public void union(int a, int b) {
-        int idA = uf[a];
-        int idB = uf[b];
+        int rootA = find(a);
+        int rootB = find(b);
 
-        for (int i = 0; i < uf.length; i++) {
-            if (uf[i] == idA)
-                uf[i] = idB;
+        if (rootA == rootB) {
+            return;
         }
+
+        parent[rootA] = rootB;
     }
 }

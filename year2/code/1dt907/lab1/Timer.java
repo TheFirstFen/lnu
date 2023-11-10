@@ -18,11 +18,15 @@ public class Timer {
         endTime = 0;
     }
 
-    public long getTimeInNanoSeconds() {
+    public double getTimeInNanoSeconds() {
         if (startTime == 0 || endTime == 0) {
             throw new IllegalStateException("Timer hasn't been used.");
         }
         return endTime - startTime;
+    }
+
+    public double getTimeInMicroSeconds() {
+        return getTimeInNanoSeconds() / 1_000.0;
     }
 
     public double getTimeInMilliSeconds() {

@@ -1,12 +1,11 @@
 package algorithms;
 
-// * Problem 2
-public class WQUnionFind {
+public class PCWQUnionFind {
     private int[] ufParent;
     private int[] ufSize;
     private int count;
 
-    public WQUnionFind(int size) {
+    public PCWQUnionFind(int size) {
         ufParent = new int[size];
         ufSize = new int[size];
 
@@ -22,10 +21,10 @@ public class WQUnionFind {
     }
 
     private int find(int idx) {
-        while (idx != ufParent[idx])
-            idx = ufParent[idx];
-
-        return idx;
+        if (idx != ufParent[idx]) {
+            ufParent[idx] = find(ufParent[idx]);
+        }
+        return ufParent[idx];
     }
 
     public boolean connected(int idxA, int idxB) {
