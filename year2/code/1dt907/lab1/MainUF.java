@@ -43,33 +43,37 @@ public class MainUF {
                 sw.start();
                 quickFindTest(quickFind, unionTestSize * (j + 1), rnd);
                 sw.stop();
-                tempUF.add(sw.getTimeInMilliSeconds());
-                System.out.println("Run (" + (j + 1) + "): Elapsed time (UF): " + sw.getTimeInMilliSeconds() + " ms");
+                tempUF.add(sw.getTimeInNanoSeconds());
+                System.out.println(
+                        "Run (" + (j + 1) + "): Elapsed time (UF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
 
                 sw.reset();
 
                 sw.start();
                 quickUnionTest(quickUnion, unionTestSize * (j + 1), rnd);
                 sw.stop();
-                tempQUF.add(sw.getTimeInMilliSeconds());
-                System.out.println("Run (" + (j + 1) + "): Elapsed time (QUF): " + sw.getTimeInMilliSeconds() + " ms");
+                tempQUF.add(sw.getTimeInNanoSeconds());
+                System.out.println(
+                        "Run (" + (j + 1) + "): Elapsed time (QUF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
 
                 sw.reset();
 
                 sw.start();
                 weightedQuickUnionTest(weightedQuickUnion, unionTestSize * (j + 1), rnd);
                 sw.stop();
-                tempWQUF.add(sw.getTimeInMilliSeconds());
-                System.out.println("Run (" + (j + 1) + "): Elapsed time (WQUF): " + sw.getTimeInMilliSeconds() + " ms");
+                tempWQUF.add(sw.getTimeInNanoSeconds());
+                System.out.println("Run (" + (j + 1) + "): Elapsed time (WQUF): "
+                        + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
 
                 sw.reset();
 
                 sw.start();
                 pathCompressionWeightedQuickUnionTest(pathCompressionWeightedQuickUnion, unionTestSize * (j + 1), rnd);
                 sw.stop();
-                tempPCWQUF.add(sw.getTimeInMilliSeconds());
+                tempPCWQUF.add(sw.getTimeInNanoSeconds());
                 System.out
-                        .println("Run (" + (j + 1) + "): Elapsed time (PCWQUF): " + sw.getTimeInMilliSeconds() + " ms");
+                        .println("Run (" + (j + 1) + "): Elapsed time (PCWQUF): "
+                                + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
             }
 
             uf.add(tempUF);
@@ -78,10 +82,10 @@ public class MainUF {
             pcwquf.add(tempPCWQUF);
         }
 
-        System.out.println(uf.toString()); // Used for collecting datapoints
-        System.out.println(quf.toString()); // Used for collecting datapoints
-        System.out.println(wquf.toString()); // Used for collecting datapoints
-        System.out.println(pcwquf.toString()); // Used for collecting datapoints
+        WriteJSON.writeToJSON(uf, "uf");
+        WriteJSON.writeToJSON(quf, "quf");
+        WriteJSON.writeToJSON(wquf, "wquf");
+        WriteJSON.writeToJSON(pcwquf, "pcwquf");
     }
 
     /**

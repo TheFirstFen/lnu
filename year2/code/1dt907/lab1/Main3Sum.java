@@ -23,7 +23,7 @@ public class Main3Sum {
         Random random = new Random();
         Timer sw = new Timer();
 
-        for (int size = MIN_SIZE; size < MAX_SIZE; size += SIZE_STEP) {
+        for (int size = MIN_SIZE; size <= MAX_SIZE; size += SIZE_STEP) {
             int[] nums = new int[size];
             for (int i = 0; i < size; i++) {
                 nums[i] = random.nextInt(2 * RND_SIZE + 1) - RND_SIZE;
@@ -35,7 +35,7 @@ public class Main3Sum {
             result = BruteForce3Sum.threeSum(nums);
             sw.stop();
 
-            printResult("Bruteforce", sw.getTimeInMilliSeconds(), result);
+            printResult("Bruteforce", sw.getTimeInNanoSeconds(), result, sw);
 
             clear(sw, result);
 
@@ -43,15 +43,15 @@ public class Main3Sum {
             result = TwoPointer3Sum.threeSum(nums);
             sw.stop();
 
-            printResult("Two-Pointer", sw.getTimeInMilliSeconds(), result);
+            printResult("Two-Pointer", sw.getTimeInNanoSeconds(), result, sw);
 
             clear(sw, result);
 
             System.out.println("");
         }
 
-        System.out.println("Bruteforce Times: " + BFTimes);
-        System.out.println("Two-Pointer Times: " + TPTimes);
+        WriteJSON.writeJSON(BFTimes, "Bruteforce");
+        WriteJSON.writeJSON(TPTimes, "Two-Pointer");
     }
 
     /**
@@ -61,9 +61,9 @@ public class Main3Sum {
      * @param elapsedTime the execution time in milliseconds(can be adjusted)
      * @param result      the list of triplets found
      */
-    private static void printResult(String algorithm, double elapsedTime, List<List<Integer>> result) {
+    private static void printResult(String algorithm, double elapsedTime, List<List<Integer>> result, Timer sw) {
         System.out.println(algorithm + ":");
-        System.out.println("Execution time: " + elapsedTime + " ms");
+        System.out.println("Execution time: " + sw.chooseTimePrefix(elapsedTime));
         System.out.println("Number of triplets found: " + result.size() + "\n");
 
         if (algorithm == "Bruteforce") {

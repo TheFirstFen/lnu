@@ -2,7 +2,7 @@ package algorithms;
 
 public class Percolation {
     private boolean[][] grid;
-    private WQUnionFind uf;
+    private PCWQUnionFind uf;
     private int gridSize;
     public int openSites;
 
@@ -13,7 +13,7 @@ public class Percolation {
 
         gridSize = n;
         grid = new boolean[n][n];
-        uf = new WQUnionFind(n * n + 2);
+        uf = new PCWQUnionFind(n * n + 2);
         openSites = 0;
     }
 

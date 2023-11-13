@@ -20,7 +20,7 @@ public class PCWQUnionFind {
         return count;
     }
 
-    private int find(int idx) {
+    public int find(int idx) {
         if (idx != ufParent[idx]) {
             ufParent[idx] = find(ufParent[idx]);
         }
