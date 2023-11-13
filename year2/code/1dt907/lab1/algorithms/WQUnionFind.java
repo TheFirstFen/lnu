@@ -21,7 +21,7 @@ public class WQUnionFind {
         return count;
     }
 
-    private int find(int idx) {
+    public int find(int idx) {
         while (idx != ufParent[idx])
             idx = ufParent[idx];
 

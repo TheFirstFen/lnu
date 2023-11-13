@@ -9,8 +9,8 @@ import algorithms.QUnionFind;
 
 // * Problem 4
 public class MainUF {
-    protected static int unionTestSize = 10_000;
-    protected static int listSize = 100_000;
+    private static int unionTestSize = 10_000;
+    private static int listSize = 100_000;
 
     public static void main(String[] args) {
         Random rnd = new Random();
@@ -31,7 +31,7 @@ public class MainUF {
 
             System.out.println("\nList size: " + listSize * (i + 1));
 
-            for (int j = 0; j < 10; j++) {
+            for (int j = 0; j < 9; j++) {
                 if (unionTestSize * (j + 1) > listSize * (i + 1))
                     break;
                 UnionFind quickFind = new UnionFind(listSize * (i + 1));
@@ -78,12 +78,19 @@ public class MainUF {
             pcwquf.add(tempPCWQUF);
         }
 
-        // System.out.println(uf.toString()); // Used for collecting datapoints
-        // System.out.println(quf.toString()); // Used for collecting datapoints
-        // System.out.println(wquf.toString()); // Used for collecting datapoints
-        // System.out.println(pcwquf.toString()); // Used for collecting datapoints
+        System.out.println(uf.toString()); // Used for collecting datapoints
+        System.out.println(quf.toString()); // Used for collecting datapoints
+        System.out.println(wquf.toString()); // Used for collecting datapoints
+        System.out.println(pcwquf.toString()); // Used for collecting datapoints
     }
 
+    /**
+     * Performs a test using an object of the UnionFind class.
+     *
+     * @param quickFind The UnionFind object to be tested.
+     * @param size      Amount of unions to be preformed.
+     * @param rnd       The Random object used to generate random numbers.
+     */
     private static void quickFindTest(UnionFind quickFind, int size, Random rnd) {
         for (int i = 0; i < size; i++) {
             int a = rnd.nextInt(listSize);
@@ -93,6 +100,13 @@ public class MainUF {
         }
     }
 
+    /**
+     * Performs a test using an object of the QUnionFind class.
+     *
+     * @param quickUnion The QUnionFind object to be tested.
+     * @param size       Amount of unions to be preformed.
+     * @param rnd        The Random object used to generate random numbers.
+     */
     private static void quickUnionTest(QUnionFind quickUnion, int size, Random rnd) {
         for (int i = 0; i < size; i++) {
             int a = rnd.nextInt(listSize);
@@ -102,6 +116,13 @@ public class MainUF {
         }
     }
 
+    /**
+     * Performs a test using an object of the WQUnionFind class.
+     *
+     * @param weightedQuickUnion The WQUnionFind object to be tested.
+     * @param size               Amount of unions to be preformed.
+     * @param rnd                The Random object used to generate random numbers.
+     */
     private static void weightedQuickUnionTest(WQUnionFind weightedQuickUnion, int size, Random rnd) {
         for (int i = 0; i < size; i++) {
             int a = rnd.nextInt(listSize);
@@ -111,6 +132,14 @@ public class MainUF {
         }
     }
 
+    /**
+     * Performs a test using an object of the PCWQUnionFind class.
+     *
+     * @param pathCompressionQuickUnion The PCWQUnionFind object to be tested.
+     * @param size                      Amount of unions to be preformed.
+     * @param rnd                       The Random object used to generate random
+     *                                  numbers.
+     */
     private static void pathCompressionWeightedQuickUnionTest(PCWQUnionFind pathCompressionQuickUnion, int size,
             Random rnd) {
         for (int i = 0; i < size; i++) {
