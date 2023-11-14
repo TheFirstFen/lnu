@@ -45,6 +45,7 @@ public class Timer {
     public String chooseTimePrefix(double time) {
         if (time > 60_000_000_000.0)
             return formatString(convertMinutes(time)) + " min";
+
         if (time > 1_000_000_000)
             return formatString(convertSeconds(time)) + " s";
 

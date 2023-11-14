@@ -13,10 +13,13 @@ public class MainUF {
     private static int listSize = 100_000;
 
     public static void main(String[] args) {
-        Random rnd = new Random();
-        Timer sw = new Timer();
+        Timer runTime = new Timer();
+        runTime.start();
 
         TitlePrint.printTask("Problem 4");
+
+        Random rnd = new Random();
+        Timer sw = new Timer();
 
         List<List<Double>> uf = new ArrayList<>();
         List<List<Double>> quf = new ArrayList<>();
@@ -86,6 +89,10 @@ public class MainUF {
         WriteJSON.writeToJSON(quf, "quf");
         WriteJSON.writeToJSON(wquf, "wquf");
         WriteJSON.writeToJSON(pcwquf, "pcwquf");
+
+        runTime.stop();
+
+        TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
     }
 
     /**

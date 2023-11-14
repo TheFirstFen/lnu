@@ -18,6 +18,9 @@ public class Main3Sum {
     private static List<List<Integer>> result;
 
     public static void main(String[] args) {
+        Timer runTime = new Timer();
+        runTime.start();
+
         TitlePrint.printTask("Problem 7");
 
         Random random = new Random();
@@ -52,6 +55,10 @@ public class Main3Sum {
 
         WriteJSON.writeJSON(BFTimes, "Bruteforce");
         WriteJSON.writeJSON(TPTimes, "Two-Pointer");
+
+        runTime.stop();
+
+        TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
     }
 
     /**
