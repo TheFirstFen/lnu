@@ -23,6 +23,16 @@ public class Main8 {
         double[] thresholds = new double[exp];
         List<Double> time = new ArrayList<>();
 
+        runPercolation(exp, n, sw, thresholds, time);
+
+        WriteJSON.writeJSON(time, "Percolation");
+
+        runTime.stop();
+
+        TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
+    }
+
+    private static void runPercolation(int exp, int n, Timer sw, double[] thresholds, List<Double> time) {
         for (int i = 0; i < exp; i++) {
             Percolation percolation = new Percolation(n);
 
@@ -55,12 +65,6 @@ public class Main8 {
         System.out.println("\nMean time taken: " + sw.chooseTimePrefix(meanTime));
         System.out.println("Mean percolation threshold: " + mean);
         System.out.println("Standard deviation: " + std);
-
-        WriteJSON.writeJSON(time, "Percolation");
-
-        runTime.stop();
-
-        TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
     }
 
     private static double[] convertArrayListToArray(List<Double> time) {

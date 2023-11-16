@@ -41,8 +41,14 @@ public class Timer {
         return convertSeconds(time) / 60.0;
     }
 
+    private double convertHours(double time) {
+        return convertMinutes(time) / 60.0;
+    }
+
     // * Send in time in ns.
     public String chooseTimePrefix(double time) {
+        if (time > 60_000_000_000_000.0)
+            return formatString(convertHours(time)) + " h";
         if (time > 60_000_000_000.0)
             return formatString(convertMinutes(time)) + " min";
 

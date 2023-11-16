@@ -43,40 +43,14 @@ public class MainUF {
                 PCWQUnionFind pathCompressionWeightedQuickUnion = new PCWQUnionFind(listSize * (i + 1));
 
                 System.out.println("\nList size: " + listSize * (i + 1) + ", Unions: " + unionTestSize * (j + 1));
-                sw.start();
-                quickFindTest(quickFind, unionTestSize * (j + 1), rnd);
-                sw.stop();
-                tempUF.add(sw.getTimeInNanoSeconds());
-                System.out.println(
-                        "Run (" + (j + 1) + "): Elapsed time (UF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
 
-                sw.reset();
+                runUF(sw, quickFind, j, rnd, tempUF);
 
-                sw.start();
-                quickUnionTest(quickUnion, unionTestSize * (j + 1), rnd);
-                sw.stop();
-                tempQUF.add(sw.getTimeInNanoSeconds());
-                System.out.println(
-                        "Run (" + (j + 1) + "): Elapsed time (QUF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+                runQUF(sw, quickUnion, j, rnd, tempQUF);
 
-                sw.reset();
+                runWQUF(sw, weightedQuickUnion, j, rnd, tempWQUF);
 
-                sw.start();
-                weightedQuickUnionTest(weightedQuickUnion, unionTestSize * (j + 1), rnd);
-                sw.stop();
-                tempWQUF.add(sw.getTimeInNanoSeconds());
-                System.out.println("Run (" + (j + 1) + "): Elapsed time (WQUF): "
-                        + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
-
-                sw.reset();
-
-                sw.start();
-                pathCompressionWeightedQuickUnionTest(pathCompressionWeightedQuickUnion, unionTestSize * (j + 1), rnd);
-                sw.stop();
-                tempPCWQUF.add(sw.getTimeInNanoSeconds());
-                System.out
-                        .println("Run (" + (j + 1) + "): Elapsed time (PCWQUF): "
-                                + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+                runPCWQUF(sw, pathCompressionWeightedQuickUnion, j, rnd, tempPCWQUF);
             }
 
             uf.add(tempUF);
@@ -93,6 +67,51 @@ public class MainUF {
         runTime.stop();
 
         TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
+    }
+
+    private static void runUF(Timer sw, UnionFind uf, int j, Random rnd, List<Double> time) {
+        sw.start();
+        quickFindTest(uf, unionTestSize * (j + 1), rnd);
+        sw.stop();
+        time.add(sw.getTimeInNanoSeconds());
+        System.out.println(
+                "Run (" + (j + 1) + "): Elapsed time (UF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+
+        sw.reset();
+    }
+
+    private static void runQUF(Timer sw, QUnionFind quf, int j, Random rnd, List<Double> time) {
+        sw.start();
+        quickUnionTest(quf, unionTestSize * (j + 1), rnd);
+        sw.stop();
+        time.add(sw.getTimeInNanoSeconds());
+        System.out.println(
+                "Run (" + (j + 1) + "): Elapsed time (QUF): " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+
+        sw.reset();
+    }
+
+    private static void runWQUF(Timer sw, WQUnionFind wquf, int j, Random rnd, List<Double> time) {
+        sw.start();
+        weightedQuickUnionTest(wquf, unionTestSize * (j + 1), rnd);
+        sw.stop();
+        time.add(sw.getTimeInNanoSeconds());
+        System.out.println("Run (" + (j + 1) + "): Elapsed time (WQUF): "
+                + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+
+        sw.reset();
+    }
+
+    private static void runPCWQUF(Timer sw, PCWQUnionFind pcwquf, int j, Random rnd, List<Double> time) {
+        sw.start();
+        pathCompressionWeightedQuickUnionTest(pcwquf, unionTestSize * (j + 1), rnd);
+        sw.stop();
+        time.add(sw.getTimeInNanoSeconds());
+        System.out
+                .println("Run (" + (j + 1) + "): Elapsed time (PCWQUF): "
+                        + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+
+        sw.reset();
     }
 
     /**

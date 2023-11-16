@@ -6,7 +6,7 @@ import java.util.List;
 
 // * Problem 6
 public class TwoPointer3Sum {
-    public static List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> twoPointer(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(nums);
 

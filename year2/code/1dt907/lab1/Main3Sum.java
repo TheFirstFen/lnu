@@ -4,6 +4,7 @@ import java.util.Random;
 
 import algorithms.BruteForce3Sum;
 import algorithms.TwoPointer3Sum;
+import algorithms.Caching3Sum;
 
 // * Problem 7
 public class Main3Sum {
@@ -14,6 +15,7 @@ public class Main3Sum {
 
     private static List<Double> BFTimes = new ArrayList<>();
     private static List<Double> TPTimes = new ArrayList<>();
+    private static List<Double> CATimes = new ArrayList<>();
 
     private static List<List<Integer>> result;
 
@@ -34,31 +36,52 @@ public class Main3Sum {
 
             System.out.println("# of Objects: " + size);
 
-            sw.start();
-            result = BruteForce3Sum.threeSum(nums);
-            sw.stop();
+            bruteTest(nums, sw, result);
 
-            printResult("Bruteforce", sw.getTimeInNanoSeconds(), result, sw);
+            twoPointerTest(nums, sw, result);
 
-            clear(sw, result);
-
-            sw.start();
-            result = TwoPointer3Sum.threeSum(nums);
-            sw.stop();
-
-            printResult("Two-Pointer", sw.getTimeInNanoSeconds(), result, sw);
-
-            clear(sw, result);
+            cachingTest(nums, sw, result);
 
             System.out.println("");
         }
 
         WriteJSON.writeJSON(BFTimes, "Bruteforce");
         WriteJSON.writeJSON(TPTimes, "Two-Pointer");
+        WriteJSON.writeJSON(CATimes, "Caching");
 
         runTime.stop();
 
         TitlePrint.printTask(runTime.chooseTimePrefix(runTime.getTimeInNanoSeconds()));
+    }
+
+    private static void bruteTest(int[] data, Timer sw, List<List<Integer>> result) {
+        sw.start();
+        result = BruteForce3Sum.bruteforce(data);
+        sw.stop();
+
+        printResult("Bruteforce", sw.getTimeInNanoSeconds(), result, sw);
+
+        clear(sw, result);
+    }
+
+    private static void twoPointerTest(int[] data, Timer sw, List<List<Integer>> result) {
+        sw.start();
+        result = TwoPointer3Sum.twoPointer(data);
+        sw.stop();
+
+        printResult("Two-Pointer", sw.getTimeInNanoSeconds(), result, sw);
+
+        clear(sw, result);
+    }
+
+    private static void cachingTest(int[] data, Timer sw, List<List<Integer>> result) {
+        sw.start();
+        result = Caching3Sum.caching(data);
+        sw.stop();
+
+        printResult("Chacing", sw.getTimeInNanoSeconds(), result, sw);
+
+        clear(sw, result);
     }
 
     /**
@@ -75,8 +98,10 @@ public class Main3Sum {
 
         if (algorithm == "Bruteforce") {
             BFTimes.add(elapsedTime);
-        } else {
+        } else if (algorithm == "Two-Pointer") {
             TPTimes.add(elapsedTime);
+        } else {
+            CATimes.add(elapsedTime);
         }
     }
 

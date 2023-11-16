@@ -48,10 +48,14 @@ def plot3Sum():
     with open('./data/Two-Pointer.json', 'r') as file:
         dataTP = json.load(file)
 
+    with open('./data/Caching.json', 'r') as file:
+        dataCa = json.load(file)
+
     steps = np.arange(1_000, 11_000, 1_000)
 
     plt.plot(steps, convert_to_seconds(dataBF), 'ro', label='Bruteforce')
     plt.plot(steps, convert_to_seconds(dataTP), 'bo', label='Two-Pointer')
+    plt.plot(steps, convert_to_seconds(dataCa), 'go', label='Caching')
 
     plt.xlabel('# Objects')
     plt.ylabel('Time (s)')
@@ -79,4 +83,4 @@ def convert_to_seconds(lst: list) -> list:
 
 plotUF()
 plot3Sum()
-plot8()
+# plot8()

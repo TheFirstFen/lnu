@@ -1,0 +1,38 @@
+load('lab1_acceleration(1000värden).mat');
+
+ax = Acceleration.(1);
+ay = Acceleration.(2);
+az = Acceleration.(3);
+
+
+
+N = 3;
+syms i;
+Az3 = 1/N * symsum(az(i,1), i, 1, N);
+Sd3 = sqrt(1/(N-1) * symsum((Az3 - az(i,1)), i, 1, N)^2);
+
+
+N = 5;
+syms i;
+
+Az5 = 1/N * symsum(az(i,1), i, 1, N);
+
+N = 10;
+syms i;
+
+Az10 = 1/N * symsum(az(i,1), i, 1, N);
+
+N = 20;
+syms i;
+
+Az20 = 1/N * symsum(az(i,1), i, 1, N);
+
+N = 100;
+syms i;
+
+Az100 = 1/N * symsum(az(i,1), i, 1, N);
+
+N = 1000;
+syms i;
+
+Az1000= 1/N * symsum(az(i,1), i, 1, N);
