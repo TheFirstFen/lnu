@@ -64,7 +64,7 @@ public class Main8 {
         double std = std(thresholds);
 
         System.out.println("\nMean time taken: " + sw.chooseTimePrefix(meanTime));
-        System.out.println("Mean percolation threshold: " + mean);
+        System.out.println("Mean percolation threshold: " + mean + " ± " + std);
         System.out.println("Standard deviation: " + std);
     }
 

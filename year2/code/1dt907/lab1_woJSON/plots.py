@@ -55,13 +55,13 @@ def plot3Sum():
 
     steps = np.arange(1_000, 11_000, 1_000)
 
-    (aBf, bBf), _ = curve_fit(powmod, steps, np.array(dataBf)/1e9)
-    (aTP, bTP), _ = curve_fit(powmod, steps, np.array(dataTP)/1e9)
-    # (aCa, bCa), _ = curve_fit(powmod, steps, np.array(dataCa)/1e9)
-
     BfSec = convert_to_seconds(dataBf)
     TPSec = convert_to_seconds(dataTP)
     # CaSec = convert_to_seconds(dataCa)
+
+    (aBf, bBf), _ = curve_fit(powmod, steps, BfSec)
+    (aTP, bTP), _ = curve_fit(powmod, steps, TPSec)
+    # (aCa, bCa), _ = curve_fit(powmod, steps, CaSec)
 
     bCBf = (log2(BfSec[8]) - log2(BfSec[0])) / \
         (log2(steps[8]) - log2(steps[0]))
@@ -70,17 +70,17 @@ def plot3Sum():
     # bCCa = (log2(CaSec[9]) - log2(CaSec[0])) / \
     #    (log2(steps[9]) - log2(steps[0]))
 
-    cCBf = log2(BfSec[8]) - bCBf * log2(steps[8])
-    cCTP = log2(TPSec[9]) - bCTP * log2(steps[9])
+    aCBf = log2(BfSec[8]) - bCBf * log2(steps[8])
+    aCTP = log2(TPSec[9]) - bCTP * log2(steps[9])
     # cCCa = log2(CaSec[9]) - bCCa * log2(steps[9])
 
     print("B values:")
     print("fitted", bBf, bTP)
     print("computed", bCBf, bCTP)
 
-    print("\nC values:")
+    print("\nA values:")
     print("fitted", aBf, aTP)
-    print("computed", cCBf, cCTP)
+    print("computed", aCBf, aCTP)
 
     # Data points
     plt.plot(steps, BfSec, 'ro', label='Bruteforce')
@@ -93,9 +93,9 @@ def plot3Sum():
     # plt.plot(steps, aCa * steps ** bCa, 'g-', label='Cached-fitted')
 
     # Computed
-    plt.plot(steps, (steps * 2 ** (cCBf/bCBf)) **
+    plt.plot(steps, (steps * 2 ** (aCBf/bCBf)) **
              bCBf, 'b-', label='Bruteforce-computed')
-    plt.plot(steps, (steps * 2 ** (cCTP/bCTP))**bCTP,
+    plt.plot(steps, (steps * 2 ** (aCTP/bCTP))**bCTP,
              'r-', label='Two-Pointer-computed')
     # plt.plot(steps, (steps * 2 ** (cCCa/bCCa)) **
     #         bCCa, 'g-', label='Caching-computed')
@@ -121,5 +121,5 @@ def powmod(x, a, b):
     return a * x ** b
 
 
-# plotUF()
+plotUF()
 plot3Sum()
