@@ -49,7 +49,9 @@ I denna bild så för man uppfatningen att vår `UF` algorithm har mer av en lin
 ```Text
 För att sammanfatta:
 
-Den vanliga UnionFind(`UF`) verkar gå mot en linjär tidskomplexitet medans vår "Path-compression Weighted Quick UnionFind"(`PCWQUF`) verkar gå mot en konstant tidskomplexitet. Att notera är ju att tidskomplexiteten ej är konstant för `PCWQUF`.
+Den vanliga UnionFind(`UF`) verkar gå mot en linjär tidskomplexitet medans vår
+"Path-compression Weighted Quick UnionFind"(`PCWQUF`) verkar gå mot en konstant
+tidskomplexitet. Att notera är ju att tidskomplexiteten ej är konstant för `PCWQUF`.
 ```
 
 ## Problem 7
@@ -63,7 +65,11 @@ För problem 4 så mäter jag tiden för 2 olika 3Sum algorithmer som jag har ko
 För att kunna förklara lite vart värden jag kommer nämna här näst kommer ifrån kommer jag att redovisa formler som jag har använt för att få de olika funktionerna som kan ses i grafen ovan.
 
 ```Text
-Vi har två stycken olika funktioner för f(x) den ena för fitted-curve den andra för computed curve. För fitted-curve så andvände jag mig utav denna formel "a * x^b" för att få fram kurvanför bägge algorithmerna medans för computed curve så använde jag mig utav denna funktion istället "(x * 2^(aC / bC))^bC", vilket båda dessa funktioner gicks igenom under våra föreläsningar.
+Vi har två stycken olika funktioner för f(x) den ena för fitted-curve den andra för computed curve.
+För fitted-curve så andvände jag mig utav denna formel "a * x^b" för att få fram
+kurvanför bägge algorithmerna medans för computed curve så använde jag mig utav
+denna funktion istället "(x * 2^(aC / bC))^bC", vilket båda dessa funktioner gicks
+igenom under våra föreläsningar.
 ```
 
 Nu kommer vi då till hur vi fick fram värdena på `a` och `b` för dessa två funktioner. ***Notera:*** I funktionen för computed curve så har `a` och `b` ett stort `C` efter sig för att vara tydlig med att de är beräknad värden och inte givna från ett importerat biblioteks funktion.
