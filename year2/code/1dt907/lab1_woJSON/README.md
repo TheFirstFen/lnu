@@ -6,6 +6,8 @@ Här kommer rapporten som tillhör lab 1 för 1DT907 kursen från [Samuel Berg](
 
 Först och främst så tar vi och kör det följande kommandot i terminalen/consolen. Detta gör vi för att compile:a vår .java filer till filer så går att köra.
 
+***Notera:*** Eftersom jag kör på linux så är jag ej helt säker om det är samma kommandon på windows, hoppas det ändå ska funka då jag skickar med .class filerna också.
+
 ```bash
 javac *.java
 ```
