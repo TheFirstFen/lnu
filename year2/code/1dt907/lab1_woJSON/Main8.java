@@ -11,7 +11,7 @@ public class Main8 {
         TitlePrint.printTask("Problem 8");
 
         if (args.length != 2) {
-            System.out.println("Usage: java Main8 <# objects> <experiments>");
+            System.out.println("Usage: java Main8 <n in nxn> <experiments>");
             System.exit(1);
         }
 

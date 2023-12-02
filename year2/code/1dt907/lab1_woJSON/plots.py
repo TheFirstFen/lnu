@@ -94,9 +94,9 @@ def plot3Sum():
 
     # Computed
     plt.plot(steps, (steps * 2 ** (aCBf/bCBf)) **
-             bCBf, 'b-', label='Bruteforce-computed')
+             bCBf, 'y-', label='Bruteforce-computed')
     plt.plot(steps, (steps * 2 ** (aCTP/bCTP))**bCTP,
-             'r-', label='Two-Pointer-computed')
+             'g-', label='Two-Pointer-computed')
     # plt.plot(steps, (steps * 2 ** (cCCa/bCCa)) **
     #         bCCa, 'g-', label='Caching-computed')
 
