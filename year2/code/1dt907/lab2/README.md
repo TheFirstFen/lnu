@@ -1,13 +1,13 @@
 # Assignment 2 1DT907
 
-## 1
+## Problem 1
 
-## 2
+## Problem 2
 
-## 3
+## Problem 3
 
-## 4
+## Problem 4
 
-## 6
+## Problem 6
 
 <!-- TODO: Fix all algorithms. Note: Implementation of Quick- and Insertionsort nearly complete-->
