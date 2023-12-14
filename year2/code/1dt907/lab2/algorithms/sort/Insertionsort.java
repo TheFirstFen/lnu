@@ -1,24 +1,24 @@
 package algorithms.sort;
 
 public class Insertionsort {
-    public static void insertionSort(double[] doubleArray) {
-        int i, n;
-        int length = doubleArray.length;
-        double temp;
+    public static void insertionSort(int[] arr) {
+        int i, j;
+        int n = arr.length;
+        int temp;
 
-        if (length < 2)
+        if (n < 2)
             return;
 
-        for (n = 1; n < length; n++) {
-            temp = doubleArray[n];
-            i = n - 1;
+        for (i = 1; i < n; i++) {
+            temp = arr[i];
+            j = i - 1;
 
-            while (i >= 0 && doubleArray[i] > temp) {
-                doubleArray[i + 1] = doubleArray[i];
-                i--;
+            while (j >= 0 && arr[j] > temp) {
+                arr[j + 1] = arr[j];
+                j--;
             }
 
-            doubleArray[i + 1] = temp;
+            arr[j + 1] = temp;
         }
     }
 

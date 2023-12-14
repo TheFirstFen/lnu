@@ -1,40 +1,42 @@
 package algorithms.sort;
 
 public class Quicksort {
-    public static void quickSort(double[] doubleArray) {
-        quickSort(doubleArray, 0, doubleArray.length - 1);
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
     }
 
-    private static void quickSort(double[] doubleArray, int left, int right) {
-        if (left < right) {
-            int pivot = partition(doubleArray, left, right);
+    private static void quickSort(int[] arr, int l, int r) {
+        if (l < r) {
+            int p = partition(arr, l, r);
 
-            if (pivot > 1)
-                quickSort(doubleArray, left, pivot - 1);
-            if (pivot + 1 < right)
-                quickSort(doubleArray, pivot + 1, right);
+            if (p > 1)
+                quickSort(arr, l, p - 1);
+
+            if (p + 1 < r)
+                quickSort(arr, p + 1, r);
 
         }
     }
 
-    private static int partition(double[] doubleArray, int left, int right) {
-        double pivot = doubleArray[left];
+    private static int partition(int[] arr, int l, int r) {
+        int p = arr[l];
+
         while (true) {
-            while (doubleArray[left] < pivot)
-                left++;
+            while (arr[l] < p)
+                l++;
 
-            while (doubleArray[right] > pivot)
-                right--;
+            while (arr[r] > p)
+                r--;
 
-            if (left < right) {
-                if (doubleArray[left] == doubleArray[right])
-                    return right;
+            if (l < r) {
+                if (arr[l] == arr[r])
+                    return r;
 
-                double temp = doubleArray[left];
-                doubleArray[left] = doubleArray[right];
-                doubleArray[right] = temp;
+                int temp = arr[l];
+                arr[l] = arr[r];
+                arr[r] = temp;
             } else
-                return right;
+                return r;
         }
     }
 }
