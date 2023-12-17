@@ -1,24 +1,21 @@
 package algorithms.sort;
 
 public class Insertionsort {
-    public static void insertionSort(int[] arr) {
-        int i, j;
-        int n = arr.length;
-        int temp;
+    public static void insertionsort(int[] arr) {
+        insertionsort(arr, 0, arr.length - 1);
+    }
 
-        if (n < 2)
-            return;
+    public static void insertionsort(int[] arr, int l, int r) {
+        for (int i = l + 1; i <= r; i++) {
+            int key = arr[i];
+            int j = i - 1;
 
-        for (i = 1; i < n; i++) {
-            temp = arr[i];
-            j = i - 1;
-
-            while (j >= 0 && arr[j] > temp) {
+            while (j >= l && arr[j] > key) {
                 arr[j + 1] = arr[j];
                 j--;
             }
 
-            arr[j + 1] = temp;
+            arr[j + 1] = key;
         }
     }
 

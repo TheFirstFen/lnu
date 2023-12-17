@@ -47,18 +47,19 @@ public class Timer {
 
     // * Send in time in ns.
     public String chooseTimePrefix(double time) {
-        if (time > 60_000_000_000_000.0)
+        if (time > 60_000_000_000_000.0 || time < -60_000_000_000_000.0)
             return formatString(convertHours(time)) + " h";
-        if (time > 60_000_000_000.0)
+
+        if (time > 60_000_000_000.0 || time < -60_000_000_000.0)
             return formatString(convertMinutes(time)) + " min";
 
-        if (time > 1_000_000_000)
+        if (time > 1_000_000_000 || time < -1_000_000_000)
             return formatString(convertSeconds(time)) + " s";
 
-        if (time > 1_000_000)
+        if (time > 1_000_000 || time < -1_000_000)
             return formatString(convertMilliSeconds(time)) + " ms";
 
-        if (time > 1_000)
+        if (time > 1_000 || time < -1_000)
             return formatString(convertMicroSeconds(time)) + '\u00B5' + "s";
 
         return formatString(time) + " ns";

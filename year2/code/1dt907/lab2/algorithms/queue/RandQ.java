@@ -8,8 +8,9 @@ public class RandQ<Obj> implements Iterable<Obj> {
     private Obj[] queue;
     private int size;
 
+    @SuppressWarnings("unchecked")
     public RandQ() {
-        queue = (Obj[]) new Object[1]; // Warnig couldn't get rid of it...
+        queue = (Obj[]) new Object[1];
         size = 0;
     }
 
@@ -52,14 +53,14 @@ public class RandQ<Obj> implements Iterable<Obj> {
         return obj;
     }
 
-    private void resize(int capacity) {
-        Obj[] newArray = (Obj[]) java.util.Arrays.copyOf(queue, capacity);
+    private void resize(int cap) {
+        Obj[] temp = (Obj[]) java.util.Arrays.copyOf(queue, cap);
 
         for (int i = 0; i < size; i++) {
-            newArray[i] = queue[i];
+            temp[i] = queue[i];
         }
 
-        queue = newArray;
+        queue = temp;
     }
 
     public Iterator<Obj> iterator() {
@@ -69,7 +70,7 @@ public class RandQ<Obj> implements Iterable<Obj> {
     private class RandQIterator implements Iterator<Obj> {
 
         private final Obj[] shuffledObj;
-        private int currentIndex;
+        private int curIdx;
 
         public RandQIterator() {
             shuffledObj = (Obj[]) java.util.Arrays.copyOf(queue, size);
@@ -78,14 +79,14 @@ public class RandQ<Obj> implements Iterable<Obj> {
                 shuffledObj[i] = queue[i];
             }
 
-            Random rand = new Random();
+            Random rnd = new Random();
 
             for (int i = size - 1; i > 0; i--) {
-                int j = rand.nextInt(i + 1);
+                int j = rnd.nextInt(i + 1);
                 swap(shuffledObj, i, j);
             }
 
-            currentIndex = 0;
+            curIdx = 0;
         }
 
         private void swap(Obj[] arr, int i, int j) {
@@ -95,7 +96,7 @@ public class RandQ<Obj> implements Iterable<Obj> {
         }
 
         public boolean hasNext() {
-            return currentIndex < size;
+            return curIdx < size;
         }
 
         public Obj next() {
@@ -103,7 +104,7 @@ public class RandQ<Obj> implements Iterable<Obj> {
                 throw new NoSuchElementException("No more elements in queue");
             }
 
-            return shuffledObj[currentIndex++];
+            return shuffledObj[curIdx++];
         }
     }
 }

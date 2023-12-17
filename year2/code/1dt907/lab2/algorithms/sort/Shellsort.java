@@ -1,7 +1,7 @@
 package algorithms.sort;
 
 public class Shellsort {
-    public static void shellSort(int[] arr, String seq) {
+    public static void shellsort(int[] arr, String seq) {
         int n = arr.length;
         int gap = 1;
 

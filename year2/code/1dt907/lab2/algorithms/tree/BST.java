@@ -1,107 +1,133 @@
 package algorithms.tree;
 
 public class BST {
-    class Node {
-        int key;
-        Node l, r;
+    private BSTNode root;
 
-        public Node(int item) {
-            key = item;
-            l = r = null;
+    public BST() {
+        root = null;
+    }
+
+    public void insert(int key) {
+        root = insertRec(root, key);
+    }
+
+    private BSTNode insertRec(BSTNode root, int key) {
+        if (root == null) {
+            root = new BSTNode(key);
+            return root;
+        }
+
+        if (key < root.key) {
+            root.l = insertRec(root.l, key);
+        } else if (key > root.key) {
+            root.r = insertRec(root.r, key);
+        }
+
+        return root;
+    }
+
+    public void delete(int key) {
+        root = deleteRec(root, key);
+    }
+
+    private BSTNode deleteRec(BSTNode root, int key) {
+        if (root == null) {
+            return root;
+        }
+
+        if (key < root.key) {
+            root.l = deleteRec(root.l, key);
+        } else if (key > root.key) {
+            root.r = deleteRec(root.r, key);
+        } else {
+            if (root.l == null) {
+                return root.r;
+            } else if (root.r == null) {
+                return root.l;
+            }
+
+            root.key = minValue(root.r);
+
+            root.r = deleteRec(root.r, root.key);
+        }
+
+        return root;
+    }
+
+    private int minValue(BSTNode root) {
+        int minValue = root.key;
+
+        while (root.l != null) {
+            minValue = root.l.key;
+            root = root.l;
+        }
+
+        return minValue;
+    }
+
+    public boolean search(int key) {
+        return searchRec(root, key);
+    }
+
+    private boolean searchRec(BSTNode root, int key) {
+        if (root == null || root.key == key) {
+            return root != null;
+        }
+
+        if (key < root.key) {
+            return searchRec(root.l, key);
+        }
+
+        return searchRec(root.r, key);
+    }
+
+    public void inOrder() {
+        inOrder(root);
+    }
+
+    private void inOrder(BSTNode root) {
+        if (root != null) {
+            inOrder(root.l);
+            System.out.print(root.key + " ");
+            inOrder(root.r);
         }
     }
 
-    class BSTree {
-        private Node root;
+    private int height(BSTNode node) {
+        int l = 0;
+        int r = 0;
 
-        public BSTree() {
-            root = null;
-        }
+        if (node.l != null)
+            l = height(node.l);
+        if (node.r != null)
+            r = height(node.r);
 
-        public void insert(int key) {
-            root = insertRec(root, key);
-        }
+        return Math.max(l, r) + 1;
+    }
 
-        private Node insertRec(Node root, int key) {
-            if (root == null) {
-                root = new Node(key);
-                return root;
-            }
+    public int status() {
+        if (root != null)
+            return height(root);
+        else
+            return 0;
+    }
 
-            if (key < root.key) {
-                root.l = insertRec(root.l, key);
-            } else if (key > root.key) {
-                root.r = insertRec(root.r, key);
-            }
+    public BST generateBalancedTree(int[] n) {
+        BST temp = new BST();
+        temp.root = sortedArrToTree(n, 0, n.length - 1);
+        return temp;
+    }
 
-            return root;
-        }
+    private static BSTNode sortedArrToTree(int[] values, int start, int stop) {
+        if (start > stop)
+            return null;
 
-        public void delete(int key) {
-            root = deleteRec(root, key);
-        }
+        int mid = (start + stop) / 2;
+        BSTNode root = new BSTNode(values[mid]);
 
-        private Node deleteRec(Node root, int key) {
-            if (root == null) {
-                return root;
-            }
+        root.l = sortedArrToTree(values, start, mid - 1);
+        root.r = sortedArrToTree(values, mid + 1, stop);
 
-            if (key < root.key) {
-                root.l = deleteRec(root.l, key);
-            } else if (key > root.key) {
-                root.r = deleteRec(root.r, key);
-            } else {
-                if (root.l == null) {
-                    return root.r;
-                } else if (root.r == null) {
-                    return root.l;
-                }
-
-                root.key = minValue(root.r);
-
-                root.r = deleteRec(root.r, root.key);
-            }
-
-            return root;
-        }
-
-        private int minValue(Node root) {
-            int minValue = root.key;
-
-            while (root.l != null) {
-                minValue = root.l.key;
-                root = root.l;
-            }
-
-            return minValue;
-        }
-
-        public boolean search(int key) {
-            return searchRec(root, key);
-        }
-
-        private boolean searchRec(Node root, int key) {
-            if (root == null || root.key == key) {
-                return root != null;
-            }
-
-            if (key < root.key) {
-                return searchRec(root.l, key);
-            }
-
-            return searchRec(root.r, key);
-        }
-
-        public void inOrder() {
-            inOrder(root);
-        }
-
-        private void inOrder(Node root) {
-            if (root != null) {
-                inOrder(root.l);
-                System.out.print(root.key + " ");
-                inOrder(root.r);
-            }
-        }
+        return root;
     }
 }

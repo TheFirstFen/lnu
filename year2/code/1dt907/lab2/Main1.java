@@ -1,25 +1,34 @@
+import java.util.Random;
+
 import algorithms.queue.RandQ;
 
-public class Main1 { // TODO: Make proper main.java
+public class Main1 {
     public static void main(String[] args) {
         RandQ<Integer> queue = new RandQ<>();
+        Random rnd = new Random();
 
-        queue.enqueue(1);
-        queue.enqueue(2);
-        queue.enqueue(3);
-        queue.enqueue(4);
+        System.out.println("Queue empty? " + queue.isEmpty());
+        printQueue(queue);
 
-        System.out.println("Randomized Queue: " + queue.size() + " elements");
-        for (int obj : queue) {
-            System.out.print(obj + " ");
+        for (int i = 0; i < 10; i++) {
+            queue.enqueue(rnd.nextInt(100));
         }
+
+        System.out.println("Queue size: " + queue.size() + " elements");
+        printQueue(queue);
+
+        System.out.println("\nQueue empty? " + queue.isEmpty());
 
         System.out.println("\nDequeue: " + queue.dequeue());
 
-        System.out.println("Randomized Queue after dequeue: " + queue.size() + " elements");
+        System.out.println("Queue size after dequeue: " + queue.size() + " elements");
+        printQueue(queue);
+    }
 
-        for (int obj : queue) {
-            System.out.print(obj + " ");
+    public static void printQueue(RandQ<Integer> queue) {
+        for (int i : queue) {
+            System.out.print(i + " ");
         }
+        System.out.println("");
     }
 }

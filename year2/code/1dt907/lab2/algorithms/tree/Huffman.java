@@ -7,32 +7,32 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class Huffman {
-    class Node implements Comparable<Node> {
-        char data;
-        int freq;
-        Node l, r;
+class HuffmanNode implements Comparable<HuffmanNode> {
+    char data;
+    int freq;
+    HuffmanNode l, r;
 
-        public Node(char data, int freq) {
-            this.data = data;
-            this.freq = freq;
-            l = r = null;
-        }
-
-        @Override
-        public int compareTo(Node other) {
-            return this.freq - other.freq;
-        }
+    public HuffmanNode(char data, int freq) {
+        this.data = data;
+        this.freq = freq;
+        l = r = null;
     }
 
+    @Override
+    public int compareTo(HuffmanNode other) {
+        return this.freq - other.freq;
+    }
+}
+
+public class Huffman {
     private static Map<Character, String> huffmanCodes = new HashMap<>();
 
     public void run(Huffman huffman, String filePath) {
         try {
             String text = huffman.readFile(filePath);
-            Map<Character, Integer> freqMap = huffman.calculateFrequency(text);
-            Node root = huffman.buildHuffmanTree(freqMap);
-            huffman.generateHuffmanCodes(root, "");
+            Map<Character, Integer> frequencyMap = huffman.calculateFrequency(text);
+            HuffmanNode root = huffman.buildHuffmanTree(frequencyMap);
+            huffman.generateHuffmanCodes(root, ""); // ! Not working properly
             huffman.displayHuffmanCodes();
         } catch (IOException e) {
             e.printStackTrace();
@@ -53,26 +53,26 @@ public class Huffman {
     }
 
     private Map<Character, Integer> calculateFrequency(String text) {
-        Map<Character, Integer> freqMap = new HashMap<>();
+        Map<Character, Integer> frequencyMap = new HashMap<>();
 
         for (char c : text.toCharArray()) {
-            freqMap.put(c, freqMap.getOrDefault(c, 0) + 1);
+            frequencyMap.put(c, frequencyMap.getOrDefault(c, 0) + 1);
         }
 
-        return freqMap;
+        return frequencyMap;
     }
 
-    private Node buildHuffmanTree(Map<Character, Integer> freqMap) {
-        PriorityQueue<Node> pQueue = new PriorityQueue<>();
+    private HuffmanNode buildHuffmanTree(Map<Character, Integer> frequencyMap) {
+        PriorityQueue<HuffmanNode> pQueue = new PriorityQueue<>();
 
-        for (Map.Entry<Character, Integer> entry : freqMap.entrySet()) {
-            pQueue.add(new Node(entry.getKey(), entry.getValue()));
+        for (Map.Entry<Character, Integer> entry : frequencyMap.entrySet()) {
+            pQueue.add(new HuffmanNode(entry.getKey(), entry.getValue()));
         }
 
         while (pQueue.size() > 1) {
-            Node l = pQueue.poll();
-            Node r = pQueue.poll();
-            Node internalNode = new Node('\0', l.freq + r.freq);
+            HuffmanNode l = pQueue.poll();
+            HuffmanNode r = pQueue.poll();
+            HuffmanNode internalNode = new HuffmanNode('\0', l.freq + r.freq);
             internalNode.l = l;
             internalNode.r = r;
             pQueue.add(internalNode);
@@ -81,7 +81,7 @@ public class Huffman {
         return pQueue.poll();
     }
 
-    private void generateHuffmanCodes(Node root, String code) {
+    private void generateHuffmanCodes(HuffmanNode root, String code) {
         if (root == null) {
             return;
         }
