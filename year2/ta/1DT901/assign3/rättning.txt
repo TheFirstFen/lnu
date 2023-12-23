@@ -417,3 +417,83 @@ Grade: B
 Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
 
 ------------------------------------------------------
+
+<na223gk>
+
+G:
+    3. recursive_print: Not working as intended. Doesn't print dirs recursivily as it should.
+    6. read_numbers: Not running properly. Tries to convert a row of ints instead of one at the time.
+    11. occurrences: Good!
+    15. deque_main: Not running properly. Missing functionality.
+
+VG:
+    4. pretty_recursive_print: Not working as intended. Same problem as recursive_print.
+    9. count_lines: Good!
+
+Overall: Minor improvments have been made but not to the extent of making the programs function as intended. Better luck next time.
+
+Grade: F
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<sa225jf>
+
+G:
+    3. recursive_print: Okay.
+    6. read_numbers: Okay.
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: Good working programs but do keep in mind to fix all lint errors in the code.
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<ag224nx>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: Well done!
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<rb222sa>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: Well done!
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
