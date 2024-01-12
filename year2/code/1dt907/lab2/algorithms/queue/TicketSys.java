@@ -1,11 +1,10 @@
 package algorithms.queue;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class TicketSys {
     private Person[] arr;
-    private int size;
+    protected int size;
     private static final int DEFAULT_CAP = 10;
 
     public TicketSys() {
@@ -13,24 +12,21 @@ public class TicketSys {
         size = 0;
     }
 
-    public void insertPerson(String name, int prio) {
+    public void insertPerson(String name, int prio, int place) {
         if (size == arr.length) {
             resize();
         }
 
-        arr[size] = new Person(name, prio);
+        arr[size] = new Person(name, prio, place);
         size++;
-        Quicksort.quickSort(arr, 0, size - 1);
-
-        // * Att använda detta vart enda sättet jag hittade för att kunna hantera mer än
-        // * 10 000 presoner i kön
-        // Arrays.sort(arr, 0, size, Comparator.comparingInt(p -> p.prio));
     }
 
     public Person getPerson() {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty");
         }
+
+        HeapSort.heapSort(arr, size);
 
         return arr[0];
     }
@@ -40,16 +36,15 @@ public class TicketSys {
             throw new IllegalStateException("Queue is empty");
         }
 
+        HeapSort.heapSort(arr, size);
+
         Person temp = arr[0];
-        // System.arraycopy(arr, 1, arr, 0, --size); // Effektivare pga behöver ej
-        // sortera om listan
 
         arr[0] = arr[size - 1];
         arr[size - 1] = null;
         size--;
 
-        Quicksort.quickSort(arr, 0, size - 1);
-        // Arrays.sort(arr, 0, size, Comparator.comparingInt(p -> p.prio));
+        HeapSort.heapSort(arr, size);
 
         return temp;
     }
@@ -73,8 +68,7 @@ public class TicketSys {
         arr[index1].setPriority(arr[index2].getPriority());
         arr[index2].setPriority(tempPrio);
 
-        Quicksort.quickSort(arr, 0, size - 1);
-        // Arrays.sort(arr, 0, size, Comparator.comparingInt(p -> p.prio));
+        HeapSort.heapSort(arr, size);
     }
 
     private void resize() {
@@ -96,30 +90,45 @@ public class TicketSys {
     }
 }
 
-class Quicksort {
-    public static void quickSort(Person[] arr, int low, int high) {
-        if (low < high) {
-            int partitionIndex = partition(arr, low, high);
+class HeapSort {
+    public static void heapSort(Person[] arr, int size) {
+        int n = size;
 
-            quickSort(arr, low, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, high);
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            heapify(arr, n, i);
+        }
+
+        for (int i = n - 1; i >= 0; i--) {
+            swap(arr, 0, i);
+            heapify(arr, i, 0);
         }
     }
 
-    private static int partition(Person[] arr, int low, int high) {
-        int pivot = arr[high].getPriority();
-        int i = low - 1;
+    private static void heapify(Person[] arr, int n, int i) {
+        int smallest = i;
+        int l = 2 * i + 1;
+        int r = 2 * i + 2;
 
-        for (int j = low; j < high; j++) {
-            if (arr[j].getPriority() <= pivot) {
-                i++;
-                swap(arr, i, j);
+        if (l < n && arr[l].getPriority() > arr[smallest].getPriority()) {
+            smallest = l;
+        } else if (l < n && arr[l].getPriority() == arr[smallest].getPriority()) {
+            if (arr[l].getPlace() > arr[smallest].getPlace()) {
+                smallest = l;
             }
         }
 
-        swap(arr, i + 1, high);
+        if (r < n && arr[r].getPriority() > arr[smallest].getPriority()) {
+            smallest = r;
+        } else if (r < n && arr[r].getPriority() == arr[smallest].getPriority()) {
+            if (arr[r].getPlace() > arr[smallest].getPlace()) {
+                smallest = r;
+            }
+        }
 
-        return i + 1;
+        if (smallest != i) {
+            swap(arr, i, smallest);
+            heapify(arr, n, smallest);
+        }
     }
 
     private static void swap(Person[] arr, int i, int j) {
@@ -127,4 +136,5 @@ class Quicksort {
         arr[i] = arr[j];
         arr[j] = temp;
     }
+
 }

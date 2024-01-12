@@ -11,11 +11,11 @@ public class Main3 {
         for (int i = 1; i < 2; i++) {
             queue = new TicketSys();
 
-            for (int j = 0; j < 1_000 - 1; j++) {
+            for (int j = 0; j < 1_000_000 - 1; j++) {
                 String id = String.valueOf(j);
-                queue.insertPerson("test" + id, rnd.nextInt(100));
+                queue.insertPerson("test" + id, rnd.nextInt(10_000), j);
             }
-            queue.insertPerson("Adam", 7);
+            queue.insertPerson("Adam", 1, 0);
 
             System.out.println("\nRunning tests for queue with: " + queue.getSize() + " persons");
             test(queue, rnd);
@@ -45,7 +45,7 @@ public class Main3 {
 
         System.out.print("Testing insertPerson(): ");
         sw.start();
-        q.insertPerson("Alice", 0);
+        q.insertPerson("Alice", 0, 0);
         sw.stop();
         System.out.println(sw.chooseTimePrefix(sw.getTimeInNanoSeconds()) + " (Person{name='Alice', prio=0})");
 

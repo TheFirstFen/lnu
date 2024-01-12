@@ -1,12 +1,14 @@
 package algorithms.queue;
 
-public class Person implements Comparable<Person> {
+public class Person {
     private String name;
     protected int prio;
+    protected int place;
 
-    public Person(String name, int prio) {
+    public Person(String name, int prio, int place) {
         this.name = name;
         this.prio = prio;
+        this.place = place;
     }
 
     public String getName() {
@@ -17,18 +19,16 @@ public class Person implements Comparable<Person> {
         return prio;
     }
 
+    public int getPlace() {
+        return place;
+    }
+
     public void setPriority(int prio) {
         this.prio = prio;
     }
 
     @Override
-    public int compareTo(Person other) {
-        return Math.min(other.prio, this.prio);
-
-    }
-
-    @Override
     public String toString() {
-        return "Person{name='" + name + "', prio=" + prio + '}';
+        return "Person{name='" + name + "', prio=" + prio + ", place=" + place + "}";
     }
 }
