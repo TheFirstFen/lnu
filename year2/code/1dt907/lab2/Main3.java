@@ -13,9 +13,9 @@ public class Main3 {
 
             for (int j = 0; j < 1_000_000 - 1; j++) {
                 String id = String.valueOf(j);
-                queue.insertPerson("test" + id, rnd.nextInt(10_000), j);
+                queue.insertPerson("test" + id, rnd.nextInt(10));
             }
-            queue.insertPerson("Adam", 1, 0);
+            queue.insertPerson("Adam", 1);
 
             System.out.println("\nRunning tests for queue with: " + queue.getSize() + " persons");
             test(queue, rnd);
@@ -28,7 +28,7 @@ public class Main3 {
 
         System.out.println("Next person to buy a ticket after swapping: " + queue.getPerson());
 
-        queue.firstTen();
+        queue.displayExample();
     }
 
     private static void test(TicketSys q, Random rnd) {
@@ -45,7 +45,7 @@ public class Main3 {
 
         System.out.print("Testing insertPerson(): ");
         sw.start();
-        q.insertPerson("Alice", 0, 0);
+        q.insertPerson("Alice", 0);
         sw.stop();
         System.out.println(sw.chooseTimePrefix(sw.getTimeInNanoSeconds()) + " (Person{name='Alice', prio=0})");
 

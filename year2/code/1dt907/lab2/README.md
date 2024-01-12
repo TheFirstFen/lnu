@@ -59,7 +59,7 @@ Skillnaden med enqueue implementationen och dequeue implementationen är att in 
 
 För detta experiment så byggde jag up ett AVL och ett BST träd med 10 000 000 noder i början för att han en förhoppningsvis tydligare tidsskillnad i resultaten. När det vart gjort så körde jag på dessa träd ett "general case test" vilket tar tiden då en mängnd olika tal skall i ordning sättas in, sökas upp och tas väck ur trädet och ta tiden för varje operation för hela mängnden tal. Efter detta är gjort så skrivs det ut i terminalen för BST respektive AVL tärdet deras tider för att gör de olika operationerna för den ängden tal vi hade samt att vi skriver ut höjden på trädet från root:en till yttersta noden. Ett exemple resultat som blev är det följande:
 
-```text
+```Output
 BST:
 insert: 4.0109 s
 search: 2.7219 s
@@ -81,7 +81,7 @@ height: -32
 
 Där vi också tar och reprensentera skillnaden i tid för operationerna för de olika träden. som vi kan se så har AVL trädet som förväntat en längre insättnings och uttagnings tid jämfört med BST trädet men en effektivare sök operation då AVL trädet balanserar sig under upp byggnaden jämfört med BST trädet vilket kan ses på `height` noteringen i Diff delen där vi kan se att höjden från root:en till yttersta node för AVL trädet är 32 noder närmare än för BST trädet vilket leder till den ökade prestandan i sökning. Detta vart dock endast generela fallet om vi tar och tittar på bästa samt värsta fallet så kommer utskriften i terminalen möjligen se ut som följande:
 
-```text
+```Output
 Best case:
 Time to insert, search & delete 16383 objects
 BST test: completed
@@ -108,7 +108,7 @@ height: 0
 
 Medans värsta fallet:
 
-```text
+```Output
 Worst case:
 Time to insert, search & delete 16383 objects
 BST test: completed
@@ -143,66 +143,110 @@ Min implementation har de krävda funktionerna så här ser `insertPerson()` ut:
 
 ```java
 public void insertPerson(String name, int prio) {
-    if (size == arr.length) {
-        resize();
+        if (size == arr.length) {
+            resize();
+        }
+
+        int place = size;
+
+        arr[size] = new Person(name, prio, place);
+        size++;
     }
+```
 
-    arr[size] = new Person(name, prio);
-    size++;
-    Quicksort.quickSort(arr, 0, size - 1);
+Enligt mina tester så ser jag att jag har 3 av de 4 funktionerna som är beroende på antalet personer i kön den enda som är icke beroende av detta är `insertPerson()` detta är på grund av att för att jag sorterar arrayet i alla andra dunktioner men inte vid insättning av personer. De andra tre som är enligt mina experiment är beroende på sorterings algoritmen man använder för att sortera personerna i kön efter prioritet och placering i kön. Jag håller koll och sortera personerna korrekt med hjälp av denna biten kod i heapify:
 
-    // * Att använda detta vart enda sättet jag hittade för att kunna
-    // * hantera mer än 10 000 presoner i kön. (kolla följande kommentar)
+```java
+if (l < n && arr[l].getPriority() > arr[smallest].getPriority()) {
+    smallest = l;
+} else if (l < n && arr[l].getPriority() == arr[smallest].getPriority()) {
+    if (arr[l].getPlace() > arr[smallest].getPlace()) {
+        smallest = l;
+    }
+}
 
-    // Arrays.sort(arr, 0, size, Comparator.comparingInt(p -> p.prio));
+if (r < n && arr[r].getPriority() > arr[smallest].getPriority()) {
+    smallest = r;
+} else if (r < n && arr[r].getPriority() == arr[smallest].getPriority()) {
+    if (arr[r].getPlace() > arr[smallest].getPlace()) {
+        smallest = r;
+    }
 }
 ```
 
-Enligt mina tester så ser jag att jag har 3 av de 4 funktioner na som är beroende på antalet personer i kön den enda som är icke beroende av detta är `getPerson()` detta är på grund av att för att få detta tar jag bara personen på index `0` i array:et. De andra tre som är beroende på antalet personer enligt mina experiment är beroende på sorterings algoritmen man använder till att sortera efter prioritet vilket jag skapade en quicksort variant för `Person` object:et vilket ger mig StackOverflowException om jag har fler än `10 000` personer i kön. Snitt tider jag får ifrån min testning är följande:
+Jag vill dock påpeka att min första tanke vart att göra en `@Override` på `compareTo` funktionaliteten hos objekt men vilket inte ville fungerar för mig. Detta har i slut ändan gett mig följande output då jag har en kö med 1 000 000 personer med 10 olika möjliga prioriteter.
 
-```text
-Testing getPerson(): 9.2070µs (Person{name='test61', prio=0})
-Testing insertPerson(): 10.7418 ms (Person{name='Alice', prio=0})
-Testing swapPriority(): 800.8949 ms (swaped Person{name='Alice', prio=0} & Person{name='Adam', prio=7})
-Testing deleteMinPriority(): 727.5847 ms (Person{name='test61', prio=0})
+```Output
+Running tests for queue with: 1000000 persons
+Testing getPerson(): 2.1509 s (Person{name='test22', prio=0, place=22})
+Testing insertPerson(): 3.3500µs (Person{name='Alice', prio=0})
+Testing swapPriority(): 1.6638 s (swaped Person{name='Alice', prio=0} & Person{name='Adam', prio=7})
+Testing deleteMinPriority(): 2.4902 s (Person{name='test22', prio=0, place=22})
+
+Next person to buy a ticket: Person{name='test32', prio=0, place=32}
+Next person to buy a ticket after deleting: Person{name='test34', prio=0, place=34}
+Next person to buy a ticket after swapping: Person{name='test34', prio=0, place=34}
+0:Person{name='test34', prio=0, place=34}
+1:Person{name='test47', prio=0, place=47}
+2:Person{name='test55', prio=0, place=55}
+3:Person{name='test60', prio=0, place=60}
+4:Person{name='test67', prio=0, place=67}
+5:Person{name='test71', prio=0, place=71}
+6:Person{name='test73', prio=0, place=73}
+7:Person{name='test118', prio=0, place=118}
+8:Person{name='test122', prio=0, place=122}
+9:Person{name='test125', prio=0, place=125}
+            |
+            |
+            |
+999989:Person{name='test999876', prio=9, place=999876}
+999990:Person{name='test999877', prio=9, place=999877}
+999991:Person{name='test999895', prio=9, place=999895}
+999992:Person{name='test999899', prio=9, place=999899}
+999993:Person{name='test999970', prio=9, place=999970}
+999994:Person{name='test999974', prio=9, place=999974}
+999995:Person{name='test999978', prio=9, place=999978}
+999996:Person{name='test999980', prio=9, place=999980}
+999997:Person{name='test999985', prio=9, place=999985}
+999998:Person{name='test999997', prio=9, place=999997}
 ```
 
-Dessa tider känns något rimliga då man tänker på hur allt vart implementerat samt att jag använder en egen quicksort variant för att sortera personerna i kön. De 3 so beror på storleken av kön enligt mina beräkningar har en tids komplexitet lik sorteringsalgorithmen vilket ger dem en ungifärlig tidskomplexitet på `O(n log(n))`.
+Dessa tider känns något rimliga då man tänker på hur allt vart implementerat samt att jag använder en egen quicksort variant för att sortera personerna i kön. De 3 so beror på storleken av kön enligt mina beräkningar har en tids komplexitet lik sorteringsalgorithmen vilket ger dem en ungifärlig tidskomplexitet på `O(c * log(n))`, konstanten c är det samma som basen för logaritmen vilket i detta fall är 2 vilket ger en ungifärlig tidskomplexitet av `O(2 * log(n))`.
 
 ## Problem 4
 
-Jag gjorde 100 stycken experiment och fick fram i slutet det följande:
+Jag gjorde 100 stycken experiment och fick fram i snitt fallet det följande:
 
-```text
-Heapsort is the most efficient algoritm with time: 2.3710 ms and for recursion depth: 5
-Heapsort is the most efficient algoritm with time: 491.3070µs and for recursion depth: 10
-Heapsort is the most efficient algoritm with time: 453.8310µs and for recursion depth: 15
-Heapsort is the most efficient algoritm with time: 459.5050µs and for recursion depth: 20
-Heapsort is the most efficient algoritm with time: 455.2870µs and for recursion depth: 25
-Heapsort is the most efficient algoritm with time: 444.4350µs and for recursion depth: 30
-Heapsort is the most efficient algoritm with time: 431.9000µs and for recursion depth: 35
-Heapsort is the most efficient algoritm with time: 467.8730µs and for recursion depth: 40
-Heapsort is the most efficient algoritm with time: 450.2750µs and for recursion depth: 45
-Heapsort is the most efficient algoritm with time: 496.2370µs and for recursion depth: 50
-Heapsort is the most efficient algoritm with time: 472.3280µs and for recursion depth: 55
-Heapsort is the most efficient algoritm with time: 463.9240µs and for recursion depth: 60
-Insertionsort is the most efficient algorithm with time: 137.6630µs and for recursion depth: 65
-Insertionsort is the most efficient algorithm with time: 356.7390µs and for recursion depth: 70
-Insertionsort is the most efficient algorithm with time: 246.5370µs and for recursion depth: 75
-Insertionsort is the most efficient algorithm with time: 369.9100µs and for recursion depth: 80
-Insertionsort is the most efficient algorithm with time: 120.3720µs and for recursion depth: 85
-Insertionsort is the most efficient algorithm with time: 362.5530µs and for recursion depth: 90
-Insertionsort is the most efficient algorithm with time: 116.0810µs and for recursion depth: 95
-Insertionsort is the most efficient algorithm with time: 353.1370µs and for recursion depth: 100
+```Output
+Heapsort is the most efficient algoritm with time: 28.6400 ms and for recursion depth: 5
+Insertionsort is the most efficient algorithm with time: 12.2572 ms and for recursion depth: 10
+Insertionsort is the most efficient algorithm with time: 3.0289 ms and for recursion depth: 15
+Insertionsort is the most efficient algorithm with time: 891.8350µs and for recursion depth: 20
+Insertionsort is the most efficient algorithm with time: 538.3060µs and for recursion depth: 25
+Insertionsort is the most efficient algorithm with time: 517.2630µs and for recursion depth: 30
+Insertionsort is the most efficient algorithm with time: 524.9120µs and for recursion depth: 35
+Insertionsort is the most efficient algorithm with time: 580.2780µs and for recursion depth: 40
+Insertionsort is the most efficient algorithm with time: 503.6210µs and for recursion depth: 45
+Insertionsort is the most efficient algorithm with time: 504.2510µs and for recursion depth: 50
+Insertionsort is the most efficient algorithm with time: 472.2160µs and for recursion depth: 55
+Insertionsort is the most efficient algorithm with time: 554.5380µs and for recursion depth: 60
+Insertionsort is the most efficient algorithm with time: 503.3370µs and for recursion depth: 65
+Insertionsort is the most efficient algorithm with time: 502.5890µs and for recursion depth: 70
+Insertionsort is the most efficient algorithm with time: 503.3980µs and for recursion depth: 75
+Insertionsort is the most efficient algorithm with time: 471.0200µs and for recursion depth: 80
+Insertionsort is the most efficient algorithm with time: 504.1580µs and for recursion depth: 85
+Insertionsort is the most efficient algorithm with time: 508.2830µs and for recursion depth: 90
+Insertionsort is the most efficient algorithm with time: 503.7300µs and for recursion depth: 95
+Insertionsort is the most efficient algorithm with time: 504.6870µs and for recursion depth: 100
 ```
 
-Detta gäller då vi kollar på en array med 1 000 element och går i steg av `5` med depth med quicksort innan jag skapar kopior av array:et för att sortera det sorterade array:et med heap- respektive insertionsort.
+Detta gäller då vi kollar på en array med 100 000 element och går i steg av `5` med depth med quicksort innan jag skapar kopior av array:et för att sortera det sorterade array:et med heap- respektive insertionsort.
 
 ## Problem 6
 
 Från min tester med mina olika shellsort sekvenser så får jag att tidskomplexiteten stämmer någlunda väl överäns med vad som representerads i wikipedia artiklen som medgavs med uppgiften. Jag får resulta liknande följande:
 
-```text
+```Output
 Testing for array size of 100000
 ShellSort w seq: hibbard, time: 47.2076 ms
 ShellSort w seq: sedgewick, time: 30.7012 ms

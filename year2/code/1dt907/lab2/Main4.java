@@ -6,22 +6,23 @@ import java.util.Random;
 public class Main4 {
     public static void main(String[] args) {
         Random rnd = new Random();
-        int[] arr = new int[1_000];
+        int[] arr = new int[100_000];
+        for (int exp = 0; exp < 100; exp++) {
+            for (int maxDepth = 5; maxDepth <= 100; maxDepth += 5) {
 
-        for (int j = 5; j <= 100; j += 5) {
+                for (int i = 0; i < arr.length; i++)
+                    arr[i] = rnd.nextInt();
 
-            for (int i = 0; i < arr.length; i++)
-                arr[i] = rnd.nextInt();
-
-            for (int i = 0; i < 1; i++)
-                System.out.println(test(arr, j) + " for recursion depth: " + j);
+                for (int i = 0; i < 1; i++)
+                    System.out.println(test(arr, maxDepth) + " for recursion depth: " + maxDepth);
+            }
         }
     }
 
-    private static String test(int[] arr, int depth) {
+    private static String test(int[] arr, int maxDepth) {
         Timer sw = new Timer();
 
-        Quicksort.quickSort(arr, depth);
+        Quicksort.quickSort(arr, maxDepth);
 
         int[] arrI = Arrays.copyOf(arr, arr.length);
         int[] arrH = Arrays.copyOf(arr, arr.length);

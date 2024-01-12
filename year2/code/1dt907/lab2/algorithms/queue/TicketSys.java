@@ -12,10 +12,12 @@ public class TicketSys {
         size = 0;
     }
 
-    public void insertPerson(String name, int prio, int place) {
+    public void insertPerson(String name, int prio) {
         if (size == arr.length) {
             resize();
         }
+
+        int place = size;
 
         arr[size] = new Person(name, prio, place);
         size++;
@@ -80,8 +82,13 @@ public class TicketSys {
         return size == 0;
     }
 
-    public void firstTen() {
+    public void displayExample() {
         for (int i = 0; i < 10; i++)
+            System.out.println(i + ":" + arr[i]);
+        System.out.println("\t\t\t|");
+        System.out.println("\t\t\t|");
+        System.out.println("\t\t\t|");
+        for (int i = size - 10; i < size; i++)
             System.out.println(i + ":" + arr[i]);
     }
 
