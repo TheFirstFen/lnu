@@ -2,8 +2,8 @@ package alogrithms.graphs;
 
 import java.util.*;
 
-public class UndirectedGraph extends IGraph {
-    private List<List<Integer>> adjacencyList;
+public class UndirectedGraph extends Graph {
+    private List<List<Edge>> adjacencyList;
 
     public UndirectedGraph(int vertices) {
         super(vertices);
@@ -14,17 +14,17 @@ public class UndirectedGraph extends IGraph {
     }
 
     @Override
-    public void addEdge(int v, int w) {
-        super.addEdge(v, w);
-        adjacencyList.get(v).add(w);
-        adjacencyList.get(w).add(v);
+    public void addEdge(int v, int w, double weight) {
+        super.addEdge(v, w, weight);
+        adjacencyList.get(v).add(new Edge(v, w, weight));
+        adjacencyList.get(w).add(new Edge(w, v, weight));
     }
 
     @Override
     public void removeEdge(int v, int w) {
         super.removeEdge(v, w);
-        adjacencyList.get(v).remove(Integer.valueOf(w));
-        adjacencyList.get(w).remove(Integer.valueOf(v));
+        adjacencyList.get(v).removeIf(edge -> edge.v2 == w);
+        adjacencyList.get(w).removeIf(edge -> edge.v2 == v);
     }
 
     @Override
@@ -42,13 +42,12 @@ public class UndirectedGraph extends IGraph {
     }
 
     @Override
-    public Iterable<Integer> edges() {
-        List<Integer> edgesList = new ArrayList<>();
+    public Iterable<Edge> edges() {
+        List<Edge> edgesList = new ArrayList<>();
         for (int v = 0; v < vertices; v++) {
-            for (int w : adjacencyList.get(v)) {
-                if (v < w) {
-                    edgesList.add(v);
-                    edgesList.add(w);
+            for (Edge edge : adjacencyList.get(v)) {
+                if (v < edge.v2) {
+                    edgesList.add(new Edge(v, edge.v2, edge.weight));
                 }
             }
         }
@@ -56,7 +55,7 @@ public class UndirectedGraph extends IGraph {
     }
 
     @Override
-    public Iterable<Integer> adjacent(int v) {
+    public Iterable<Edge> adjacent(int v) {
         return adjacencyList.get(v);
     }
 }

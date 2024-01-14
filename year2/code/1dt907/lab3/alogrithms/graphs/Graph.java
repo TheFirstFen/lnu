@@ -1,10 +1,10 @@
 package alogrithms.graphs;
 
-class IGraph {
+class Graph {
     protected int vertices;
     protected int edges;
 
-    public IGraph(int vertices) {
+    public Graph(int vertices) {
         this.vertices = vertices;
         this.edges = 0;
     }
@@ -17,7 +17,7 @@ class IGraph {
         return edges;
     }
 
-    public void addEdge(int v, int w) {
+    public void addEdge(int v, int w, double weight) {
         edges++;
     }
 
@@ -33,11 +33,11 @@ class IGraph {
         return null;
     }
 
-    public Iterable<Integer> edges() {
+    public Iterable<Edge> edges() {
         return null;
     }
 
-    public Iterable<Integer> adjacent(int v) {
+    public Iterable<Edge> adjacent(int v) {
         return null;
     }
 }
