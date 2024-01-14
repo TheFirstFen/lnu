@@ -143,14 +143,12 @@ Min implementation har de krävda funktionerna så här ser `insertPerson()` ut:
 
 ```java
 public void insertPerson(String name, int prio) {
-        if (size == arr.length) {
-            resize();
-        }
-
-        int place = size;
+        if (size == arr.length)
+            resize("up");
 
         arr[size] = new Person(name, prio, place);
         size++;
+        place++;
     }
 ```
 

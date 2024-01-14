@@ -5,22 +5,22 @@ import java.util.Arrays;
 public class TicketSys {
     private Person[] arr;
     protected int size;
+    private int place;
     private static final int DEFAULT_CAP = 10;
 
     public TicketSys() {
         arr = new Person[DEFAULT_CAP];
         size = 0;
+        place = 0;
     }
 
     public void insertPerson(String name, int prio) {
-        if (size == arr.length) {
-            resize();
-        }
-
-        int place = size;
+        if (size == arr.length)
+            resize("up");
 
         arr[size] = new Person(name, prio, place);
         size++;
+        place++;
     }
 
     public Person getPerson() {
@@ -36,7 +36,8 @@ public class TicketSys {
     public Person deleteMinPriority() {
         if (isEmpty()) {
             throw new IllegalStateException("Queue is empty");
-        }
+        } else if (size == arr.length / 4)
+            resize("down");
 
         HeapSort.heapSort(arr, size);
 
@@ -73,9 +74,14 @@ public class TicketSys {
         HeapSort.heapSort(arr, size);
     }
 
-    private void resize() {
-        int newCap = arr.length * 2;
-        arr = Arrays.copyOf(arr, newCap);
+    private void resize(String direction) {
+        if (direction.equals("up")) {
+            int newCap = arr.length * 2;
+            arr = Arrays.copyOf(arr, newCap);
+        } else if (direction.equals("down")) {
+            int newCap = arr.length / 2;
+            arr = Arrays.copyOf(arr, newCap);
+        }
     }
 
     public boolean isEmpty() {
