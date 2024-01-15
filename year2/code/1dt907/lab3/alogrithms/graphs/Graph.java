@@ -1,6 +1,6 @@
 package alogrithms.graphs;
 
-class Graph {
+public abstract class Graph {
     protected int vertices;
     protected int edges;
 
@@ -15,6 +15,10 @@ class Graph {
 
     public int getEdges() {
         return edges;
+    }
+
+    public void addEdge(int v, int w) {
+        addEdge(v, w, 1.0);
     }
 
     public void addEdge(int v, int w, double weight) {
@@ -40,4 +44,8 @@ class Graph {
     public Iterable<Edge> adjacent(int v) {
         return null;
     }
+
+    public abstract boolean isConnected(int source, int destination);
+
+    public abstract Iterable<Integer> path(int source, int destination);
 }

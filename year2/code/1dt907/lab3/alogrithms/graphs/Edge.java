@@ -1,9 +1,9 @@
 package alogrithms.graphs;
 
 public class Edge {
-    int v1;
-    int v2;
-    double weight;
+    public int v1;
+    public int v2;
+    public double weight;
 
     public Edge(int v1, int v2, double weight) {
         this.v1 = v1;
