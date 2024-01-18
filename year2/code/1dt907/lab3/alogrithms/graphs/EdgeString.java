@@ -1,6 +1,6 @@
 package alogrithms.graphs;
 
-public class EdgeString implements Comparable<EdgeString> {
+public class EdgeString {
     public String v1;
     public String v2;
     public double weight;
@@ -9,17 +9,6 @@ public class EdgeString implements Comparable<EdgeString> {
         this.v1 = v1;
         this.v2 = v2;
         this.weight = weight;
-    }
-
-    @Override
-    public int compareTo(EdgeString other) {
-        if (this.weight < other.weight) {
-            return -1;
-        } else if (this.weight > other.weight) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 
     @Override
