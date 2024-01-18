@@ -33,7 +33,6 @@ public class DirectedGraphString extends GraphString<String> {
 
     @Override
     public Iterable<String> vertices() {
-        // List<String> verticesList = new ArrayList<>(vertices);
         return verticesList;
     }
 
@@ -52,6 +51,7 @@ public class DirectedGraphString extends GraphString<String> {
     }
 
     // * Uppgift 5
+
     public static Iterable<String> topologicalSort(DirectedGraphString graph) {
         List<String> courseOrder = new ArrayList<>();
         boolean[] visited = new boolean[graph.getVertices()];

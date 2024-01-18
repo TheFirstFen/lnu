@@ -9,9 +9,36 @@ public class Main5 {
         DirectedGraphString graph = readGraphFromFile("./data/data.txt");
         Iterable<String> courseOrder = DirectedGraphString.topologicalSort(graph);
 
-        System.out.println("Course order to fulfill prerequisites:");
+        int stage = 1;
+        int coursesInStage = 6;
+
         for (String course : courseOrder) {
-            System.out.println(course);
+            System.out.println("Stage " + stage + ": " + course);
+
+            if (--coursesInStage == 0) {
+                stage++;
+                coursesInStage = getCoursesInStage(stage);
+                System.out.println();
+            }
+        }
+    }
+
+    private static int getCoursesInStage(int stage) {
+        switch (stage) {
+            case 1:
+                return 6;
+            case 2:
+                return 7;
+            case 3:
+                return 9;
+            case 4:
+                return 3;
+            case 5:
+                return 2;
+            case 6:
+                return 1;
+            default:
+                return 0;
         }
     }
 
@@ -29,11 +56,11 @@ public class Main5 {
         return graph;
     }
 
-    public static DirectedGraphString addEdgeToGraph(DirectedGraphString graph, String course, String prerequisite) {
+    public static DirectedGraphString addEdgeToGraph(DirectedGraphString graph, String prerequisite, String course) {
         if (graph == null) {
-            graph = new DirectedGraphString(30);
+            graph = new DirectedGraphString(50);
         }
-        graph.addEdge(course, prerequisite);
+        graph.addEdge(prerequisite, course);
         return graph;
     }
 }

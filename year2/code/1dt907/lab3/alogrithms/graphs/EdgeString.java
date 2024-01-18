@@ -24,6 +24,6 @@ public class EdgeString implements Comparable<EdgeString> {
 
     @Override
     public String toString() {
-        return "(" + v1 + " - " + v2 + ") | " + weight;
+        return "(" + v1 + " --> " + v2 + ") " + weight;
     }
 }

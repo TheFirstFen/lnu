@@ -19,7 +19,7 @@ public class Timer {
     }
 
     public double getTimeInNanoSeconds() {
-        if (startTime == 0 || endTime == 0) {
+        if (startTime == 0 | endTime == 0) {
             throw new IllegalStateException("Timer hasn't been used.");
         }
         return endTime - startTime;
