@@ -60,43 +60,74 @@ public class UndirectedGraph extends Graph {
         return adjacencyList.get(v);
     }
 
-    @Override
-    public boolean isConnected(int source, int destination) {
+    public void dfs(int startVertex) {
         boolean[] visited = new boolean[vertices];
-        dfs(source, visited);
-        return visited[destination];
+        dfsRec(startVertex, visited, "dfs");
     }
 
-    private void dfs(int vertex, boolean[] visited) {
+    private void dfsRec(int vertex, boolean[] visited, String callingFunc) {
         visited[vertex] = true;
+        if (callingFunc.equals("dfs"))
+            System.out.print(vertex + " ");
+
         for (Edge edge : adjacencyList.get(vertex)) {
-            if (!visited[edge.v2]) {
-                dfs(edge.v2, visited);
+            int n = edge.v2;
+            if (!visited[n]) {
+                dfsRec(n, visited, callingFunc);
+            }
+        }
+    }
+
+    public void bfs(int startVertex) {
+        boolean[] visited = new boolean[vertices];
+
+        int[] q = new int[vertices];
+        int front = 0, rear = 0;
+
+        visited[startVertex] = true;
+        q[rear++] = startVertex;
+
+        while (front != rear) {
+            int curVertex = q[front++];
+            System.out.print(curVertex + " ");
+
+            for (Edge n : adjacencyList.get(curVertex)) {
+                int nVertex = n.v2;
+                if (!visited[nVertex]) {
+                    visited[nVertex] = true;
+                    q[rear++] = nVertex;
+                }
             }
         }
     }
 
     @Override
-    public Iterable<Integer> path(int source, int destination) {
+    public boolean isConnected(int src, int dest) {
+        boolean[] visited = new boolean[vertices];
+        dfsRec(src, visited, "isConnected");
+        return visited[dest];
+    }
+
+    @Override
+    public Iterable<Integer> path(int src, int dest) {
         List<Integer> path = new ArrayList<>();
         boolean[] visited = new boolean[vertices];
-        dfsWithPath(source, destination, visited, path);
+        dfsPath(src, dest, visited, path);
         return path;
     }
 
-    private boolean dfsWithPath(int current, int destination, boolean[] visited, List<Integer> path) {
-        visited[current] = true;
-        path.add(current);
+    private boolean dfsPath(int vertex, int dest, boolean[] visited, List<Integer> path) {
+        visited[vertex] = true;
+        path.add(vertex);
 
-        if (current == destination) {
+        if (vertex == dest) {
             return true;
         }
 
-        for (Edge edge : adjacencyList.get(current)) {
-            if (!visited[edge.v2]) {
-                if (dfsWithPath(edge.v2, destination, visited, path)) {
-                    return true;
-                }
+        for (Edge edge : adjacencyList.get(vertex)) {
+            int n = edge.v2;
+            if (!visited[n] && dfsPath(n, dest, visited, path)) {
+                return true;
             }
         }
 

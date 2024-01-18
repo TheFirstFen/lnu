@@ -45,7 +45,7 @@ public abstract class Graph {
         return null;
     }
 
-    public abstract boolean isConnected(int source, int destination);
+    public abstract boolean isConnected(int src, int dest);
 
-    public abstract Iterable<Integer> path(int source, int destination);
+    public abstract Iterable<Integer> path(int src, int dest);
 }

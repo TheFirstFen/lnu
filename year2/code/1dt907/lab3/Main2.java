@@ -1,5 +1,4 @@
 import alogrithms.graphs.DirectedGraph;
-import alogrithms.graphs.Edge;
 import alogrithms.graphs.UndirectedGraph;
 
 public class Main2 {
@@ -13,20 +12,17 @@ public class Main2 {
         undirectedGraph.addEdge(10, 5);
         undirectedGraph.addEdge(5, 3, 4.0);
         undirectedGraph.addEdge(0, 10, 4.0);
+        undirectedGraph.addEdge(1, 6);
 
-        System.out.println("Undirected graph edges:");
-        for (Edge edge : undirectedGraph.edges()) {
-            System.out.println(edge);
-        }
+        System.out.println("DFS Treversal:");
+        undirectedGraph.dfs(0);
 
-        int source = 0;
-        int destination = 5;
+        System.out.println("\n\nBFS Treversal:");
+        undirectedGraph.bfs(0);
 
-        boolean isConnected = undirectedGraph.isConnected(source, destination);
-        System.out.println("Is " + source + " connected to " + destination + "? " + isConnected);
+        System.out.println("\n\nIs 0 - 10 connected: " + undirectedGraph.isConnected(0, 10));
 
-        Iterable<Integer> path = undirectedGraph.path(source, destination);
-        System.out.println("Path from " + source + " to " + destination + ": " + path);
+        System.out.println("\nOne path from 0 - 10: " + undirectedGraph.path(0, 10));
 
         DirectedGraph directedGraph = new DirectedGraph(11);
 
@@ -38,18 +34,14 @@ public class Main2 {
         directedGraph.addEdge(5, 3, 2.0);
         directedGraph.addEdge(10, 3, 4.0);
 
-        System.out.println("\nDirected graph edges:");
-        for (Edge edge : directedGraph.edges()) {
-            System.out.println(edge);
-        }
+        System.out.println("\n\nDFS Treversal:");
+        directedGraph.dfs(0);
 
-        source = 10;
-        destination = 3;
+        System.out.println("\n\nBFS Treversal:");
+        directedGraph.bfs(0);
 
-        isConnected = directedGraph.isConnected(source, destination);
-        System.out.println("Is " + source + " connected to " + destination + "? " + isConnected);
+        System.out.println("\n\nIs 0 - 10 connected: " + directedGraph.isConnected(0, 10));
 
-        path = directedGraph.path(source, destination);
-        System.out.println("Path from " + source + " to " + destination + ": " + path);
+        System.out.println("\nOne path from 0 - 10: " + directedGraph.path(0, 10));
     }
 }

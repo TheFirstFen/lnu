@@ -6,11 +6,11 @@ import (
 )
 
 func TestHelloName(t *testing.T) {
-    name := "Gladys"
+    name := "Samuel"
     want := regexp.MustCompile(`\b`+name+`\b`)
-    msg, err := Hello("Gladys")
+    msg, err := Hello("Samuel")
     if !want.MatchString(msg) || err != nil {
-        t.Fatalf(`Hello("Gladys") = %q, %v, want match for %#q, nil`, msg, err, want)
+        t.Fatalf(`Hello("Samuel") = %q, %v, want match for %#q, nil`, msg, err, want)
     }
 }
 

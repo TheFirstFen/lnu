@@ -1,6 +1,6 @@
 package alogrithms.graphs;
 
-public class Edge {
+public class Edge implements Comparable<Edge> {
     public int v1;
     public int v2;
     public double weight;
@@ -12,7 +12,19 @@ public class Edge {
     }
 
     @Override
+    public int compareTo(Edge other) {
+        // return Double.compare(this.weight, other.weight);
+        if (this.weight < other.weight) {
+            return -1;
+        } else if (this.weight > other.weight) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    @Override
     public String toString() {
-        return "(" + v1 + " - " + v2 + ", " + weight + ")";
+        return "(" + v1 + " - " + v2 + ") | " + weight;
     }
 }
