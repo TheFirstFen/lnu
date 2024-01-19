@@ -52,31 +52,38 @@ public class DirectedGraphString extends GraphString<String> {
 
     // * Uppgift 5
 
-    public static Iterable<String> topologicalSort(DirectedGraphString graph) {
-        List<String> courseOrder = new ArrayList<>();
+    public static Iterable<String> breadthFirstSearch(DirectedGraphString graph, String startVertex) {
+        List<String> traversalOrder = new ArrayList<>();
         boolean[] visited = new boolean[graph.getVertices()];
 
-        for (String course : graph.vertices()) {
-            int index = graph.verticesList.indexOf(course);
-            if (!visited[index]) {
-                topologicalSortUtil(graph, index, visited, courseOrder);
-            }
+        int startIndex = graph.verticesList.indexOf(startVertex);
+        if (startIndex != -1) {
+            breadthFirstSearchUtil(graph, startIndex, visited, traversalOrder);
         }
 
-        return courseOrder;
+        return traversalOrder;
     }
 
-    private static void topologicalSortUtil(DirectedGraphString graph, int v, boolean[] visited,
-            List<String> courseOrder) {
-        visited[v] = true;
+    private static void breadthFirstSearchUtil(DirectedGraphString graph, int start, boolean[] visited,
+            List<String> traversalOrder) {
+        int[] queue = new int[graph.getVertices()];
+        int front = 0, rear = -1;
 
-        for (EdgeString edge : graph.adjacent(graph.verticesList.get(v))) {
-            int index = graph.verticesList.indexOf(edge.v2);
-            if (!visited[index]) {
-                topologicalSortUtil(graph, index, visited, courseOrder);
+        visited[start] = true;
+        queue[++rear] = start;
+
+        while (front <= rear) {
+            int currentVertex = queue[front++];
+            traversalOrder.add(graph.verticesList.get(currentVertex));
+
+            for (EdgeString edge : graph.adjacent(graph.verticesList.get(currentVertex))) {
+                int index = graph.verticesList.indexOf(edge.v2);
+                if (!visited[index]) {
+                    visited[index] = true;
+                    queue[++rear] = index;
+                }
             }
         }
-
-        courseOrder.add(graph.verticesList.get(v));
     }
+
 }

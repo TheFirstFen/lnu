@@ -44,6 +44,10 @@ public abstract class GraphString<T> {
         return 0;
     }
 
+    public List<T> verticesList() {
+        return verticesList;
+    }
+
     public Iterable<T> vertices() {
         return verticesList;
     }
