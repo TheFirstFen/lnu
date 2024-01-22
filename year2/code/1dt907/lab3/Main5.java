@@ -13,6 +13,8 @@ public class Main5 {
         String startIdx = "START";
 
         List<String> stage1 = coursesWithNoPrerequisuites(graph);
+
+        // * Needed ?
         for (String course : stage1) {
             addEdgeToGraph(graph, startIdx, course);
         }
@@ -101,6 +103,7 @@ public class Main5 {
         return stage1;
     }
 
+    // * Testing, Not working
     private static List<String> coursesWithStage1AsPrerequisuites(DirectedGraphString graph, List<String> stage) {
         List<String> stage2 = new ArrayList<String>();
         List<String> temp = new ArrayList<String>();
