@@ -1,6 +1,7 @@
 go 1.21.5
 
 use (
+	./test/defer
 	./test/greetings
 	./test/hello
 	./test/linkedlist

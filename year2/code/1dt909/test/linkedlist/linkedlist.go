@@ -30,9 +30,9 @@ func (l *List[T]) GetAll() []T {
 }
 
 func main() {
-	list := List[int]{}
-	list.Push(1)
-	list.Push(2)
-	list.Push(3)
-	fmt.Println(list.GetAll())
+	lst := List[int]{}
+	lst.Push(10)
+	lst.Push(11)
+	lst.Push(12)
+	fmt.Println(lst.GetAll())
 }
