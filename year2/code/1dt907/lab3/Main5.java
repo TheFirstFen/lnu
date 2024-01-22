@@ -12,31 +12,20 @@ public class Main5 {
         DirectedGraphString graph = readGraphFromFile("./data/data.txt");
         String startIdx = "START";
 
-        List<String> temp = new ArrayList<String>();
-        // locate cousres without prerequisite
-        for (String courseID : graph.vertices()) {
-            for (EdgeString edge : graph.adjacent(courseID)) {
-                temp.add(edge.v2);
-            }
-        }
-
-        List<String> stage1 = new ArrayList<String>();
-        List<String> vertices = graph.verticesList();
-        for (String vertex : vertices) {
-            if (!temp.contains(vertex)) {
-                stage1.add(vertex);
-            }
-        }
-
+        List<String> stage1 = coursesWithNoPrerequisuites(graph);
         for (String course : stage1) {
             addEdgeToGraph(graph, startIdx, course);
         }
+
+        List<String> stage2 = coursesWithStage1AsPrerequisuites(graph, stage1);
 
         Iterable<String> courseOrder = DirectedGraphString.breadthFirstSearch(graph, startIdx);
 
         int stage = 1;
         int coursesInStage = 6;
 
+        // * Debugging Versio
+        // * Debuggingn
         for (String course : courseOrder) {
             if (course.equals(startIdx)) {
                 continue;
@@ -51,6 +40,7 @@ public class Main5 {
         }
     }
 
+    // * Debugging
     private static int getCoursesInStage(int stage) {
         switch (stage) {
             case 1:
@@ -90,5 +80,49 @@ public class Main5 {
         }
         graph.addEdge(prerequisite, course);
         return graph;
+    }
+
+    private static List<String> coursesWithNoPrerequisuites(DirectedGraphString graph) {
+        List<String> temp = new ArrayList<String>();
+        for (String courseID : graph.vertices()) {
+            for (EdgeString edge : graph.adjacent(courseID)) {
+                temp.add(edge.v2);
+            }
+        }
+
+        List<String> vertices = graph.verticesList();
+        List<String> stage1 = new ArrayList<String>();
+        for (String vertex : vertices) {
+            if (!temp.contains(vertex)) {
+                stage1.add(vertex);
+            }
+        }
+
+        return stage1;
+    }
+
+    private static List<String> coursesWithStage1AsPrerequisuites(DirectedGraphString graph, List<String> stage) {
+        List<String> stage2 = new ArrayList<String>();
+        List<String> temp = new ArrayList<String>();
+        for (String courseID : stage) {
+            for (EdgeString edge : graph.adjacent(courseID)) {
+                temp.add(edge.v2);
+            }
+        }
+
+        temp = temp.stream().distinct().toList();
+
+        for (String courseID : temp) {
+            List<String> prerequisuite = new ArrayList<>();
+            for (EdgeString edge : graph.adjacent(courseID)) {
+                prerequisuite.add(edge.v1);
+            }
+
+            if (stage.containsAll(prerequisuite)) {
+                stage2.add(courseID);
+            }
+        }
+
+        return stage2;
     }
 }
