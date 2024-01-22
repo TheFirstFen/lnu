@@ -110,7 +110,7 @@ public class Main5 {
             }
         }
 
-        temp = temp.stream().distinct().toList();
+        temp = temp.stream().distinct().toList(); // Removes duplicates
 
         for (String courseID : temp) {
             List<String> prerequisuite = new ArrayList<>();
