@@ -13,11 +13,19 @@ func main() {
 
 	names := []string{"Samuel", "Samantha", "Darrin"}
 
-	msgs, err := greetings.Hellos(names)
+	name := "Samuel"
 
-	if err != nil {
+	msg, err := greetings.Hello(name)
+
+	msgs, errs := greetings.Hellos(names)
+
+	if err != nil && errs != nil {
 		log.Fatal(err)
 	}
 
-	fmt.Println(msgs)
+	fmt.Println(msg)
+
+	for _, msg := range msgs {
+		fmt.Println(msg)
+	}
 }
