@@ -7,8 +7,8 @@ import alogrithms.Heap;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DirectedGraph extends Graph {
-    private List<List<Edge>> adjacencyList;
+public class DirectedGraph<T> extends Graph<T> {
+    private List<List<Edge<T>>> adjacencyList;
 
     public DirectedGraph(int vertices) {
         super(vertices);
@@ -19,34 +19,40 @@ public class DirectedGraph extends Graph {
     }
 
     @Override
-    public void addEdge(int v, int w, double weight) {
-        super.addEdge(v, w, weight);
-        adjacencyList.get(v).add(new Edge(v, w, weight));
-    }
-
-    @Override
-    public void removeEdge(int v, int w) {
-        super.removeEdge(v, w);
-        adjacencyList.get(v).removeIf(edge -> edge.v2 == w);
-    }
-
-    @Override
-    public int degree(int v) {
-        return adjacencyList.get(v).size();
-    }
-
-    @Override
-    public Iterable<Integer> vertices() {
-        List<Integer> verticesList = new ArrayList<>();
-        for (int i = 0; i < vertices; i++) {
-            verticesList.add(i);
+    public void addEdge(T v, T w, double weight) {
+        if (!verticesList.contains(v)) {
+            verticesList.add(v);
+            adjacencyList.add(new ArrayList<>());
         }
+        if (!verticesList.contains(w)) {
+            verticesList.add(w);
+            adjacencyList.add(new ArrayList<>());
+        }
+
+        super.addEdge(v, w, weight);
+        adjacencyList.get((int) v).add(new Edge<T>(v, w, weight));
+        vertices = verticesList.size();
+    }
+
+    @Override
+    public void removeEdge(T v, T w) {
+        super.removeEdge(v, w);
+        adjacencyList.get((int) v).removeIf(edge -> edge.v2 == w);
+    }
+
+    @Override
+    public int degree(T v) {
+        return adjacencyList.get((int) v).size();
+    }
+
+    @Override
+    public Iterable<T> vertices() {
         return verticesList;
     }
 
     @Override
-    public Iterable<Edge> edges() {
-        List<Edge> edgesList = new ArrayList<>();
+    public Iterable<Edge<T>> edges() {
+        List<Edge<T>> edgesList = new ArrayList<>();
         for (int v = 0; v < vertices; v++) {
             edgesList.addAll(adjacencyList.get(v));
         }
@@ -54,78 +60,77 @@ public class DirectedGraph extends Graph {
     }
 
     @Override
-    public Iterable<Edge> adjacent(int v) {
-        return adjacencyList.get(v);
+    public Iterable<Edge<T>> adjacent(T v) {
+        return adjacencyList.get((int) v);
     }
 
     // * Uppgift 2
-    public void dfs(int startVertex) {
+    public void dfs(T startVertex) {
         boolean[] visited = new boolean[vertices];
         dfsRec(startVertex, visited, "dfs");
     }
 
-    private void dfsRec(int vertex, boolean[] visited, String callingFunc) {
-        visited[vertex] = true;
+    private void dfsRec(T src, boolean[] visited, String callingFunc) {
+        visited[(int) src] = true;
         if (callingFunc.equals("dfs"))
-            System.out.print(vertex + " ");
+            System.out.print(src + " ");
 
-        for (Edge edge : adjacencyList.get(vertex)) {
-            int n = edge.v2;
+        for (Edge<T> edge : adjacencyList.get((int) src)) {
+            int n = (int) edge.v2;
             if (!visited[n]) {
-                dfsRec(n, visited, callingFunc);
+                dfsRec(edge.v2, visited, callingFunc);
             }
         }
     }
 
-    public void bfs(int startVertex) {
+    public void bfs(T startVertex) {
         boolean[] visited = new boolean[vertices];
+        List<T> q = new ArrayList<>();
+        int front = 0;
 
-        int[] q = new int[vertices];
-        int front = 0, rear = 0;
+        visited[(int) startVertex] = true;
+        q.add(startVertex);
 
-        visited[startVertex] = true;
-        q[rear++] = startVertex;
-
-        while (front != rear) {
-            int curVertex = q[front++];
+        while (front < q.size()) {
+            int curVertex = (int) q.get(front++);
             System.out.print(curVertex + " ");
 
-            for (Edge n : adjacencyList.get(curVertex)) {
-                int nVertex = n.v2;
+            for (Edge<T> edge : adjacencyList.get(curVertex)) {
+                int nVertex = (int) edge.v2;
                 if (!visited[nVertex]) {
                     visited[nVertex] = true;
-                    q[rear++] = nVertex;
+                    q.add(edge.v2);
                 }
             }
         }
     }
 
     @Override
-    public boolean isConnected(int src, int dest) {
+    public boolean isConnected(T src, T dest) {
         boolean[] visited = new boolean[vertices];
         dfsRec(src, visited, "isConnected");
-        return visited[dest];
+        return visited[(int) dest];
     }
 
     @Override
-    public Iterable<Integer> path(int src, int dest) {
-        List<Integer> path = new ArrayList<>();
+    public Iterable<T> path(T src, T dest) {
+        List<T> path = new ArrayList<>();
         boolean[] visited = new boolean[vertices];
         dfsPath(src, dest, visited, path);
         return path;
     }
 
-    private boolean dfsPath(int vertex, int dest, boolean[] visited, List<Integer> path) {
-        visited[vertex] = true;
+    private boolean dfsPath(T vertex, T dest, boolean[] visited, List<T> path) {
+        visited[(int) vertex] = true;
         path.add(vertex);
 
         if (vertex == dest) {
             return true;
         }
 
-        for (Edge edge : adjacencyList.get(vertex)) {
-            int n = edge.v2;
-            if (!visited[n] && dfsPath(n, dest, visited, path)) {
+        for (Edge<T> edge : adjacencyList.get((int) vertex)) {
+            int n = (int) edge.v2;
+            if (!visited[n] && dfsPath(edge.v2, dest, visited, path)) {
                 return true;
             }
         }
@@ -135,27 +140,27 @@ public class DirectedGraph extends Graph {
     }
 
     // * Uppgift 4
-    public double[] dijkstra(int source) {
+    public double[] dijkstra(int src) {
         double[] dist = new double[vertices];
         Arrays.fill(dist, Double.POSITIVE_INFINITY);
-        dist[source] = 0;
+        dist[src] = 0;
 
-        Heap minHeap = new Heap(vertices);
+        Heap<T> minHeap = new Heap<T>(vertices);
         for (int i = 0; i < vertices; i++) {
-            minHeap.insert(new Edge(source, i, dist[i]));
+            minHeap.insert(new Edge(src, i, dist[i]));
         }
 
         while (!minHeap.isEmpty()) {
-            Edge minEdge = minHeap.poll();
-            int u = minEdge.v2;
+            Edge<T> minEdge = minHeap.poll();
+            int u = (int) minEdge.v2;
 
-            for (Edge neighbor : adjacent(u)) {
-                int v = neighbor.v2;
+            for (Edge<T> neighbor : adjacent(minEdge.v2)) {
+                int v = (int) neighbor.v2;
                 double weight = neighbor.weight;
 
                 if (dist[u] + weight < dist[v]) {
                     dist[v] = dist[u] + weight;
-                    minHeap.insert(new Edge(u, v, dist[v]));
+                    minHeap.insert(new Edge<T>(minEdge.v2, neighbor.v2, dist[v]));
                 }
             }
         }
@@ -163,15 +168,15 @@ public class DirectedGraph extends Graph {
         return dist;
     }
 
-    public double[] bellmanFord(int source) {
+    public double[] bellmanFord(int src) {
         double[] dist = new double[vertices];
         Arrays.fill(dist, Double.POSITIVE_INFINITY);
-        dist[source] = 0;
+        dist[src] = 0;
 
         for (int i = 1; i < vertices - 1; i++) {
-            for (Edge edge : edges()) {
-                int u = edge.v1;
-                int v = edge.v2;
+            for (Edge<T> edge : edges()) {
+                int u = (int) edge.v1;
+                int v = (int) edge.v2;
                 double weight = edge.weight;
 
                 if (dist[u] + weight < dist[v]) {
@@ -181,34 +186,5 @@ public class DirectedGraph extends Graph {
         }
 
         return dist;
-    }
-
-    // * Uppgift 5
-    public List<Integer> topologicalSort() {
-        boolean[] visited = new boolean[vertices];
-        List<Integer> result = new ArrayList<>();
-
-        for (int i = 0; i < vertices; i++) {
-            if (!visited[i]) {
-                topologicalSortUtil(i, visited, result);
-            }
-        }
-
-        List<Integer> reversedResult = new ArrayList<>(result);
-        java.util.Collections.reverse(reversedResult);
-        return reversedResult;
-    }
-
-    private void topologicalSortUtil(int vertex, boolean[] visited, List<Integer> result) {
-        visited[vertex] = true;
-
-        for (Edge edge : adjacencyList.get(vertex)) {
-            int n = edge.v2;
-            if (!visited[n]) {
-                topologicalSortUtil(n, visited, result);
-            }
-        }
-
-        result.add(vertex);
     }
 }

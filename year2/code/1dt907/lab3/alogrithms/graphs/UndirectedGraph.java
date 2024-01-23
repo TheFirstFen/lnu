@@ -3,8 +3,8 @@ package alogrithms.graphs;
 import java.util.List;
 import java.util.ArrayList;
 
-public class UndirectedGraph extends Graph {
-    private List<List<Edge>> adjacencyList;
+public class UndirectedGraph<T> extends Graph<T> {
+    private List<List<Edge<T>>> adjacencyList;
 
     public UndirectedGraph(int vertices) {
         super(vertices);
@@ -15,40 +15,36 @@ public class UndirectedGraph extends Graph {
     }
 
     @Override
-    public void addEdge(int v, int w, double weight) {
+    public void addEdge(T v, T w, double weight) {
         super.addEdge(v, w, weight);
-        adjacencyList.get(v).add(new Edge(v, w, weight));
-        adjacencyList.get(w).add(new Edge(w, v, weight));
+        adjacencyList.get((int) v).add(new Edge<T>(v, w, weight));
+        adjacencyList.get((int) w).add(new Edge<T>(w, v, weight));
     }
 
     @Override
-    public void removeEdge(int v, int w) {
+    public void removeEdge(T v, T w) {
         super.removeEdge(v, w);
-        adjacencyList.get(v).removeIf(edge -> edge.v2 == w);
-        adjacencyList.get(w).removeIf(edge -> edge.v2 == v);
+        adjacencyList.get((int) v).removeIf(edge -> edge.v2 == w);
+        adjacencyList.get((int) w).removeIf(edge -> edge.v2 == v);
     }
 
     @Override
-    public int degree(int v) {
-        return adjacencyList.get(v).size();
+    public int degree(T v) {
+        return adjacencyList.get((int) v).size();
     }
 
     @Override
-    public Iterable<Integer> vertices() {
-        List<Integer> verticesList = new ArrayList<>();
-        for (int i = 0; i < vertices; i++) {
-            verticesList.add(i);
-        }
+    public Iterable<T> vertices() {
         return verticesList;
     }
 
     @Override
-    public Iterable<Edge> edges() {
-        List<Edge> edgesList = new ArrayList<>();
+    public Iterable<Edge<T>> edges() {
+        List<Edge<T>> edgesList = new ArrayList<>();
         for (int v = 0; v < vertices; v++) {
-            for (Edge edge : adjacencyList.get(v)) {
-                if (v < edge.v2) {
-                    edgesList.add(new Edge(v, edge.v2, edge.weight));
+            for (Edge<T> edge : adjacencyList.get(v)) {
+                if (v < (int) edge.v2) {
+                    edgesList.add(new Edge<T>(edge.v1, edge.v2, edge.weight));
                 }
             }
         }
@@ -56,24 +52,24 @@ public class UndirectedGraph extends Graph {
     }
 
     @Override
-    public Iterable<Edge> adjacent(int v) {
-        return adjacencyList.get(v);
+    public Iterable<Edge<T>> adjacent(T v) {
+        return adjacencyList.get((int) v);
     }
 
-    public void dfs(int startVertex) {
+    public void dfs(T startVertex) {
         boolean[] visited = new boolean[vertices];
         dfsRec(startVertex, visited, "dfs");
     }
 
-    private void dfsRec(int vertex, boolean[] visited, String callingFunc) {
-        visited[vertex] = true;
+    private void dfsRec(T src, boolean[] visited, String callingFunc) {
+        visited[(int) src] = true;
         if (callingFunc.equals("dfs"))
-            System.out.print(vertex + " ");
+            System.out.print(src + " ");
 
-        for (Edge edge : adjacencyList.get(vertex)) {
-            int n = edge.v2;
+        for (Edge<T> edge : adjacencyList.get((int) src)) {
+            int n = (int) edge.v2;
             if (!visited[n]) {
-                dfsRec(n, visited, callingFunc);
+                dfsRec(edge.v2, visited, callingFunc);
             }
         }
     }
@@ -91,8 +87,8 @@ public class UndirectedGraph extends Graph {
             int curVertex = q[front++];
             System.out.print(curVertex + " ");
 
-            for (Edge n : adjacencyList.get(curVertex)) {
-                int nVertex = n.v2;
+            for (Edge<T> n : adjacencyList.get(curVertex)) {
+                int nVertex = (int) n.v2;
                 if (!visited[nVertex]) {
                     visited[nVertex] = true;
                     q[rear++] = nVertex;
@@ -102,31 +98,31 @@ public class UndirectedGraph extends Graph {
     }
 
     @Override
-    public boolean isConnected(int src, int dest) {
+    public boolean isConnected(T src, T dest) {
         boolean[] visited = new boolean[vertices];
         dfsRec(src, visited, "isConnected");
-        return visited[dest];
+        return visited[(int) dest];
     }
 
     @Override
-    public Iterable<Integer> path(int src, int dest) {
-        List<Integer> path = new ArrayList<>();
+    public Iterable<T> path(T src, T dest) {
+        List<T> path = new ArrayList<>();
         boolean[] visited = new boolean[vertices];
         dfsPath(src, dest, visited, path);
         return path;
     }
 
-    private boolean dfsPath(int vertex, int dest, boolean[] visited, List<Integer> path) {
-        visited[vertex] = true;
+    private boolean dfsPath(T vertex, T dest, boolean[] visited, List<T> path) {
+        visited[(int) vertex] = true;
         path.add(vertex);
 
         if (vertex == dest) {
             return true;
         }
 
-        for (Edge edge : adjacencyList.get(vertex)) {
-            int n = edge.v2;
-            if (!visited[n] && dfsPath(n, dest, visited, path)) {
+        for (Edge<T> edge : adjacencyList.get((int) vertex)) {
+            int n = (int) edge.v2;
+            if (!visited[n] && dfsPath(edge.v2, dest, visited, path)) {
                 return true;
             }
         }

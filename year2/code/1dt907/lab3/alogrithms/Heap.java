@@ -2,8 +2,8 @@ package alogrithms;
 
 import alogrithms.graphs.Edge;
 
-public class Heap {
-    private Edge[] heap;
+public class Heap<T> {
+    private Edge<T>[] heap;
     private int size;
     private int cap;
 
@@ -13,7 +13,7 @@ public class Heap {
         this.heap = new Edge[cap];
     }
 
-    public void insert(Edge edge) {
+    public void insert(Edge<T> edge) {
         resize();
 
         heap[size] = edge;
@@ -21,14 +21,14 @@ public class Heap {
         size++;
     }
 
-    public Edge poll() {
+    public Edge<T> poll() {
         if (isEmpty()) {
             throw new IllegalStateException("Heap is empty.");
         }
 
         resize();
 
-        Edge edge = heap[0];
+        Edge<T> edge = heap[0];
         heap[0] = heap[size - 1];
         size--;
         heapifyDown(0);
@@ -39,14 +39,14 @@ public class Heap {
     private void resize() {
         if (size == this.cap) {
             this.cap = this.cap * 2;
-            Edge[] newHeap = new Edge[this.cap];
+            Edge<T>[] newHeap = new Edge[this.cap];
             for (int i = 0; i < size; i++) {
                 newHeap[i] = heap[i];
             }
             heap = newHeap;
         } else if (size == this.cap / 4) {
             this.cap = this.cap / 2;
-            Edge[] newHeap = new Edge[this.cap];
+            Edge<T>[] newHeap = new Edge[this.cap];
             for (int i = 0; i < size; i++) {
                 newHeap[i] = heap[i];
             }
@@ -98,7 +98,7 @@ public class Heap {
     }
 
     private void swap(int i, int j) {
-        Edge temp = heap[i];
+        Edge<T> temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
     }

@@ -2,7 +2,7 @@ import alogrithms.graphs.DirectedGraph;
 
 public class Main4 {
     public static void main(String[] args) {
-        DirectedGraph graph = new DirectedGraph(5);
+        DirectedGraph<Integer> graph = new DirectedGraph<Integer>(5);
 
         graph.addEdge(0, 1, 2.0);
         graph.addEdge(0, 2, 4.0);

@@ -1,11 +1,16 @@
 package alogrithms.graphs;
 
-public abstract class Graph {
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Graph<T> {
     protected int vertices;
+    protected List<T> verticesList;
     protected int edges;
 
     public Graph(int vertices) {
         this.vertices = vertices;
+        this.verticesList = new ArrayList<>(vertices);
         this.edges = 0;
     }
 
@@ -17,35 +22,41 @@ public abstract class Graph {
         return edges;
     }
 
-    public void addEdge(int v, int w) {
+    public void addEdge(T v, T w) {
         addEdge(v, w, 1.0);
     }
 
-    public void addEdge(int v, int w, double weight) {
+    public void addEdge(T v, T w, double weight) {
+        if (!verticesList.contains(v)) {
+            verticesList.add(v);
+        }
+        if (!verticesList.contains(w)) {
+            verticesList.add(w);
+        }
         edges++;
     }
 
-    public void removeEdge(int v, int w) {
+    public void removeEdge(T v, T w) {
         edges--;
     }
 
-    public int degree(int v) {
+    public int degree(T v) {
         return 0;
     }
 
-    public Iterable<Integer> vertices() {
+    public Iterable<T> vertices() {
+        return verticesList;
+    }
+
+    public Iterable<Edge<T>> edges() {
         return null;
     }
 
-    public Iterable<Edge> edges() {
+    public Iterable<Edge<T>> adjacent(T v) {
         return null;
     }
 
-    public Iterable<Edge> adjacent(int v) {
-        return null;
-    }
+    public abstract boolean isConnected(T src, T dest);
 
-    public abstract boolean isConnected(int src, int dest);
-
-    public abstract Iterable<Integer> path(int src, int dest);
+    public abstract Iterable<T> path(T src, T dest);
 }

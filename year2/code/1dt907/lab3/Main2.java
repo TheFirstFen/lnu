@@ -3,7 +3,7 @@ import alogrithms.graphs.UndirectedGraph;
 
 public class Main2 {
     public static void main(String[] args) {
-        UndirectedGraph undirectedGraph = new UndirectedGraph(11);
+        UndirectedGraph<Integer> undirectedGraph = new UndirectedGraph<Integer>(11);
 
         undirectedGraph.addEdge(0, 1);
         undirectedGraph.addEdge(1, 2);
@@ -24,7 +24,7 @@ public class Main2 {
 
         System.out.println("\nOne path from 0 - 10: " + undirectedGraph.path(0, 10));
 
-        DirectedGraph directedGraph = new DirectedGraph(11);
+        DirectedGraph<Integer> directedGraph = new DirectedGraph<Integer>(11);
 
         directedGraph.addEdge(0, 1);
         directedGraph.addEdge(1, 2);
