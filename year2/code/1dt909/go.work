@@ -8,4 +8,5 @@ use (
 	./test/pointers
 	./test/struct
 	./test/test
+	./test/test1
 )
