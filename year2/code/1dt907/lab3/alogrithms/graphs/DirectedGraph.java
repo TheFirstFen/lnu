@@ -1,9 +1,8 @@
 package alogrithms.graphs;
 
-import java.util.List;
-
 import alogrithms.Heap;
 
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -20,29 +19,23 @@ public class DirectedGraph<T> extends Graph<T> {
 
     @Override
     public void addEdge(T v, T w, double weight) {
-        if (!verticesList.contains(v)) {
-            verticesList.add(v);
-            adjacencyList.add(new ArrayList<>());
-        }
-        if (!verticesList.contains(w)) {
-            verticesList.add(w);
-            adjacencyList.add(new ArrayList<>());
-        }
-
         super.addEdge(v, w, weight);
-        adjacencyList.get((int) v).add(new Edge<T>(v, w, weight));
-        vertices = verticesList.size();
+        adjacencyList.get(verticesList.indexOf(v)).add(new Edge<T>(v, w, weight));
     }
 
     @Override
     public void removeEdge(T v, T w) {
         super.removeEdge(v, w);
-        adjacencyList.get((int) v).removeIf(edge -> edge.v2 == w);
+        adjacencyList.get(verticesList.indexOf(v)).removeIf(edge -> edge.v2 == w);
     }
 
     @Override
     public int degree(T v) {
-        return adjacencyList.get((int) v).size();
+        return adjacencyList.get(verticesList.indexOf(v)).size();
+    }
+
+    public List<T> verticesList() {
+        return verticesList;
     }
 
     @Override
@@ -64,18 +57,22 @@ public class DirectedGraph<T> extends Graph<T> {
         return adjacencyList.get((int) v);
     }
 
+    public Iterable<Edge<T>> adjacent(int v) {
+        return adjacencyList.get(v);
+    }
+
     // * Uppgift 2
     public void dfs(T startVertex) {
         boolean[] visited = new boolean[vertices];
         dfsRec(startVertex, visited, "dfs");
     }
 
-    private void dfsRec(T src, boolean[] visited, String callingFunc) {
-        visited[(int) src] = true;
+    private void dfsRec(T vertex, boolean[] visited, String callingFunc) {
+        visited[(int) vertex] = true;
         if (callingFunc.equals("dfs"))
-            System.out.print(src + " ");
+            System.out.print(vertex + " ");
 
-        for (Edge<T> edge : adjacencyList.get((int) src)) {
+        for (Edge<T> edge : adjacencyList.get((int) vertex)) {
             int n = (int) edge.v2;
             if (!visited[n]) {
                 dfsRec(edge.v2, visited, callingFunc);
@@ -83,23 +80,24 @@ public class DirectedGraph<T> extends Graph<T> {
         }
     }
 
-    public void bfs(T startVertex) {
+    public void bfs(int startVertex) {
         boolean[] visited = new boolean[vertices];
-        List<T> q = new ArrayList<>();
-        int front = 0;
 
-        visited[(int) startVertex] = true;
-        q.add(startVertex);
+        int[] q = new int[vertices];
+        int front = 0, rear = 0;
 
-        while (front < q.size()) {
-            int curVertex = (int) q.get(front++);
+        visited[startVertex] = true;
+        q[rear++] = startVertex;
+
+        while (front != rear) {
+            int curVertex = q[front++];
             System.out.print(curVertex + " ");
 
-            for (Edge<T> edge : adjacencyList.get(curVertex)) {
-                int nVertex = (int) edge.v2;
+            for (Edge<T> n : adjacencyList.get(curVertex)) {
+                int nVertex = (int) n.v2;
                 if (!visited[nVertex]) {
                     visited[nVertex] = true;
-                    q.add(edge.v2);
+                    q[rear++] = nVertex;
                 }
             }
         }

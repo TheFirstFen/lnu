@@ -13,7 +13,9 @@ public class Kruskal {
 
     public void addEdge(int v, int w, double weight) {
         Edge<Integer> edge = new Edge<Integer>(v, w, weight);
+        Edge<Integer> rEdge = new Edge<Integer>(w, v, weight);
         heap.insert(edge);
+        heap.insert(rEdge);
     }
 
     public void runKurskal() {

@@ -2,15 +2,18 @@ package alogrithms;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
-import alogrithms.graphs.DirectedGraphString;
+import alogrithms.graphs.DirectedGraph;
 import alogrithms.graphs.Edge;
 
-public class DFO<T> {
-    public DFO(DirectedGraphString graph) {
-        boolean[] visited = new boolean[graph.getVertices()];
-        List<String> res = new ArrayList<>();
+public class DFO {
+    boolean[] visited;
+    List<String> res;
 
+    public DFO(DirectedGraph<String> graph) {
+        visited = new boolean[graph.getVertices()];
+        res = new ArrayList<>();
         for (int i = 0; i < graph.getVertices(); i++) {
             if (!visited[i]) {
                 dfs(graph, i);
@@ -18,15 +21,20 @@ public class DFO<T> {
         }
     }
 
-    public void dfs(DirectedGraphString graph, int v) {
+    private void dfs(DirectedGraph<String> graph, int v) {
         visited[v] = true;
-        for (Edge<T> edge : graph.adjacent(v)) {
-            int neighborIndex = verticesList.indexOf(edge.v2);
-            if (!visited[neighborIndex]) {
-                dfs(neighborIndex, visited);
+        for (Edge<String> edge : graph.adjacent(v)) {
+            int nIdx = graph.verticesList().indexOf(edge.v2);
+            if (!visited[nIdx]) {
+                dfs(graph, nIdx);
             }
         }
 
-        path.add(verticesList.get(v));
+        res.add(graph.verticesList().get(v));
+    }
+
+    public List<String> reverse_res() {
+        Collections.reverse(res);
+        return res;
     }
 }
