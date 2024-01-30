@@ -13,8 +13,8 @@ public class Main1 {
         System.out.println("#Vertices: " + undirectedGraph.getVertices());
         System.out.println("#Edges: " + undirectedGraph.getEdges());
         System.out.println("Edges: " + undirectedGraph.edges());
-        System.out.println("Degree of vertex 0: " + undirectedGraph.degree(0));
-        System.out.println("Adjacent vertices of vertex 1: " + undirectedGraph.adjacent(1));
+        System.out.println("Degree of v 0: " + undirectedGraph.degree(0));
+        System.out.println("Adjacent vertices of v 1: " + undirectedGraph.adjacent(1));
 
         DirectedGraph<Integer> directedGraph = new DirectedGraph<Integer>(4);
         directedGraph.addEdge(0, 1, 2.5);
@@ -26,7 +26,7 @@ public class Main1 {
         System.out.println("#Vertices: " + directedGraph.getVertices());
         System.out.println("#Edges: " + directedGraph.getEdges());
         System.out.println("Edges: " + directedGraph.edges());
-        System.out.println("Degree of vertex 0: " + directedGraph.degree(0));
-        System.out.println("Adjacent vertices of vertex 1: " + directedGraph.adjacent(1));
+        System.out.println("Degree of v 0: " + directedGraph.degree(0));
+        System.out.println("Adjacent vertices of v 1: " + directedGraph.adjacent(1));
     }
 }

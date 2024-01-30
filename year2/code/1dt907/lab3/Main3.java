@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Main3 {
     public static void main(String[] args) {
-        UndirectedGraph<Integer> graph = new UndirectedGraph<Integer>(15); // * 15 represent the largest vertex + 1
+        UndirectedGraph<Integer> graph = new UndirectedGraph<Integer>(15); // * 15 represent the largest v + 1
         Random rnd = new Random();
 
         graph.addEdge(0, 1, rnd.nextInt(1001) / 100.0);

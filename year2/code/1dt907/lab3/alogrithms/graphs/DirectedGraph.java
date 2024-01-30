@@ -62,17 +62,17 @@ public class DirectedGraph<T> extends Graph<T> {
     }
 
     // * Uppgift 2
-    public void dfs(T startVertex) {
+    public void dfs(T start) {
         boolean[] visited = new boolean[vertices];
-        dfsRec(startVertex, visited, "dfs");
+        dfsRec(start, visited, "dfs");
     }
 
-    private void dfsRec(T vertex, boolean[] visited, String callingFunc) {
-        visited[(int) vertex] = true;
+    private void dfsRec(T v, boolean[] visited, String callingFunc) {
+        visited[(int) v] = true;
         if (callingFunc.equals("dfs"))
-            System.out.print(vertex + " ");
+            System.out.print(v + " ");
 
-        for (Edge<T> edge : adjacencyList.get((int) vertex)) {
+        for (Edge<T> edge : adjacencyList.get((int) v)) {
             int n = (int) edge.v2;
             if (!visited[n]) {
                 dfsRec(edge.v2, visited, callingFunc);
@@ -80,14 +80,14 @@ public class DirectedGraph<T> extends Graph<T> {
         }
     }
 
-    public void bfs(int startVertex) {
+    public void bfs(int start) {
         boolean[] visited = new boolean[vertices];
 
         int[] q = new int[vertices];
         int front = 0, rear = 0;
 
-        visited[startVertex] = true;
-        q[rear++] = startVertex;
+        visited[start] = true;
+        q[rear++] = start;
 
         while (front != rear) {
             int curVertex = q[front++];
@@ -118,15 +118,15 @@ public class DirectedGraph<T> extends Graph<T> {
         return path;
     }
 
-    private boolean dfsPath(T vertex, T dest, boolean[] visited, List<T> path) {
-        visited[(int) vertex] = true;
-        path.add(vertex);
+    private boolean dfsPath(T v, T dest, boolean[] visited, List<T> path) {
+        visited[(int) v] = true;
+        path.add(v);
 
-        if (vertex == dest) {
+        if (v == dest) {
             return true;
         }
 
-        for (Edge<T> edge : adjacencyList.get((int) vertex)) {
+        for (Edge<T> edge : adjacencyList.get((int) v)) {
             int n = (int) edge.v2;
             if (!visited[n] && dfsPath(edge.v2, dest, visited, path)) {
                 return true;
@@ -143,13 +143,13 @@ public class DirectedGraph<T> extends Graph<T> {
         Arrays.fill(dist, Double.POSITIVE_INFINITY);
         dist[src] = 0;
 
-        Heap<T> minHeap = new Heap<T>(vertices);
+        Heap<T> heap = new Heap<T>(vertices);
         for (int i = 0; i < vertices; i++) {
-            minHeap.insert(new Edge(src, i, dist[i]));
+            heap.insert(new Edge(src, i, dist[i]));
         }
 
-        while (!minHeap.isEmpty()) {
-            Edge<T> minEdge = minHeap.poll();
+        while (!heap.isEmpty()) {
+            Edge<T> minEdge = heap.poll();
             int u = (int) minEdge.v2;
 
             for (Edge<T> neighbor : adjacent(minEdge.v2)) {
@@ -158,7 +158,7 @@ public class DirectedGraph<T> extends Graph<T> {
 
                 if (dist[u] + weight < dist[v]) {
                     dist[v] = dist[u] + weight;
-                    minHeap.insert(new Edge<T>(minEdge.v2, neighbor.v2, dist[v]));
+                    heap.insert(new Edge<T>(minEdge.v2, neighbor.v2, dist[v]));
                 }
             }
         }
