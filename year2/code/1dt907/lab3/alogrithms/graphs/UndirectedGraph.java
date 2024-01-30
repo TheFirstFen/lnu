@@ -1,7 +1,11 @@
 package alogrithms.graphs;
 
 import java.util.List;
+
+import alogrithms.Heap;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UndirectedGraph<T> extends Graph<T> {
     private List<List<Edge<T>>> adjacencyList;
@@ -129,5 +133,54 @@ public class UndirectedGraph<T> extends Graph<T> {
 
         path.remove(path.size() - 1);
         return false;
+    }
+
+    // * Uppgift 4
+    public double[] dijkstra(int src) {
+        double[] dist = new double[vertices];
+        Arrays.fill(dist, Double.POSITIVE_INFINITY);
+        dist[src] = 0;
+
+        Heap<T> minHeap = new Heap<T>(vertices);
+        for (int i = 0; i < vertices; i++) {
+            minHeap.insert(new Edge(src, i, dist[i]));
+        }
+
+        while (!minHeap.isEmpty()) {
+            Edge<T> minEdge = minHeap.poll();
+            int u = (int) minEdge.v2;
+
+            for (Edge<T> neighbor : adjacent(minEdge.v2)) {
+                int v = (int) neighbor.v2;
+                double weight = neighbor.weight;
+
+                if (dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                    minHeap.insert(new Edge<T>(minEdge.v2, neighbor.v2, dist[v]));
+                }
+            }
+        }
+
+        return dist;
+    }
+
+    public double[] bellmanFord(int src) {
+        double[] dist = new double[vertices];
+        Arrays.fill(dist, Double.POSITIVE_INFINITY);
+        dist[src] = 0;
+
+        for (int i = 1; i < vertices - 1; i++) {
+            for (Edge<T> edge : edges()) {
+                int u = (int) edge.v1;
+                int v = (int) edge.v2;
+                double weight = edge.weight;
+
+                if (dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                }
+            }
+        }
+
+        return dist;
     }
 }
