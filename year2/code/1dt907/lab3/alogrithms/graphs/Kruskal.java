@@ -3,70 +3,80 @@ package alogrithms.graphs;
 import java.util.ArrayList;
 import java.util.List;
 
-import alogrithms.*;
+import alogrithms.Heap;
+import alogrithms.PCWQUnionFind;
 
 public class Kruskal<T> {
-    // private Heap<Integer> heap;
-    // private PCWQUnionFind uf;
+    private List<List<Edge<T>>> msf;
+    private List<Double> weights;
 
-    // public Kruskal(int heapCap, int vertices) {
-    // this.heap = new Heap<Integer>(heapCap);
-    // this.uf = new PCWQUnionFind(vertices);
-    // }
+    public Kruskal() {
+        msf = new ArrayList<>();
+        weights = new ArrayList<>();
+    }
 
-    // public void addEdge(int v, int w, double weight) {
-    // Edge<Integer> edge = new Edge<Integer>(v, w, weight);
-    // Edge<Integer> rEdge = new Edge<Integer>(w, v, weight);
-    // heap.insert(edge);
-    // heap.insert(rEdge);
-    // }
+    public void runKruskal(UndirectedGraph<T> graph) {
+        msf.clear();
+        weights.clear();
 
-    // public void runKurskal() {
-    // while (!heap.isEmpty() && uf.getCount() > 1) {
-    // Edge<Integer> edge = heap.poll();
-    // int srcRoot = uf.find(edge.v1);
-    // int destRoot = uf.find(edge.v2);
+        List<Edge<T>> edges = new ArrayList<>();
+        for (Edge<T> edge : graph.edges()) {
+            edges.add(edge);
+        }
 
-    // if (srcRoot != destRoot) {
-    // System.out.println("Edge: " + edge);
-    // uf.union(edge.v1, edge.v2);
-    // }
-    // }
-    // }
+        Heap<T> heap = new Heap<T>(edges.size());
+        for (Edge<T> edge : edges) {
+            heap.insert(edge);
+        }
 
-    public List<List<Edge<T>>> runKurskal(List<Edge<T>> edges, int numVertices) {
-        Heap<T> minHeap = new Heap<>(numVertices);
+        PCWQUnionFind uf = new PCWQUnionFind(graph.getVertices());
 
         for (Edge<T> edge : edges) {
-            minHeap.insert(edge);
-        }
+            int v1 = (int) edge.v1;
+            int v2 = (int) edge.v2;
 
-        PCWQUnionFind unionFind = new PCWQUnionFind(numVertices);
-
-        List<List<Edge<T>>> minimalSpanningForest = new ArrayList<>();
-
-        while (!minHeap.isEmpty() && minimalSpanningForest.size() < numVertices - 1) {
-            Edge<T> edge = minHeap.poll();
-
-            int root1 = unionFind.find((int) edge.v1);
-            int root2 = unionFind.find((int) edge.v2);
-
-            if (root1 != root2) {
-                List<Edge<T>> newTree = new ArrayList<>();
-                newTree.add(edge);
-                minimalSpanningForest.add(newTree);
-
-                unionFind.union(root1, root2);
+            if (!uf.connected(v1, v2)) {
+                uf.union(v1, v2);
             } else {
-                for (List<Edge<T>> tree : minimalSpanningForest) {
-                    if (unionFind.find((int) tree.get(0).v1) == root1) {
-                        tree.add(edge);
-                        break;
-                    }
+                continue;
+            }
+
+            List<Edge<T>> mstEdges = new ArrayList<>();
+            mstEdges.add(edge);
+            double weight = 0;
+
+            for (List<Edge<T>> existingMST : msf) {
+                if (existingMST.stream().anyMatch(e -> e.v1 == edge.v1 || e.v2 == edge.v1)) {
+                    mstEdges.addAll(existingMST);
+                    weights.remove(msf.indexOf(existingMST));
+                    msf.remove(existingMST);
+                    break;
                 }
             }
-        }
 
-        return minimalSpanningForest;
+            for (List<Edge<T>> existingMST : msf) {
+                if (existingMST.stream().anyMatch(e -> e.v1 == edge.v2 || e.v2 == edge.v2)) {
+                    mstEdges.addAll(existingMST);
+                    weights.remove(msf.indexOf(existingMST));
+                    msf.remove(existingMST);
+                    break;
+                }
+            }
+
+            msf.add(mstEdges);
+
+            for (Edge<T> e : mstEdges) {
+                weight += e.weight;
+            }
+            weights.add(weight);
+        }
+    }
+
+    public void printMST() {
+        System.out.println("Minimal spanning Forest");
+        for (int i = 0; i < msf.size(); i++) {
+            System.out.println("\nMinimal spanning tree " + (i + 1) + " (weight: " + weights.get(i) + ")");
+            System.out.println(msf.get(i));
+        }
     }
 }

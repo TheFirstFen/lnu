@@ -1,7 +1,5 @@
 # Assignment 3
 
-Incompleted 3 and 4
-
 ## How to run the code
 
 Instead of being `java (something)` as it is on linux and mac, for windows you would need to add the `.java` after the file you want to run.
