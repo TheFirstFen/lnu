@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Collections;
 
 import alogrithms.graphs.DirectedGraph;
-import alogrithms.graphs.Edge;
+import alogrithms.graphs.EdgeDirected;
 
 public class DFO {
     boolean[] visited;
@@ -23,7 +23,7 @@ public class DFO {
 
     private void dfs(DirectedGraph<String> graph, int v) {
         visited[v] = true;
-        for (Edge<String> edge : graph.adjacent(v)) {
+        for (EdgeDirected<String> edge : graph.adjacent(v)) {
             int nIdx = graph.verticesList().indexOf(edge.v2);
             if (!visited[nIdx]) {
                 dfs(graph, nIdx);

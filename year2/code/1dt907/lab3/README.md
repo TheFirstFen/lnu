@@ -2,7 +2,7 @@
 
 ## How to run the code
 
-Instead of being `java (something)` as it is on linux and mac, for windows you would need to add the `.java` after the file you want to run.
+Instead of being `java#` as it is on linux and mac, for windows you would need to add the `.java` after the file you want to run.
 
 ```bash
 javac *.java

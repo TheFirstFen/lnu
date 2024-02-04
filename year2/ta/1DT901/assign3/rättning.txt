@@ -497,3 +497,43 @@ Grade: C
 Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
 
 ------------------------------------------------------
+
+<ma227kc>
+
+G:
+    3. recursive_print: Good!
+    6. read_numbers: Good!
+    11. occurrences: Good!
+    15. deque_main: Good!
+
+VG:
+    4. pretty_recursive_print: Not handed in.
+    9. count_lines: Not handed in.
+
+Overall: Well done!
+
+Grade: C
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------
+
+<na223gk>
+
+G:
+    3. recursive_print:
+    6. read_numbers:
+    11. occurrences:
+    15. deque_main:
+
+VG:
+    4. pretty_recursive_print:
+    9. count_lines:
+
+Overall:
+
+Grade:
+
+Note: To save time when correcting A3 we have decided to only grade a random sample of exercises (3,4,6,9,11,15) and base our grade on these exercise. Please contact your senior TA if you have any question related to this process.
+
+------------------------------------------------------

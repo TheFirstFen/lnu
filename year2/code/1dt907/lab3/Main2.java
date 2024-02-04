@@ -14,6 +14,8 @@ public class Main2 {
         undirectedGraph.addEdge(0, 10, 4.0);
         undirectedGraph.addEdge(1, 6);
 
+        System.out.println("Undirected graph");
+
         System.out.println("DFS Treversal:");
         undirectedGraph.dfs(0);
 
@@ -34,7 +36,9 @@ public class Main2 {
         directedGraph.addEdge(5, 3, 2.0);
         directedGraph.addEdge(10, 3, 4.0);
 
-        System.out.println("\n\nDFS Treversal:");
+        System.out.println("\n\nDirected graph");
+
+        System.out.println("DFS Treversal:");
         directedGraph.dfs(0);
 
         System.out.println("\n\nBFS Treversal:");
