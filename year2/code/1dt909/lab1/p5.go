@@ -50,16 +50,16 @@ func (h *Heap) heapifyDown(idx int) {
 	last := len(h.data) - 1
 	leftCh := 2*idx + 1
 	for leftCh <= last {
-		minC := leftCh
+		minCh := leftCh
 		rightCh := leftCh + 1
 		if rightCh <= last && h.data[rightCh] < h.data[leftCh] {
-			minC = rightCh
+			minCh = rightCh
 		}
-		if h.data[idx] <= h.data[minC] {
+		if h.data[idx] <= h.data[minCh] {
 			break
 		}
-		h.data[idx], h.data[minC] = h.data[minC], h.data[idx]
-		idx = minC
+		h.data[idx], h.data[minCh] = h.data[minCh], h.data[idx]
+		idx = minCh
 		leftCh = 2*idx + 1
 	}
 }
