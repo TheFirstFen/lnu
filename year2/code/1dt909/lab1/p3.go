@@ -10,12 +10,12 @@ import (
 
 const (
 	charset    = "abcdefghijklmnopqrstuvwxyz0123456789"
-	numWorkers = len(charset)                       // * Adjustable to be lower then len(charset) due to numWorkers being part of divsion with len(charset)
-	targetHash = "a74277500228f7b4cfa8694098443fc5" // 1dt909
-	length     = 6                                  // 1dt909
+	numWorkers = len(charset) // * Adjustable to be lower then len(charset) due to numWorkers being part of divsion with len(charset)
+	targetHash = "a74277500228f7b4cfa8694098443fc5"
+	length     = 6
 )
 
-func generatePass(ch chan string, chasrset string, start, end int, wg *sync.WaitGroup) {
+func generatePass(ch chan string, chasrset string, start int, end int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	for i := start; i < end; i++ {
 		generatePassRec(ch, charset, string(charset[i]), length-1)
@@ -39,7 +39,7 @@ func hashAndCompare(ch chan string, res chan string, wg *sync.WaitGroup) {
 		hash := md5.Sum([]byte(pass))
 		hashStr := hex.EncodeToString(hash[:])
 
-		// fmt.Printf("Password: %s, Hash: %s\n", password, hashStr) // ? DEBUG see all combinations tried in order
+		// fmt.Printf("Password: %s (%s)\n", pass, hashStr) // ? DEBUG see all combinations tried in order
 
 		if hashStr == targetHash {
 			res <- pass

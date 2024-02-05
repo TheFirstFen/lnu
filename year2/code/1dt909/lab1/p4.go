@@ -36,7 +36,7 @@ func (s *CountingSemaphore) Release() {
 }
 
 func main() {
-	semaphore := NewCountingSemaphore(1)
+	semaphore := NewCountingSemaphore(2)
 	wg := sync.WaitGroup{}
 
 	worker := func(id int) {

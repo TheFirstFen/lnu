@@ -15,7 +15,7 @@ type Deque struct {
 	head *Node
 	tail *Node
 	size int
-	sync.RWMutex
+	sync.Mutex
 }
 
 func NewDeque() *Deque {
@@ -97,15 +97,15 @@ func (dq *Deque) RemoveBack() interface{} {
 }
 
 func (dq *Deque) Size() int {
-	dq.RLock()
-	defer dq.RUnlock()
+	dq.Lock()
+	defer dq.Unlock()
 
 	return dq.size
 }
 
 func (dq *Deque) Print() {
-	dq.RLock()
-	defer dq.RUnlock()
+	dq.Lock()
+	defer dq.Unlock()
 
 	fmt.Print("Deque: ")
 	current := dq.head
