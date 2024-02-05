@@ -138,6 +138,7 @@ public class DirectedGraph<T> extends GraphDirected<T> {
     }
 
     // * Uppgift 4
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public double[] dijkstra(int src) {
         double[] dist = new double[vertices];
         Arrays.fill(dist, Double.POSITIVE_INFINITY);

@@ -2,6 +2,7 @@ package alogrithms;
 
 import alogrithms.graphs.Edge;
 
+@SuppressWarnings("unchecked")
 public class Heap<T> {
     private Edge<T>[] heap;
     private int size;

@@ -44,8 +44,8 @@ public class Main2 {
         System.out.println("\n\nBFS Treversal:");
         directedGraph.bfs(0);
 
-        System.out.println("\n\nIs 0 - 10 connected: " + directedGraph.isConnected(0, 10));
+        System.out.println("\n\nIs 0 -> 10 connected: " + directedGraph.isConnected(0, 10));
 
-        System.out.println("\nOne path from 0 - 10: " + directedGraph.path(0, 10));
+        System.out.println("\nOne path from 0 -> 10: " + directedGraph.path(0, 10));
     }
 }

@@ -22,8 +22,6 @@ public class Main4 {
         double[] dijkstraDistances = directedGraph.dijkstra(0);
 
         sw.stop();
-        double directedDjikstaraTime = sw.getTimeInNanoSeconds();
-        sw.reset();
 
         System.out.println("Dijkstra's Shortest Distances sample:");
         for (int i = 0; i < dijkstraDistances.length / 1_000; i++) {
@@ -31,13 +29,13 @@ public class Main4 {
             System.out.println("From 0 to " + sample + ": " + dijkstraDistances[sample]);
         }
 
+        System.out.println("\nDijkstra's Time: " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+        sw.reset();
         sw.start();
 
         double[] bellmanFordDistances = directedGraph.bellmanFord(0);
 
         sw.stop();
-        double directedBellmanFordTime = sw.getTimeInNanoSeconds();
-        sw.reset();
 
         System.out.println("\nBellman-Ford's Shortest Distances sample:");
         for (int i = 0; i < bellmanFordDistances.length / 1_000; i++) {
@@ -45,8 +43,7 @@ public class Main4 {
             System.out.println("From 0 to " + sample + ": " + bellmanFordDistances[sample]);
         }
 
-        System.out.println("\n\nDirected graph:");
-        System.out.println("Dijkstra's Time: " + sw.chooseTimePrefix(directedDjikstaraTime));
-        System.out.println("Bellman-Ford's Time: " + sw.chooseTimePrefix(directedBellmanFordTime));
+        System.out.println("\nBellman-Ford's Time: " + sw.chooseTimePrefix(sw.getTimeInNanoSeconds()));
+        sw.reset();
     }
 }

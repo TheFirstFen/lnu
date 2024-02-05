@@ -5,6 +5,8 @@ import (
 	"sync"
 )
 
+// ? Rethink
+
 type CountingSemaphore struct {
 	mutex    sync.Mutex
 	counter  int

@@ -73,10 +73,10 @@ public class Kruskal<T> {
     }
 
     public void printMST() {
-        System.out.println("Minimal spanning Forest");
+        System.out.println("Minimal spanning Forest:");
         for (int i = 0; i < msf.size(); i++) {
-            System.out.println("\nMinimal spanning tree " + (i + 1) + " (weight: " + weights.get(i) + ")");
-            System.out.println(msf.get(i));
+            System.out.println("Minimal spanning tree " + (i + 1) + " (weight: " + weights.get(i) + ")");
+            System.out.println(msf.get(i) + "\n");
         }
     }
 }

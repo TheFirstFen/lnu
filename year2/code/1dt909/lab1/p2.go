@@ -1,14 +1,20 @@
 package main
 
+// ? Lås Noden du arbetar på samt next & prev
+// * Sök upp hand over hand locking
+// * Ändra från interface{} till int
+
 import (
+	"errors"
 	"fmt"
 	"sync"
 )
 
 type Node struct {
-	value interface{}
+	value int
 	next  *Node
 	prev  *Node
+	sync.Mutex
 }
 
 type Deque struct {
@@ -22,7 +28,7 @@ func NewDeque() *Deque {
 	return &Deque{}
 }
 
-func (dq *Deque) AddFront(value interface{}) {
+func (dq *Deque) AddFront(value int) {
 	dq.Lock()
 	defer dq.Unlock()
 
@@ -40,7 +46,7 @@ func (dq *Deque) AddFront(value interface{}) {
 	dq.size++
 }
 
-func (dq *Deque) AddBack(value interface{}) {
+func (dq *Deque) AddBack(value int) {
 	dq.Lock()
 	defer dq.Unlock()
 
@@ -58,12 +64,12 @@ func (dq *Deque) AddBack(value interface{}) {
 	dq.size++
 }
 
-func (dq *Deque) RemoveFront() interface{} {
+func (dq *Deque) RemoveFront() (int, error) {
 	dq.Lock()
 	defer dq.Unlock()
 
 	if dq.size == 0 {
-		return nil
+		return 0, errors.New("Deque is empty")
 	}
 
 	value := dq.head.value
@@ -74,15 +80,15 @@ func (dq *Deque) RemoveFront() interface{} {
 		dq.tail = nil
 	}
 	dq.size--
-	return value
+	return value, nil
 }
 
-func (dq *Deque) RemoveBack() interface{} {
+func (dq *Deque) RemoveBack() (int, error) {
 	dq.Lock()
 	defer dq.Unlock()
 
 	if dq.size == 0 {
-		return nil
+		return 0, errors.New("Deque is empty")
 	}
 
 	value := dq.tail.value
@@ -93,7 +99,7 @@ func (dq *Deque) RemoveBack() interface{} {
 		dq.head = nil
 	}
 	dq.size--
-	return value
+	return value, nil
 }
 
 func (dq *Deque) Size() int {
@@ -146,9 +152,19 @@ func main() {
 			defer wg.Done()
 
 			if i%2 == 0 {
-				fmt.Println("Popping from front:", deque.RemoveFront())
+				if val, err := deque.RemoveFront(); err != nil {
+					fmt.Println(err)
+					return
+				} else {
+					fmt.Println("Popping from front:", val)
+				}
 			} else {
-				fmt.Println("Popping from back:", deque.RemoveBack())
+				if val, err := deque.RemoveBack(); err != nil {
+					fmt.Println(err)
+					return
+				} else {
+					fmt.Println("Popping from back:", val)
+				}
 			}
 		}(i)
 	}

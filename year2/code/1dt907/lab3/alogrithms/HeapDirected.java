@@ -2,6 +2,7 @@ package alogrithms;
 
 import alogrithms.graphs.EdgeDirected;
 
+@SuppressWarnings("unchecked")
 public class HeapDirected<T> {
     private EdgeDirected<T>[] heap;
     private int size;

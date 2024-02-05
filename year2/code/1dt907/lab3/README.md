@@ -33,7 +33,7 @@ From 0 to 1581: 5.79784568415894
 From 0 to 7099: 6.0953901166444515
 From 0 to 690: 6.189950574655911
 
-Dijkstra's Time: 51.1295 ms
+Dijkstra's Time: 13.9578 ms
 ```
 
 ### Bellman-Ford Algorithm
@@ -51,11 +51,19 @@ From 0 to 5588: 7.511343191375932
 From 0 to 1112: 5.748846376855659
 From 0 to 5097: 7.293874740141204
 
-Bellman-Ford's Time: 18.2210 s
+Bellman-Ford's Time: 4.6775 s
 ```
 
 ### Conclusion
 
-The above shown samples are from a run with `10 000` vertices and `20 000` edges. Which shows that Djikstra's algorithm is faster than Bellman-Ford's algorithm. This holds true in all of the test cases I have given the algortihms. The reason to Dijkstra's algorithm being faster than the Bellman-Ford algorithm is because Dijkstra's algorithm greedily selects the shortest path from the current node to all other nodes in the graph and it never revisits nodes once they have been processed. This gives Dijkstra's algorithm a time complexity of `O(E + V * log(V))`, where `V = # vertices` and `E = # edges`. Meanwhile Bellman-Ford algorithm iterates over all edges multiple times to find the shortest path. This means it has to iterate over all edges `V - 1` times to gain the shortest path. This gives it the time complexity of `O(V * E)` in it's worst case, where `V = # vertices` and `E = # edges`.
+***Note:*** `V = # vertices` and `E = # edges` in the following text.
 
-Note: Djikstra's algorithm can't handle negative edge weights meanwhile Bellman-Ford can.
+The above shown samples are from a run with `10 000` vertices and `20 000` edges. Which shows that Djikstra's algorithm is faster than the Bellman-Ford algorithm. This holds true in all of the test cases I have provided the algortihms. The reason to Dijkstra's algorithm being faster than the Bellman-Ford algorithm is because Dijkstra's algorithm greedily selects the shortest path from the current node to all other nodes in the graph and it never revisits nodes once they have been processed. This gives Dijkstra's algorithm a time complexity of `O((E + V) * log V)`. Meanwhile Bellman-Ford algorithm iterates over all edges multiple times to find the shortest path. This means it has to iterate over all edges `V - 1` times to gain the shortest path. This gives it the time complexity of `O(V * E)` in it's worst case.
+
+***Note:*** Djikstra's algorithm can't handle negative edge weights meanwhile Bellman-Ford can.
+
+If we then do the calculation with the time complexity for each algorithm, we can then see that Djikstra's algorithm is faster than Bellman-Ford's algorithm. Djikstra's algorithm has a time complexity that results to `O((20 000 + 10 000) * log 10 000)` = `O(120 000)` meanwhile Bellman-Ford's algorithm has a time complexity that results to `O(20 000 * 10 000)` = `O(200 000)`, this for the above given example. if we compare these `Djikstra's vs Bellman-Ford` we get `O(120 000) < O(200 000)` which means Djikstra's algorithm is faster than the Bellman-Ford algorithm.
+
+```text
+To explain this more theoreticaly this is due to Djikstra's being a so called "greedy" algorithm and due to it's time complexity being `O((E + V) * log V)`, which means it has an logarithmic increasing time complexity. Meanwhile Bellman-Ford due to being able to handle negative edge weights has a time complexity of `O(V * E)`. Which leads to the times mentioned in the sample outputs are reasonable for the respective algorithms.
+```

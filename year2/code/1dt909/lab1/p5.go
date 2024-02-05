@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 type Heap struct {
@@ -22,8 +23,8 @@ func (h *Heap) Push(value int) {
 }
 
 func (h *Heap) Pop() (int, error) {
-	h.mu.RLock()
-	defer h.mu.RUnlock()
+	h.mu.Lock()
+	defer h.mu.Unlock()
 	if len(h.data) == 0 {
 		return 0, fmt.Errorf("Heap is empty")
 	}
@@ -64,6 +65,18 @@ func (h *Heap) heapifyDown(idx int) {
 	}
 }
 
+func (h *Heap) Contains(val int) bool {
+	h.mu.RLock()
+	defer h.mu.RUnlock()
+
+	for _, v := range h.data {
+		if v == val {
+			return true
+		}
+	}
+	return false
+}
+
 func main() {
 	heap := NewHeap()
 	wg := sync.WaitGroup{}
@@ -76,7 +89,7 @@ func main() {
 
 			for j := 0; j < 3; j++ {
 				heap.Push(id*10 + j)
-				fmt.Printf("Worker %d pushed %d\n", id, id*10+j)
+				fmt.Printf("Worker %d: heap pushed %d\n", id, id*10+j)
 			}
 
 			for j := 0; j < 2; j++ {
@@ -85,7 +98,16 @@ func main() {
 					fmt.Printf("Worker %d: %v\n", id, err)
 					continue
 				}
-				fmt.Printf("Worker %d popped %d\n", id, value)
+				fmt.Printf("Worker %d: heap popped %d\n", id, value)
+			}
+
+			for j := 0; j < 3; j++ {
+				if heap.Contains(id*10 + j) {
+					fmt.Printf("Worker %d: heap contains %d\n", id, id*10+j)
+				} else {
+					fmt.Printf("Worker %d: heap does not contain %d\n", id, id*10+j)
+				}
+				time.Sleep(time.Second) // To show it works
 			}
 		}(i)
 	}

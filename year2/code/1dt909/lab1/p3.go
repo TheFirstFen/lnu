@@ -11,6 +11,8 @@ import (
 const (
 	charset    = "abcdefghijklmnopqrstuvwxyz0123456789"
 	numWorkers = len(charset) // * Adjustable to be lower then len(charset) due to numWorkers being part of divsion with len(charset)
+	//targetHash = "755afdd46a18a25bd85ddd4004d5cfea"
+	//length     = 5
 	targetHash = "a74277500228f7b4cfa8694098443fc5"
 	length     = 6
 )
@@ -76,7 +78,9 @@ func main() {
 		close(ch)
 	}()
 
-	pass := <-res
-	fmt.Printf("Password found: %s\n", pass)
-	close(res)
+	if pass, ok := <-res; ok {
+		fmt.Printf("Password found: %s\n", pass)
+		close(res)
+		return
+	}
 }
