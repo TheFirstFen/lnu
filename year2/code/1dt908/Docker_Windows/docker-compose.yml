@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0.36
+    environment:
+      MYSQL_ROOT_PASSWORD: "toor"
+      # MYSQL_DATABASE: test
+      # MYSQL_USER: hotel2
+      # MYSQL_PASSWORD: hotel2
+    ports:
+      - "3307:3307"
+    # volumes:
+    #   - ./my.cnf:/etc/mysql/my.cnf
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    command: ["mysqld"]
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-u", "root", "-p$MYSQL_ROOT_PASSWORD"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+

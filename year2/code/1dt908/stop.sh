@@ -11,10 +11,10 @@ esac
 
 cd $DOCKERFILE_PATH
 
-docker-compose up -d
+docker-compose down
 
 if [ $? -eq 0 ]; then
-    echo "Docker-compose build & run successful."
+    echo "Docker-compose stop successful."
 else
-    echo "Docker-compose build & run failed."
+    echo "Docker-compose stop failed."
 fi
