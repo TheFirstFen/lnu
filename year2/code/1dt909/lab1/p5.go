@@ -8,7 +8,7 @@ import (
 
 type Heap struct {
 	data []int
-	mu   sync.RWMutex
+	sync.RWMutex
 }
 
 func NewHeap() *Heap {
@@ -16,15 +16,15 @@ func NewHeap() *Heap {
 }
 
 func (h *Heap) Push(value int) {
-	h.mu.Lock()
-	defer h.mu.Unlock()
+	h.Lock()
+	defer h.Unlock()
 	h.data = append(h.data, value)
 	h.heapifyUp(len(h.data) - 1)
 }
 
 func (h *Heap) Pop() (int, error) {
-	h.mu.Lock()
-	defer h.mu.Unlock()
+	h.Lock()
+	defer h.Unlock()
 	if len(h.data) == 0 {
 		return 0, fmt.Errorf("Heap is empty")
 	}
@@ -66,8 +66,8 @@ func (h *Heap) heapifyDown(idx int) {
 }
 
 func (h *Heap) Contains(val int) bool {
-	h.mu.RLock()
-	defer h.mu.RUnlock()
+	h.RLock()
+	defer h.RUnlock()
 
 	for _, v := range h.data {
 		if v == val {
