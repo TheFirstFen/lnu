@@ -5,13 +5,8 @@ services:
     image: mysql:8.0.36
     environment:
       MYSQL_ROOT_PASSWORD: "toor"
-      # MYSQL_DATABASE: test
-      # MYSQL_USER: hotel2
-      # MYSQL_PASSWORD: hotel2
     ports:
       - "3307:3307"
-    # volumes:
-    #   - ./my.cnf:/etc/mysql/my.cnf
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     command: ["mysqld"]
@@ -20,4 +15,14 @@ services:
       interval: 30s
       timeout: 3s
       retries: 3
+    networks:
+      my_network:
+        ipv4_address: 172.16.238.10
+
+networks:
+  my_network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.238.0/24
 

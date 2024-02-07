@@ -15,6 +15,7 @@ docker-compose up -d
 
 if [ $? -eq 0 ]; then
     echo "Docker-compose build & run successful."
+    docker inspect docker_linux_db_1 | jq -r '.[].NetworkSettings.Networks.docker_linux_default.IPAddress'
 else
     echo "Docker-compose build & run failed."
 fi

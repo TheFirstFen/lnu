@@ -79,15 +79,23 @@ CREATE TABLE IF NOT EXISTS `hotel_temp`.`booking` (
   `bookingid` INT NOT NULL AUTO_INCREMENT,
   `startdate` DATE NOT NULL,
   `enddate` DATE NOT NULL,
-  `roomid` VARCHAR(100) NOT NULL,
   `customerid` INT NOT NULL,
   `paid` INT NOT NULL,
   `totalprice` FLOAT NOT NULL,
   `guestamount` INT NOT NULL,
   `createdby` VARCHAR(100) NOT NULL,
+  `checkout` INT NOT NULL,
+  `checkin` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`bookingid`),
   UNIQUE INDEX `bookingid_UNIQUE` (`bookingid` ASC) VISIBLE)
 ENGINE = InnoDB;
+
+CREATE TABLE IF Not Exists `hotel_temp`.`booking_room` (
+    bookingid INT,
+    roomid INT,
+    FOREIGN KEY (bookingid) REFERENCES booking(bookingid),
+    FOREIGN KEY (roomid) REFERENCES room(roomid)
+);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
@@ -103,3 +111,4 @@ GRANT USAGE ON *.* TO 'hotel2_admin'@'%';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON hotel_temp.* TO 'hotel2_admin'@'%';
 -- GRANT ALL PRIVILEGES ON hotel_temp.* TO 'hotel2_admin'@'%';
 FLUSH PRIVILEGES;
+
