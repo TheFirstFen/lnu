@@ -5,10 +5,8 @@ import (
 	"sync"
 )
 
-// ? Rethink
-
 type CountingSemaphore struct {
-	mutex    sync.Mutex
+	mu       sync.Mutex
 	counter  int
 	maxCount int
 }
@@ -20,8 +18,8 @@ func NewCountingSemaphore(maxCount int) *CountingSemaphore {
 }
 
 func (s *CountingSemaphore) Acquire() {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
+	s.mu.Lock()
+	defer s.mu.Unlock()
 
 	for s.counter >= s.maxCount {
 	}
@@ -29,8 +27,8 @@ func (s *CountingSemaphore) Acquire() {
 }
 
 func (s *CountingSemaphore) Release() {
-	s.mutex.Lock()
-	defer s.mutex.Unlock()
+	s.mu.Lock()
+	defer s.mu.Unlock()
 
 	if s.counter > 0 {
 		s.counter--

@@ -1,8 +1,5 @@
 package main
 
-// ? Lås Noden du arbetar på samt next & prev
-// * Sök upp hand over hand locking
-
 import (
 	"errors"
 	"fmt"
@@ -28,15 +25,14 @@ func NewDeque() *Deque {
 }
 
 func (dq *Deque) AddFront(value int) {
-	dq.Lock()
-	defer dq.Unlock()
-
 	newNode := &Node{value: value}
 
 	if dq.head == nil {
 		dq.head = newNode
 		dq.tail = newNode
 	} else {
+		dq.head.Lock()
+		defer dq.head.Unlock()
 		newNode.next = dq.head
 		dq.head.prev = newNode
 		dq.head = newNode
@@ -46,15 +42,14 @@ func (dq *Deque) AddFront(value int) {
 }
 
 func (dq *Deque) AddBack(value int) {
-	dq.Lock()
-	defer dq.Unlock()
-
 	newNode := &Node{value: value}
 
 	if dq.tail == nil {
 		dq.head = newNode
 		dq.tail = newNode
 	} else {
+		dq.tail.Lock()
+		defer dq.tail.Unlock()
 		newNode.prev = dq.tail
 		dq.tail.next = newNode
 		dq.tail = newNode
@@ -64,12 +59,12 @@ func (dq *Deque) AddBack(value int) {
 }
 
 func (dq *Deque) RemoveFront() (int, error) {
-	dq.Lock()
-	defer dq.Unlock()
-
 	if dq.size == 0 {
 		return 0, errors.New("Deque is empty")
 	}
+
+	dq.head.Lock()
+	defer dq.head.Unlock()
 
 	value := dq.head.value
 	dq.head = dq.head.next
@@ -83,12 +78,12 @@ func (dq *Deque) RemoveFront() (int, error) {
 }
 
 func (dq *Deque) RemoveBack() (int, error) {
-	dq.Lock()
-	defer dq.Unlock()
-
 	if dq.size == 0 {
 		return 0, errors.New("Deque is empty")
 	}
+
+	dq.tail.Lock()
+	defer dq.tail.Unlock()
 
 	value := dq.tail.value
 	dq.tail = dq.tail.prev
@@ -124,7 +119,7 @@ func (dq *Deque) Print() {
 func main() {
 	deque := NewDeque()
 	wg := sync.WaitGroup{}
-	numWorkers := 8 // * Adjustable
+	numWorkers := 8
 
 	for id := 0; id < numWorkers; id++ {
 		wg.Add(1)
