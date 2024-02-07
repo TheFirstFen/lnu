@@ -80,7 +80,7 @@ func (h *Heap) Contains(val int) bool {
 func main() {
 	heap := NewHeap()
 	wg := sync.WaitGroup{}
-	numWorkers := 4
+	numWorkers := 1024
 
 	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
@@ -114,5 +114,5 @@ func main() {
 
 	wg.Wait()
 
-	fmt.Println("Final heap:", heap.data)
+	//fmt.Println("Final heap:", heap.data)
 }

@@ -14,9 +14,9 @@ type Node struct {
 }
 
 type Deque struct {
+	size int
 	head *Node
 	tail *Node
-	size int
 	sync.Mutex
 }
 
@@ -65,15 +65,17 @@ func (dq *Deque) RemoveFront() (int, error) {
 
 	dq.head.Lock()
 	defer dq.head.Unlock()
-
 	value := dq.head.value
 	dq.head = dq.head.next
+
 	if dq.head != nil {
 		dq.head.prev = nil
 	} else {
 		dq.tail = nil
 	}
+
 	dq.size--
+
 	return value, nil
 }
 
@@ -84,15 +86,17 @@ func (dq *Deque) RemoveBack() (int, error) {
 
 	dq.tail.Lock()
 	defer dq.tail.Unlock()
-
 	value := dq.tail.value
 	dq.tail = dq.tail.prev
+
 	if dq.tail != nil {
 		dq.tail.next = nil
 	} else {
 		dq.head = nil
 	}
+
 	dq.size--
+
 	return value, nil
 }
 
@@ -119,7 +123,7 @@ func (dq *Deque) Print() {
 func main() {
 	deque := NewDeque()
 	wg := sync.WaitGroup{}
-	numWorkers := 8
+	numWorkers := 64
 
 	for id := 0; id < numWorkers; id++ {
 		wg.Add(1)
@@ -150,14 +154,14 @@ func main() {
 					fmt.Println(err)
 					return
 				} else {
-					fmt.Println("Popping from front:", val)
+					fmt.Println("Removing from front:", val)
 				}
 			} else {
 				if val, err := deque.RemoveBack(); err != nil {
 					fmt.Println(err)
 					return
 				} else {
-					fmt.Println("Popping from back:", val)
+					fmt.Println("Removing from back:", val)
 				}
 			}
 		}(i)

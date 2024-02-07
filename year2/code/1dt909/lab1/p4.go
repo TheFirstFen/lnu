@@ -6,49 +6,50 @@ import (
 )
 
 type CountingSemaphore struct {
-	mu       sync.Mutex
-	counter  int
-	maxCount int
+	count int
+	mu    sync.Mutex
+	cond  *sync.Cond
 }
 
-func NewCountingSemaphore(maxCount int) *CountingSemaphore {
-	return &CountingSemaphore{
-		maxCount: maxCount,
-	}
+func NewSemaphore(initCount int) *CountingSemaphore {
+	sem := &CountingSemaphore{count: initCount}
+
+	sem.cond = sync.NewCond(&sem.mu)
+	return sem
 }
 
-func (s *CountingSemaphore) Acquire() {
-	s.mu.Lock()
-	defer s.mu.Unlock()
+func (cs *CountingSemaphore) Acquire() {
+	cs.mu.Lock()
+	defer cs.mu.Unlock()
 
-	for s.counter >= s.maxCount {
+	for cs.count <= 0 {
+		cs.cond.Wait()
 	}
-	s.counter++
+
+	cs.count--
 }
 
-func (s *CountingSemaphore) Release() {
-	s.mu.Lock()
-	defer s.mu.Unlock()
+func (cs *CountingSemaphore) Release() {
+	cs.mu.Lock()
+	defer cs.mu.Unlock()
 
-	if s.counter > 0 {
-		s.counter--
-	}
+	cs.count++
+	cs.cond.Signal()
 }
 
 func main() {
-	semaphore := NewCountingSemaphore(2)
+	semaphore := NewSemaphore(2)
 	wg := sync.WaitGroup{}
 
-	worker := func(id int) {
-		defer wg.Done()
-		semaphore.Acquire()
-		defer semaphore.Release()
-		fmt.Printf("Worker %d is in the critical region\n", id)
-	}
-
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 1024; i++ {
 		wg.Add(1)
-		go worker(i)
+		go func(id int) {
+			defer wg.Done()
+
+			semaphore.Acquire()
+			defer semaphore.Release()
+			fmt.Printf("Worker %d, in critical region\n", id)
+		}(i)
 	}
 
 	wg.Wait()

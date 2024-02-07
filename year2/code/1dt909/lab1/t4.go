@@ -12,30 +12,29 @@ type CountingSemaphore struct {
 }
 
 func NewSemaphore(initCount int) *CountingSemaphore {
-	sem := &CountingSemaphore{
-		count: initCount,
-	}
+	sem := &CountingSemaphore{count: initCount}
 
 	sem.cond = sync.NewCond(&sem.mu)
 	return sem
 }
 
-func (s *CountingSemaphore) Acquire() {
-	s.mu.Lock()
-	defer s.mu.Unlock()
+func (cs *CountingSemaphore) Acquire() {
+	cs.mu.Lock()
+	defer cs.mu.Unlock()
 
-	for s.count <= 0 {
-		s.cond.Wait()
+	for cs.count <= 0 {
+		cs.cond.Wait()
 	}
-	s.count--
+
+	cs.count--
 }
 
-func (s *CountingSemaphore) Release() {
-	s.mu.Lock()
-	defer s.mu.Unlock()
+func (cs *CountingSemaphore) Release() {
+	cs.mu.Lock()
+	defer cs.mu.Unlock()
 
-	s.count++
-	s.cond.Signal()
+	cs.count++
+	cs.cond.Signal()
 }
 
 func main() {
@@ -46,9 +45,10 @@ func main() {
 		wg.Add(1)
 		go func(id int) {
 			defer wg.Done()
+
 			semaphore.Acquire()
 			defer semaphore.Release()
-			fmt.Printf("Worker %d is in the critical region\n", id)
+			fmt.Printf("Worker %d, in critical region\n", id)
 		}(i)
 	}
 

@@ -124,7 +124,7 @@ func (dq *Deque) Print() {
 func main() {
 	deque := NewDeque()
 	wg := sync.WaitGroup{}
-	numWorkers := 8 // * Adjustable
+	numWorkers := 1024
 
 	for id := 0; id < numWorkers; id++ {
 		wg.Add(1)
@@ -142,7 +142,7 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("Deque size:", deque.Size())
-	deque.Print()
+	//deque.Print()
 	fmt.Println()
 
 	for i := 0; i < numWorkers/2; i++ {
@@ -171,5 +171,5 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("\nDeque size:", deque.Size())
-	deque.Print()
+	//deque.Print()
 }

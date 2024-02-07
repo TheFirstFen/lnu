@@ -67,7 +67,7 @@ func (h *Heap) heapifyDown(idx int) {
 func main() {
 	heap := NewHeap()
 	wg := sync.WaitGroup{}
-	numWorkers := 4 // * Adjustable
+	numWorkers := 1024
 
 	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
@@ -76,7 +76,7 @@ func main() {
 
 			for j := 0; j < 3; j++ {
 				heap.Push(id*10 + j)
-				fmt.Printf("Worker %d pushed %d\n", id, id*10+j)
+				fmt.Printf("Worker %d: pushed %d\n", id, id*10+j)
 			}
 
 			for j := 0; j < 2; j++ {
@@ -85,12 +85,12 @@ func main() {
 					fmt.Printf("Worker %d: %v\n", id, err)
 					continue
 				}
-				fmt.Printf("Worker %d popped %d\n", id, value)
+				fmt.Printf("Worker %d: popped %d\n", id, value)
 			}
 		}(i)
 	}
 
 	wg.Wait()
 
-	fmt.Println("Final heap:", heap.data)
+	//fmt.Println("Final heap:", heap.data)
 }
