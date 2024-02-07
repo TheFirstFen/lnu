@@ -1,5 +1,7 @@
 package main
 
+// * hand over hand locking
+
 import (
 	"errors"
 	"fmt"
@@ -123,7 +125,7 @@ func (dq *Deque) Print() {
 func main() {
 	deque := NewDeque()
 	wg := sync.WaitGroup{}
-	numWorkers := 64
+	numWorkers := 1024
 
 	for id := 0; id < numWorkers; id++ {
 		wg.Add(1)

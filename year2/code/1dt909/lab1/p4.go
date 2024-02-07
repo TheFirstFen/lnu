@@ -11,7 +11,7 @@ type CountingSemaphore struct {
 	cond  *sync.Cond
 }
 
-func NewSemaphore(initCount int) *CountingSemaphore {
+func NewCountingSemaphore(initCount int) *CountingSemaphore {
 	sem := &CountingSemaphore{count: initCount}
 
 	sem.cond = sync.NewCond(&sem.mu)
@@ -38,7 +38,7 @@ func (cs *CountingSemaphore) Release() {
 }
 
 func main() {
-	semaphore := NewSemaphore(2)
+	countingSemaphore := NewCountingSemaphore(2)
 	wg := sync.WaitGroup{}
 
 	for i := 0; i < 1024; i++ {
@@ -46,8 +46,8 @@ func main() {
 		go func(id int) {
 			defer wg.Done()
 
-			semaphore.Acquire()
-			defer semaphore.Release()
+			countingSemaphore.Acquire()
+			defer countingSemaphore.Release()
 			fmt.Printf("Worker %d, in critical region\n", id)
 		}(i)
 	}
