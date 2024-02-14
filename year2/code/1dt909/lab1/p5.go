@@ -107,7 +107,7 @@ func main() {
 				} else {
 					fmt.Printf("Worker %d: heap does not contain %d\n", id, id*10+j)
 				}
-				time.Sleep(time.Second) // To show it works
+				time.Sleep(time.Second) // * To show it works
 			}
 		}(i)
 	}

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sync"
 )
 
@@ -40,15 +39,16 @@ func (cs *CountingSemaphore) Release() {
 func main() {
 	countingSemaphore := NewCountingSemaphore(2)
 	wg := sync.WaitGroup{}
+	numWorkers := 1024
 
-	for i := 0; i < 1024; i++ {
+	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
 		go func(id int) {
 			defer wg.Done()
 
 			countingSemaphore.Acquire()
 			defer countingSemaphore.Release()
-			fmt.Printf("Worker %d, in critical region\n", id)
+			// ? fmt.Printf("Worker %d, in critical region\n", id)
 		}(i)
 	}
 

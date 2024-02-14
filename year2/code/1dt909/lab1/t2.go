@@ -1,6 +1,7 @@
 package main
 
 // * hand over hand locking
+// * check dubble nil on empty deque add's
 
 import (
 	"errors"
@@ -133,9 +134,9 @@ func main() {
 			defer wg.Done()
 
 			if id%2 == 0 {
-				deque.AddFront(id*10 + 1)
+				deque.AddFront(id)
 			} else {
-				deque.AddBack(id*10 + 2)
+				deque.AddBack(id)
 			}
 		}(id)
 	}
