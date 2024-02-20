@@ -13,112 +13,101 @@ type Node struct {
 	value int
 	next  *Node
 	prev  *Node
-	sync.Mutex
+	lockN sync.Mutex
 }
 
 type Deque struct {
-	head *Node
-	tail *Node
-	size int
-	sync.Mutex
+	head  *Node
+	tail  *Node
+	size  int
+	lockD sync.Mutex
 }
 
 func NewDeque() *Deque {
 	return &Deque{}
 }
 
-func (dq *Deque) AddFront(value int) {
-	dq.Lock()
-	defer dq.Unlock()
+func (d *Deque) PushFront(val int) {
+	newNode := &Node{value: val}
+	newNode.lockN.Lock()
+	defer newNode.lockN.Unlock()
 
-	newNode := &Node{value: value}
-
-	if dq.head == nil {
-		dq.head = newNode
-		dq.tail = newNode
+	if d.head == nil {
+		d.head = newNode
+		d.tail = newNode
 	} else {
-		newNode.next = dq.head
-		dq.head.prev = newNode
-		dq.head = newNode
+		d.head.prev = newNode
+		newNode.next = d.head
+		d.head = newNode
 	}
 
-	dq.size++
+	d.size++
 }
 
-func (dq *Deque) AddBack(value int) {
-	dq.Lock()
-	defer dq.Unlock()
+func (d *Deque) PushBack(val int) {
+	newNode := &Node{value: val}
+	newNode.lockN.Lock()
+	defer newNode.lockN.Unlock()
 
-	newNode := &Node{value: value}
-
-	if dq.tail == nil {
-		dq.head = newNode
-		dq.tail = newNode
+	if d.tail == nil {
+		d.head = newNode
+		d.tail = newNode
 	} else {
-		newNode.prev = dq.tail
-		dq.tail.next = newNode
-		dq.tail = newNode
+		d.tail.next = newNode
+		newNode.prev = d.tail
+		d.tail = newNode
 	}
 
-	dq.size++
+	d.size++
 }
 
-func (dq *Deque) RemoveFront() (int, error) {
-	dq.Lock()
-	defer dq.Unlock()
-
-	if dq.size == 0 {
+func (d *Deque) PopFront() (int, error) {
+	if d.head == nil {
 		return 0, errors.New("Deque is empty")
 	}
 
-	value := dq.head.value
-	dq.head = dq.head.next
-	if dq.head != nil {
-		dq.head.prev = nil
+	d.head.lockN.Lock()
+	defer d.head.lockN.Unlock()
+
+	value := d.head.value
+	if d.head == d.tail {
+		d.head = nil
+		d.tail = nil
 	} else {
-		dq.tail = nil
+		d.head = d.head.next
+		d.head.prev = nil
 	}
-	dq.size--
+
+	d.size--
 	return value, nil
 }
 
-func (dq *Deque) RemoveBack() (int, error) {
-	dq.Lock()
-	defer dq.Unlock()
-
-	if dq.size == 0 {
+func (d *Deque) PopBack() (int, error) {
+	if d.tail == nil {
 		return 0, errors.New("Deque is empty")
 	}
 
-	value := dq.tail.value
-	dq.tail = dq.tail.prev
-	if dq.tail != nil {
-		dq.tail.next = nil
+	d.tail.lockN.Lock()
+	defer d.tail.lockN.Unlock()
+
+	value := d.tail.value
+	if d.tail == d.head {
+		d.head = nil
+		d.tail = nil
 	} else {
-		dq.head = nil
+		d.tail = d.tail.prev
+		d.tail.next = nil
 	}
-	dq.size--
+
+	d.size--
 	return value, nil
 }
 
-func (dq *Deque) Size() int {
-	dq.Lock()
-	defer dq.Unlock()
+func (d *Deque) Size() int {
+	d.lockD.Lock()
+	defer d.lockD.Unlock()
 
-	return dq.size
-}
-
-func (dq *Deque) Print() {
-	dq.Lock()
-	defer dq.Unlock()
-
-	fmt.Print("Deque: ")
-	current := dq.head
-	for current != nil {
-		fmt.Print(current.value, " ")
-		current = current.next
-	}
-	fmt.Println()
+	return d.size
 }
 
 func main() {
@@ -132,9 +121,9 @@ func main() {
 			defer wg.Done()
 
 			if id%2 == 0 {
-				deque.AddFront(id)
+				deque.PushFront(id)
 			} else {
-				deque.AddBack(id)
+				deque.PushBack(id)
 			}
 		}(id)
 	}
@@ -142,7 +131,6 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("Deque size:", deque.Size())
-	//deque.Print()
 	fmt.Println()
 
 	for i := 0; i < numWorkers/2; i++ {
@@ -151,14 +139,14 @@ func main() {
 			defer wg.Done()
 
 			if i%2 == 0 {
-				if val, err := deque.RemoveFront(); err != nil {
+				if val, err := deque.PopFront(); err != nil {
 					fmt.Println(err)
 					return
 				} else {
 					fmt.Println("Popping from front:", val)
 				}
 			} else {
-				if val, err := deque.RemoveBack(); err != nil {
+				if val, err := deque.PopBack(); err != nil {
 					fmt.Println(err)
 					return
 				} else {
@@ -171,5 +159,4 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("\nDeque size:", deque.Size())
-	//deque.Print()
 }

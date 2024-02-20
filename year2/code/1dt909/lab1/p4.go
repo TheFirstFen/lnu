@@ -1,25 +1,26 @@
 package main
 
 import (
+	"fmt"
 	"sync"
 )
 
 type CountingSemaphore struct {
 	count int
-	mu    sync.Mutex
+	mut   sync.Mutex
 	cond  *sync.Cond
 }
 
 func NewCountingSemaphore(initCount int) *CountingSemaphore {
 	sem := &CountingSemaphore{count: initCount}
 
-	sem.cond = sync.NewCond(&sem.mu)
+	sem.cond = sync.NewCond(&sem.mut)
 	return sem
 }
 
 func (cs *CountingSemaphore) Acquire() {
-	cs.mu.Lock()
-	defer cs.mu.Unlock()
+	cs.mut.Lock()
+	defer cs.mut.Unlock()
 
 	for cs.count <= 0 {
 		cs.cond.Wait()
@@ -29,8 +30,8 @@ func (cs *CountingSemaphore) Acquire() {
 }
 
 func (cs *CountingSemaphore) Release() {
-	cs.mu.Lock()
-	defer cs.mu.Unlock()
+	cs.mut.Lock()
+	defer cs.mut.Unlock()
 
 	cs.count++
 	cs.cond.Signal()
@@ -48,7 +49,7 @@ func main() {
 
 			countingSemaphore.Acquire()
 			defer countingSemaphore.Release()
-			// ? fmt.Printf("Worker %d, in critical region\n", id)
+			fmt.Printf("Worker %d, in critical region\n", id)
 		}(i)
 	}
 

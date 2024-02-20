@@ -1,6 +1,0 @@
-problem:
- Windows:
-  Powershell poppar upp och docker körs ej
- Mac:
-  WARN[0000] The "MYSQL_ROOT_PASSWORD" variable is not set. Defaulting to a blank string. Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-Docker-compose build & run failed.

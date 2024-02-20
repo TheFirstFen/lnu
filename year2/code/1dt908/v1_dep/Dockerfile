@@ -1,5 +1,5 @@
 # Use an official MySQL runtime as a parent image
-FROM mysql:8.0.36-bullseye
+FROM mysql:8.0.36
 
 # Set the root password for MySQL (change it to a secure password)
 ENV MYSQL_ROOT_PASSWORD=toor
