@@ -4,6 +4,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"sync"
 )
 
@@ -20,100 +21,109 @@ type Deque struct {
 }
 
 func NewDeque() *Deque {
-	return &Deque{}
+	fixedTail := &Node{val: math.MaxInt, nxt: nil}
+	fixedHead := &Node{val: math.MinInt, nxt: fixedTail}
+	return &Deque{head: fixedHead, tail: fixedTail}
 }
 
-// ? Is this needed when only adding at front and back????
-func (dq *Deque) Find(k int) (pred *Node, curr *Node) {
+func (dq *Deque) Find(k string, val any) (pred *Node, curr *Node) {
 	pred = dq.head
-	curr = dq.head.nxt
 	pred.Lock()
+	curr = dq.head.nxt
 	curr.Lock()
-	for curr.val < k {
-		pred.Unlock()
-		pred = curr
-		curr = curr.nxt
-		curr.Lock()
+	if k == "pushBack" {
+		for curr.val != math.MaxInt {
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
+	} else if k == "popBack" {
+		for curr.nxt.val != math.MaxInt {
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
+	} else if k == "contains" && val != nil {
+		for curr.val != val {
+			if curr.val == math.MaxInt {
+				break
+			}
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
 	}
 
 	return pred, curr
 }
 
 func (dq *Deque) Contains(k int) bool {
-	pred, curr := dq.Find(k)
+	pred, curr := dq.Find("contains", k)
 	defer pred.Unlock()
 	defer curr.Unlock()
 
 	return curr.val == k
 }
 
-// * Works sequentially
 func (dq *Deque) PushFront(k int) {
-	if dq.head == nil { // * Size: 0
-		dq.Lock()
-		if dq.head == nil {
-			dq.head = &Node{val: k}
-			dq.tail = dq.head
-			dq.Unlock()
-		} else {
-			dq.Unlock()
-			dq.PushFront(k)
-		}
-	} else if dq.head == dq.tail { // * Size: 1
-		dq.Lock()
-		if dq.head == dq.tail {
-			dq.head = &Node{val: k, nxt: dq.tail}
-			dq.Unlock()
-		} else {
-			dq.Unlock()
-			dq.PushFront(k)
-		}
-	} else { // * Size: >1
-		prevHead := dq.head
-		prevHead.Lock()
-		dq.head = &Node{val: k, nxt: prevHead}
-		prevHead.Unlock()
-	}
+	pred := dq.head
+	pred.Lock()
+	curr := dq.head.nxt
+	curr.Lock()
+	defer pred.Unlock()
+	defer curr.Unlock()
+
+	n := Node{val: k, nxt: curr}
+	pred.nxt = &n
 }
 
-// * Works sequentially
 func (dq *Deque) PushBack(k int) {
-	dq.Lock()
-	if dq.tail == nil { // * Size: 0
-		dq.tail = &Node{val: k}
-		dq.head = dq.tail
-		dq.Unlock()
-	} else if dq.tail == dq.head { // * Size: 1
-		dq.tail = &Node{val: k}
-		dq.head.nxt = dq.tail
-		dq.Unlock()
-	} else { // * Size: >1
-		dq.Unlock()
-		newNode := &Node{val: k}
-		newNode.Lock()
-		dq.tail.Lock()
-		defer dq.tail.Unlock()
-		// * Need to unlock old tail
-		dq.tail.nxt = newNode
-		dq.tail = newNode
+	pred, curr := dq.Find("pushBack", nil)
+	defer pred.Unlock()
+	defer curr.Unlock()
+
+	n := Node{val: k, nxt: curr}
+	pred.nxt = &n
+}
+
+func (dq *Deque) PopFront() {
+	pred := dq.head
+	pred.Lock()
+	curr := dq.head.nxt
+	curr.Lock()
+	defer pred.Unlock()
+	defer curr.Unlock()
+
+	if curr.val != math.MaxInt {
+		pred.nxt = curr.nxt
 	}
 }
 
-func (dq *Deque) PopFront() bool {
-	return false
-}
+func (dq *Deque) PopBack() {
+	pred, curr := dq.Find("popBack", nil)
+	defer pred.Unlock()
+	defer curr.Unlock()
 
-func (dq *Deque) PopBack() bool {
-	return false
+	if curr.val != math.MaxInt {
+		pred.nxt = curr.nxt
+	}
 }
 
 func (dq *Deque) Print() {
 	dq.Lock()
 	defer dq.Unlock()
 
+	fmt.Print("[ ")
 	for curr := dq.head; curr != nil; curr = curr.nxt {
+		if (curr == dq.head) || (curr == dq.tail) {
+			continue
+		}
 		fmt.Printf("%d ", curr.val)
 	}
+	fmt.Print("]\n")
 }
 
 func main() {
@@ -129,8 +139,20 @@ func main() {
 			if id%2 == 0 {
 				deque.PushFront(id)
 			} else {
-				//fmt.Printf("Worker %d, skipped\n", id)
-				// deque.PushBack(id)
+				deque.PushBack(id)
+			}
+		}(id)
+	}
+
+	for id := 0; id < numWorkers/2; id++ {
+		wg.Add(1)
+		go func(id int) {
+			defer wg.Done()
+
+			if id%2 == 0 {
+				deque.PopBack()
+			} else {
+				deque.PopFront()
 			}
 		}(id)
 	}

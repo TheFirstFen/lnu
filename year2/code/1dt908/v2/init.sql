@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `hotel_temp`.`worker` (
   `tel` VARCHAR(100) NOT NULL,
   `role` VARCHAR(100) NOT NULL,
   `hotel` VARCHAR(100) NOT NULL,
+  `status` INT NOT NULL,
   PRIMARY KEY (`userid`, `loginName`),
   UNIQUE INDEX `userid_UNIQUE` (`userid` ASC) VISIBLE,
   UNIQUE INDEX `loginName_UNIQUE` (`loginName` ASC) VISIBLE,
@@ -66,6 +67,7 @@ CREATE TABLE IF NOT EXISTS `hotel_temp`.`room` (
   `roomtype` VARCHAR(100) NOT NULL,
   `price` FLOAT NOT NULL,
   `hotel` VARCHAR(100) NOT NULL,
+  `status` INT NOT NULL,
   PRIMARY KEY (`roomid`),
   UNIQUE INDEX `roomid_UNIQUE` (`roomid` ASC) VISIBLE,
   UNIQUE INDEX `roomnr_UNIQUE` (`roomnr` ASC) VISIBLE)
