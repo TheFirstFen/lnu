@@ -1,18 +1,18 @@
 # Lab 2
 
-Här kommer rapporten som tillhör lab 1 för 1DT907 kursen från [Samuel Berg](<sb224sc@student.lnu.se>)
+Här kommer rapporten som tillhör lab 1 för 1DT907 kursen från [Samuel Berg](sb224sc@student.lnu.se)
 
-## Hur man kör Main*.java programmen
+## Hur man kör Main\*.java programmen
 
 Först och främst så tar vi och kör det följande kommandot i terminalen/consolen. Detta gör vi för att compile:a vår .java filer till filer så går att köra.
 
-***Notera:*** Eftersom jag kör på linux så är jag ej helt säker om det är samma kommandon på windows, hoppas det ändå ska funka då jag skickar med .class filerna också. Om jag känner till wondows korrekt lägg till `.java` när du ska köra filerna i wondows med `java MainX.java` exempelvis.
+**_Notera:_** Eftersom jag kör på linux så är jag ej helt säker om det är samma kommandon på windows, hoppas det ändå ska funka då jag skickar med .class filerna också. Om jag känner till wondows korrekt lägg till `.java` när du ska köra filerna i wondows med `java MainX.java` exempelvis.
 
 ```bash
 javac *.java
 ```
 
-För att köra något av *Main* programmen, skriv en av de följande kommandona in i din terminal/console. I ordning från topppen ner.
+För att köra något av _Main_ programmen, skriv en av de följande kommandona in i din terminal/console. I ordning från topppen ner.
 
 1. kör main programmet för `Problem 1` algorithmen
 
@@ -209,36 +209,36 @@ Next person to buy a ticket after swapping: Person{name='test34', prio=0, place=
 999998:Person{name='test999997', prio=9, place=999997}
 ```
 
-Dessa tider känns något rimliga då man tänker på hur allt vart implementerat samt att jag använder en egen quicksort variant för att sortera personerna i kön. De 3 so beror på storleken av kön enligt mina beräkningar har en tids komplexitet lik sorteringsalgorithmen vilket ger dem en ungifärlig tidskomplexitet på `O(c * log(n))`, konstanten c är det samma som basen för logaritmen vilket i detta fall är 2 vilket ger en ungifärlig tidskomplexitet av `O(2 * log(n))`.
+Dessa tider känns rimliga med min implementation av min `min-heap` som ser till att alla personerna i kön hålls på rätt plats och att ingen med samma prioritet går före någon som varit i kön längre med hjälp av `place` variablen hos person objektet. `place` variablen startar på `0` och incrementeras för varje person som kommer till kön och den kommer endast att öka aldrig minskas.
 
 ## Problem 4
 
 Jag gjorde 100 stycken experiment och fick fram i snitt fallet det följande:
 
 ```Output
-Heapsort is the most efficient algoritm with time: 28.6400 ms and for recursion depth: 5
-Insertionsort is the most efficient algorithm with time: 12.2572 ms and for recursion depth: 10
-Insertionsort is the most efficient algorithm with time: 3.0289 ms and for recursion depth: 15
-Insertionsort is the most efficient algorithm with time: 891.8350µs and for recursion depth: 20
-Insertionsort is the most efficient algorithm with time: 538.3060µs and for recursion depth: 25
-Insertionsort is the most efficient algorithm with time: 517.2630µs and for recursion depth: 30
-Insertionsort is the most efficient algorithm with time: 524.9120µs and for recursion depth: 35
-Insertionsort is the most efficient algorithm with time: 580.2780µs and for recursion depth: 40
-Insertionsort is the most efficient algorithm with time: 503.6210µs and for recursion depth: 45
-Insertionsort is the most efficient algorithm with time: 504.2510µs and for recursion depth: 50
-Insertionsort is the most efficient algorithm with time: 472.2160µs and for recursion depth: 55
-Insertionsort is the most efficient algorithm with time: 554.5380µs and for recursion depth: 60
-Insertionsort is the most efficient algorithm with time: 503.3370µs and for recursion depth: 65
-Insertionsort is the most efficient algorithm with time: 502.5890µs and for recursion depth: 70
-Insertionsort is the most efficient algorithm with time: 503.3980µs and for recursion depth: 75
-Insertionsort is the most efficient algorithm with time: 471.0200µs and for recursion depth: 80
-Insertionsort is the most efficient algorithm with time: 504.1580µs and for recursion depth: 85
-Insertionsort is the most efficient algorithm with time: 508.2830µs and for recursion depth: 90
-Insertionsort is the most efficient algorithm with time: 503.7300µs and for recursion depth: 95
-Insertionsort is the most efficient algorithm with time: 504.6870µs and for recursion depth: 100
+Heapsort is the most efficient algoritm with time: 6,6104 ms and for recursion depth: 5
+Heapsort is the most efficient algoritm with time: 6,0343 ms and for recursion depth: 10
+Heapsort is the most efficient algoritm with time: 5,5621 ms and for recursion depth: 15
+Heapsort is the most efficient algoritm with time: 5,4002 ms and for recursion depth: 20
+Heapsort is the most efficient algoritm with time: 5,3567 ms and for recursion depth: 25
+Heapsort is the most efficient algoritm with time: 5,3741 ms and for recursion depth: 30
+Heapsort is the most efficient algoritm with time: 5,3875 ms and for recursion depth: 35
+Heapsort is the most efficient algoritm with time: 5,3051 ms and for recursion depth: 40
+Heapsort is the most efficient algoritm with time: 5,3933 ms and for recursion depth: 45
+Heapsort is the most efficient algoritm with time: 5,3839 ms and for recursion depth: 50
+Heapsort is the most efficient algoritm with time: 5,3448 ms and for recursion depth: 55
+Heapsort is the most efficient algoritm with time: 5,3432 ms and for recursion depth: 60
+Heapsort is the most efficient algoritm with time: 5,3544 ms and for recursion depth: 65
+Heapsort is the most efficient algoritm with time: 5,3847 ms and for recursion depth: 70
+Heapsort is the most efficient algoritm with time: 5,3621 ms and for recursion depth: 75
+Heapsort is the most efficient algoritm with time: 5,3263 ms and for recursion depth: 80
+Heapsort is the most efficient algoritm with time: 5,3764 ms and for recursion depth: 85
+Heapsort is the most efficient algoritm with time: 5,4470 ms and for recursion depth: 90
+Heapsort is the most efficient algoritm with time: 5,3235 ms and for recursion depth: 95
+Heapsort is the most efficient algoritm with time: 5,3393 ms and for recursion depth: 100
 ```
 
-Detta gäller då vi kollar på en array med 100 000 element och går i steg av `5` med depth med quicksort innan jag skapar kopior av array:et för att sortera det sorterade array:et med heap- respektive insertionsort.
+Detta gäller då vi kollar på en array med 100 000 element och går i steg av `5` som max depth för quicksort innan jag skapar kopior av array:et för att sortera det påbörjade soterade array:et med heap- respektive insertionsort.
 
 ## Problem 6
 

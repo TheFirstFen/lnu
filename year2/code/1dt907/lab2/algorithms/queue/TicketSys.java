@@ -29,7 +29,6 @@ public class TicketSys {
         }
 
         HeapSort.heapSort(arr, size);
-
         return arr[0];
     }
 
@@ -42,9 +41,7 @@ public class TicketSys {
         HeapSort.heapSort(arr, size);
 
         Person temp = arr[0];
-
         arr[0] = arr[size - 1];
-        arr[size - 1] = null;
         size--;
 
         HeapSort.heapSort(arr, size);
@@ -105,13 +102,11 @@ public class TicketSys {
 
 class HeapSort {
     public static void heapSort(Person[] arr, int size) {
-        int n = size;
-
-        for (int i = n / 2 - 1; i >= 0; i--) {
-            heapify(arr, n, i);
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            heapify(arr, size, i);
         }
 
-        for (int i = n - 1; i >= 0; i--) {
+        for (int i = size - 1; i >= 0; i--) {
             swap(arr, 0, i);
             heapify(arr, i, 0);
         }

@@ -10,7 +10,7 @@ import (
 
 const (
 	charset    = "abcdefghijklmnopqrstuvwxyz0123456789"
-	numWorkers = len(charset) // * Adjustable to be lower then len(charset) due to numWorkers being part of divsion with len(charset)
+	numWorkers = len(charset) / 4 // * Adjustable to be lower then len(charset) due to numWorkers being part of divsion with len(charset)
 	//targetHash = "755afdd46a18a25bd85ddd4004d5cfea"
 	//length     = 5
 	targetHash = "a74277500228f7b4cfa8694098443fc5"
@@ -40,8 +40,6 @@ func hashAndCompare(ch chan string, res chan string, wg *sync.WaitGroup) {
 	for pass := range ch {
 		hash := md5.Sum([]byte(pass))
 		hashStr := hex.EncodeToString(hash[:])
-
-		// fmt.Printf("Password: %s (%s)\n", pass, hashStr) // ? DEBUG see all combinations tried in order
 
 		if hashStr == targetHash {
 			res <- pass

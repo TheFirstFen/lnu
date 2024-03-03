@@ -18,5 +18,4 @@ public class Insertionsort {
             arr[j + 1] = key;
         }
     }
-
 }

@@ -1,113 +1,131 @@
 package main
 
-// ? Lås Noden du arbetar på samt next & prev
-// * Sök upp hand over hand locking
-
 import (
-	"errors"
 	"fmt"
+	"math"
 	"sync"
 )
 
 type Node struct {
-	value int
-	next  *Node
-	prev  *Node
-	lockN sync.Mutex
+	val int
+	nxt *Node
+	sync.Mutex
 }
 
 type Deque struct {
-	head  *Node
-	tail  *Node
-	size  int
-	lockD sync.Mutex
+	head *Node
+	tail *Node
+	sync.Mutex
 }
 
 func NewDeque() *Deque {
-	return &Deque{}
+	fixedTail := &Node{val: math.MaxInt, nxt: nil}
+	fixedHead := &Node{val: math.MinInt, nxt: fixedTail}
+	return &Deque{head: fixedHead, tail: fixedTail}
 }
 
-func (d *Deque) PushFront(val int) {
-	newNode := &Node{value: val}
-	newNode.lockN.Lock()
-	defer newNode.lockN.Unlock()
-
-	if d.head == nil {
-		d.head = newNode
-		d.tail = newNode
-	} else {
-		d.head.prev = newNode
-		newNode.next = d.head
-		d.head = newNode
+func (dq *Deque) Find(k string, val any) (pred *Node, curr *Node) {
+	pred = dq.head
+	pred.Lock()
+	curr = dq.head.nxt
+	curr.Lock()
+	if k == "pushBack" {
+		for curr.val != math.MaxInt {
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
+	} else if k == "popBack" {
+		for curr.nxt.val != math.MaxInt {
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
+	} else if k == "contains" && val != nil {
+		for curr.val != val {
+			if curr.val == math.MaxInt {
+				break
+			}
+			pred.Unlock()
+			pred = curr
+			curr = curr.nxt
+			curr.Lock()
+		}
 	}
 
-	d.size++
+	return pred, curr
 }
 
-func (d *Deque) PushBack(val int) {
-	newNode := &Node{value: val}
-	newNode.lockN.Lock()
-	defer newNode.lockN.Unlock()
+func (dq *Deque) Contains(k int) bool {
+	pred, curr := dq.Find("contains", k)
+	defer pred.Unlock()
+	defer curr.Unlock()
 
-	if d.tail == nil {
-		d.head = newNode
-		d.tail = newNode
-	} else {
-		d.tail.next = newNode
-		newNode.prev = d.tail
-		d.tail = newNode
-	}
-
-	d.size++
+	return curr.val == k
 }
 
-func (d *Deque) PopFront() (int, error) {
-	if d.head == nil {
-		return 0, errors.New("Deque is empty")
-	}
+func (dq *Deque) PushFront(k int) {
+	pred := dq.head
+	pred.Lock()
+	curr := dq.head.nxt
+	curr.Lock()
+	defer pred.Unlock()
+	defer curr.Unlock()
 
-	d.head.lockN.Lock()
-	defer d.head.lockN.Unlock()
-
-	value := d.head.value
-	if d.head == d.tail {
-		d.head = nil
-		d.tail = nil
-	} else {
-		d.head = d.head.next
-		d.head.prev = nil
-	}
-
-	d.size--
-	return value, nil
+	n := Node{val: k, nxt: curr}
+	pred.nxt = &n
 }
 
-func (d *Deque) PopBack() (int, error) {
-	if d.tail == nil {
-		return 0, errors.New("Deque is empty")
-	}
+func (dq *Deque) PushBack(k int) {
+	pred, curr := dq.Find("pushBack", nil)
+	defer pred.Unlock()
+	defer curr.Unlock()
 
-	d.tail.lockN.Lock()
-	defer d.tail.lockN.Unlock()
-
-	value := d.tail.value
-	if d.tail == d.head {
-		d.head = nil
-		d.tail = nil
-	} else {
-		d.tail = d.tail.prev
-		d.tail.next = nil
-	}
-
-	d.size--
-	return value, nil
+	n := Node{val: k, nxt: curr}
+	pred.nxt = &n
 }
 
-func (d *Deque) Size() int {
-	d.lockD.Lock()
-	defer d.lockD.Unlock()
+func (dq *Deque) PopFront() {
+	pred := dq.head
+	pred.Lock()
+	curr := dq.head.nxt
+	curr.Lock()
+	defer pred.Unlock()
+	defer curr.Unlock()
 
-	return d.size
+	if curr.val != math.MaxInt {
+		pred.nxt = curr.nxt
+	}
+}
+
+func (dq *Deque) PopBack() {
+	pred, curr := dq.Find("popBack", nil)
+	defer pred.Unlock()
+	defer curr.Unlock()
+
+	if curr.val != math.MaxInt {
+		pred.nxt = curr.nxt
+	}
+}
+
+func (dq *Deque) Print() {
+	dq.Lock()
+	defer dq.Unlock()
+
+	c := 0
+
+	fmt.Print("[ ")
+	for curr := dq.head; curr != nil; curr = curr.nxt {
+		if (curr == dq.head) || (curr == dq.tail) {
+			continue
+		}
+		fmt.Printf("%d ", curr.val)
+		c++
+	}
+	fmt.Print("]\n")
+	fmt.Printf("Count: %d\n", c)
 }
 
 func main() {
@@ -128,35 +146,20 @@ func main() {
 		}(id)
 	}
 
-	wg.Wait()
-
-	fmt.Println("Deque size:", deque.Size())
-	fmt.Println()
-
-	for i := 0; i < numWorkers/2; i++ {
+	for id := 0; id < numWorkers/2; id++ {
 		wg.Add(1)
-		go func(i int) {
+		go func(id int) {
 			defer wg.Done()
 
-			if i%2 == 0 {
-				if val, err := deque.PopFront(); err != nil {
-					fmt.Println(err)
-					return
-				} else {
-					fmt.Println("Popping from front:", val)
-				}
+			if id%2 == 0 {
+				deque.PopBack()
 			} else {
-				if val, err := deque.PopBack(); err != nil {
-					fmt.Println(err)
-					return
-				} else {
-					fmt.Println("Popping from back:", val)
-				}
+				deque.PopFront()
 			}
-		}(i)
+		}(id)
 	}
 
 	wg.Wait()
 
-	fmt.Println("\nDeque size:", deque.Size())
+	deque.Print()
 }

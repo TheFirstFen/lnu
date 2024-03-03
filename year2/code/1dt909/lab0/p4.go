@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+)
 
 func quicksort(arr []int) []int {
 	if len(arr) <= 1 {
@@ -25,15 +28,37 @@ func quicksort(arr []int) []int {
 }
 
 func medianOfThree(arr []int) int {
-	l := arr[1]
-	r := arr[len(arr) - 1]
-	m := arr[len(arr) / 2]
+	l := arr[0]
+	r := arr[len(arr)-1]
+	m := arr[len(arr)/2]
 
-	return (l + r + m) / 3
+	if (l >= r && l <= m) || (l <= r && l >= m) {
+		return l
+	} else if (r >= l && r <= m) || (r <= l && r >= m) {
+		return r
+	} else {
+		return m
+	}
+}
+
+func isSorted(nums []int) bool {
+	n := len(nums)
+	for i := 1; i < n; i++ {
+		if nums[i] < nums[i-1] {
+			return false
+		}
+	}
+	return true
 }
 
 func main() {
-	arr := []int{3, 3, 6, 6, 8, 10, 1, 2, 1}
+	arr := []int{}
+
+	for i := 0; i < 10_000; i++ {
+		arr = append(arr, rand.Int())
+	}
+
 	fmt.Println("Original array:", arr)
-	fmt.Println("Sorted array:", quicksort(arr))
+	arr = quicksort(arr)
+	fmt.Println("Sorted array:", isSorted(arr))
 }

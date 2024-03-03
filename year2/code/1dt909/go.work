@@ -1,7 +1,6 @@
 go 1.22.0
 
 use (
-	./lab1/test
 	./test/defer
 	./test/greetings
 	./test/hello
