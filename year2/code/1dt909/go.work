@@ -1,12 +1,12 @@
 go 1.22.0
 
 use (
-	./test/defer
-	./test/greetings
-	./test/hello
-	./test/linkedlist
-	./test/pointers
-	./test/struct
-	./test/test
-	./test/test1
+	./prac/defer
+	./prac/greetings
+	./prac/hello
+	./prac/linkedlist
+	./prac/pointers
+	./prac/struct
+	./prac/test
+	./prac/test1
 )

@@ -13,7 +13,7 @@ public class Quicksort {
             double[] timeH) {
         if (left < right) {
             if (depth >= maxDepth) {
-                // TODO: SHould take left right pointers and only sort the unsorted partiotions
+                // TODO: Should take left right pointers and only sort the unsorted partiotions
                 continueSorting(arr, timeI, timeH, maxDepth / 5);
                 return;
             }
