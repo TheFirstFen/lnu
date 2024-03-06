@@ -8,5 +8,4 @@ use (
 	./prac/pointers
 	./prac/struct
 	./prac/test
-	./prac/test1
 )

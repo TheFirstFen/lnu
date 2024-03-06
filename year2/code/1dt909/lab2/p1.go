@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"sync"
 )
 
-func quicksortConcurrent(arr []int) []int {
-	if len(arr) <= 1 {
-		return arr
+func quicksortConcurrent(arr []int, ch chan []int) {
+	if len(arr) < 2 {
+		ch <- arr
+		defer close(ch)
+		return
 	}
 
 	p := medianOfThree(arr)
@@ -23,8 +25,6 @@ func quicksortConcurrent(arr []int) []int {
 			r = append(r, num)
 		}
 	}
-
-	return append(append(quicksortConcurrent(l), m...), quicksortConcurrent(r)...)
 }
 
 func quicksortSerial(arr []int) []int {
@@ -74,11 +74,13 @@ func isSorted(nums []int) bool {
 }
 
 func main() {
-	arr := []int{}
+	arr := []int{5, 4, 3, 2, 1, 0}
+	ch := make(chan []int)
+	wg := sync.WaitGroup{}
 
-	for i := 0; i < 10_000; i++ {
-		arr = append(arr, rand.Int())
-	}
+	//for i := 0; i < 10_000; i++ {
+	//	arr = append(arr, rand.Int())
+	//}
 
 	arrConcurrent := make([]int, len(arr))
 	copy(arrConcurrent, arr)
@@ -88,6 +90,16 @@ func main() {
 	fmt.Printf("Sorted array: %v, length: %d\n", isSorted(arr), len(arr))
 
 	fmt.Printf("Original array: %v, length: %d\n", isSorted(arrConcurrent), len(arrConcurrent))
-	arrConcurrent = quicksortConcurrent(arrConcurrent)
-	fmt.Printf("Sorted array: %v, length: %d\n", isSorted(arrConcurrent), len(arrConcurrent))
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		quicksortConcurrent(arrConcurrent, ch)
+	}()
+	wg.Wait()
+	var res []int
+	for val := range ch {
+		res = append(res, val...)
+	}
+
+	fmt.Printf("Sorted array: %v, length: %d\n", isSorted(res), len(res))
 }

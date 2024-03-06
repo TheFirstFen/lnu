@@ -14,7 +14,7 @@ public class Quicksort {
         if (left < right) {
             if (depth >= maxDepth) {
                 // TODO: Should take left right pointers and only sort the unsorted partiotions
-                continueSorting(arr, timeI, timeH, maxDepth / 5);
+                continueSorting(arr, left, right, timeI, timeH, maxDepth / 5);
                 return;
             }
             int pivotIdx = partition(arr, left, right);
@@ -60,7 +60,7 @@ public class Quicksort {
         arr[j] = temp;
     }
 
-    private static void continueSorting(int[] arr, double[] timeI, double[] timeH, int idx) {
+    private static void continueSorting(int[] arr, int left, int right, double[] timeI, double[] timeH, int idx) {
         Timer sw = new Timer();
 
         int[] arrI = Arrays.copyOf(arr, arr.length);
@@ -72,7 +72,7 @@ public class Quicksort {
         sw.reset();
 
         sw.start();
-        Heapsort.heapsort(arr);
+        Heapsort.heapsort(arr, left, right);
         sw.stop();
         timeH[idx] = sw.getTimeInNanoSeconds();
         sw.reset();

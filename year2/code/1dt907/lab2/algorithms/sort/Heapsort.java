@@ -1,7 +1,7 @@
 package algorithms.sort;
 
 public class Heapsort {
-    public static void heapsort(int[] arr) {
+    public static void heapsort(int[] arr, int left, int right) {
         int n = arr.length;
 
         for (int i = n / 2 - 1; i >= 0; i--)
