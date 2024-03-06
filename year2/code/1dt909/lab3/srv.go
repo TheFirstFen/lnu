@@ -1,10 +1,10 @@
 package main
 
 import (
-	"net/http"
+	"errors"
 	"io"
 	"log"
-	"errors"
+	"net/http"
 )
 
 // We define a global variable that holds the store
@@ -39,17 +39,16 @@ func Delete(key string) error {
 	return nil
 }
 
-
 func KVSPut(w http.ResponseWriter, r *http.Request) {
 	// We can access the {key} via the request
 	key := r.PathValue("key")
-	
+
 	// The value we want to set the key to is in the body
 	value, err := io.ReadAll(r.Body)
 	defer r.Body.Close()
 
 	// Signal an error, if, e.g., the body was empty
-	// We use 500 internal server error and pass 
+	// We use 500 internal server error and pass
 	// the error message from the actual error
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -102,20 +101,20 @@ func KVSDel(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-    mux := http.NewServeMux()
+	mux := http.NewServeMux()
 
 	// We use the new routing enchancements in Go 1.22
 	// "PUT /kvs/{key}" will match any PUT request to /kvs/
 	// Whatever follows /kvs/ will be extracted to {kvs} parameter
 	// Not that {key} cannot contain, e.g., /
-	mux.HandleFunc("PUT /kvs/{key}", KVSPut)
+	mux.HandleFunc("POST /kvs/{key}", KVSPut)
 	mux.HandleFunc("GET /kvs/{key}", KVSGet)
 	mux.HandleFunc("DELETE /kvs/{key}", KVSDel)
 
-//	srv := &http.Server{
-//		Handler:mux, 
-//		Addr:":3000", 
-//	}	
+	//	srv := &http.Server{
+	//		Handler:mux,
+	//		Addr:":3000",
+	//	}
 	http.ListenAndServe(":3000", mux)
-//	srv.ListenAndServe()
+	// srv.ListenAndServe()
 }

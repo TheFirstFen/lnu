@@ -1,6 +1,7 @@
 go 1.22.0
 
 use (
+	./lab3/p2
 	./prac/defer
 	./prac/greetings
 	./prac/hello
