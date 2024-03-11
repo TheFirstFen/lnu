@@ -28,8 +28,8 @@ func (g *Graph) addEdge(src, dest, weight int) {
 	g.edges[src][dest] = weight
 }
 
-func dijkstra(graph *Graph, src int) []int {
-	n := graph.vertices
+func (g *Graph) djikstra(src int) []int {
+	n := g.vertices
 	dist := make([]int, n)
 	visited := make([]bool, n)
 	for i := range dist {
@@ -41,11 +41,12 @@ func dijkstra(graph *Graph, src int) []int {
 		u := minDistance(dist, visited)
 		visited[u] = true
 		for v := 0; v < n; v++ {
-			if !visited[v] && graph.edges[u][v] != math.MaxInt32 && dist[u]+graph.edges[u][v] < dist[v] {
-				dist[v] = dist[u] + graph.edges[u][v]
+			if !visited[v] && g.edges[u][v] != math.MaxInt32 && dist[u]+g.edges[u][v] < dist[v] {
+				dist[v] = dist[u] + g.edges[u][v]
 			}
 		}
 	}
+
 	return dist
 }
 
@@ -61,37 +62,19 @@ func minDistance(dist []int, visited []bool) int {
 	return minIndex
 }
 
-func floydWarshall(graph [][]int, wg *sync.WaitGroup, resultChan chan<- [][]int) {
-	defer wg.Done()
-
-	n := len(graph)
-	dist := make([][]int, n)
-	for i := range dist {
-		dist[i] = make([]int, n)
-		copy(dist[i], graph[i])
-	}
-
-	for k := 0; k < n; k++ {
-		for i := 0; i < n; i++ {
-			for j := 0; j < n; j++ {
-				if dist[i][k]+dist[k][j] < dist[i][j] {
-					dist[i][j] = dist[i][k] + dist[k][j]
-				}
-			}
-		}
-	}
-	resultChan <- dist
-}
-
-func runDjikstras(graph *Graph, res [][]int) {
+func (g *Graph) runDjikstras() [][]int {
 	wg := sync.WaitGroup{}
-	wg.Add(graph.vertices)
-	ch := make(chan []int, graph.vertices)
+	wg.Add(g.vertices)
+	ch := make(chan []int, g.vertices)
+	dist := make([][]int, g.vertices)
+	for i := range dist {
+		dist[i] = make([]int, g.vertices)
+	}
 
-	for i := 0; i < graph.vertices; i++ {
+	for i := 0; i < g.vertices; i++ {
 		go func(src int) {
 			defer wg.Done()
-			ch <- dijkstra(graph, src)
+			ch <- g.djikstra(src)
 		}(i)
 	}
 
@@ -100,47 +83,48 @@ func runDjikstras(graph *Graph, res [][]int) {
 		close(ch)
 	}()
 
-	for i := 0; i < graph.vertices; i++ {
-		res[i] = <-ch
+	for i := 0; i < g.vertices; i++ {
+		dist[i] = <-ch
 	}
 
-	fmt.Println("Dijkstra's algorithm:")
-	print(res)
+	return dist
 }
 
-func runFloydWarshall(graph *Graph, res [][]int) {
-	ch := make(chan [][]int, graph.vertices)
+func (g *Graph) floydWarshall(res chan [][]int) {
+	n := g.vertices
+	dist := make([][]int, n)
+	for i := range dist {
+		dist[i] = make([]int, n)
+		copy(dist[i], g.edges[i])
+	}
+
 	wg := sync.WaitGroup{}
-	wg.Add(graph.vertices)
+	wg.Add(n)
 
-	for i := 0; i < graph.vertices; i++ {
-		go floydWarshall(graph.edges, &wg, ch)
+	for i := 0; i < n; i++ {
+		go func(i int) {
+			defer wg.Done()
+			for j := 0; j < n; j++ {
+				for k := 0; k < n; k++ {
+					if dist[j][i]+dist[i][k] < dist[j][k] {
+						dist[j][k] = dist[j][i] + dist[i][k]
+					}
+				}
+			}
+		}(i)
 	}
 
-	go func() {
-		wg.Wait()
-		close(ch)
-	}()
-
-	for dist := range ch {
-		res = dist
-	}
-
-	fmt.Println("Floyd-Warshall's algorithm:")
-	print(res)
+	res <- dist
 }
 
-func print(matrix [][]int) {
-	for i, dist := range matrix {
-		fmt.Printf("From vertex %d:\n", i)
-		for j, weight := range dist {
-			if weight == math.MaxInt32 {
-				fmt.Printf("Vertex %d -> Vertex %d: Infinity\n", i, j)
-			} else {
-				fmt.Printf("Vertex %d -> Vertex %d: %d\n", i, j, weight)
+func print(graph *Graph, res [][]int) {
+	for i := 0; i < graph.vertices; i++ {
+		for j := 0; j < graph.vertices; j++ {
+			if res[i][j] == 0 {
+				fmt.Printf("Source %d: %v\n", j, res[i])
+				break
 			}
 		}
-		fmt.Println()
 	}
 }
 
@@ -160,9 +144,14 @@ func main() {
 	graph.addEdge(5, 0, 4)
 	graph.addEdge(5, 2, 6)
 
-	dijkstraRes := make([][]int, graph.vertices)
-	floydWarshallRes := make([][]int, graph.vertices)
+	dijkstraRes := graph.runDjikstras()
+	fmt.Println("Dijkstra's algorithm:")
+	print(graph, dijkstraRes)
 
-	runDjikstras(graph, dijkstraRes)
-	runFloydWarshall(graph, floydWarshallRes)
+	floydWarshallRes := make(chan [][]int)
+	graph.floydWarshall(floydWarshallRes)
+
+	fmt.Println("Floyd Warshall's algorithm:")
+	print(graph, <-floydWarshallRes)
+
 }
