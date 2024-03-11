@@ -1,4 +1,4 @@
-module sb224sc.com/p2
+module sb224sc.com/p2_srv
 
 go 1.22.0
 
