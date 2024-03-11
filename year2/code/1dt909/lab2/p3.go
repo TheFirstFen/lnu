@@ -2,7 +2,13 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"sync"
+	"time"
+)
+
+const (
+	SIZE = 10_000_000
 )
 
 // TODO: chack and fix
@@ -39,13 +45,27 @@ func NarySearch(data []int, target int, numGoroutines int, numValuesToCheck int)
 	return -1
 }
 
+func timer() func() {
+	start := time.Now()
+	return func() {
+		fmt.Printf("Execution time: %v\n", time.Since(start))
+	}
+}
+
 func main() {
-	data := []int{1, 3, 5, 7, 9, 11, 13, 15, 17, 19}
-	target := 13
+	data := make([]int, SIZE)
+
+	for i := 0; i < SIZE; i++ {
+		data[i] = rand.Int()
+	}
+
+	target := rand.Int()
 	numGoroutines := len(data) / 3
 	numValuesToCheck := 2
 
+	timer := timer()
 	index := NarySearch(data, target, numGoroutines, numValuesToCheck)
+	timer()
 	if index != -1 {
 		fmt.Printf("Found %d at index %d\n", target, index)
 	} else {
