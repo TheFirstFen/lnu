@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
 	"sync"
 	"time"
 )
@@ -12,6 +11,22 @@ const (
 )
 
 // TODO: chack and fix
+
+func binarySearch(data []int, target int) int {
+	low := 0
+	high := len(data) - 1
+	for low <= high {
+		mid := (low + high) / 2
+		if data[mid] == target {
+			return mid
+		} else if data[mid] < target {
+			low = mid + 1
+		} else {
+			high = mid - 1
+		}
+	}
+	return -1
+}
 
 func NarySearch(data []int, target int, numGoroutines int, numValuesToCheck int) int {
 	interval := len(data) / numGoroutines
@@ -56,16 +71,25 @@ func main() {
 	data := make([]int, SIZE)
 
 	for i := 0; i < SIZE; i++ {
-		data[i] = rand.Int()
+		data[i] = i
 	}
 
-	target := rand.Int()
+	target := SIZE / 50000
 	numGoroutines := len(data) / 3
 	numValuesToCheck := 2
 
 	timer := timer()
 	index := NarySearch(data, target, numGoroutines, numValuesToCheck)
 	timer()
+	if index != -1 {
+		fmt.Printf("Found %d at index %d\n", target, index)
+	} else {
+		fmt.Printf("%d not found in the list\n", target)
+	}
+
+	// timer = timer()
+	index = binarySearch(data, target)
+	// timer()
 	if index != -1 {
 		fmt.Printf("Found %d at index %d\n", target, index)
 	} else {
