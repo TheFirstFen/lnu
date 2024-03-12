@@ -10,6 +10,10 @@ Rubik’s Cube in Java
 
 an algorithmic solver
 
+
+TODO: Fis solver to work after user inputs either variation of (M, E, S); These do not work due to changing the center color of each side which current solving algorithm is dependent on in a way.
+
+
 Abstract
 
 This report delves into the creation of a Rubik's Cube application in Java, featuring 3D visualization, JavaFX integration, and an algorithmic solver. The subject matter revolves around the development process, with a specific focus on the challenges faced during this project.
