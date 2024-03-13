@@ -2,31 +2,31 @@ package algorithms.sort;
 
 public class Heapsort {
     public static void heapsort(int[] arr, int left, int right) {
-        int n = arr.length;
+        int n = right - left + 1;
 
         for (int i = n / 2 - 1; i >= 0; i--)
-            heapify(arr, n, i);
+            heapify(arr, n, i, left);
 
         for (int i = n - 1; i > 0; i--) {
-            swap(arr, 0, i);
-            heapify(arr, i, 0);
+            swap(arr, left, left + i);
+            heapify(arr, i, 0, left);
         }
     }
 
-    private static void heapify(int[] arr, int n, int i) {
+    private static void heapify(int[] arr, int n, int i, int left) {
         int largest = i;
-        int l = 2 * i + 1;
-        int r = 2 * i + 2;
+        int l = 2 * i + 1 + left;
+        int r = 2 * i + 2 + left;
 
-        if (l < n && arr[l] > arr[largest])
+        if (l < left && arr[l] > arr[largest])
             largest = l;
 
-        if (r < n && arr[r] > arr[largest])
+        if (r < left && arr[r] > arr[largest])
             largest = r;
 
         if (largest != i) {
-            swap(arr, i, largest);
-            heapify(arr, n, largest);
+            swap(arr, left + i, left + largest);
+            heapify(arr, n, largest, left);
         }
     }
 

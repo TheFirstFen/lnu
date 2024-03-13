@@ -1,25 +1,27 @@
 package algorithms.sort;
 
-import java.util.Arrays;
-
 public class Quicksort {
     private static int depth = 0;
 
-    public static void quickSort(int[] arr, int maxDepth, double[] timeI, double[] timeH) {
-        quickSort(arr, 0, arr.length - 1, depth, maxDepth, timeI, timeH);
+    public static void quickSort(int[] arr, int maxDepth, int algorithm, double[] timeI, double[] timeH) {
+        quickSort(arr, 0, arr.length - 1, depth, maxDepth, algorithm, timeI, timeH);
     }
 
-    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, double[] timeI,
-            double[] timeH) {
+    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, int algorithm,
+            double[] timeI, double[] timeH) {
         if (left < right) {
             if (depth >= maxDepth) {
-                // TODO: Should take left right pointers and only sort the unsorted partiotions
-                continueSorting(arr, left, right, timeI, timeH, maxDepth / 5);
+                if (algorithm == 0) {
+                    // * HeapSort FIX heapsort with left and right pointer
+                    Heapsort.heapsort(arr, left, right);
+                } else if (algorithm == 1) {
+                    Insertionsort.insertionsort(arr, left, right);
+                }
                 return;
             }
             int pivotIdx = partition(arr, left, right);
-            quickSort(arr, left, pivotIdx - 1, depth + 1, maxDepth, timeI, timeH);
-            quickSort(arr, pivotIdx + 1, right, depth + 1, maxDepth, timeI, timeH);
+            quickSort(arr, left, pivotIdx - 1, depth + 1, maxDepth, algorithm, timeI, timeH);
+            quickSort(arr, pivotIdx + 1, right, depth + 1, maxDepth, algorithm, timeI, timeH);
         }
     }
 
@@ -58,23 +60,5 @@ public class Quicksort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-    }
-
-    private static void continueSorting(int[] arr, int left, int right, double[] timeI, double[] timeH, int idx) {
-        Timer sw = new Timer();
-
-        int[] arrI = Arrays.copyOf(arr, arr.length);
-
-        sw.start();
-        Insertionsort.insertionsort(arrI, 0, arrI.length - 1);
-        sw.stop();
-        timeI[idx] = sw.getTimeInNanoSeconds();
-        sw.reset();
-
-        sw.start();
-        Heapsort.heapsort(arr, left, right);
-        sw.stop();
-        timeH[idx] = sw.getTimeInNanoSeconds();
-        sw.reset();
     }
 }
