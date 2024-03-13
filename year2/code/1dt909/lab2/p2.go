@@ -6,8 +6,6 @@ import (
 	"sync"
 )
 
-// TODO: Make sure works correctly weights for floyd seems wrong
-
 type Graph struct {
 	vertices int
 	edges    [][]int
@@ -146,10 +144,10 @@ func main() {
 	fmt.Println("Dijkstra's algorithm:")
 	print(graph, dijkstraRes)
 
-	channelRes := make(chan [][]int)
-	go graph.floydWarshall(channelRes)
+	floydWarshallChan := make(chan [][]int)
+	go graph.floydWarshall(floydWarshallChan)
 
-	floydWarshallRes := <-channelRes
+	floydWarshallRes := <-floydWarshallChan
 	fmt.Println("\nFloyd Warshall's algorithm:")
 	for src, row := range floydWarshallRes {
 		fmt.Printf("Source %d: %v\n", src, row)

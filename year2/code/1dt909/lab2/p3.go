@@ -10,7 +10,7 @@ const (
 	SIZE = 10_000_000
 )
 
-// TODO: chack and fix
+// TODO: check and fix
 
 func binarySearch(data []int, target int) int {
 	low := 0
@@ -28,32 +28,32 @@ func binarySearch(data []int, target int) int {
 	return -1
 }
 
-func NarySearch(data []int, target int, numGoroutines int, numValuesToCheck int) int {
-	interval := len(data) / numGoroutines
-	results := make([]int, numGoroutines)
+func NarySearch(data []int, target int, numWorkers int, numValuesToCheck int) int {
+	interval := len(data) / numWorkers
+	res := make([]int, numWorkers)
 	var wg sync.WaitGroup
 
-	for i := 0; i < numGoroutines; i++ {
+	for i := 0; i < numWorkers; i++ {
 		wg.Add(1)
-		go func(start, end, index int) {
+		go func(start, end, idx int) {
 			defer wg.Done()
 			for j := start; j < end; j += numValuesToCheck {
 				for k := j; k < j+numValuesToCheck && k < len(data); k++ {
 					if data[k] == target {
-						results[index] = k
+						res[idx] = k
 						return
 					}
 				}
 			}
-			results[index] = -1
+			res[idx] = -1
 		}(i*interval, (i+1)*interval, i)
 	}
 
 	wg.Wait()
 
-	for _, index := range results {
-		if index != -1 {
-			return index
+	for _, idx := range res {
+		if idx != -1 {
+			return idx
 		}
 	}
 
@@ -75,23 +75,23 @@ func main() {
 	}
 
 	target := SIZE / 50000
-	numGoroutines := len(data) / 3
+	numWorkers := len(data) / 3
 	numValuesToCheck := 2
 
 	timer := timer()
-	index := NarySearch(data, target, numGoroutines, numValuesToCheck)
+	idx := NarySearch(data, target, numWorkers, numValuesToCheck)
 	timer()
-	if index != -1 {
-		fmt.Printf("Found %d at index %d\n", target, index)
+	if idx != -1 {
+		fmt.Printf("Found %d at idx %d\n", target, idx)
 	} else {
 		fmt.Printf("%d not found in the list\n", target)
 	}
 
 	// timer = timer()
-	index = binarySearch(data, target)
+	idx = binarySearch(data, target)
 	// timer()
-	if index != -1 {
-		fmt.Printf("Found %d at index %d\n", target, index)
+	if idx != -1 {
+		fmt.Printf("Found %d at idx %d\n", target, idx)
 	} else {
 		fmt.Printf("%d not found in the list\n", target)
 	}
