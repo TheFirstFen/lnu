@@ -10,15 +10,15 @@ public class Main4 {
     public static void main(String[] args) {
         Random rnd = new Random();
         int[] arr = new int[SIZE];
-        for (int exp = 0; exp <= 1; exp++) {
+        for (int exp = 0; exp < 1; exp++) {
             TIME_I = new double[21];
             TIME_H = new double[21];
             for (int i = 0; i < arr.length; i++)
                 arr[i] = rnd.nextInt(RND_SIZE);
-            for (int maxDepth = 100; maxDepth <= 100; maxDepth += 5) {
+            for (int maxDepth = 5; maxDepth <= 100; maxDepth += 5) {
                 Quicksort.quickSort(arr, maxDepth, ALGORITHM, TIME_I, TIME_H);
                 String out = getTime(arr, maxDepth / 5);
-                // System.out.println(out + ", recursion depth: " + maxDepth);
+                System.out.println(out + ", recursion depth: " + maxDepth + " | sorted: " + isSorted(arr));
             }
 
             // System.out.println("Recommended Quicksort depth for Insersort: " +
