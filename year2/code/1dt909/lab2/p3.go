@@ -70,11 +70,12 @@ func timer() func() {
 func main() {
 	data := make([]int, SIZE)
 
-	for i := 0; i < SIZE; i++ {
+	for i := 0; i < SIZE-1; i++ {
 		data[i] = i
 	}
+	data[SIZE-1] = -1
 
-	target := SIZE / 50000
+	target := -1
 	numWorkers := len(data) / 3
 	numValuesToCheck := 2
 
