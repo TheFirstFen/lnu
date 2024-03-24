@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="800.0" prefWidth="1224.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel2.GUI.HomePageController">
+    <children>
+        <HBox alignment="CENTER" prefHeight="816.0" prefWidth="1280.0" style="-fx-background-color: white;">
+            <children>
+                <AnchorPane fx:id="MainAnchorpane" maxHeight="-1.0" maxWidth="-1.0" prefHeight="779.0" prefWidth="1258.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.5), 10, 0, 0, 5); -fx-opacity: 50;">
+                    <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="555.0" layoutY="75.0" prefHeight="37.0" prefWidth="90.0" text="Månad" textAlignment="CENTER">
+                     <font>
+                        <Font size="27.0" />
+                     </font></Label>
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="505.0" layoutY="74.0" mnemonicParsing="false" onAction="#LeftArrow" text="&lt;">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
+                        <ScrollPane fx:id="CheckinPane" hbarPolicy="NEVER" layoutX="74.0" layoutY="534.0" prefHeight="217.0" prefWidth="350.0" />
+                  <Button layoutX="991.0" layoutY="74.0" mnemonicParsing="false" onAction="#ManageBooking" prefHeight="42.0" prefWidth="160.0" text="Hantera bokning">
+                     <font>
+                        <Font size="17.0" />
+                     </font></Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="654.0" layoutY="75.0" mnemonicParsing="false" onAction="#RightArrow" text="&gt;">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Button>
+                  <ScrollPane fx:id="CheckoutPane" hbarPolicy="NEVER" layoutX="458.0" layoutY="535.0" prefHeight="217.0" prefWidth="350.0" />
+                  <Button layoutX="217.0" layoutY="81.0" mnemonicParsing="false" onAction="#ResetPage" prefHeight="32.0" prefWidth="64.0" style="-fx-background-color: none;" text="Återställ" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" layoutX="915.0" layoutY="655.0" mnemonicParsing="false" onAction="#NewBooking" prefHeight="97.0" prefWidth="239.0" text="Ny bokning">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Button>
+                        <Button fx:id="newButton" alignment="CENTER" contentDisplay="CENTER" layoutX="915.0" layoutY="535.0" mnemonicParsing="false" onAction="#customerHandlingButton" prefHeight="97.0" prefWidth="239.0" text="Hantera kunder">
+                     <font>
+                        <Font name="Arimo Regular" size="27.0" />
+                     </font>
+                  </Button>
+                  <VBox fx:id="CalenderBox" layoutX="75.0" layoutY="128.0" prefHeight="397.0" prefWidth="1079.0" />
+                  <Label fx:id="LoggedinName" layoutX="888.0" layoutY="28.0" prefHeight="17.0" prefWidth="103.0" text="Inloggad som: " />
+                  <Button layoutX="1116.0" layoutY="20.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="32.0" prefWidth="70.0" text="Logga ut" />
+                  <ChoiceBox layoutX="20.0" layoutY="15.0" prefHeight="32.0" prefWidth="90.0" />
+                  <TextField fx:id="SearchField" layoutX="74.0" layoutY="76.0" prefHeight="42.0" prefWidth="142.0" promptText="Sök" text="Sök" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+    </children>
+</VBox>
