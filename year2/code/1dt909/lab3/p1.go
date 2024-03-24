@@ -23,6 +23,7 @@ func get(key string) (string, error) {
 		if err != nil {
 			return "", err
 		}
+		fmt.Printf("Get('%s') Response Status Code:%d\n", key, resp.StatusCode)
 		return string(body), nil
 	}
 	return "", fmt.Errorf("failed to get value for key %s, status code: %d", key, resp.StatusCode)
@@ -36,6 +37,7 @@ func post(key, value string) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode == http.StatusCreated {
+		fmt.Printf("Created key '%s' with Status Code:%d\n", key, resp.StatusCode)
 		return nil
 	}
 	return fmt.Errorf("failed to put value for key %s, status code: %d", key, resp.StatusCode)
@@ -55,6 +57,7 @@ func delete(key string) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode == http.StatusOK {
+		fmt.Printf("Deleted key '%s' with Status Code:%d\n", key, resp.StatusCode)
 		return nil
 	}
 	return fmt.Errorf("failed to delete key %s, status code: %d", key, resp.StatusCode)
