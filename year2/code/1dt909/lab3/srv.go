@@ -16,7 +16,7 @@ var ErrorNoSuchKey = errors.New("no such key")
 
 // Adds a key to the kvs
 // error is not used, future improvement
-func Put(key string, value string) error {
+func Post(key string, value string) error {
 	kvs[key] = value
 
 	return nil
@@ -39,7 +39,7 @@ func Delete(key string) error {
 	return nil
 }
 
-func KVSPut(w http.ResponseWriter, r *http.Request) {
+func KVSPost(w http.ResponseWriter, r *http.Request) {
 	// We can access the {key} via the request
 	key := r.PathValue("key")
 
@@ -58,7 +58,7 @@ func KVSPut(w http.ResponseWriter, r *http.Request) {
 	// We can now set the key in the kvs
 	// The value is a byte, so we need to convert
 	// If the put failed, we again return error 500
-	if err = Put(key, string(value)); err != nil {
+	if err = Post(key, string(value)); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
@@ -107,7 +107,7 @@ func main() {
 	// "PUT /kvs/{key}" will match any PUT request to /kvs/
 	// Whatever follows /kvs/ will be extracted to {kvs} parameter
 	// Not that {key} cannot contain, e.g., /
-	mux.HandleFunc("POST /kvs/{key}", KVSPut)
+	mux.HandleFunc("POST /kvs/{key}", KVSPost)
 	mux.HandleFunc("GET /kvs/{key}", KVSGet)
 	mux.HandleFunc("DELETE /kvs/{key}", KVSDel)
 

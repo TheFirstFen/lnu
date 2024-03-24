@@ -28,7 +28,7 @@ func get(key string) (string, error) {
 	return "", fmt.Errorf("failed to get value for key %s, status code: %d", key, resp.StatusCode)
 }
 
-func put(key, value string) error {
+func post(key, value string) error {
 	resp, err := http.Post(fmt.Sprintf("%s/%s", baseURL, key), "text/plain", bytes.NewBufferString(value))
 	if err != nil {
 		return err
@@ -64,7 +64,7 @@ func main() {
 	keys := []string{"first", "second", "third", "fourth"}
 	values := []string{"initial", "another", "more", "done"}
 	for i, key := range keys {
-		if err := put(key, values[i]); err != nil {
+		if err := post(key, values[i]); err != nil {
 			fmt.Printf("put %s failed: %s\n", key, err)
 		}
 	}
