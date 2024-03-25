@@ -4,6 +4,7 @@ import java.util.Random;
 public class Main4 {
     static int SIZE = 5_000_000;
     static int RND_SIZE = 1_000;
+    static int INCREMENTS = 5; // * Adjust if other tests needed
     static double[] TIME_I, TIME_H;
     static int ALGORITHM = 0; // * 0 - HeapSort, 1 - InsertionSort
 
@@ -14,52 +15,44 @@ public class Main4 {
         for (int exp = 0; exp < 1; exp++) {
             TIME_I = new double[21];
             TIME_H = new double[21];
-            for (int maxDepth = 5; maxDepth <= 100; maxDepth += 5) {
-                for (int i = 0; i < arr.length; i++)
-                    arr[i] = rnd.nextInt(RND_SIZE);
 
+            for (int i = 0; i < arr.length; i++)
+                arr[i] = rnd.nextInt(RND_SIZE);
+
+            // Heapsort after quicksort
+            for (int maxDepth = INCREMENTS; maxDepth <= INCREMENTS * 20; maxDepth += INCREMENTS) {
                 sw.start();
-                Quicksort.quickSort(arr, maxDepth, ALGORITHM);
+                Quicksort.quickSort(arr.clone(), maxDepth, ALGORITHM);
                 sw.stop();
-                TIME_H[maxDepth / 5] = sw.getTimeInNanoSeconds();
+                TIME_H[maxDepth / INCREMENTS] = sw.getTimeInNanoSeconds();
                 sw.reset();
             }
 
+            // Insertsort after quicksort
             ALGORITHM = 1;
-
-            for (int maxDepth = 5; maxDepth <= 100; maxDepth += 5) {
-                for (int i = 0; i < arr.length; i++)
-                    arr[i] = rnd.nextInt(RND_SIZE);
-
+            for (int maxDepth = INCREMENTS; maxDepth <= INCREMENTS * 20; maxDepth += INCREMENTS) {
                 sw.start();
-                Quicksort.quickSort(arr, maxDepth, ALGORITHM);
+                Quicksort.quickSort(arr.clone(), maxDepth, ALGORITHM);
                 sw.stop();
-                TIME_I[maxDepth / 5] = sw.getTimeInNanoSeconds();
+                TIME_I[maxDepth / INCREMENTS] = sw.getTimeInNanoSeconds();
                 sw.reset();
             }
-
-            // String out = getTime(arr, maxDepth / 5);
-            // System.out.println(out + ", recursion depth: " + maxDepth + " | sorted: " +
-            // isSorted(arr));
-
-            System.out.println("Recommended Quicksort depth for Insersort: " + minTime(TIME_I));
-            System.out.println("Recommended Quicksort depth for Heapsort: " + minTime(TIME_H));
 
             for (int i = 1; i < TIME_H.length; i++) {
                 // System.out.println("Depth: " + (i * 5) + " | Insertionsort: " +
                 // sw.chooseTimePrefix(TIME_I[i]) + " | Heapsort: " +
                 // sw.chooseTimePrefix(TIME_H[i]));
-            }
-        }
 
-        if (isSorted(arr)) {
-            System.out.println("Sorted!");
-        } else {
-            System.out.println("Not sorted!");
+                String out = getTimeForEachDepth(arr, i);
+                System.out.println(out + ", recursion depth: " + (i * INCREMENTS));
+            }
+
+            System.out.println("Recommended Quicksort depth for Insersort: " + recomendedDepth(TIME_I));
+            System.out.println("Recommended Quicksort depth for Heapsort: " + recomendedDepth(TIME_H));
         }
     }
 
-    private static String getTime(int[] arr, int exp) {
+    private static String getTimeForEachDepth(int[] arr, int exp) {
         Timer sw = new Timer();
 
         if (TIME_H[exp] <= TIME_I[exp]) {
@@ -69,7 +62,7 @@ public class Main4 {
         }
     }
 
-    private static String minTime(double[] arr) {
+    private static String recomendedDepth(double[] arr) {
         double min = arr[1];
         int minIdx = 0;
 
@@ -81,14 +74,5 @@ public class Main4 {
         }
 
         return Integer.toString(minIdx * 5);
-    }
-
-    private static boolean isSorted(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                return false;
-            }
-        }
-        return true;
     }
 }
