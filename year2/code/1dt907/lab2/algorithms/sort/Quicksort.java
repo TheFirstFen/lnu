@@ -3,12 +3,11 @@ package algorithms.sort;
 public class Quicksort {
     private static int depth = 0;
 
-    public static void quickSort(int[] arr, int maxDepth, int algorithm, double[] timeI, double[] timeH) {
-        quickSort(arr, 0, arr.length - 1, depth, maxDepth, algorithm, timeI, timeH);
+    public static void quickSort(int[] arr, int maxDepth, int algorithm) {
+        quickSort(arr, 0, arr.length - 1, depth, maxDepth, algorithm);
     }
 
-    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, int algorithm,
-            double[] timeI, double[] timeH) {
+    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, int algorithm) {
         if (left < right) {
             if (depth >= maxDepth) {
                 if (algorithm == 0) {
@@ -20,8 +19,8 @@ public class Quicksort {
                 return;
             }
             int pivotIdx = partition(arr, left, right);
-            quickSort(arr, left, pivotIdx - 1, depth + 1, maxDepth, algorithm, timeI, timeH);
-            quickSort(arr, pivotIdx + 1, right, depth + 1, maxDepth, algorithm, timeI, timeH);
+            quickSort(arr, left, pivotIdx - 1, depth + 1, maxDepth, algorithm);
+            quickSort(arr, pivotIdx + 1, right, depth + 1, maxDepth, algorithm);
         }
     }
 
