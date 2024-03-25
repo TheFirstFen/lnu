@@ -26,12 +26,18 @@ public class Kruskal<T> {
 
         Heap<T> heap = new Heap<T>(edges.size());
         for (Edge<T> edge : edges) {
-            heap.insert(edge);
+            heap.push(edge);
+        }
+
+        edges = new ArrayList<>();
+        while (!heap.isEmpty()) {
+            edges.add(heap.pop());
         }
 
         PCWQUnionFind uf = new PCWQUnionFind(graph.getVertices());
 
         for (Edge<T> edge : edges) {
+            // Edge<T> edge = heap.pop();
             int v1 = (int) edge.v1;
             int v2 = (int) edge.v2;
 

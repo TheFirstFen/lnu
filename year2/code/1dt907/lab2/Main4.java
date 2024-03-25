@@ -2,7 +2,7 @@ import algorithms.sort.*;
 import java.util.Random;
 
 public class Main4 {
-    static int SIZE = 5_000_000;
+    static int SIZE = 100_000;
     static int RND_SIZE = 1_000;
     static int INCREMENTS = 5; // * Adjust if other tests needed
     static double[] TIME_I, TIME_H;

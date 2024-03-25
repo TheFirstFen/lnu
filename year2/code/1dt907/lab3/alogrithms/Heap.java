@@ -14,7 +14,7 @@ public class Heap<T> {
         this.heap = new Edge[cap];
     }
 
-    public void insert(Edge<T> edge) {
+    public void push(Edge<T> edge) {
         resize();
 
         heap[size] = edge;
@@ -22,7 +22,7 @@ public class Heap<T> {
         size++;
     }
 
-    public Edge<T> poll() {
+    public Edge<T> pop() {
         if (isEmpty()) {
             throw new IllegalStateException("Heap is empty.");
         }
@@ -102,5 +102,15 @@ public class Heap<T> {
         Edge<T> temp = heap[i];
         heap[i] = heap[j];
         heap[j] = temp;
+    }
+
+    public void sort() {
+        for (int i = size - 1; i >= 0; i--) {
+            heapifyDown(i);
+        }
+    }
+
+    public int size() {
+        return size;
     }
 }
