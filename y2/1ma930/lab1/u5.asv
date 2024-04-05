@@ -1,0 +1,10 @@
+format long;
+
+y = 19;
+f =@(k) 19 + 2^(-k);
+
+for k = linspace(0,52,1)
+    if f(k) <= y
+        k
+    end
+end

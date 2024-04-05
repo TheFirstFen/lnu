@@ -1,0 +1,15 @@
+format long;
+
+x = [-2:1/100000:8];
+
+f = @(x) x - 4 * sin(2 * x) - 3 - 3 / 80;
+
+plot(x, y, 'b', 'LineWidth', 2);
+hold on;
+grid on;
+plot(xlim, [0 0], 'r', 'LineWidth', 2);
+hold off;
+
+for x_g = x
+    zero = fzero(y, x_g);
+end
