@@ -44,15 +44,14 @@ public class Main4 {
                 sw.reset();
             }
 
+            // * Deprecated code
             // for (int i = 1; i < TIME_H.length; i++) {
             // fullInfoPrint(i, sw);
             // bestPerDepth(arr, i, sw);
             // }
 
-            // System.out.println("Recommended Quicksort depth for Insersort: " +
-            // recomendedDepth(TIME_I));
-            // System.out.println("Recommended Quicksort depth for Heapsort: " +
-            // recomendedDepth(TIME_H));
+            System.out.println("Recommended Quicksort depth for Insersort: " + recomendedDepth(TIME_I));
+            System.out.println("Recommended Quicksort depth for Heapsort: " + recomendedDepth(TIME_H) + "\n");
 
             if (insertsortPerExp > heapsortPerExp) {
                 insertsort++;
@@ -93,13 +92,13 @@ public class Main4 {
         return Integer.toString(minIdx * INCREMENTS);
     }
 
-    private static void fullInfoPrint(int i, Timer sw) {
+    private static void fullInfoPrint(int i, Timer sw) { // * Deprecated code
         System.out.println(
                 "Depth: " + (i * INCREMENTS) + " | Insertionsort: " + sw.chooseTimePrefix(TIME_I[i]) + " | Heapsort: "
                         + sw.chooseTimePrefix(TIME_H[i]) + "\n");
     }
 
-    private static void bestPerDepth(int[] arr, int i, Timer sw) {
+    private static void bestPerDepth(int[] arr, int i, Timer sw) { // * Deprecated code
         String out = getTimeForEachDepth(arr, i, sw);
         System.out.println(out + ", recursion depth: " + (i * INCREMENTS));
         System.out.println("-------------");

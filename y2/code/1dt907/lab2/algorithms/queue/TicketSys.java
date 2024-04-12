@@ -44,7 +44,7 @@ public class TicketSys {
         arr[0] = arr[size - 1];
         size--;
 
-        HeapSort.heapSort(arr, size);
+        // HeapSort.heapSort(arr, size);
 
         return temp;
     }

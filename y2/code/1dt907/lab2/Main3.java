@@ -4,6 +4,7 @@ import algorithms.queue.TicketSys;
 import java.util.Random;
 
 public class Main3 {
+    // TODO: Changes HeapSort for heapify.
     public static void main(String[] args) {
         TicketSys queue = new TicketSys();
         Random rnd = new Random();
