@@ -36,14 +36,119 @@ lsl x5, x5, 3
 
 ### Task 3
 
-```LEGv8
+`x1 * x2 + x3 * x4 + x5` -> `x0`
 
+`4 * 5 + 16 * 11 + 25` -> `221`
+
+```LEGv8
+movz x0, #0
+
+movz x1, #4
+movz x2, #5
+
+movz x3, #16
+movz x4, #11
+
+movz x5, #25
+
+loop1:
+    cbz x1, loop2
+    add x0, x0, x2
+    subi x1, x1, #1
+    cbnz x1, loop1
+
+loop2:
+    cbz x3, end
+    add x0, x0, x4
+    subi x3, x3, #1
+    cbnz x3, loop2
+
+end:
+    add x0, x0, x5
 ```
 
 ### Task 4
 
+`1893423 + 443924` == `1CE42F + 6C614` -> `2337347` == `23AA43`
+
+```LEGv8
+movz x1, #0x001c, lsl 16
+movk x1, #0xe42f
+
+movz x2, #0x0006, lsl 16
+movk x2, #0xc614
+
+add x0, x1, x2
+```
+
 ### Task 5
+
+`1 + 3 + ... + 99` -> `2500`
+
+```LEGv8
+movz x1, #0
+movz x2, #99
+
+loop:
+    b.le end
+    add x1, x1, x2
+    subis x2, x2, #2
+    cbnz x2, loop
+
+end:
+    addi x1, x1, #0
+```
 
 ### Task 6
 
+Given code:
+
+```LEGv8
+//Set up base memory address
+MOVZ x7, #0x1000, LSL #16
+
+//Store the numbers 15 and 25 in data memory
+MOVZ x1, #15
+STUR x1, [x7, #0]
+
+MOVZ x1, #25
+STUR x1, [x7, #8]
+
+//Load the stored from memory
+LDUR X1, [X7, #0]
+LDUR X2, [X7, #8]
+```
+
+1.
+
+2.
+
 ### Task 7
+
+```LEGv8
+// Input data
+
+MOVZ x7, #0x1000, LSL #16
+
+MOVZ x1, #1
+STUR x1, [x7, #0]
+
+MOVZ x1, #4
+STUR x1, [x7, #8]
+
+MOVZ x1, #1
+STUR x1, [x7, #16]
+
+MOVZ x1, #5
+STUR x1, [x7, #24]
+
+MOVZ x1, #9
+STUR x1, [x7, #32]
+
+MOVZ x1, #2
+STUR x1, [x7, #40]
+
+// Solution code
+
+
+```
