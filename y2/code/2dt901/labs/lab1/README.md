@@ -83,6 +83,7 @@ add x0, x1, x2
 
 ### Task 5
 
+`some linear sum` -> `x1`
 `1 + 3 + ... + 99` -> `2500`
 
 ```LEGv8
@@ -98,6 +99,8 @@ loop:
 end:
     addi x1, x1, #0
 ```
+
+<!--TODO: I am here -->
 
 ### Task 6
 
@@ -125,7 +128,7 @@ LDUR X2, [X7, #8]
 
 ### Task 7
 
-```LEGv8
+```LEGv8 -> x0
 // Input data
 
 MOVZ x7, #0x1000, LSL #16
