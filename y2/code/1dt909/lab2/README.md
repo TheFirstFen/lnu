@@ -60,12 +60,14 @@ When the graphs grow larger, there can indeed be differences in performance betw
 
 To introduce concurrency to Floyd-Warshall's algorithm, the following steps were taken:
 
-1. A channel `res` of type `chan [][]int` was used to send the resulting distance matrix back to the main goroutine.
-2. The computation of Floyd-Warshall's algorithm was encapsulated within a goroutine, allowing it to run concurrently with other tasks.
-3. Within the goroutine, the computation proceeded as usual, calculating shortest paths between all pairs of vertices.
-4. Once the computation was complete, the resulting distance matrix was sent through the channel `res`.
+1. The function `floydWarshall()` was created to calculate the shortest paths between all pairs of vertices concurrently.
+2. Inside `floydWarshall()`, a channel of type `chan bool` was initialized with a buffer size equal to the number of vertices `n`. This channel is used to signal the completion of each goroutine responsible for updating the distance matrix.
+3. For each vertex `k`, a goroutine is launched to handle the updates of the distance matrix concurrently. Inside each goroutine, the algorithm proceeds as usual, calculating the shortest paths between all pairs of vertices, but in parallel for different values of `k`.
+4. Upon completing the computation for a vertex `k`, the goroutine signals its completion by sending a boolean value `true` through the channel initialized in step 2.
+5. The main goroutine waits for all `n` goroutines to complete by receiving `n` values from the channel.
+6. Finally, the resulting distance matrix is returned.
 
-#### Experiments and Results
+#### Experiments and Result`
 
 The experiments involved running both Dijkstra's algorithm and Floyd-Warshall's algorithm on graphs of varying sizes and analyzing their respective performances.
 

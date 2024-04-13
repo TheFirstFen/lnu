@@ -99,25 +99,34 @@ func (g *Graph) runDjikstras() [][]int {
 	return dist
 }
 
-func (g *Graph) floydWarshall(res chan<- [][]int) {
-	vert := g.vertices
-	dist := make([][]int, vert)
+func (g *Graph) floydWarshall() [][]int {
+	n := g.vertices
+	dist := make([][]int, n)
 	for i := range dist {
-		dist[i] = make([]int, vert)
+		dist[i] = make([]int, n)
 		copy(dist[i], g.edges[i])
 	}
 
-	for i := 0; i < vert; i++ {
-		for j := 0; j < vert; j++ {
-			for k := 0; k < vert; k++ {
-				if dist[j][i]+dist[i][k] < dist[j][k] {
-					dist[j][k] = dist[j][i] + dist[i][k]
+	done := make(chan bool, n)
+
+	for i := 0; i < n; i++ {
+		go func(k int) {
+			for j := 0; j < n; j++ {
+				for k := 0; k < n; k++ {
+					if dist[j][i]+dist[i][k] < dist[j][k] {
+						dist[j][k] = dist[j][i] + dist[i][k]
+					}
 				}
 			}
-		}
+			done <- true
+		}(i)
 	}
 
-	res <- dist
+	for i := 0; i < n; i++ {
+		<-done
+	}
+
+	return dist
 }
 
 func timer() func() {
@@ -151,11 +160,8 @@ func main() {
 		}
 	}
 
-	floydWarshallChan := make(chan [][]int)
-
 	floydTimer := timer()
-	go graph.floydWarshall(floydWarshallChan)
-	floydWarshallRes := <-floydWarshallChan
+	floydWarshallRes := graph.floydWarshall()
 	floydTimer()
 
 	fmt.Println("\nFloyd Warshall's algorithm:")
