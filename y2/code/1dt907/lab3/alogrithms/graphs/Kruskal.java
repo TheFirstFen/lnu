@@ -19,16 +19,19 @@ public class Kruskal<T> {
         msf.clear();
         weights.clear();
 
+        // * Unsorted edges
         List<Edge<T>> edges = new ArrayList<>();
         for (Edge<T> edge : graph.edges()) {
             edges.add(edge);
         }
 
+        // * Into a min-heap
         Heap<T> heap = new Heap<T>(edges.size());
         for (Edge<T> edge : edges) {
             heap.push(edge);
         }
 
+        // * Reset edges, and add sorted edges
         edges = new ArrayList<>();
         while (!heap.isEmpty()) {
             edges.add(heap.pop());
@@ -37,7 +40,6 @@ public class Kruskal<T> {
         PCWQUnionFind uf = new PCWQUnionFind(graph.getVertices());
 
         for (Edge<T> edge : edges) {
-            // Edge<T> edge = heap.pop();
             int v1 = (int) edge.v1;
             int v2 = (int) edge.v2;
 

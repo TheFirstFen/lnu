@@ -7,7 +7,7 @@ public class Main3 {
 
         graph.addEdge(0, 1, 1);
         graph.addEdge(1, 2, 2);
-        graph.addEdge(1, 4, 100); // * Shouldn't be included in MST
+        graph.addEdge(1, 4, 200); // * Shouldn't be included in MST
         graph.addEdge(2, 3, 5);
         graph.addEdge(2, 4, 3);
 
