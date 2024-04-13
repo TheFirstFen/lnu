@@ -3,16 +3,16 @@ package algorithms.sort;
 public class Quicksort {
     private static int depth = 0;
 
-    public static void quickSort(int[] arr, int maxDepth, int algorithm) {
+    public static void quickSort(int[] arr, int maxDepth, boolean algorithm) {
         quickSort(arr, 0, arr.length - 1, depth, maxDepth, algorithm);
     }
 
-    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, int algorithm) {
+    private static void quickSort(int[] arr, int left, int right, int depth, int maxDepth, boolean algorithm) {
         if (left < right) {
             if (depth >= maxDepth) {
-                if (algorithm == 0) {
+                if (algorithm == false) {
                     Heapsort.heapsort(arr, left, right);
-                } else if (algorithm == 1) {
+                } else if (algorithm == true) {
                     Insertionsort.insertionsort(arr, left, right);
                 }
                 return;

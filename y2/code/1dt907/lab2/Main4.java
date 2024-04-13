@@ -5,13 +5,13 @@ public class Main4 {
     static final int SIZE = 100_000;
     static final int RND_SIZE = SIZE / 50;
     static final int INCREMENTS = 5; // * Adjust if other tests needed
-    static final int EXPERIMENTS = 10;
+    static final int EXPERIMENTS = 100;
     static int heapsortPerExp;
     static int insertsortPerExp;
     static int heapsort;
     static int insertsort;
     static double[] TIME_I, TIME_H;
-    static int ALGORITHM = 0; // * 0 - HeapSort, 1 - InsertionSort
+    static boolean ALGORITHM = false; // * false - HeapSort, true - InsertionSort
     static String Winner;
 
     public static void main(String[] args) {
@@ -35,7 +35,7 @@ public class Main4 {
             }
 
             // Insertsort after quicksort
-            ALGORITHM = 1;
+            ALGORITHM = true;
             for (int maxDepth = INCREMENTS; maxDepth <= INCREMENTS * 20; maxDepth += INCREMENTS) {
                 sw.start();
                 Quicksort.quickSort(arr.clone(), maxDepth, ALGORITHM);
@@ -92,12 +92,14 @@ public class Main4 {
         return Integer.toString(minIdx * INCREMENTS);
     }
 
+    // * Unused
     private static void fullInfoPrint(int i, Timer sw) { // * Deprecated code
         System.out.println(
                 "Depth: " + (i * INCREMENTS) + " | Insertionsort: " + sw.chooseTimePrefix(TIME_I[i]) + " | Heapsort: "
                         + sw.chooseTimePrefix(TIME_H[i]) + "\n");
     }
 
+    // * Unused
     private static void bestPerDepth(int[] arr, int i, Timer sw) { // * Deprecated code
         String out = getTimeForEachDepth(arr, i, sw);
         System.out.println(out + ", recursion depth: " + (i * INCREMENTS));

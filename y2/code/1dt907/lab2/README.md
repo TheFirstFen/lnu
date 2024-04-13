@@ -213,30 +213,14 @@ Dessa tider känns rimliga med min implementation av min `min-heap` som ser till
 
 ## Problem 4
 
-Jag gjorde 100 stycken experiment och fick fram i snitt fallet det följande:
+Jag gjorde 100 stycken experiment och fick fram det följande:
 
 ```Output
-Heapsort is the most efficient algoritm with time: 6,6104 ms and for recursion depth: 5
-Heapsort is the most efficient algoritm with time: 6,0343 ms and for recursion depth: 10
-Heapsort is the most efficient algoritm with time: 5,5621 ms and for recursion depth: 15
-Heapsort is the most efficient algoritm with time: 5,4002 ms and for recursion depth: 20
-Heapsort is the most efficient algoritm with time: 5,3567 ms and for recursion depth: 25
-Heapsort is the most efficient algoritm with time: 5,3741 ms and for recursion depth: 30
-Heapsort is the most efficient algoritm with time: 5,3875 ms and for recursion depth: 35
-Heapsort is the most efficient algoritm with time: 5,3051 ms and for recursion depth: 40
-Heapsort is the most efficient algoritm with time: 5,3933 ms and for recursion depth: 45
-Heapsort is the most efficient algoritm with time: 5,3839 ms and for recursion depth: 50
-Heapsort is the most efficient algoritm with time: 5,3448 ms and for recursion depth: 55
-Heapsort is the most efficient algoritm with time: 5,3432 ms and for recursion depth: 60
-Heapsort is the most efficient algoritm with time: 5,3544 ms and for recursion depth: 65
-Heapsort is the most efficient algoritm with time: 5,3847 ms and for recursion depth: 70
-Heapsort is the most efficient algoritm with time: 5,3621 ms and for recursion depth: 75
-Heapsort is the most efficient algoritm with time: 5,3263 ms and for recursion depth: 80
-Heapsort is the most efficient algoritm with time: 5,3764 ms and for recursion depth: 85
-Heapsort is the most efficient algoritm with time: 5,4470 ms and for recursion depth: 90
-Heapsort is the most efficient algoritm with time: 5,3235 ms and for recursion depth: 95
-Heapsort is the most efficient algoritm with time: 5,3393 ms and for recursion depth: 100
+Heapsort won: 100 experiments
+Insertionsort won: 0 experiments
 ```
+
+***Notera***: Att recommended depth varierade mellan experimenten.
 
 Detta gäller då vi kollar på en array med 100 000 element och går i steg av `5` som max depth för quicksort innan jag skapar kopior av array:et för att sortera det påbörjade soterade array:et med heap- respektive insertionsort.
 
