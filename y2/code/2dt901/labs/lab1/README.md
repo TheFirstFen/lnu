@@ -122,9 +122,19 @@ LDUR X1, [X7, #0]
 LDUR X2, [X7, #8]
 ```
 
-1.
+1. Which parts of the CPU are involved when ... is executed?
 
-2.
+    1. movz: Instruction memory(Instruction), Registers, ALU, Pad, PC, Control, ALU Control
+
+    2. stur: Instruction memory(Instruction), Registers(Read data), ALU, Data memory(Address, Write Data), Signextend, PC, Control, ALU Control
+
+    3. ldur: Instruction memory(Instruction), Registers, ALU, Data memory(Read data), Signextend, PC, Control, ALU Control
+
+    <!-- ? Control unit är den komponent i processorn som hanterar dataflöden i processorn. Den hämtar data från instruktionsminnet och skickar datan dit de ska. PC (Process counter) är en pekare som håller koll på vilken nästa instruktion som ska utföras. Den uppdateras varje gång en operation har utförts. Instruction memory är den delen av processorn som sparar vilka instruktioner som ska utföras. I vissa arkitekturer är detta en del av data minnet. Register är ett litet minne som sitter inuti CPUn för snabb tillgång. Datan som sparas där är bara temporär. Data memory är en komponent inuti CPUn som kan spara instruktioner, operationer eller resultat från operationer. STUR operationen sparar data i data memory och LDUR operationer hämtar data ifrån data minnet. ALU-komponenten hämtar data från registret och gör aritmetiska eller logiska operationer på datan, detta operationer kan vara t:ex addition, subtraktion, multiplikation eller division. Resultatet från komponenten sparas i registret. -->
+
+2. Explain why these parts are involved.
+
+    <!-- ? Control unit, Process counter och instruktion memory måste alltid användas för att datorn ska kunna fungera. Under MOVZ kommandon används registret för att sätta in det värdet man vill sätta in, under STUR och LDUR kommandon läser man från register för att sätta in i dataminnet. Dataminnet är RAM-minnet eller cache-minnet i datorn och lagrar saker lite mer långvarigt i bara register. ALUn används också under dessa operationer för att göra lite logiska operationer och uträkningar. -->
 
 ### Task 7
 
@@ -153,5 +163,17 @@ STUR x1, [x7, #40]
 
 // Solution code
 
+movz x0, #0
+movz x2, #6
 
+loop:
+    cbz x2, end
+    ldur x1, [x7]
+    add x0, x0, x1
+    subi x2, x2, #1
+    addi x7, x7, #8
+    cbnz x2, loop
+
+end:
+    addi x0, x0, #0
 ```
