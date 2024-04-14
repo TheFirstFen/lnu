@@ -1,6 +1,6 @@
-# Lab 1
+# 2DT901 : Lab 1
 
-## Samuel Berg &
+## Group 1 : Samuel Berg &
 
 ### Task 1
 
@@ -17,15 +17,12 @@ Value in `x2` = 17
 
 ```Binary || Hex : LEGv8
 11010010100 0000000010000000 00010 : movz x2, #0x80
-
 11010010100 0000000011100111 00100 : movz x4, #0xe7
-
 11001011000 00010 000000 00100 00101 : sub x5, x4, x2
-
 D360 0CA5 : 11010011011 00000 000011 00101 00101 : lsl x5, x5, 3
 ```
 
-Resulting in following exectution:
+Resulting in following assembly code:
 
 ```LEGv8
 movz x2, #0x80
@@ -35,6 +32,8 @@ lsl x5, x5, 3
 ```
 
 ### Task 3
+
+<!-- ? What would the optimal solution be? logicwise -->
 
 `x1 * x2 + x3 * x4 + x5` -> `x0`
 
@@ -100,9 +99,9 @@ end:
     addi x1, x1, #0
 ```
 
-<!--TODO: I am here -->
-
 ### Task 6
+
+<!-- ? In sim what is called parts/components? -->
 
 Given code:
 
@@ -124,7 +123,7 @@ LDUR X2, [X7, #8]
 
 1. Which parts of the CPU are involved when ... is executed?
 
-    1. movz: Instruction memory(Instruction), Registers, ALU, Pad, PC, Control, ALU Control
+    1. movz: Instruction memory(Instruction), Registers, ALU, Signextend(Pad), PC, Control, ALU Control
 
     2. stur: Instruction memory(Instruction), Registers(Read data), ALU, Data memory(Address, Write Data), Signextend, PC, Control, ALU Control
 
@@ -134,7 +133,7 @@ LDUR X2, [X7, #8]
 
 2. Explain why these parts are involved.
 
-    <!-- ? Control unit, Process counter och instruktion memory måste alltid användas för att datorn ska kunna fungera. Under MOVZ kommandon används registret för att sätta in det värdet man vill sätta in, under STUR och LDUR kommandon läser man från register för att sätta in i dataminnet. Dataminnet är RAM-minnet eller cache-minnet i datorn och lagrar saker lite mer långvarigt i bara register. ALUn används också under dessa operationer för att göra lite logiska operationer och uträkningar. -->
+    Control units, PC(Process counter) och instruction memory must be included for a computer to function. The `movz` command uses the register to store an imidiate value with a possible left-shift, `stur` and `ldur` commands reads from the register to store in data memory. Data memory refers to RAM(Random Access Memory) or the cache-memory and stores it with more longevity then just in the register. The ALU is also used during these operations to do locigal operations and computations.
 
 ### Task 7
 
