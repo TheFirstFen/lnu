@@ -22,8 +22,8 @@ while(0 == 0)
     plot(x(1),y(1),'bo',x(4),y(4),'bo');
 
     bx=3*(x(2)-x(1)); by=3*(y(2)-y(1)); % spline equations ...
-    cx=3*(x(3)-x(2))-bx;cy=3*(y(3)-y(2))-by;
-    dx=x(4)-x(1)-bx-cx;dy=y(4)-y(1)-by-cy;
+    cx=3*(x(3)-x(2))-bx; cy=3*(y(3)-y(2))-by;
+    dx=x(4)-x(1)-bx-cx; dy=y(4)-y(1)-by-cy;
     xp=x(1)+t.*(bx+t.*(cx+t*dx));
 
     % Horner's method

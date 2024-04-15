@@ -1,6 +1,6 @@
 # 2DT901 : Lab 1
 
-## Group 1 : Samuel Berg &
+## Group 1 : Samuel Berg & Jesper Wingren
 
 ### Task 1
 
@@ -32,8 +32,6 @@ lsl x5, x5, 3
 ```
 
 ### Task 3
-
-<!-- ? What would the optimal solution be? logicwise -->
 
 `x1 * x2 + x3 * x4 + x5` -> `x0`
 
@@ -101,8 +99,6 @@ end:
 
 ### Task 6
 
-<!-- ? In sim what is called parts/components? -->
-
 Given code:
 
 ```LEGv8
@@ -123,13 +119,13 @@ LDUR X2, [X7, #8]
 
 1. Which parts of the CPU are involved when ... is executed?
 
-    1. movz: Instruction memory(Instruction), Registers, ALU, Signextend(Pad), PC, Control, ALU Control
+    1. movz: Instruction memory(Instruction), Registers, ALU, Pad, PC, Control, ALU Control
 
     2. stur: Instruction memory(Instruction), Registers(Read data), ALU, Data memory(Address, Write Data), Signextend, PC, Control, ALU Control
 
     3. ldur: Instruction memory(Instruction), Registers, ALU, Data memory(Read data), Signextend, PC, Control, ALU Control
 
-    <!-- ? Control unit är den komponent i processorn som hanterar dataflöden i processorn. Den hämtar data från instruktionsminnet och skickar datan dit de ska. PC (Process counter) är en pekare som håller koll på vilken nästa instruktion som ska utföras. Den uppdateras varje gång en operation har utförts. Instruction memory är den delen av processorn som sparar vilka instruktioner som ska utföras. I vissa arkitekturer är detta en del av data minnet. Register är ett litet minne som sitter inuti CPUn för snabb tillgång. Datan som sparas där är bara temporär. Data memory är en komponent inuti CPUn som kan spara instruktioner, operationer eller resultat från operationer. STUR operationen sparar data i data memory och LDUR operationer hämtar data ifrån data minnet. ALU-komponenten hämtar data från registret och gör aritmetiska eller logiska operationer på datan, detta operationer kan vara t:ex addition, subtraktion, multiplikation eller division. Resultatet från komponenten sparas i registret. -->
+    <!-- TODO: Explain: Instruction memory, Registers, ALU, Data memory, Signextended/Pad, PC, Control, ALU Control -->
 
 2. Explain why these parts are involved.
 
@@ -176,3 +172,5 @@ loop:
 end:
     addi x0, x0, #0
 ```
+
+<!-- ? TASK 6:  Control unit är den komponent i processorn som hanterar dataflöden i processorn. Den hämtar data från instruktionsminnet och skickar datan dit de ska. PC (Process counter) är en pekare som håller koll på vilken nästa instruktion som ska utföras. Den uppdateras varje gång en operation har utförts. Instruction memory är den delen av processorn som sparar vilka instruktioner som ska utföras. I vissa arkitekturer är detta en del av data minnet. Register är ett litet minne som sitter inuti CPUn för snabb tillgång. Datan som sparas där är bara temporär. Data memory är en komponent inuti CPUn som kan spara instruktioner, operationer eller resultat från operationer. STUR operationen sparar data i data memory och LDUR operationer hämtar data ifrån data minnet. ALU-komponenten hämtar data från registret och gör aritmetiska eller logiska operationer på datan, detta operationer kan vara t:ex addition, subtraktion, multiplikation eller division. Resultatet från komponenten sparas i registret. -->
