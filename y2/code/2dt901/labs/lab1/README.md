@@ -81,6 +81,7 @@ add x0, x1, x2
 ### Task 5
 
 `some linear sum` -> `x1`
+
 `1 + 3 + ... + 99` -> `2500`
 
 ```LEGv8
@@ -119,13 +120,29 @@ LDUR X2, [X7, #8]
 
 1. Which parts of the CPU are involved when ... is executed?
 
-    1. movz: Instruction memory(Instruction), Registers, ALU, Pad, PC, Control, ALU Control
+    - movz: Instruction memory(Instruction), Registers, ALU, Pad, PC, Control, ALU Control
 
-    2. stur: Instruction memory(Instruction), Registers(Read data), ALU, Data memory(Address, Write Data), Signextend, PC, Control, ALU Control
+    - stur: Instruction memory(Instruction), Registers(Read data), ALU, Data memory(Address, Write Data), Signextend, PC, Control, ALU Control
 
-    3. ldur: Instruction memory(Instruction), Registers, ALU, Data memory(Read data), Signextend, PC, Control, ALU Control
+    - ldur: Instruction memory(Instruction), Registers, ALU, Data memory(Read data), Signextend, PC, Control, ALU Control
 
-    <!-- TODO: Explain: Instruction memory, Registers, ALU, Data memory, Signextended/Pad, PC, Control, ALU Control -->
+    - Explaination of involved parts:
+
+        **Instruction memory**: Is where the CPU stores instructions that it needs to execute. Instructions are fetched from memory and then decoded and executed by the CPU. In some arcitechtures this is part of the data memory.
+
+        **Registers**: Registers are small, fast storage locations within the CPU used to store data temporarily during processing. They are very fast compared to accessing data from memory. Some common types of registers include the program counter (PC), which keeps track of the memory address of the next instruction to be fetched, and general-purpose registers, which hold data that is being manipulated by the CPU.
+
+        **ALU (Arithmetic Logic Unit)**: The ALU is responsible for performing arithmetic and logic operations on data within the CPU. Arithmetic operations include addition, subtraction, multiplication, and division, while logic operations include AND, OR, NOT, and XOR operations.
+
+        **Data memory**: This is the main memory (RAM) where data is stored. Unlike registers, which are located inside the CPU and are very fast but limited in size, data memory is larger but slower to access. For example `stur` stores data in the data memory while `ldur` reads data.
+
+        **Sign Extended/Pad**: Sign extension is a technique used to extend the sign bit of a binary number to fill a larger bit-width. It ensures that the signedness of a number is preserved when it's widened or extended. Padding refers to adding extra bits to the data to fit into a larger register or memory space.
+
+        **PC (Program Counter)**: The program counter is a special register that holds the memory address of the next instruction to be fetched and executed by the CPU.
+
+        **Control**: This part of the CPU is responsible for controlling the operation of the other parts. It fetches instructions from the instruction memory, decodes them, and coordinates the execution of the appropriate operations in the ALU and other parts of the CPU.
+
+        **ALU Control**: This is a component of the control unit that determines which operation the ALU should perform based on the instruction being executed. It generates control signals that tell the ALU what operation to perform (addition, subtraction, logic operation or other) and how to interpret the operands.
 
 2. Explain why these parts are involved.
 
@@ -172,5 +189,3 @@ loop:
 end:
     addi x0, x0, #0
 ```
-
-<!-- ? TASK 6:  Control unit är den komponent i processorn som hanterar dataflöden i processorn. Den hämtar data från instruktionsminnet och skickar datan dit de ska. PC (Process counter) är en pekare som håller koll på vilken nästa instruktion som ska utföras. Den uppdateras varje gång en operation har utförts. Instruction memory är den delen av processorn som sparar vilka instruktioner som ska utföras. I vissa arkitekturer är detta en del av data minnet. Register är ett litet minne som sitter inuti CPUn för snabb tillgång. Datan som sparas där är bara temporär. Data memory är en komponent inuti CPUn som kan spara instruktioner, operationer eller resultat från operationer. STUR operationen sparar data i data memory och LDUR operationer hämtar data ifrån data minnet. ALU-komponenten hämtar data från registret och gör aritmetiska eller logiska operationer på datan, detta operationer kan vara t:ex addition, subtraktion, multiplikation eller division. Resultatet från komponenten sparas i registret. -->
