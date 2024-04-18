@@ -11,7 +11,11 @@ addi x1, x1, #2
 add x2, x0, x1
 ```
 
-Value in `x2` = 17
+Value in `x2`:
+
+<img src="./t1.png" alt="Alt text" width="500" height="500">
+
+<!-- ![t1_result](./t1.png) -->
 
 ### Task 2
 
