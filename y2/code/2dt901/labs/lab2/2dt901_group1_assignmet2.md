@@ -21,11 +21,11 @@
 
 `(A * (B + C))'` or `~(A * (B + C))`
 
-#### 1c
+#### 1c : Practical 1
 
-### Practical 1
+[**Build Guide**](https://simulator.io/board/9PfZpeBoZD/2)
 
-[**Build Guide**](https://www.tinkercad.com/things/a6u6XiOCXyd-2dt901-lab2-t1-c?sharecode=quI-Z9IWivHSb0r0S9WVDYJgIqthvIaSvywukxw1VjQ)
+**Note**: 1 NAND, 1 OR, 3 in, 1 out
 
 ### Task 2
 
@@ -134,19 +134,17 @@ For example, a multiplexer is required to route voice signals from various phone
 
 ![2bit addr](./img/lab2_t6_b.png)
 
-#### 6c
-
-### Practical 2
+#### 6c : Practical 2
 
 [**Showcase**](https://simulator.io/board/xREt7NarnS/2)
 
-### Task 7
-
-### Practical 3
+### Task 7 : Practical 3
 
 #### 7a
 
-[**Build Guide**](https://simulator.io/board/gSHKYM6Hyq/1)
+[**Build Guide**](https://simulator.io/board/gSHKYM6Hyq/2)
+
+**Note**: 2 NOR gates, 2 in, 2 out
 
 #### 7b
 
