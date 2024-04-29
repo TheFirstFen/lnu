@@ -1,32 +1,26 @@
 package main
 
-import "sync"
+import (
+	"fmt"
+	"sync"
+)
 
+var wg sync.WaitGroup
+var mutex sync.Mutex
+var sharedVar int
+
+func increment() {
+	mutex.Lock()
+	sharedVar++
+	mutex.Unlock()
+	wg.Done()
+}
 func main() {
-	l1 := sync.Mutex{}
-	l2 := sync.Mutex{}
-	wg := sync.WaitGroup{}
-
-	for i := 0; i < 10_000; i++ {
+	for i := 0; i < 2; i++ {
 		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			l1.Lock()
-			l2.Lock()
-
-			l1.Unlock()
-			l2.Unlock()
-		}()
-
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			l2.Lock()
-			l1.Lock()
-
-			l1.Unlock()
-			l2.Unlock()
-		}()
+		go increment()
 	}
 	wg.Wait()
+	fmt.Println("Value of sharedVar:", sharedVar)
+
 }

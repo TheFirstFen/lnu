@@ -13,7 +13,7 @@ add x2, x0, x1
 
 Value in `x2`:
 
-<img src="./t1.png" alt="Alt text" width="500" height="500">
+<img src="./img/t1.png" alt="Alt text" width="500" height="500">
 
 <!-- ![t1_result](./t1.png) -->
 
