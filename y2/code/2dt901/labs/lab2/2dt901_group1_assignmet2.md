@@ -148,24 +148,24 @@ For example, a multiplexer is required to route voice signals from various phone
 
 #### 7b
 
-`Q` lit
+Q lit
 
-`Q'` not lit
+Q' not lit
 
 ![SR S](./img/lab2_t7_sr_s.png)
 
 #### 7c
 
-`Q` lit
+Q lit
 
-`Q'` not lit
+Q' not lit
 
 ![SR None](./img/lab2_t7_sr_none.png)
 
 #### 7d
 
-`Q` not lit
+Q not lit
 
-`Q'` lit
+Q' lit
 
 ![SR R](./img/lab2_t7_sr_r.png)
