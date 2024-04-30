@@ -1,0 +1,38 @@
+CMakeFiles/HelloWorld.dir/home/voldemort/pico-sdk/src/common/pico_sync/mutex.c.obj: \
+ /home/voldemort/pico-sdk/src/common/pico_sync/mutex.c \
+ /home/voldemort/pico-sdk/src/common/pico_sync/include/pico/mutex.h \
+ /home/voldemort/pico-sdk/src/common/pico_sync/include/pico/lock_core.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico/types.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico/assert.h \
+ /usr/lib/gcc/arm-none-eabi/13.2.0/include/stdbool.h \
+ /usr/arm-none-eabi/include/assert.h /usr/arm-none-eabi/include/_ansi.h \
+ /usr/arm-none-eabi/include/newlib.h \
+ /usr/arm-none-eabi/include/_newlib_version.h \
+ /usr/arm-none-eabi/include/sys/config.h \
+ /usr/arm-none-eabi/include/machine/ieeefp.h \
+ /usr/arm-none-eabi/include/sys/features.h \
+ /usr/lib/gcc/arm-none-eabi/13.2.0/include/stdint.h \
+ /usr/arm-none-eabi/include/stdint.h \
+ /usr/arm-none-eabi/include/machine/_default_types.h \
+ /usr/arm-none-eabi/include/sys/_intsup.h \
+ /usr/arm-none-eabi/include/sys/_stdint.h \
+ /usr/lib/gcc/arm-none-eabi/13.2.0/include/stddef.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_c/build/generated/pico_base/pico/version.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico/config.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_c/build/generated/pico_base/pico/config_autogen.h \
+ /home/voldemort/pico-sdk/src/boards/include/boards/pico.h \
+ /home/voldemort/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+ /home/voldemort/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+ /home/voldemort/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+ /home/voldemort/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+ /home/voldemort/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+ /usr/arm-none-eabi/include/sys/cdefs.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico/types.h \
+ /home/voldemort/pico-sdk/src/common/pico_base/include/pico/error.h \
+ /home/voldemort/pico-sdk/src/common/pico_time/include/pico/time.h \
+ /home/voldemort/pico-sdk/src/rp2_common/hardware_timer/include/hardware/timer.h \
+ /home/voldemort/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/timer.h \
+ /home/voldemort/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+ /home/voldemort/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/timer.h \
+ /home/voldemort/pico-sdk/src/rp2_common/hardware_sync/include/hardware/sync.h
