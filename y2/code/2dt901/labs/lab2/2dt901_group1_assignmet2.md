@@ -25,6 +25,10 @@
 
 [**Build Guide**](https://simulator.io/board/9PfZpeBoZD/2)
 
+<!-- ![T1 circuit](./img/t1_circuit.jpeg) -->
+
+<img src="./img/t1_circuit.jpeg" alt="t1 circuit" style="transform: rotate(-90deg); width: 50%;" />
+
 **Note**: 1 NAND, 1 OR, 3 in, 1 out
 
 ### Task 2
@@ -143,6 +147,10 @@ For example, a multiplexer is required to route voice signals from various phone
 #### 7a
 
 [**Build Guide**](https://simulator.io/board/gSHKYM6Hyq/2)
+
+<!-- ![SR circuit](./img/sr_circuit.jpeg) -->
+
+<img src="./img/sr_circuit.jpeg" alt="t1 circuit" style="transform: rotate(-90deg); width: 50%;" />
 
 **Note**: 2 NOR gates, 2 in, 2 out
 
