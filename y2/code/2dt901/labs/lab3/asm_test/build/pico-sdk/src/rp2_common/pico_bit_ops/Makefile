@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm
+CMAKE_SOURCE_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build
+CMAKE_BINARY_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/pico-sdk/src/rp2_common/pico_bit_ops//CMakeFiles/progress.marks
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles 0
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/pico-sdk/src/rp2_common/pico_bit_ops//CMakeFiles/progress.marks
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/clean
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,17 +103,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/preinstall
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/preinstall
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pico-sdk/src/rp2_common/pico_bit_ops/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -135,6 +135,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

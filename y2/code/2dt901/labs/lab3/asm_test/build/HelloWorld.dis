@@ -1,5 +1,5 @@
 
-/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/HelloWorld.elf:     file format elf32-littlearm
+/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/HelloWorld.elf:     file format elf32-littlearm
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
@@ -50,7 +50,7 @@ Idx Name          Size      VMA       LMA       File off  Algn
  22 .debug_frame  000001b8  00000000  00000000  0000d620  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
-/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/HelloWorld.elf:     file format elf32-littlearm
+/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/HelloWorld.elf:     file format elf32-littlearm
 
 
 Disassembly of section .boot2:

@@ -17,9 +17,9 @@ CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_s
  /usr/arm-none-eabi/include/sys/_intsup.h \
  /usr/arm-none-eabi/include/sys/_stdint.h \
  /usr/lib/gcc/arm-none-eabi/13.2.0/include/stddef.h \
- /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/generated/pico_base/pico/version.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/generated/pico_base/pico/version.h \
  /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/generated/pico_base/pico/config_autogen.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/generated/pico_base/pico/config_autogen.h \
  /home/voldemort/pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/voldemort/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/voldemort/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \

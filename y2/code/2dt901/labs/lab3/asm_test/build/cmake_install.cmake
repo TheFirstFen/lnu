@@ -1,4 +1,4 @@
-# Install script for directory: /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm
+# Install script for directory: /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/pico-sdk/cmake_install.cmake")
+  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/pico-sdk/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

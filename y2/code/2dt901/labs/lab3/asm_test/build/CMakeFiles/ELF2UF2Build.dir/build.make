@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm
+CMAKE_SOURCE_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build
+CMAKE_BINARY_DIR = /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build
 
 # Utility rule file for ELF2UF2Build.
 
@@ -76,47 +76,47 @@ CMakeFiles/ELF2UF2Build-complete: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-pa
 CMakeFiles/ELF2UF2Build-complete: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
 CMakeFiles/ELF2UF2Build-complete: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build
 CMakeFiles/ELF2UF2Build-complete: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'ELF2UF2Build'"
-	/usr/bin/cmake -E make_directory /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles/ELF2UF2Build-complete
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-done
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Completed 'ELF2UF2Build'"
+	/usr/bin/cmake -E make_directory /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/ELF2UF2Build-complete
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-done
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing build step for 'ELF2UF2Build'"
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2 && $(MAKE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Performing build step for 'ELF2UF2Build'"
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2 && $(MAKE)
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure: elf2uf2/tmp/ELF2UF2Build-cfgcmd.txt
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'ELF2UF2Build'"
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2 && /usr/bin/cmake -DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake "-GUnix Makefiles" -S /home/voldemort/pico/pico-sdk/tools/elf2uf2 -B /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2 && /usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Performing configure step for 'ELF2UF2Build'"
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2 && /usr/bin/cmake -DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake "-GUnix Makefiles" -S /home/voldemort/pico/pico-sdk/tools/elf2uf2 -B /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2 && /usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-source_dirinfo.txt
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "No download step for 'ELF2UF2Build'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "No download step for 'ELF2UF2Build'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'ELF2UF2Build'"
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2 && /usr/bin/cmake -E echo_append
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "No install step for 'ELF2UF2Build'"
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2 && /usr/bin/cmake -E echo_append
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'ELF2UF2Build'"
-	/usr/bin/cmake -Dcfgdir= -P /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Creating directories for 'ELF2UF2Build'"
+	/usr/bin/cmake -Dcfgdir= -P /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/tmp/ELF2UF2Build-mkdirs.cmake
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch-info.txt
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'ELF2UF2Build'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "No patch step for 'ELF2UF2Build'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch
 
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update-info.txt
 elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update: elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'ELF2UF2Build'"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "No update step for 'ELF2UF2Build'"
 	/usr/bin/cmake -E echo_append
-	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
+	/usr/bin/cmake -E touch /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update
 
 ELF2UF2Build: CMakeFiles/ELF2UF2Build
 ELF2UF2Build: CMakeFiles/ELF2UF2Build-complete
@@ -139,6 +139,6 @@ CMakeFiles/ELF2UF2Build.dir/clean:
 .PHONY : CMakeFiles/ELF2UF2Build.dir/clean
 
 CMakeFiles/ELF2UF2Build.dir/depend:
-	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build /home/voldemort/lnu/y2/code/2dt901/labs/lab3/test_asm/build/CMakeFiles/ELF2UF2Build.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build /home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/ELF2UF2Build.dir/DependInfo.cmake "--color=$(COLOR)"
 .PHONY : CMakeFiles/ELF2UF2Build.dir/depend
 
