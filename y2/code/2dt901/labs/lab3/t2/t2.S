@@ -1,6 +1,7 @@
     .EQU LED_PIN1, 18
     .EQU LED_PIN2, 19
     .EQU LED_PIN3, 20
+    .EQU LED_BUILTIN, 25
     .EQU GPIO_OUT, 1
     .EQU sleep_time, 200
 
