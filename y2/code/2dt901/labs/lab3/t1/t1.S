@@ -1,25 +1,24 @@
-@
-@ Assembler program print out "Hello World"
-@ using the Pico SDK.
-@
 @ R0 - first parameter to printf
 @ R1 - second parameter to printer
 @ R7 - index counter
-@
 
-.thumb_func		    @ Necessary because sdk uses BLX
-.global main	            @ Provide program starting address to linker
+.thumb_func
+.global main
 
 main:
-	MOV	R7, #0		@ initialize counter to 0
-	BL	stdio_init_all	@ initialize uart or usb
+    MOV	R7, #100
+    BL	stdio_init_all
 loop:
-	LDR	R0, =helloworld	@ load address of helloworld string
-	ADD	R7, #1		@ Increment counter
-	MOV	R1, R7		@ Move the counter to second parameter
-	BL	printf		@ Call pico_printf
-	B	loop		@ loop forever
-		
+    CMP R7, #0
+    BEQ reset
+    LDR	R0, =str
+    SUB R7, #1
+    MOV	R1, R7
+    BL	printf
+    B	loop
+reset:
+    MOV R7, #100
+
 .data
-	       .align  4	@ necessary alignment
-helloworld: .asciz   "Hello World %d\n"
+    .align  4
+str: .asciz   "Hello World %d\n"

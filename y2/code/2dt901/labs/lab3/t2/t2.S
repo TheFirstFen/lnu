@@ -1,25 +1,51 @@
-@
-@ Assembler program print out "Hello World"
-@ using the Pico SDK.
-@
-@ R0 - first parameter to printf
-@ R1 - second parameter to printer
-@ R7 - index counter
-@
+    .EQU LED_PIN1, 18
+    .EQU LED_PIN2, 19
+    .EQU LED_PIN3, 20
+    .EQU GPIO_OUT, 1
+    .EQU sleep_time, 200
 
-.thumb_func		    @ Necessary because sdk uses BLX
-.global main	            @ Provide program starting address to linker
+.thumb_func
+.global main
 
 main:
-	MOV	R7, #0		@ initialize counter to 0
-	BL	stdio_init_all	@ initialize uart or usb
+    MOV R0, #LED_PIN1
+    BL gpio_init
+    MOV R0, #LED_PIN1
+    MOV R1, #GPIO_OUT
+    BL link_gpio_set_dir
+    MOV R0, #LED_PIN2
+    BL gpio_init
+    MOV R0, #LED_PIN2
+    MOV R1, #GPIO_OUT
+    BL link_gpio_set_dir
+    MOV R0, #LED_PIN3
+    BL gpio_init
+    MOV R0, #LED_PIN3
+    MOV R1, #GPIO_OUT
+    BL link_gpio_set_dir
 loop:
-	LDR	R0, =helloworld	@ load address of helloworld string
-	ADD	R7, #1		@ Increment counter
-	MOV	R1, R7		@ Move the counter to second parameter
-	BL	printf		@ Call pico_printf
-	B	loop		@ loop forever
-		
-.data
-	       .align  4	@ necessary alignment
-helloworld: .asciz   "Hello World %d\n"
+    MOV R0, #LED_PIN1
+    MOV R1, #1
+    BL link_gpio_put
+    LDR R0, =sleep_time
+    BL sleep_ms
+    MOV R0, #LED_PIN1
+    MOV R1, #0
+    BL link_gpio_put
+    MOV R0, #LED_PIN2
+    MOV R1, #1
+    BL link_gpio_put
+    LDR R0, =sleep_time
+    BL sleep_ms
+    MOV R0, #LED_PIN2
+    MOV R1, #0
+    BL link_gpio_put
+    MOV R0, #LED_PIN3
+    MOV R1, #1
+    BL link_gpio_put
+    LDR R0, =sleep_time
+    BL sleep_ms
+    MOV R0, #LED_PIN3
+    MOV R1, #0
+    BL link_gpio_put
+    B loop
