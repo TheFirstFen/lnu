@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
-  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
+  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/pico-sdk/src/rp2040/hardware_regs/cmake_install.cmake")
+  include("/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/pico-sdk/src/rp2040/hardware_structs/cmake_install.cmake")
 
 endif()
 

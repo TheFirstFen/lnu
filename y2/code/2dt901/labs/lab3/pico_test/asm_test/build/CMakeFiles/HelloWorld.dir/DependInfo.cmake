@@ -8,18 +8,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
-  "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/HelloWorld.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/HelloWorld.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_divider/divider.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
-  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
+  "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/HelloWorld.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/HelloWorld.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_divider/divider.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_irq/irq_handler_chain.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_divider/divider.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_aeabi.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_aeabi.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj"
+  "/home/voldemort/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S" "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/CMakeFiles/HelloWorld.dir/home/voldemort/pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj"
   )
 set(CMAKE_ASM_COMPILER_ID "GNU")
 
@@ -72,7 +72,7 @@ set(CMAKE_TARGET_DEFINITIONS_ASM
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/asm_test"
+  "/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test"
   "/home/voldemort/pico/pico-sdk/src/common/pico_stdlib/include"
   "/home/voldemort/pico/pico-sdk/src/rp2_common/hardware_gpio/include"
   "/home/voldemort/pico/pico-sdk/src/common/pico_base/include"
