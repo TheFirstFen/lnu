@@ -1,0 +1,3 @@
+/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/pioasm/CMakeFiles/pioasm.dir
+/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/pioasm/CMakeFiles/edit_cache.dir
+/home/voldemort/lnu/y2/code/2dt901/labs/lab3/pico_test/asm_test/build/pioasm/CMakeFiles/rebuild_cache.dir
