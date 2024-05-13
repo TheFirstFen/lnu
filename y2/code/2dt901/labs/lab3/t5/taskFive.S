@@ -14,11 +14,11 @@
 
 main:
     MOV R0, #LED
-    BL gpioinit
+    BL gpio_init
     MOV R0, #ON
-    BL gpioinit
+    BL gpio_init
     MOV R0, #OFF
-    BL gpioinit
+    BL gpio_init
 
     B loop
 loop:
@@ -40,7 +40,7 @@ off:
     BL gpio_off
 
     B loop
-gpioinit:
+gpio_init:
     @ Initialize the GPIO
     MOV R3, #1
     LSL R3, R0              @ shift over to pin position
