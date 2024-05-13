@@ -10,7 +10,6 @@
 
 .thumb_func
 .global main
-
 .align 4
 
 main:
@@ -20,6 +19,7 @@ main:
     BL gpioinit
     MOV R0, #OFF
     BL gpioinit
+
     B loop
 loop:
     MOV R0, #ON
@@ -28,14 +28,17 @@ loop:
     MOV R0, #OFF
     BL gpio_read
     BNE off
+
     B loop
 on:
     MOV R0, #LED
     BL gpio_on
+
     B loop
 off:
     MOV R0, #LED
     BL gpio_off
+
     B loop
 gpioinit:
     @ Initialize the GPIO
@@ -60,6 +63,7 @@ gpioinit:
     ADD R2, R0              @ add the offset for the pin number
     MOV R1, #IO_BANK0_GPIO3_CTRL_FUNCSEL_VALUE_SIO_3
     STR R1, [R2, #IO_BANK0_GPIO0_CTRL_OFFSET]
+
     BX LR
 gpio_on:
     @ Turn on a GPIO pin
@@ -67,6 +71,7 @@ gpio_on:
     LSL R3, R0              @ shift over to pin position
     LDR R2, gpiobase        @ address we want
     STR R3, [R2, #SIO_GPIO_OUT_SET_OFFSET]
+
     BX LR
 gpio_off:
     @ Turn off a GPIO pin
@@ -74,6 +79,7 @@ gpio_off:
     LSL R3, R0              @ shift over to pin position
     LDR R2, gpiobase        @ address we want
     STR R3, [R2, #SIO_GPIO_OUT_CLR_OFFSET]
+
     BX LR
 gpio_read:
     MOV R3, #1
@@ -83,6 +89,7 @@ gpio_read:
     MOV R4, #1
     LSL R4, R0
     AND R4, R4, R3
+
     BX LR
 
 .align 4
