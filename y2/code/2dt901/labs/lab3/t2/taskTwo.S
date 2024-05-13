@@ -14,11 +14,13 @@ main:
     MOV R0, #LED_R
     MOV R1, #GPIO_OUT
     BL link_gpio_set_dir
+
     MOV R0, #LED_Y
     BL gpio_init
     MOV R0, #LED_Y
     MOV R1, #GPIO_OUT
     BL link_gpio_set_dir
+
     MOV R0, #LED_G
     BL gpio_init
     MOV R0, #LED_G
@@ -33,6 +35,7 @@ loop:
     MOV R0, #LED_R
     MOV R1, #0
     BL link_gpio_put
+
     MOV R0, #LED_Y
     MOV R1, #1
     BL link_gpio_put
@@ -41,6 +44,7 @@ loop:
     MOV R0, #LED_Y
     MOV R1, #0
     BL link_gpio_put
+
     MOV R0, #LED_G
     MOV R1, #1
     BL link_gpio_put
@@ -49,4 +53,5 @@ loop:
     MOV R0, #LED_G
     MOV R1, #0
     BL link_gpio_put
+
     B loop

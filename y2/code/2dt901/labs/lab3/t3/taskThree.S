@@ -406,9 +406,6 @@ reset:
     MOV R1, #0
     BL link_gpio_put
 
-    @ LDR R0, =sleep_reset
-    @ BL sleep_ms
-
     @ Fetch address to loop
     POP {pc}
 

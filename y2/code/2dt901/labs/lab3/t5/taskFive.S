@@ -15,8 +15,10 @@
 main:
     MOV R0, #LED
     BL gpio_init
+
     MOV R0, #ON
     BL gpio_init
+
     MOV R0, #OFF
     BL gpio_init
 
@@ -25,6 +27,7 @@ loop:
     MOV R0, #ON
     BL gpio_read
     BNE on
+
     MOV R0, #OFF
     BL gpio_read
     BNE off
