@@ -1,9 +1,9 @@
 CMakeFiles/taskTwo.dir/sdklink.c.obj: \
  /home/voldemort/lnu/y2/code/2dt901/labs/lab3/t2/sdklink.c \
- /home/voldemort/pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/include/hardware/gpio.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/assert.h \
  /usr/lib/gcc/arm-none-eabi/13.2.0/include/stdbool.h \
  /usr/arm-none-eabi/include/assert.h /usr/arm-none-eabi/include/_ansi.h \
  /usr/arm-none-eabi/include/newlib.h \
@@ -18,24 +18,24 @@ CMakeFiles/taskTwo.dir/sdklink.c.obj: \
  /usr/arm-none-eabi/include/sys/_stdint.h \
  /usr/lib/gcc/arm-none-eabi/13.2.0/include/stddef.h \
  /home/voldemort/lnu/y2/code/2dt901/labs/lab3/t2/build/generated/pico_base/pico/version.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/config.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/config.h \
  /home/voldemort/lnu/y2/code/2dt901/labs/lab3/t2/build/generated/pico_base/pico/config_autogen.h \
- /home/voldemort/pico/pico-sdk/src/boards/include/boards/pico.h \
- /home/voldemort/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
- /home/voldemort/pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/boards/include/boards/pico.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/platform_defs.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/addressmap.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/sio.h \
  /usr/arm-none-eabi/include/sys/cdefs.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/types.h \
- /home/voldemort/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
- /home/voldemort/pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
- /home/voldemort/pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
- /home/voldemort/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/types.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/error.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/sio.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_base/include/hardware/address_mapped.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/interp.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/padsbank0.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pads_bank0.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_structs/include/hardware/structs/iobank0.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/io_bank0.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/include/hardware/irq.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/intctrl.h \
+ /home/voldemort/sdk-pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/m0plus.h

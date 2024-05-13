@@ -3,7 +3,8 @@
     .EQU LED_G, 2
     .EQU LED,   25
     .EQU GPIO_OUT, 1
-    .EQU sleep_time, 200
+    .EQU sleep1, 1000
+    .EQU sleep2, 10000
 
 .thumb_func
 .global main
@@ -30,27 +31,36 @@ loop:
     MOV R0, #LED_R
     MOV R1, #1
     BL link_gpio_put
-    LDR R0, =sleep_time
+    LDR R0, =sleep2
     BL sleep_ms
+
+    MOV R0, #LED_Y
+    MOV R1, #1
+    BL link_gpio_put
+    LDR R0, =sleep1
+    BL sleep_ms
+    MOV R0, #LED_Y
+    MOV R1, #0
+    BL link_gpio_put
     MOV R0, #LED_R
     MOV R1, #0
     BL link_gpio_put
 
-    MOV R0, #LED_Y
+    MOV R0, #LED_G
     MOV R1, #1
     BL link_gpio_put
-    LDR R0, =sleep_time
+    LDR R0, =sleep2
     BL sleep_ms
-    MOV R0, #LED_Y
+    MOV R0, #LED_G
     MOV R1, #0
     BL link_gpio_put
 
-    MOV R0, #LED_G
+    MOV R0, #LED_Y
     MOV R1, #1
     BL link_gpio_put
-    LDR R0, =sleep_time
+    LDR R0, =sleep1
     BL sleep_ms
-    MOV R0, #LED_G
+    MOV R0, #LED_Y
     MOV R1, #0
     BL link_gpio_put
 
