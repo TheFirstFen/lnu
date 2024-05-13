@@ -12,6 +12,7 @@ include_directories(${CMAKE_SOURCE_DIR})
 
 add_executable(taskFour
   taskFour.S
+  sdklink.c
 )
 
 pico_enable_stdio_uart(taskFour 1)
