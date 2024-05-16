@@ -2,176 +2,134 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-#define LED_1 1
-#define LED_2 2
-#define LED_3 3
-#define LED_4 4
-#define ON 5
-#define OFF 6
+
+#define LED_1 1 // 000X     represents to 0 or 1 at idx X
+#define LED_2 2 // 00X0
+#define LED_4 3 // 0X00
+#define LED_8 4 // X000
+#define LED 25  // used for debbuging
+#define INC 5
+#define DEC 6
 #define GPIO_OUT 1
 #define GPIO_IN 0
 
+volatile int counter = 8;
+
 void reset();
+void inc();
+void dec();
 
 int main() {
     // init
+    gpio_init(LED);
+    gpio_set_dir(LED, GPIO_OUT);
+
     gpio_init(LED_1);
     gpio_set_dir(LED_1, GPIO_OUT);
 
     gpio_init(LED_2);
     gpio_set_dir(LED_2, GPIO_OUT);
 
-    gpio_init(LED_3);
-    gpio_set_dir(LED_3, GPIO_OUT);
-
     gpio_init(LED_4);
     gpio_set_dir(LED_4, GPIO_OUT);
 
-    gpio_init(ON);
-    gpio_set_dir(ON, GPIO_IN);
+    gpio_init(LED_8);
+    gpio_set_dir(LED_8, GPIO_OUT);
 
-    gpio_init(OFF);
-    gpio_set_dir(OFF, GPIO_IN);
+    gpio_init(INC);
+    gpio_set_dir(INC, GPIO_IN);
+    gpio_set_irq_enabled_with_callback(INC, GPIO_IRQ_EDGE_RISE, true, &inc);
 
-    int counter = 0;
+    gpio_init(DEC);
+    gpio_set_dir(DEC, GPIO_IN);
+    gpio_set_irq_enabled_with_callback(DEC, GPIO_IRQ_EDGE_RISE, true, &dec);
 
     // loop
     while (1) {
-        if(gpio_get(ON)) {
-            counter++;
-        } else if(gpio_get(OFF)) {
-            counter--;
-        }
-
         switch(counter) {
             case 0:
                 reset();
-                printf("%d\n", counter);
                 break;
             case 1:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 0);
                 break;
             case 2:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 0);
                 break;
             case 3:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 0);
                 break;
             case 4:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 1);
-                gpio_put(LED_4, 0);
+                gpio_put(LED_4, 1);
                 break;
             case 5:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 1);
-                gpio_put(LED_4, 0);
+                gpio_put(LED_4, 1);
                 break;
             case 6:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 1);
-                gpio_put(LED_4, 0);
+                gpio_put(LED_4, 1);
                 break;
             case 7:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 1);
-                gpio_put(LED_4, 0);
+                gpio_put(LED_4, 1);
                 break;
             case 8:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 9:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 10:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 11:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 0);
-                gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 12:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 1);
                 gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 13:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
-                gpio_put(LED_2, 0);
-                gpio_put(LED_3, 1);
                 gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 14:
                 reset();
-                printf("%d\n", counter);
-                gpio_put(LED_1, 0);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 1);
                 gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             case 15:
                 reset();
-                printf("%d\n", counter);
                 gpio_put(LED_1, 1);
                 gpio_put(LED_2, 1);
-                gpio_put(LED_3, 1);
                 gpio_put(LED_4, 1);
+                gpio_put(LED_8, 1);
                 break;
             default:
-                printf("Non-displayable\n");
-                printf("%d\n", counter);
                 reset();
+                gpio_put(LED, 1);
                 break;
         }
     }
@@ -179,9 +137,22 @@ int main() {
     return 0;
 }
 
+void inc() {
+    if (counter < 15) {
+        counter++;
+    }
+}
+
+void dec() {
+    if (counter > 0) {
+        counter--;
+    }
+}
+
 void reset() {
     gpio_put(LED_1, 0);
     gpio_put(LED_2, 0);
-    gpio_put(LED_3, 0);
     gpio_put(LED_4, 0);
+    gpio_put(LED_8, 0);
+    gpio_put(LED, 0);
 }
