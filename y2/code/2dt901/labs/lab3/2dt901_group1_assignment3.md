@@ -120,7 +120,6 @@ Code:
     .EQU C, 4
     .EQU B, 5
     .EQU A, 6
-    .EQU LED, 25
     .EQU GPIO_OUT, 1
     .EQU sleep_time, 1000
     .EQU sleep_reset, 200
