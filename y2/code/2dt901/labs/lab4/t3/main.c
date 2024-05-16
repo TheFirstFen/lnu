@@ -1,5 +1,1 @@
-#include <stdio.h>
-
-int main() {
-
-}
+// Copy t2 main.c
