@@ -11,8 +11,7 @@ pico_sdk_init()
 include_directories(${CMAKE_SOURCE_DIR})
 
 add_executable(taskTwo
-  taskTwo.S
-  sdklink.c
+  main.c
 )
 
 pico_enable_stdio_uart(taskTwo 1)
