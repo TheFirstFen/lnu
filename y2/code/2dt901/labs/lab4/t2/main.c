@@ -36,6 +36,8 @@ int main() {
     gpio_init(LED_8);
     gpio_set_dir(LED_8, GPIO_OUT);
 
+    // TODO: Fix so that inc and dec works for the buttons
+
     gpio_init(INC);
     gpio_set_dir(INC, GPIO_IN);
     gpio_set_irq_enabled_with_callback(INC, GPIO_IRQ_EDGE_RISE, true, &inc);
