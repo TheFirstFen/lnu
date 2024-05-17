@@ -40,11 +40,17 @@ int main() {
 
     gpio_init(INC);
     gpio_set_dir(INC, GPIO_IN);
-    gpio_set_irq_enabled_with_callback(INC, GPIO_IRQ_EDGE_RISE, true, &inc);
+    gpio_set_irq_enabled(INC, GPIO_IRQ_EDGE_RISE, true);
+    irq_set_enabled(IO_IRQ_BANK0, true);
+    gpio_add_raw_irq_handler(INC, &inc);
+    // gpio_set_irq_enabled_with_callback(INC, GPIO_IRQ_EDGE_RISE, true, &inc);
 
     gpio_init(DEC);
     gpio_set_dir(DEC, GPIO_IN);
-    gpio_set_irq_enabled_with_callback(DEC, GPIO_IRQ_EDGE_RISE, true, &dec);
+    gpio_set_irq_enabled(DEC, GPIO_IRQ_EDGE_RISE, true);
+    irq_set_enabled(IO_IRQ_BANK0, true);
+    gpio_add_raw_irq_handler(DEC, &dec);
+    // gpio_set_irq_enabled_with_callback(DEC, GPIO_IRQ_EDGE_RISE, true, &dec);
 
     // loop
     while (1) {
@@ -140,14 +146,20 @@ int main() {
 }
 
 void inc() {
-    if (counter < 15) {
-        counter++;
+    if (gpio_get_irq_event_mask(INC) & GPIO_IRQ_EDGE_RISE) {
+        gpio_acknowledge_irq(INC, GPIO_IRQ_EDGE_RISE);
+        if (counter < 15) {
+            counter++;
+        }
     }
 }
 
 void dec() {
-    if (counter > 0) {
-        counter--;
+    if (gpio_get_irq_event_mask(DEC) & GPIO_IRQ_EDGE_RISE) {
+        gpio_acknowledge_irq(DEC, GPIO_IRQ_EDGE_RISE);
+        if (counter > 0) {
+            counter--;
+        }
     }
 }
 
