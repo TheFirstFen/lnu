@@ -13,7 +13,7 @@
 #define GPIO_OUT 1
 #define GPIO_IN 0
 
-volatile int counter = 8;
+volatile int counter = 0;
 
 void reset();
 void inc();
