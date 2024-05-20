@@ -1,4 +1,4 @@
-// Padded and checksummed version of: /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+// Padded and checksummed version of: /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1_a/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 .cpu cortex-m0plus
 .thumb

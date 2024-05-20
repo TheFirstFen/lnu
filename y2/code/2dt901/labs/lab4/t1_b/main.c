@@ -19,6 +19,8 @@ int get(int gpio);
 void put(int gpio, bool val);
 
 int main() {
+    stdio_init_all();
+
     gpio_init(LED_R);
     gpio_set_dir(LED_R, GPIO_OUT);
 

@@ -17,9 +17,9 @@ CMakeFiles/taskOne.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_uniq
  /usr/arm-none-eabi/include/sys/_intsup.h \
  /usr/arm-none-eabi/include/sys/_stdint.h \
  /usr/lib/gcc/arm-none-eabi/13.2.0/include/stddef.h \
- /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1/build/generated/pico_base/pico/version.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1_a/build/generated/pico_base/pico/version.h \
  /home/voldemort/sdk-pico/pico-sdk/src/common/pico_base/include/pico/config.h \
- /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1/build/generated/pico_base/pico/config_autogen.h \
+ /home/voldemort/lnu/y2/code/2dt901/labs/lab4/t1_a/build/generated/pico_base/pico/config_autogen.h \
  /home/voldemort/sdk-pico/pico-sdk/src/boards/include/boards/pico.h \
  /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  /home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_platform/include/pico/platform.h \
