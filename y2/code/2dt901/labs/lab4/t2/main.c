@@ -2,7 +2,6 @@
 #include "pico/stdlib.h"
 #include "hardware/gpio.h"
 
-
 #define LED_1 1 // 000X     represents to 0 or 1 at idx X
 #define LED_2 2 // 00X0
 #define LED_4 3 // 0X00
@@ -16,8 +15,8 @@
 volatile int counter = 0;
 
 void reset();
-void inc();
-void dec();
+void inc(uint gpio, uint32_t events);
+void dec(uint gpio, uint32_t events);
 
 int main() {
     stdio_init_all();
@@ -40,13 +39,13 @@ int main() {
 
     gpio_init(INC);
     gpio_set_dir(INC, GPIO_IN);
-    gpio_set_irq_enabled(INC, GPIO_IRQ_EDGE_RISE, true);
+    gpio_set_irq_enabled(INC, GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE, true);
     irq_set_enabled(IO_IRQ_BANK0, true);
     gpio_add_raw_irq_handler(INC, &inc);
 
     gpio_init(DEC);
     gpio_set_dir(DEC, GPIO_IN);
-    gpio_set_irq_enabled(DEC, GPIO_IRQ_EDGE_RISE, true);
+    gpio_set_irq_enabled(DEC, GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE, true);
     irq_set_enabled(IO_IRQ_BANK0, true);
     gpio_add_raw_irq_handler(DEC, &dec);
 
@@ -143,18 +142,18 @@ int main() {
     return 0;
 }
 
-void inc() {
-    if (gpio_get_irq_event_mask(INC) & GPIO_IRQ_EDGE_RISE) {
-        gpio_acknowledge_irq(INC, GPIO_IRQ_EDGE_RISE);
+void inc(uint gpio, uint32_t events) {
+    if (gpio_get_irq_event_mask(INC) & GPIO_IRQ_EDGE_FALL) {
+        gpio_acknowledge_irq(INC, GPIO_IRQ_EDGE_FALL);
         if (counter < 15) {
             counter++;
         }
     }
 }
 
-void dec() {
-    if (gpio_get_irq_event_mask(DEC) & GPIO_IRQ_EDGE_RISE) {
-        gpio_acknowledge_irq(DEC, GPIO_IRQ_EDGE_RISE);
+void dec(uint gpio, uint32_t events) {
+    if (gpio_get_irq_event_mask(DEC) & GPIO_IRQ_EDGE_FALL) {
+        gpio_acknowledge_irq(DEC, GPIO_IRQ_EDGE_FALL);
         if (counter > 0) {
             counter--;
         }

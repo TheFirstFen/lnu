@@ -14,7 +14,7 @@
 #define GPIO_OUT 1
 #define GPIO_IN 0
 
-volatile int counter = 8;
+volatile int counter = 0;
 
 void display();
 void gpio_cb(uint gpio, uint32_t events);
