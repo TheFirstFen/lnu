@@ -89,6 +89,7 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/taskTwo.dir/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/taskTwo.dir/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/taskTwo.dir/main.c.obj
+ .text.display  0x00000000       0x84 CMakeFiles/taskTwo.dir/main.c.obj
  .text.reset    0x00000000       0x1c CMakeFiles/taskTwo.dir/main.c.obj
  .text          0x00000000        0x0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
  .data          0x00000000        0x0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c.obj
@@ -1248,9 +1249,9 @@ Discarded input sections
  .comment       0x00000000       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
  .ARM.attributes
                 0x00000000       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
- .text          0x00000000        0x0 /tmp/ccyDsrOn.o
- .data          0x00000000        0x0 /tmp/ccyDsrOn.o
- .bss           0x00000000        0x0 /tmp/ccyDsrOn.o
+ .text          0x00000000        0x0 /tmp/ccFF2wLV.o
+ .data          0x00000000        0x0 /tmp/ccFF2wLV.o
+ .bss           0x00000000        0x0 /tmp/ccFF2wLV.o
  .data          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .bss           0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .text          0x00000000        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-atexit.o)
@@ -1831,11 +1832,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
 .boot2          0x10000000      0x100
                 0x10000000                        __boot2_start__ = .
  *(.boot2)
- .boot2         0x10000000      0x100 /tmp/ccyDsrOn.o
+ .boot2         0x10000000      0x100 /tmp/ccFF2wLV.o
                 0x10000100                        __boot2_end__ = .
                 0x00000001                        ASSERT (((__boot2_end__ - __boot2_start__) == 0x100), ERROR: Pico second stage bootloader must be 256 bytes in size)
 
-.text           0x10000100     0x4b30
+.text           0x10000100     0x4b28
                 0x10000100                        __logical_binary_start = .
  *(.vectors)
  .vectors       0x10000100       0xd4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
@@ -1901,494 +1902,494 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
  .text.dec      0x10000394       0x40 CMakeFiles/taskTwo.dir/main.c.obj
                 0x10000394                dec
  .text.startup.main
-                0x100003d4      0x104 CMakeFiles/taskTwo.dir/main.c.obj
+                0x100003d4       0xfc CMakeFiles/taskTwo.dir/main.c.obj
                 0x100003d4                main
  .text.gpio_set_function
-                0x100004d8       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x100004d8                gpio_set_function
+                0x100004d0       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x100004d0                gpio_set_function
  .text.gpio_set_irq_enabled
-                0x10000508       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10000508                gpio_set_irq_enabled
+                0x10000500       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10000500                gpio_set_irq_enabled
  .text.gpio_add_raw_irq_handler_masked
-                0x1000055c       0x38 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x1000055c                gpio_add_raw_irq_handler_masked
+                0x10000554       0x38 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x10000554                gpio_add_raw_irq_handler_masked
  .text.gpio_acknowledge_irq
-                0x10000594       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x10000594                gpio_acknowledge_irq
+                0x1000058c       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x1000058c                gpio_acknowledge_irq
  .text.gpio_init
-                0x100005b0       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
-                0x100005b0                gpio_init
+                0x100005a8       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_gpio/gpio.c.obj
+                0x100005a8                gpio_init
  .text.running_on_fpga
-                0x100005ec       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
-                0x100005ec                running_on_fpga
+                0x100005e4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_platform/platform.c.obj
+                0x100005e4                running_on_fpga
  .text.hw_claim_or_assert
-                0x100005fc       0x44 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x100005fc                hw_claim_or_assert
+                0x100005f4       0x44 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x100005f4                hw_claim_or_assert
  .text.hw_claim_unused_from_range
-                0x10000640       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
-                0x10000640                hw_claim_unused_from_range
+                0x10000638       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_claim/claim.c.obj
+                0x10000638                hw_claim_unused_from_range
  .text.spin_locks_reset
-                0x100006dc       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x100006dc                spin_locks_reset
+                0x100006d4       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x100006d4                spin_locks_reset
  .text.next_striped_spin_lock_num
-                0x100006f8       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x100006f8                next_striped_spin_lock_num
+                0x100006f0       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x100006f0                next_striped_spin_lock_num
  .text.spin_lock_claim_unused
-                0x10000710       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
-                0x10000710                spin_lock_claim_unused
+                0x10000708       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x10000708                spin_lock_claim_unused
  .text.irq_set_enabled
-                0x10000734       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000734                irq_set_enabled
+                0x1000072c       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000072c                irq_set_enabled
  .text.irq_set_pending
-                0x10000758       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000758                irq_set_pending
+                0x10000750       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10000750                irq_set_pending
  .text.irq_has_shared_handler
-                0x10000768       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000768                irq_has_shared_handler
+                0x10000760       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10000760                irq_has_shared_handler
  .text.irq_get_vtable_handler
-                0x10000794       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000794                irq_get_vtable_handler
+                0x1000078c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000078c                irq_get_vtable_handler
  .text.irq_set_exclusive_handler
-                0x100007a4       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100007a4                irq_set_exclusive_handler
+                0x1000079c       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x1000079c                irq_set_exclusive_handler
  .text.irq_add_shared_handler
-                0x100007f8      0x1f4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100007f8                irq_add_shared_handler
+                0x100007f0      0x1f4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100007f0                irq_add_shared_handler
  .text.irq_remove_handler
-                0x100009ec      0x1c4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x100009ec                irq_remove_handler
+                0x100009e4      0x1c4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x100009e4                irq_remove_handler
  .text.irq_add_tail_to_free_list
-                0x10000bb0       0xb4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000bb0                irq_add_tail_to_free_list
+                0x10000ba8       0xb4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10000ba8                irq_add_tail_to_free_list
  .text.irq_init_priorities
-                0x10000c64       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000c64                irq_init_priorities
+                0x10000c5c       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10000c5c                irq_init_priorities
  .text.user_irq_claim_unused
-                0x10000c88       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
-                0x10000c88                user_irq_claim_unused
+                0x10000c80       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10000c80                user_irq_claim_unused
  .text.lock_init
-                0x10000cb4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
-                0x10000cb4                lock_init
+                0x10000cac       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/lock_core.c.obj
+                0x10000cac                lock_init
  .text.mutex_init
-                0x10000cc4       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x10000cc4                mutex_init
+                0x10000cbc       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x10000cbc                mutex_init
  .text.recursive_mutex_init
-                0x10000ce0       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/mutex.c.obj
-                0x10000ce0                recursive_mutex_init
+                0x10000cd8       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/mutex.c.obj
+                0x10000cd8                recursive_mutex_init
  .text.critical_section_init
-                0x10000cfc       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x10000cfc                critical_section_init
+                0x10000cf4       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x10000cf4                critical_section_init
  .text.critical_section_init_with_lock_num
-                0x10000d18       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
-                0x10000d18                critical_section_init_with_lock_num
+                0x10000d10       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_sync/critical_section.c.obj
+                0x10000d10                critical_section_init_with_lock_num
  .text.timer_pool_entry_comparator
-                0x10000d2c       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10000d2c                timer_pool_entry_comparator
+                0x10000d24       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10000d24                timer_pool_entry_comparator
  .text.sleep_until_callback
-                0x10000d60       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10000d58       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.add_alarm_under_lock.isra.0
-                0x10000d90      0x100 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10000d88      0x100 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_alarm_callback
-                0x10000e90      0x1c0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10000e88      0x1c0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
  .text.alarm_pool_init_default
-                0x10001050       0x6c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10001050                alarm_pool_init_default
+                0x10001048       0x6c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10001048                alarm_pool_init_default
  .text.alarm_pool_get_default
-                0x100010bc        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x100010bc                alarm_pool_get_default
+                0x100010b4        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100010b4                alarm_pool_get_default
  .text.alarm_pool_add_alarm_at
-                0x100010c4      0x17c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x100010c4                alarm_pool_add_alarm_at
+                0x100010bc      0x17c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x100010bc                alarm_pool_add_alarm_at
  .text.alarm_pool_core_num
-                0x10001240        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10001240                alarm_pool_core_num
+                0x10001238        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x10001238                alarm_pool_core_num
  .text.best_effort_wfe_or_timeout
-                0x10001244       0xcc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
-                0x10001244                best_effort_wfe_or_timeout
+                0x1000123c       0xcc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_time/time.c.obj
+                0x1000123c                best_effort_wfe_or_timeout
  .text.hardware_alarm_irq_handler
-                0x10001310       0xbc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10001308       0xbc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .text.hardware_alarm_claim
-                0x100013cc       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100013cc                hardware_alarm_claim
+                0x100013c4       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100013c4                hardware_alarm_claim
  .text.time_us_64
-                0x100013e4       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100013e4                time_us_64
+                0x100013dc       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100013dc                time_us_64
  .text.busy_wait_us
-                0x100013f8       0x68 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100013f8                busy_wait_us
+                0x100013f0       0x68 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100013f0                busy_wait_us
  .text.hardware_alarm_set_callback
-                0x10001460       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x10001460                hardware_alarm_set_callback
+                0x10001458       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10001458                hardware_alarm_set_callback
  .text.hardware_alarm_set_target
-                0x100014ec       0xd0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100014ec                hardware_alarm_set_target
+                0x100014e4       0xd0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100014e4                hardware_alarm_set_target
  .text.hardware_alarm_cancel
-                0x100015bc       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
-                0x100015bc                hardware_alarm_cancel
+                0x100015b4       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x100015b4                hardware_alarm_cancel
  .text.ph_merge_nodes
-                0x100015f8       0x58 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x100015f0       0x58 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_post_alloc_init
-                0x10001650       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x10001650                ph_post_alloc_init
+                0x10001648       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10001648                ph_post_alloc_init
  .text.ph_merge_two_pass
-                0x1000168c       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x1000168c                ph_merge_two_pass
+                0x10001684       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10001684                ph_merge_two_pass
  .text.ph_remove_any_head
-                0x10001718      0x100 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10001710      0x100 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
  .text.ph_remove_head
-                0x10001818      0x104 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x10001818                ph_remove_head
+                0x10001810      0x104 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10001810                ph_remove_head
  .text.ph_remove_and_free_node
-                0x1000191c       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
-                0x1000191c                ph_remove_and_free_node
+                0x10001914       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/common/pico_util/pheap.c.obj
+                0x10001914                ph_remove_and_free_node
  .text.uart_init
-                0x10001994      0x18c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
-                0x10001994                uart_init
+                0x1000198c      0x18c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_uart/uart.c.obj
+                0x1000198c                uart_init
  .text.clocks_init
-                0x10001b20      0x2c8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x10001b20                clocks_init
+                0x10001b18      0x2c8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x10001b18                clocks_init
  .text.clock_get_hz
-                0x10001de8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
-                0x10001de8                clock_get_hz
+                0x10001de0        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_clocks/clocks.c.obj
+                0x10001de0                clock_get_hz
  .text.pll_init
-                0x10001df4       0xa4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
-                0x10001df4                pll_init
+                0x10001dec       0xa4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_pll/pll.c.obj
+                0x10001dec                pll_init
  .text.watchdog_start_tick
-                0x10001e98       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10001e98                watchdog_start_tick
+                0x10001e90       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10001e90                watchdog_start_tick
  .text.watchdog_reboot
-                0x10001ea8       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
-                0x10001ea8                watchdog_reboot
+                0x10001ea0       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_watchdog/watchdog.c.obj
+                0x10001ea0                watchdog_reboot
  .text.xosc_init
-                0x10001f44       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
-                0x10001f44                xosc_init
+                0x10001f3c       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_xosc/xosc.c.obj
+                0x10001f3c                xosc_init
  .text.runtime_init
-                0x10001f6c       0xf0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10001f6c                runtime_init
- .text._exit    0x1000205c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x1000205c                _exit
- .text.exit     0x10002060        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10002060                exit
- .text.panic    0x10002068       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10002068                panic
+                0x10001f64       0xf0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10001f64                runtime_init
+ .text._exit    0x10002054        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10002054                _exit
+ .text.exit     0x10002058        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10002058                exit
+ .text.panic    0x10002060       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10002060                panic
  .text.hard_assertion_failure
-                0x10002098        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
-                0x10002098                hard_assertion_failure
+                0x10002090        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10002090                hard_assertion_failure
  .text._out_char
-                0x100020a4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x1000209c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
  .text.weak_raw_vprintf
-                0x100020b4       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
-                0x100020b4                weak_raw_vprintf
- .text          0x100020e4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
+                0x100020ac       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_printf/printf.c.obj
+                0x100020ac                weak_raw_vprintf
+ .text          0x100020dc       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bit_ops/bit_ops_aeabi.S.obj
  .text.rom_func_lookup
-                0x100020f4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x100020f4                rom_func_lookup
+                0x100020ec       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x100020ec                rom_func_lookup
  .text.rom_data_lookup
-                0x10002104       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x10002104                rom_data_lookup
+                0x100020fc       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x100020fc                rom_data_lookup
  .text.rom_funcs_lookup
-                0x10002114       0x44 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
-                0x10002114                rom_funcs_lookup
+                0x1000210c       0x44 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_bootrom/bootrom.c.obj
+                0x1000210c                rom_funcs_lookup
  .text.__wrap___aeabi_uidiv
-                0x10002158       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
-                0x10002158                __wrap___aeabi_uidiv
-                0x10002158                __wrap___aeabi_uidivmod
-                0x10002158                div_u32u32
-                0x10002158                divmod_u32u32
-                0x10002160                divmod_u32u32_unsafe
-                0x10002188                divmod_u32u32_savestate
+                0x10002150       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_divider/divider.S.obj
+                0x10002150                __wrap___aeabi_uidiv
+                0x10002150                __wrap___aeabi_uidivmod
+                0x10002150                div_u32u32
+                0x10002150                divmod_u32u32
+                0x10002158                divmod_u32u32_unsafe
+                0x10002180                divmod_u32u32_savestate
  .text.__aeabi_double_init
-                0x100021a4       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
-                0x100021a4                __aeabi_double_init
+                0x1000219c       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c.obj
+                0x1000219c                __aeabi_double_init
  .text.double_table_shim_on_use_helper
-                0x1000223c       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
-                0x1000223c                double_table_shim_on_use_helper
+                0x10002234       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_double/double_v1_rom_shim.S.obj
+                0x10002234                double_table_shim_on_use_helper
  .text.__aeabi_lmul
-                0x10002268       0x32 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
-                0x10002268                __wrap___aeabi_lmul
- *fill*         0x1000229a        0x2 
+                0x10002260       0x32 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_int64_ops/pico_int64_ops_aeabi.S.obj
+                0x10002260                __wrap___aeabi_lmul
+ *fill*         0x10002292        0x2 
  .text.__aeabi_float_init
-                0x1000229c       0x64 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
-                0x1000229c                __aeabi_float_init
+                0x10002294       0x64 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_float/float_init_rom.c.obj
+                0x10002294                __aeabi_float_init
  .text.float_table_shim_on_use_helper
-                0x10002300       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
-                0x10002300                float_table_shim_on_use_helper
- .text          0x1000232c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x1000232c                __aeabi_mem_init
- .text.memset   0x1000233c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x1000233c                __wrap_memset
- .text.memcpy   0x10002348        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
-                0x10002348                __wrap___aeabi_memcpy
-                0x10002348                __wrap_memcpy
+                0x100022f8       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_float/float_v1_rom_shim.S.obj
+                0x100022f8                float_table_shim_on_use_helper
+ .text          0x10002324       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x10002324                __aeabi_mem_init
+ .text.memset   0x10002334        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x10002334                __wrap_memset
+ .text.memcpy   0x10002340        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_mem_ops/mem_ops_aeabi.S.obj
+                0x10002340                __wrap___aeabi_memcpy
+                0x10002340                __wrap_memcpy
  .text.stdio_out_chars_crlf
-                0x10002354       0x94 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x1000234c       0x94 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .text.__wrap_putchar
-                0x100023e8       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x100023e8                __wrap_putchar
+                0x100023e0       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x100023e0                __wrap_putchar
  .text.__wrap_puts
-                0x10002480       0xe0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x10002480                __wrap_puts
+                0x10002478       0xe0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x10002478                __wrap_puts
  .text.stdio_set_driver_enabled
-                0x10002560       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x10002560                stdio_set_driver_enabled
+                0x10002558       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x10002558                stdio_set_driver_enabled
  .text.stdio_init_all
-                0x10002590       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
-                0x10002590                stdio_init_all
+                0x10002588       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x10002588                stdio_init_all
  .text.stdio_uart_out_chars
-                0x100025a0       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10002598       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_in_chars
-                0x100025ec       0x90 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x100025ec                stdio_uart_in_chars
+                0x100025e4       0x90 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x100025e4                stdio_uart_in_chars
  .text.on_uart_rx
-                0x1000267c       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10002674       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_set_chars_available_callback
-                0x100026a4       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x1000269c       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .text.stdio_uart_init
-                0x10002730       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
-                0x10002730                stdio_uart_init
+                0x10002728       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10002728                stdio_uart_init
  .text.resetd_init
-                0x10002778        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10002770        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_reset
-                0x1000277c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10002774        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_open
-                0x10002788       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10002780       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_xfer_cb
-                0x100027b0        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x100027a8        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.resetd_control_xfer_cb
-                0x100027b4       0x60 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x100027ac       0x60 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .text.usbd_app_driver_get_cb
-                0x10002814        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x10002814                usbd_app_driver_get_cb
+                0x1000280c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x1000280c                usbd_app_driver_get_cb
  .text.tud_cdc_line_coding_cb
-                0x10002820       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
-                0x10002820                tud_cdc_line_coding_cb
+                0x10002818       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10002818                tud_cdc_line_coding_cb
  .text.stdio_usb_set_chars_available_callback
-                0x10002854       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10002854                stdio_usb_set_chars_available_callback
- .text.usb_irq  0x10002868       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000284c       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x1000284c                stdio_usb_set_chars_available_callback
+ .text.usb_irq  0x10002860       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.timer_task
-                0x10002878       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10002870       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.stdio_usb_in_chars
-                0x100028cc       0x90 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x100028cc                stdio_usb_in_chars
+                0x100028c4       0x90 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x100028c4                stdio_usb_in_chars
  .text.stdio_usb_out_chars
-                0x1000295c      0x104 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10002954      0x104 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.low_priority_worker_irq
-                0x10002a60       0xa8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10002a58       0xa8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .text.tud_cdc_rx_cb
-                0x10002b08       0x20 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10002b08                tud_cdc_rx_cb
+                0x10002b00       0x20 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10002b00                tud_cdc_rx_cb
  .text.stdio_usb_init
-                0x10002b28       0xe0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10002b28                stdio_usb_init
+                0x10002b20       0xe0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10002b20                stdio_usb_init
  .text.tud_descriptor_device_cb
-                0x10002c08        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x10002c08                tud_descriptor_device_cb
+                0x10002c00        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10002c00                tud_descriptor_device_cb
  .text.tud_descriptor_configuration_cb
-                0x10002c10        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x10002c10                tud_descriptor_configuration_cb
+                0x10002c08        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10002c08                tud_descriptor_configuration_cb
  .text.tud_descriptor_string_cb
-                0x10002c18       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
-                0x10002c18                tud_descriptor_string_cb
+                0x10002c10       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10002c10                tud_descriptor_string_cb
  .text.startup._retrieve_unique_id_on_boot
-                0x10002c90       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x10002c88       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
  .text.pico_get_unique_board_id_string
-                0x10002ca0      0x1a8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
-                0x10002ca0                pico_get_unique_board_id_string
+                0x10002c98      0x1a8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_unique_id/unique_id.c.obj
+                0x10002c98                pico_get_unique_board_id_string
  .text.flash_get_unique_id
-                0x10002e48       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
-                0x10002e48                flash_get_unique_id
+                0x10002e40       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_flash/flash.c.obj
+                0x10002e40                flash_get_unique_id
  .text.dcd_int_enable
-                0x10002e84        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002e84                dcd_int_enable
+                0x10002e7c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002e7c                dcd_int_enable
  .text.dcd_set_address
-                0x10002e90       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002e90                dcd_set_address
+                0x10002e88       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002e88                dcd_set_address
  .text.dcd_connect
-                0x10002ea4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002ea4                dcd_connect
+                0x10002e9c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002e9c                dcd_connect
  .text.dcd_init
-                0x10002eb4       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002eb4                dcd_init
+                0x10002eac       0x98 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002eac                dcd_init
  .text.dcd_edpt0_status_complete
-                0x10002f4c       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002f4c                dcd_edpt0_status_complete
+                0x10002f44       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002f44                dcd_edpt0_status_complete
  .text.dcd_edpt_open
-                0x10002f68      0x108 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10002f68                dcd_edpt_open
+                0x10002f60      0x108 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10002f60                dcd_edpt_open
  .text.dcd_edpt_close_all
-                0x10003070        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10003070                dcd_edpt_close_all
+                0x10003068        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10003068                dcd_edpt_close_all
  .text.dcd_edpt_xfer
-                0x10003078       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x10003078                dcd_edpt_xfer
+                0x10003070       0x24 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10003070                dcd_edpt_xfer
  .text.dcd_edpt_stall
-                0x1000309c       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x1000309c                dcd_edpt_stall
+                0x10003094       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10003094                dcd_edpt_stall
  .text.dcd_edpt_clear_stall
-                0x100030d0       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
-                0x100030d0                dcd_edpt_clear_stall
+                0x100030c8       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x100030c8                dcd_edpt_clear_stall
  .text.rp2040_usb_init
-                0x10003100       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x10003100                rp2040_usb_init
+                0x100030f8       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x100030f8                rp2040_usb_init
  .text.hw_endpoint_xfer_start
-                0x1000314c       0x40 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
-                0x1000314c                hw_endpoint_xfer_start
+                0x10003144       0x40 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+                0x10003144                hw_endpoint_xfer_start
  .text.tud_mounted
-                0x1000318c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000318c                tud_mounted
+                0x10003184       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003184                tud_mounted
  .text.tud_suspended
-                0x1000319c       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000319c                tud_suspended
+                0x10003194       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003194                tud_suspended
  .text.tud_inited
-                0x100031ac       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x100031ac                tud_inited
+                0x100031a4       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x100031a4                tud_inited
  .text.tud_init
-                0x100031c0       0xdc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x100031c0                tud_init
+                0x100031b8       0xdc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x100031b8                tud_init
  .text.tud_task_ext
-                0x1000329c      0x850 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x1000329c                tud_task_ext
+                0x10003294      0x850 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003294                tud_task_ext
  .text.usbd_open_edpt_pair
-                0x10003aec       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003aec                usbd_open_edpt_pair
+                0x10003ae4       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003ae4                usbd_open_edpt_pair
  .text.usbd_defer_func
-                0x10003b88       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003b88                usbd_defer_func
+                0x10003b80       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003b80                usbd_defer_func
  .text.usbd_edpt_open
-                0x10003bd0       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003bd0                usbd_edpt_open
+                0x10003bc8       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003bc8                usbd_edpt_open
  .text.usbd_edpt_claim
-                0x10003c04       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003c04                usbd_edpt_claim
+                0x10003bfc       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003bfc                usbd_edpt_claim
  .text.usbd_edpt_release
-                0x10003c2c       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003c2c                usbd_edpt_release
+                0x10003c24       0x28 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003c24                usbd_edpt_release
  .text.usbd_edpt_xfer
-                0x10003c54       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10003c54                usbd_edpt_xfer
+                0x10003c4c       0x4c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10003c4c                usbd_edpt_xfer
  .text.tud_control_status
-                0x10003ca0       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003ca0                tud_control_status
+                0x10003c98       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003c98                tud_control_status
  .text.tud_control_xfer
-                0x10003ccc       0xac CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003ccc                tud_control_xfer
+                0x10003cc4       0xac CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003cc4                tud_control_xfer
  .text.usbd_control_reset
-                0x10003d78       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003d78                usbd_control_reset
+                0x10003d70       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003d70                usbd_control_reset
  .text.usbd_control_set_complete_callback
-                0x10003d8c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003d8c                usbd_control_set_complete_callback
+                0x10003d84        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003d84                usbd_control_set_complete_callback
  .text.usbd_control_set_request
-                0x10003d98       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003d98                usbd_control_set_request
+                0x10003d90       0x1c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003d90                usbd_control_set_request
  .text.usbd_control_xfer_cb
-                0x10003db4       0xf4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
-                0x10003db4                usbd_control_xfer_cb
+                0x10003dac       0xf4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd_control.c.obj
+                0x10003dac                usbd_control_xfer_cb
  .text.tud_cdc_n_connected
-                0x10003ea8       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10003ea8                tud_cdc_n_connected
+                0x10003ea0       0x30 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10003ea0                tud_cdc_n_connected
  .text.tud_cdc_n_available
-                0x10003ed8       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10003ed8                tud_cdc_n_available
+                0x10003ed0       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10003ed0                tud_cdc_n_available
  .text.tud_cdc_n_read
-                0x10003ef0       0x70 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10003ef0                tud_cdc_n_read
+                0x10003ee8       0x70 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10003ee8                tud_cdc_n_read
  .text.tud_cdc_n_write_flush
-                0x10003f60       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10003f60                tud_cdc_n_write_flush
+                0x10003f58       0x78 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10003f58                tud_cdc_n_write_flush
  .text.tud_cdc_n_write
-                0x10003fd8       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10003fd8                tud_cdc_n_write
+                0x10003fd0       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10003fd0                tud_cdc_n_write
  .text.tud_cdc_n_write_available
-                0x1000400c       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x1000400c                tud_cdc_n_write_available
+                0x10004004       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10004004                tud_cdc_n_write_available
  .text.cdcd_init
-                0x10004024       0x7c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10004024                cdcd_init
+                0x1000401c       0x7c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000401c                cdcd_init
  .text.cdcd_reset
-                0x100040a0       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x100040a0                cdcd_reset
+                0x10004098       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x10004098                cdcd_reset
  .text.cdcd_open
-                0x100040cc       0xe4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x100040cc                cdcd_open
+                0x100040c4       0xe4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x100040c4                cdcd_open
  .text.cdcd_control_xfer_cb
-                0x100041b0       0xe4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x100041b0                cdcd_control_xfer_cb
+                0x100041a8       0xe4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x100041a8                cdcd_control_xfer_cb
  .text.cdcd_xfer_cb
-                0x10004294      0x13c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
-                0x10004294                cdcd_xfer_cb
+                0x1000428c      0x13c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/class/cdc/cdc_device.c.obj
+                0x1000428c                cdcd_xfer_cb
  .text.tusb_init
-                0x100043d0        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x100043d0                tusb_init
+                0x100043c8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x100043c8                tusb_init
  .text.tusb_inited
-                0x100043dc        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x100043dc                tusb_inited
+                0x100043d4        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x100043d4                tusb_inited
  .text.tu_edpt_claim
-                0x100043e4       0x50 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x100043e4                tu_edpt_claim
+                0x100043dc       0x50 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x100043dc                tu_edpt_claim
  .text.tu_edpt_release
-                0x10004434       0x38 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x10004434                tu_edpt_release
+                0x1000442c       0x38 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x1000442c                tu_edpt_release
  .text.tu_edpt_validate
-                0x1000446c       0x7c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x1000446c                tu_edpt_validate
+                0x10004464       0x7c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x10004464                tu_edpt_validate
  .text.tu_edpt_bind_driver
-                0x100044e8       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
-                0x100044e8                tu_edpt_bind_driver
+                0x100044e0       0x34 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
+                0x100044e0                tu_edpt_bind_driver
  .text.tu_fifo_config
-                0x1000451c       0x6c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000451c                tu_fifo_config
+                0x10004514       0x6c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x10004514                tu_fifo_config
  .text.tu_fifo_count
-                0x10004588       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x10004588                tu_fifo_count
+                0x10004580       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x10004580                tu_fifo_count
  .text.tu_fifo_empty
-                0x100045b4       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x100045b4                tu_fifo_empty
+                0x100045ac       0x10 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x100045ac                tu_fifo_empty
  .text.tu_fifo_remaining
-                0x100045c4       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x100045c4                tu_fifo_remaining
+                0x100045bc       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x100045bc                tu_fifo_remaining
  .text.tu_fifo_read
-                0x100045f0       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x100045f0                tu_fifo_read
+                0x100045e8       0x9c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x100045e8                tu_fifo_read
  .text.tu_fifo_read_n
-                0x1000468c       0xe8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000468c                tu_fifo_read_n
+                0x10004684       0xe8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x10004684                tu_fifo_read_n
  .text.tu_fifo_write
-                0x10004774       0xa8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x10004774                tu_fifo_write
+                0x1000476c       0xa8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000476c                tu_fifo_write
  .text.tu_fifo_write_n
-                0x1000481c      0x178 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x1000481c                tu_fifo_write_n
+                0x10004814      0x178 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x10004814                tu_fifo_write_n
  .text.tu_fifo_clear
-                0x10004994       0x40 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x10004994                tu_fifo_clear
+                0x1000498c       0x40 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x1000498c                tu_fifo_clear
  .text.tu_fifo_set_overwritable
-                0x100049d4       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
-                0x100049d4                tu_fifo_set_overwritable
- .text.atexit   0x10004a1c       0x10 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-atexit.o)
-                0x10004a1c                atexit
+                0x100049cc       0x48 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
+                0x100049cc                tu_fifo_set_overwritable
+ .text.atexit   0x10004a14       0x10 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-atexit.o)
+                0x10004a14                atexit
  .text.__libc_fini_array
-                0x10004a2c       0x28 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-fini.o)
-                0x10004a2c                __libc_fini_array
+                0x10004a24       0x28 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-fini.o)
+                0x10004a24                __libc_fini_array
  .text.__retarget_lock_acquire_recursive
-                0x10004a54        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-lock.o)
-                0x10004a54                __retarget_lock_acquire_recursive
+                0x10004a4c        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-lock.o)
+                0x10004a4c                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x10004a58        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-lock.o)
-                0x10004a58                __retarget_lock_release_recursive
- .text.strlen   0x10004a5c       0x5c /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-strlen-stub.o)
-                0x10004a5c                strlen
+                0x10004a50        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-lock.o)
+                0x10004a50                __retarget_lock_release_recursive
+ .text.strlen   0x10004a54       0x5c /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-strlen-stub.o)
+                0x10004a54                strlen
  .text.__register_exitproc
-                0x10004ab8       0xa8 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-__atexit.o)
-                0x10004ab8                __register_exitproc
+                0x10004ab0       0xa8 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-__atexit.o)
+                0x10004ab0                __register_exitproc
  .text.startup.register_fini
-                0x10004b60       0x18 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-__call_atexit.o)
+                0x10004b58       0x18 /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(libc_a-__call_atexit.o)
  *(.fini)
- .fini          0x10004b78        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crti.o
-                0x10004b78                _fini
- *fill*         0x10004b7c        0x4 
- .fini.__stub   0x10004b80       0xb0 linker stubs
+ .fini          0x10004b70        0x4 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crti.o
+                0x10004b70                _fini
+ *fill*         0x10004b74        0x4 
+ .fini.__stub   0x10004b78       0xb0 linker stubs
  *crtbegin.o(.ctors)
  *crtbegin?.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o *crtend?.o) .ctors)
@@ -2400,120 +2401,119 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
  *(SORT_BY_NAME(.dtors.*))
  *(.dtors)
  *(.eh_frame*)
- .eh_frame      0x10004c30        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
-                0x10004c30                        . = ALIGN (0x4)
+ .eh_frame      0x10004c28        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
+                0x10004c28                        . = ALIGN (0x4)
 
-.glue_7         0x10004c30        0x0
- .glue_7        0x10004c30        0x0 linker stubs
+.glue_7         0x10004c28        0x0
+ .glue_7        0x10004c28        0x0 linker stubs
 
-.glue_7t        0x10004c30        0x0
- .glue_7t       0x10004c30        0x0 linker stubs
+.glue_7t        0x10004c28        0x0
+ .glue_7t       0x10004c28        0x0 linker stubs
 
-.vfp11_veneer   0x10004c30        0x0
- .vfp11_veneer  0x10004c30        0x0 linker stubs
+.vfp11_veneer   0x10004c28        0x0
+ .vfp11_veneer  0x10004c28        0x0 linker stubs
 
-.v4_bx          0x10004c30        0x0
- .v4_bx         0x10004c30        0x0 linker stubs
+.v4_bx          0x10004c28        0x0
+ .v4_bx         0x10004c28        0x0 linker stubs
 
-.iplt           0x10004c30        0x0
- .iplt          0x10004c30        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x10004c28        0x0
+ .iplt          0x10004c28        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x10004c30      0x34c
+.rodata         0x10004c28      0x30c
  *(EXCLUDE_FILE(*libm.a: *libc.a:*lib_a-mem*.o *libgcc.a:) .rodata*)
- .rodata.main   0x10004c30       0x40 CMakeFiles/taskTwo.dir/main.c.obj
  .rodata.spin_lock_claim_unused.str1.4
-                0x10004c70      0x188 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
+                0x10004c28      0x188 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_sync/sync.c.obj
                                  0x1b (size before relaxing)
  .rodata.user_irq_claim_unused.str1.4
-                0x10004df8       0x1b CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
+                0x10004db0       0x1b CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_irq/irq.c.obj
  .rodata.hardware_alarm_claim.str1.4
-                0x10004df8       0x22 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
+                0x10004db0       0x22 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/hardware_timer/timer.c.obj
  .rodata.panic.str1.4
-                0x10004df8       0x12 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10004db0       0x12 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata.hard_assertion_failure.str1.4
-                0x10004df8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
+                0x10004db0        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
  .rodata.str1.4
-                0x10004df8       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004db0       0x3c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_81
-                0x10004df8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004db0        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_75
-                0x10004e04        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004dbc        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.__bi_44
-                0x10004e10        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004dc8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .rodata.crlf_str.0
-                0x10004e1c        0x2 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
+                0x10004dd4        0x2 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio/stdio.c.obj
  .rodata.str1.4
-                0x10004e1e       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
- *fill*         0x10004e1e        0x2 
+                0x10004dd6       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+ *fill*         0x10004dd6        0x2 
  .rodata.__bi_33.4
-                0x10004e20        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10004dd8        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .rodata.__bi_34.5
-                0x10004e2c        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10004de4        0x8 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .rodata._resetd_driver
-                0x10004e34       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
+                0x10004dec       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/reset_interface.c.obj
  .rodata.str1.4
-                0x10004e4c       0x13 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10004e04       0x13 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .rodata.__bi_182.0
-                0x10004e4c        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10004e04        0xc CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
  .rodata.str1.4
-                0x10004e58       0x2a CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10004e10       0x2a CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_str
-                0x10004e58       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10004e10       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_cfg
-                0x10004e70       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10004e28       0x54 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.usbd_desc_device
-                0x10004ec4       0x12 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
+                0x10004e7c       0x12 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c.obj
  .rodata.str1.4
-                0x10004ed6       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
+                0x10004e8e       0x14 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/dcd_rp2040.c.obj
  .rodata.str1.4
-                0x10004ed6       0x53 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
- *fill*         0x10004ed6        0x2 
+                0x10004e8e       0x53 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/portable/raspberrypi/rp2040/rp2040_usb.c.obj
+ *fill*         0x10004e8e        0x2 
  .rodata.tud_task_ext
-                0x10004ed8       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10004e90       0x8c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
  .rodata._usbd_driver
-                0x10004f64       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
-                0x10004f7c                        . = ALIGN (0x4)
+                0x10004f1c       0x18 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/device/usbd.c.obj
+                0x10004f34                        . = ALIGN (0x4)
  *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.flashdata*)))
-                0x10004f7c                        . = ALIGN (0x4)
+                0x10004f34                        . = ALIGN (0x4)
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x10004f7c                        __exidx_start = .
+                0x10004f34                        __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x10004f7c                        __exidx_end = .
-                0x10004f7c                        . = ALIGN (0x4)
-                0x10004f7c                        __binary_info_start = .
+                0x10004f34                        __exidx_end = .
+                0x10004f34                        . = ALIGN (0x4)
+                0x10004f34                        __binary_info_start = .
 
-.binary_info    0x10004f7c       0x28
+.binary_info    0x10004f34       0x28
  *(.binary_info.keep.*)
  .binary_info.keep.__bi_ptr81
-                0x10004f7c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f34        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr75
-                0x10004f80        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f38        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr50
-                0x10004f84        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f3c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr44
-                0x10004f88        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f40        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr38
-                0x10004f8c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f44        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr30
-                0x10004f90        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f48        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  .binary_info.keep.__bi_ptr22
-                0x10004f94        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
+                0x10004f4c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/binary_info.c.obj
  *(.binary_info.*)
  .binary_info.__bi_ptr34
-                0x10004f98        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10004f50        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .binary_info.__bi_ptr33
-                0x10004f9c        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
+                0x10004f54        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_uart/stdio_uart.c.obj
  .binary_info.__bi_ptr182
-                0x10004fa0        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
-                0x10004fa4                        __binary_info_end = .
+                0x10004f58        0x4 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c.obj
+                0x10004f5c                        __binary_info_end = .
 
-.rel.dyn        0x10004fa4        0x0
- .rel.iplt      0x10004fa4        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
-                0x10004fa4                        . = ALIGN (0x4)
+.rel.dyn        0x10004f5c        0x0
+ .rel.iplt      0x10004f5c        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
+                0x10004f5c                        . = ALIGN (0x4)
 
 .ram_vector_table
                 0x20000000       0xc0
@@ -2522,7 +2522,7 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
                 0x20000000       0xc0 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_runtime/runtime.c.obj
                 0x20000000                ram_vector_table
 
-.data           0x200000c0      0xe40 load address 0x10004fa4
+.data           0x200000c0      0xe40 load address 0x10004f5c
                 0x200000c0                        __data_start__ = .
  *(vtable)
  *(.time_critical*)
@@ -2663,36 +2663,36 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
  *(.jcr)
                 0x20000f00                        . = ALIGN (0x4)
                 0x20000f00                        __data_end__ = .
-                0x10004fa4                        __etext = LOADADDR (.data)
+                0x10004f5c                        __etext = LOADADDR (.data)
 
 .tm_clone_table
-                0x20000f00        0x0 load address 0x10005de4
+                0x20000f00        0x0 load address 0x10005d9c
  .tm_clone_table
                 0x20000f00        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x20000f00        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x20000f00        0x0 load address 0x10005de4
+.igot.plt       0x20000f00        0x0 load address 0x10005d9c
  .igot.plt      0x20000f00        0x0 /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/crtbegin.o
 
 .uninitialized_data
-                0x20000f00        0x0 load address 0x10005de4
+                0x20000f00        0x0 load address 0x10005d9c
                 0x20000f00                        . = ALIGN (0x4)
  *(.uninitialized_data*)
 
-.scratch_x      0x20040000        0x0 load address 0x10005de4
+.scratch_x      0x20040000        0x0 load address 0x10005d9c
                 0x20040000                        __scratch_x_start__ = .
  *(.scratch_x.*)
                 0x20040000                        . = ALIGN (0x4)
                 0x20040000                        __scratch_x_end__ = .
-                0x10005de4                        __scratch_x_source__ = LOADADDR (.scratch_x)
+                0x10005d9c                        __scratch_x_source__ = LOADADDR (.scratch_x)
 
-.scratch_y      0x20041000        0x0 load address 0x10005de4
+.scratch_y      0x20041000        0x0 load address 0x10005d9c
                 0x20041000                        __scratch_y_start__ = .
  *(.scratch_y.*)
                 0x20041000                        . = ALIGN (0x4)
                 0x20041000                        __scratch_y_end__ = .
-                0x10005de4                        __scratch_y_source__ = LOADADDR (.scratch_y)
+                0x10005d9c                        __scratch_y_source__ = LOADADDR (.scratch_y)
 
 .bss            0x20000f00      0xf3c
                 0x20000f00                        . = ALIGN (0x4)
@@ -2831,8 +2831,8 @@ LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/
  *(.stack*)
  .stack         0x20041000      0x800 CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_standard_link/crt0.S.obj
 
-.flash_end      0x10005de4        0x0
-                0x10005de4                        PROVIDE (__flash_binary_end = .)
+.flash_end      0x10005d9c        0x0
+                0x10005d9c                        PROVIDE (__flash_binary_end = .)
                 0x20040000                        __StackLimit = (ORIGIN (RAM) + LENGTH (RAM))
                 0x20041000                        __StackOneTop = (ORIGIN (SCRATCH_X) + LENGTH (SCRATCH_X))
                 0x20042000                        __StackTop = (ORIGIN (SCRATCH_Y) + LENGTH (SCRATCH_Y))
@@ -2911,7 +2911,7 @@ LOAD CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/cla
 LOAD CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/tusb.c.obj
 LOAD CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
 LOAD CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/src/rp2_common/pico_fix/rp2040_usb_device_enumeration/rp2040_usb_device_enumeration.c.obj
-LOAD /tmp/ccyDsrOn.o
+LOAD /tmp/ccFF2wLV.o
 LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libstdc++.a
 LOAD /usr/lib/gcc/arm-none-eabi/13.2.0/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libm.a
 START GROUP
@@ -3029,7 +3029,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x000007ce       0x2c CMakeFiles/taskTwo.dir/home/voldemort/sdk-pico/pico-sdk/lib/tinyusb/src/common/tusb_fifo.c.obj
  .ARM.attributes
-                0x000007fa       0x22 /tmp/ccyDsrOn.o
+                0x000007fa       0x22 /tmp/ccFF2wLV.o
  .ARM.attributes
                 0x0000081c       0x1e /usr/lib/gcc/arm-none-eabi/13.2.0/thumb/v6-m/nofp/libgcc.a(_dvmd_tls.o)
  .ARM.attributes

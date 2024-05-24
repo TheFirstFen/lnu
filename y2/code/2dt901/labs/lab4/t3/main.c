@@ -57,92 +57,11 @@ int main() {
 }
 
 void display() {
-    switch(counter) {
-        case 0:
-            reset();
-            break;
-        case 1:
-            reset();
-            gpio_put(LED_1, 1);
-            break;
-        case 2:
-            reset();
-            gpio_put(LED_2, 1);
-            break;
-        case 3:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            break;
-        case 4:
-            reset();
-            gpio_put(LED_4, 1);
-            break;
-        case 5:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 6:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 7:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 8:
-            reset();
-            gpio_put(LED_8, 1);
-            break;
-        case 9:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 10:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 11:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 12:
-            reset();
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 13:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 14:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 15:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        default:
-            reset();
-            gpio_put(LED, 1);
-            break;
-     }
+    reset();
+    gpio_put(LED_1, (counter & 0x01));
+    gpio_put(LED_2, (counter & 0x02) >> 1);
+    gpio_put(LED_4, (counter & 0x04) >> 2);
+    gpio_put(LED_8, (counter & 0x08) >> 3);
 }
 
 void gpio_cb(uint gpio, uint32_t events) {
