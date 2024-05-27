@@ -43,7 +43,7 @@ int main() {
 }
 ```
 
-[Video]()
+[Video](https://youtube.com/shorts/kYZgkd5uE4E?feature=share)
 
 #### B
 
@@ -110,7 +110,7 @@ void put(int gpio, bool val) {
 }
 ```
 
-[Video]()
+[Video](https://youtube.com/shorts/g2Dc9YAxyQc?feature=share)
 
 #### C
 
@@ -183,7 +183,7 @@ void put(int gpio, bool val) {
 }
 ```
 
-[Video]()
+[Video](https://youtube.com/shorts/_kJci14JkIU?feature=share)
 
 ### Task 2
 
@@ -206,9 +206,10 @@ Code:
 
 volatile int counter = 0;
 
+void display();
 void reset();
-void inc(uint gpio, uint32_t events);
-void dec(uint gpio, uint32_t events);
+void inc();
+void dec();
 
 int main() {
     stdio_init_all();
@@ -231,121 +232,45 @@ int main() {
 
     gpio_init(INC);
     gpio_set_dir(INC, GPIO_IN);
-    gpio_set_irq_enabled(INC, GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE, true);
+    gpio_set_irq_enabled(INC, GPIO_IRQ_EDGE_RISE, true);
     irq_set_enabled(IO_IRQ_BANK0, true);
     gpio_add_raw_irq_handler(INC, &inc);
 
     gpio_init(DEC);
     gpio_set_dir(DEC, GPIO_IN);
-    gpio_set_irq_enabled(DEC, GPIO_IRQ_EDGE_FALL | GPIO_IRQ_EDGE_RISE, true);
+    gpio_set_irq_enabled(DEC, GPIO_IRQ_EDGE_RISE, true);
     irq_set_enabled(IO_IRQ_BANK0, true);
     gpio_add_raw_irq_handler(DEC, &dec);
 
     // loop
     while (1) {
-        switch(counter) {
-            case 0:
-                reset();
-                break;
-            case 1:
-                reset();
-                gpio_put(LED_1, 1);
-                break;
-            case 2:
-                reset();
-                gpio_put(LED_2, 1);
-                break;
-            case 3:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_2, 1);
-                break;
-            case 4:
-                reset();
-                gpio_put(LED_4, 1);
-                break;
-            case 5:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_4, 1);
-                break;
-            case 6:
-                reset();
-                gpio_put(LED_2, 1);
-                gpio_put(LED_4, 1);
-                break;
-            case 7:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_2, 1);
-                gpio_put(LED_4, 1);
-                break;
-            case 8:
-                reset();
-                gpio_put(LED_8, 1);
-                break;
-            case 9:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 10:
-                reset();
-                gpio_put(LED_2, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 11:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_2, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 12:
-                reset();
-                gpio_put(LED_4, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 13:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_4, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 14:
-                reset();
-                gpio_put(LED_2, 1);
-                gpio_put(LED_4, 1);
-                gpio_put(LED_8, 1);
-                break;
-            case 15:
-                reset();
-                gpio_put(LED_1, 1);
-                gpio_put(LED_2, 1);
-                gpio_put(LED_4, 1);
-                gpio_put(LED_8, 1);
-                break;
-            default:
-                reset();
-                gpio_put(LED, 1);
-                break;
-        }
-    }
+        display();
 
+        tight_loop_contents();
+    }
     return 0;
 }
 
-void inc(uint gpio, uint32_t events) {
-    if (gpio_get_irq_event_mask(INC) & GPIO_IRQ_EDGE_FALL) {
-        gpio_acknowledge_irq(INC, GPIO_IRQ_EDGE_FALL);
+void display() {
+    reset();
+    gpio_put(LED_1, (counter & 0x01));
+    gpio_put(LED_2, (counter & 0x02) >> 1);
+    gpio_put(LED_4, (counter & 0x04) >> 2);
+    gpio_put(LED_8, (counter & 0x08) >> 3);
+}
+
+void inc() {
+    if (gpio_get_irq_event_mask(INC) & GPIO_IRQ_EDGE_RISE) {
+        gpio_acknowledge_irq(INC, GPIO_IRQ_EDGE_RISE);
         if (counter < 15) {
             counter++;
         }
     }
 }
 
-void dec(uint gpio, uint32_t events) {
-    if (gpio_get_irq_event_mask(DEC) & GPIO_IRQ_EDGE_FALL) {
-        gpio_acknowledge_irq(DEC, GPIO_IRQ_EDGE_FALL);
+void dec() {
+    if (gpio_get_irq_event_mask(DEC) & GPIO_IRQ_EDGE_RISE) {
+        gpio_acknowledge_irq(DEC, GPIO_IRQ_EDGE_RISE);
         if (counter > 0) {
             counter--;
         }
@@ -361,7 +286,7 @@ void reset() {
 }
 ```
 
-[Video]()
+[Video](https://youtube.com/shorts/T_6Qi4cl3OA?feature=share)
 
 ### Task 3
 
@@ -427,92 +352,11 @@ int main() {
 }
 
 void display() {
-    switch(counter) {
-        case 0:
-            reset();
-            break;
-        case 1:
-            reset();
-            gpio_put(LED_1, 1);
-            break;
-        case 2:
-            reset();
-            gpio_put(LED_2, 1);
-            break;
-        case 3:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            break;
-        case 4:
-            reset();
-            gpio_put(LED_4, 1);
-            break;
-        case 5:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 6:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 7:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            break;
-        case 8:
-            reset();
-            gpio_put(LED_8, 1);
-            break;
-        case 9:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 10:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 11:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 12:
-            reset();
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 13:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 14:
-            reset();
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        case 15:
-            reset();
-            gpio_put(LED_1, 1);
-            gpio_put(LED_2, 1);
-            gpio_put(LED_4, 1);
-            gpio_put(LED_8, 1);
-            break;
-        default:
-            reset();
-            gpio_put(LED, 1);
-            break;
-     }
+    reset();
+    gpio_put(LED_1, (counter & 0x01));
+    gpio_put(LED_2, (counter & 0x02) >> 1);
+    gpio_put(LED_4, (counter & 0x04) >> 2);
+    gpio_put(LED_8, (counter & 0x08) >> 3);
 }
 
 void gpio_cb(uint gpio, uint32_t events) {
@@ -537,4 +381,4 @@ int64_t timer_cb(alarm_id_t id, void *unused) {
 }
 ```
 
-[Video]()
+[Video](https://youtube.com/shorts/TmSSUb3YPSU?feature=share)
