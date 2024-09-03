@@ -10,6 +10,7 @@ public class Game implements GameInterface {
     private boolean gameOver;
 
     public void init() {
+        numGuesses = 0;
         Random rnd = new Random();
         number = rnd.nextInt(100);
         gameOver = false;
