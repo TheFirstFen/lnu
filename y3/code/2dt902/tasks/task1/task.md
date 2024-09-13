@@ -20,6 +20,7 @@
     - Datum/Tid
     - Plats
     - Portal/Informations uppvisning
+    - Deltagare
 
 ### 1. **Identifiera viktiga abstraktioner (delsystem eller komponenter)**
 
