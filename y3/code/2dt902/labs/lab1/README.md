@@ -46,7 +46,7 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 
 **Communication components**
 - Order status
-    * Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
+    * Notified on updates on your order(recived, sent, delivered, ready for pick-up)
 - Product reviews/feedback
     * Can leave reviews on products and services that they have ordered and recived
 - Reporting
@@ -55,16 +55,15 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 **Data storage component**
 - Stores the data of all other components
 
-The ***user/supplier component*** **Motivate!!**
+The ***user/supplier component*** facilitate user and supplier interactions with the system. For users, they provide a way to manage personal information, browse products, and place orders. For suppliers, they ensure that product availability is updated and relevant.
 
-The ***employee component*** **Motivate!!**
+The ***employee component*** are crucial for the operational management of the pet shop. They ensure that the inventory is up-to-date, customers receive the correct orders, and management has the necessary information for effective business decisions.
 
-The ***transaction component*** **Motivate!!**
+The ***transaction component*** are essential for the core transactional functions of the pet shop, enabling customers to purchase products and services while providing the business with detailed insights into the preformance of sales.
 
-The ***communication component*** **Motivate!!**
+The ***communication component*** are important for maintaining a positive customer experience. They keep customers informed and engaged, and the feedback mechanism provides valuable insights into customer satisfaction and product quality.
 
-The ***data storage component*** **Motivate!!**
-
+The ***data storage component*** is the backbone of the system, ensuring that all information is securely stored, accessible, and retrievable for various functionalities across the system. It supports all operations and reporting needs by providing a central repository for all data.
 
 ## Uppgift 2. 
 Analysera beroenden mellan komponenter. Vilka funktioner som andra
