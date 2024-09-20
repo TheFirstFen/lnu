@@ -19,7 +19,7 @@
     * Manage availability of products
     * Manage services
 - Manage Customer accounts
-    * View Delivery optins
+    * View Delivery options
 - Manage Orders
     * Change order status
     * Cancel/Refund Orders
@@ -63,24 +63,16 @@ The ***communication component*** are important for maintaining a positive custo
 The ***data storage component*** is the backbone of the system, ensuring that all information is securely stored, accessible, and retrievable for various functionalities across the system. It supports all operations and reporting needs by providing a central repository for all data.
 
 ## Uppgift 2. 
-Analysera beroenden mellan komponenter. Vilka funktioner som andra
-komponenter ansvarar för behöver en komponent för att fullfölja sitt ansvar avseende
-den funktionalitet som den fått allokerat?
-Svara i text och identifiera funktionalitet som andra komponenter behöver. Beskriv
-dem som ”provides” interface för komponenten. På samma sätt dokumenterar du
-funktionalitet en komponent behöver i ”requires interface”.
 
-# !!! TODO: add provides for all components !!!
+***User/Supplier component*** **requires** prudoct data from the *employee component*, order managmnet from *transaction component* and data storage from the *data sotrage component*. **Provides** authentication, profile managment and order history interfaces.
 
-***User/Supplier component*** requires prudoct data from the *employee component*, order managmnet from *transaction component* and data storage from the *data sotrage component*.
+***Employee component*** **requires** *user/supplier component* data for managing orders and user/supplier profiles, also *data storage component* for accessing and updating data. **Provides** product, customer, supplier management interfaces.
 
-***Employee component*** requires *user/supplier component* data for managing orders and user/supplier profiles, also *data storage component* for accessing and updating data.
+***Transaction component*** **requires** *user/supplier component* data for order processing and payment, product data from the *employee component* and order status from the *communication component*. **Provides** cart, order processing and payment intergration interfaces.
 
-***Transaction component*** requires *user/supplier component* data for order processing and payment, product data from the *employee component* and order status from the *communication component*.
+***Communication component*** **requires** order data from the *transaction component* and user contact information for effective communication from the *user/supplier component*. **Provides** order status notifications and review management interfaces.
 
-***Communication component*** requires order data from the *transaction component* and user contact information for effective communication from the *user/supplier component*.
-
-***Data Storage component*** requires *user/supplier*, *employee*, *transaction* and *communication components* and provides to *user/supplier*, *employee*, *transaction* and *communication components*
+***Data Storage component*** **requires** *user/supplier*, *employee*, *transaction* and *communication components* and **provides** to *user/supplier*, *employee*, *transaction* and *communication components*.
 
 
 ## Uppgift 3.
