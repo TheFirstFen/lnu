@@ -70,7 +70,7 @@ Svara i text och identifiera funktionalitet som andra komponenter behöver. Besk
 dem som ”provides” interface för komponenten. På samma sätt dokumenterar du
 funktionalitet en komponent behöver i ”requires interface”.
 
-# TODO: add provides for all components
+# !!! TODO: add provides for all components !!!
 
 ***User/Supplier component*** requires prudoct data from the *employee component*, order managmnet from *transaction component* and data storage from the *data sotrage component*.
 
