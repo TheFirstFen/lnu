@@ -7,73 +7,72 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 
 **User components**
     
-    - User Authentication & Registration
+- User Authentication & Registration
         
-        - Account creation
+    * Account creation
+  
+    * Login
     
-        - Login
+- Profile Management
+        
+    * Delivery Address
+        
+    * Payment Information/Option
     
-    - Profile Management
-        
-        - Delivery Address
-        
-        - Payment Information/Option
+    * Order Managment(including previous orders)
     
-        - Order Managment(including previous orders)
-    
-    - Search & Products Management
+- Search & Products Management
         
-        - Start page with popular/recommended products
+    * Start page with popular/recommended products
         
-        - Search feature
+    * Search feature
 
 **Employee components**
     
-    - Product management
+- Product management
         
-        - Manage availability of products
+    * Manage availability of products
         
-        - Manage services
+    * Manage services
     
-    - Manage Customer accounts
+- Manage Customer accounts
         
-        - View Delivery optins
+    * View Delivery optins
     
-    - Manage Orders
+- Manage Orders
         
-        - Change order status
+    * Change order status
         
-        - Cancel/Refund Orders
+    * Cancel/Refund Orders
 
 **Transaction components**
     
-    - Cart
+- Cart
     
-        - Adding & Removing of products
+    * Adding & Removing of products
     
-    - Delivery Options
+- Delivery Options
     
-        - Pick-up at store
+    * Pick-up at store
         
-        - Delivery Service
+    * Delivery Service
     
-    - Payment API
+- Payment API
         
-        - Third-party payment integration
+    * Third-party payment integration
 
 **Communication components**
+- Order status
     
-    - Order status
+    * Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
     
-        - Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
+- Product reviews/feedback
     
-    - Product reviews/feedback
-
-        - Can leave reviews on products and services that they have ordered and recived
+    * Can leave reviews on products and services that they have ordered and recived
 
 **Data storage component**
 
-    - Stores the data of all other components
+- Stores the data of all other components
 
 
 ## Uppgift 2. 
