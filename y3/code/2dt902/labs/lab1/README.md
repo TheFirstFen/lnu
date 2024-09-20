@@ -6,39 +6,73 @@ komponenter kan du identifiera? Vilket ansvar (funktionellt) har respektive
 komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 
 **User components**
+    
     - User Authentication & Registration
+        
         - Account creation
+    
         - Login
+    
     - Profile Management
+        
         - Delivery Address
+        
         - Payment Information/Option
+    
         - Order Managment(including previous orders)
+    
     - Search & Products Management
+        
         - Start page with popular/recommended products
+        
         - Search feature
+
 **Employee components**
+    
     - Product management
+        
         - Manage availability of products
+        
         - Manage services
+    
     - Manage Customer accounts
+        
         - View Delivery optins
+    
     - Manage Orders
+        
         - Change order status
+        
         - Cancel/Refund Orders
+
 **Transaction components**
+    
     - Cart
+    
         - Adding & Removing of products
+    
     - Delivery Options
+    
         - Pick-up at store
+        
         - Delivery Service
+    
     - Payment API
+        
         - Third-party payment integration
+
 **Communication components**
+    
     - Order status
+    
         - Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
+    
     - Product reviews/feedback
+
         - Can leave reviews on products and services that they have ordered and recived
+
 **Data storage component**
+
     - Stores the data of all other components
 
 
