@@ -98,7 +98,7 @@ ADC resolution = (Vmax - Vmin) / (2^N - 1)
 ### Third
 
 Setup:
-[Pico with potensometer](./img/pico.jpg)
+![Pico with potensometer](./img/pico.jpg)
 
 Code: 
 ```python
@@ -134,4 +134,4 @@ while True:
 ```
 
 Output:
-[Output](./img/output.jpg)
+![Output](./img/output.jpg)
