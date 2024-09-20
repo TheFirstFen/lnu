@@ -70,9 +70,22 @@ Svara i text och identifiera funktionalitet som andra komponenter behöver. Besk
 dem som ”provides” interface för komponenten. På samma sätt dokumenterar du
 funktionalitet en komponent behöver i ”requires interface”.
 
+# TODO: add provides for all components
+
+***User/Supplier component*** requires prudoct data from the *employee component*, order managmnet from *transaction component* and data storage from the *data sotrage component*.
+
+***Employee component*** requires *user/supplier component* data for managing orders and user/supplier profiles, also *data storage component* for accessing and updating data.
+
+***Transaction component*** requires *user/supplier component* data for order processing and payment, product data from the *employee component* and order status from the *communication component*.
+
+***Communication component*** requires order data from the *transaction component* and user contact information for effective communication from the *user/supplier component*.
+
+***Data Storage component*** requires *user/supplier*, *employee*, *transaction* and *communication components* and provides to *user/supplier*, *employee*, *transaction* and *communication components*
+
+
 ## Uppgift 3.
 Rita ett UML komponentdiagram med de komponenter du identifierat, koppla
-samman komponenterna med interface, providesßà requires.
+samman komponenterna med interface, provides & requires.
 
 ![UML component](./img/task3.drawio.png)
 
