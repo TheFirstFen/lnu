@@ -1,4 +1,4 @@
-# 2DT902 : Assaignment 1 : ![Samuel Berg]<sb224sc@student.lnu.se>
+# 2DT902 : Assaignment 1 : [Samuel Berg](<sb224sc@student.lnu.se>)
 
 ## Uppgift 1.
 Fokusera på funktionaliteten i beskrivningen. Vilka funktionella
