@@ -2,7 +2,7 @@
 
 ## Task 1
 
-```Task1
+```powershell
 Nyquist criterion formula: fs >= 2 x fmax
 
 f1 = 1.75 kHz
@@ -21,7 +21,7 @@ needed_fs >= 2 x fmax = 2 x 3 kHz = 6 kHz
 
 ## Task 2
 
-```Task2
+```powershell
 Vmin = 0.5 V (="0000")
 Vmax = 5.0 V (="1111")
 N = 4
@@ -74,7 +74,7 @@ V4 (="XXXX") =>
 
 ### First
 
-```text
+```powershell
 RP2040 Clock frequency = 48 MHz
 ADC conversion time = 96 CPU clock cycles per conversion
 
@@ -85,7 +85,7 @@ fs := Clock frequency/Clock cycles per conversion
 
 ### Second
 
-```text
+```powershell
 N = 12 bits
 Vmax = 3.3 V
 Vmin = 0 V
