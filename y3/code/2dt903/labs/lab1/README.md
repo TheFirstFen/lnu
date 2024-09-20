@@ -1,4 +1,4 @@
-# 2DT903 - Lab 1
+# 2DT903 : Lab 1 : Samuel Berg(sb224sc@student.lnu.se)
 
 ## Task 1
 
