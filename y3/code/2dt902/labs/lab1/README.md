@@ -16,6 +16,7 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 - Search & Products Management
     * Start page with popular/recommended products
     * Search feature
+
 **Employee components**
 - Product management
     * Manage availability of products
@@ -25,6 +26,7 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 - Manage Orders
     * Change order status
     * Cancel/Refund Orders
+
 **Transaction components**
 - Cart
     * Adding & Removing of products
@@ -33,11 +35,13 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
     * Delivery Service
 - Payment API
     * Third-party payment integration
+
 **Communication components**
 - Order status
     * Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
 - Product reviews/feedback
     * Can leave reviews on products and services that they have ordered and recived
+
 **Data storage component**
 - Stores the data of all other components
 
