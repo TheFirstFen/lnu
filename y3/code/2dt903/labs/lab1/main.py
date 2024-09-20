@@ -1,12 +1,5 @@
-from machine import Pin, ADC, I2C
-from ssd1306 import SSD1306_I2C
+from machine import Pin, ADC
 import utime
-
-# Set up I2C communication for the OLED
-i2c = I2C(0, scl=Pin(5), sda=Pin(4), freq=400000)  # Adjust GP pins based on your connection
-oled_width = 128
-oled_height = 64
-oled = SSD1306_I2C(oled_width, oled_height, i2c)
 
 # Set up the potentiometer on ADC pin (GP26)
 potentiometer = ADC(Pin(26))  # GP26 corresponds to ADC0
@@ -24,20 +17,13 @@ def read_potentiometer():
     
     return adc_value_12bit, voltage
 
-while True:
-    # Clear the OLED display
-    oled.fill(0)
-    
+while True:   
     # Read the potentiometer values
     adc_value, voltage = read_potentiometer()
     
     # Display the ADC and Voltage values on the OLED
-    oled.text("ADC Value: {}".format(adc_value), 0, 0)
-    oled.text("Voltage: {:.2f} V".format(voltage), 0, 16)
-    
-    # Update the OLED display
-    oled.show()
-    
+    print("ADC Value: {}".format(adc_value))
+    print("Voltage: {:.2f} V".format(voltage))
+   
     # Delay for stability
     utime.sleep(0.5)
-

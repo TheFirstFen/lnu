@@ -2,28 +2,29 @@
 
 ## Task 1
 
-In order to determine whether we can reconstruct the original signal after discretization, we need to apply the **Nyquist-Shannon sampling theorem**. This theorem states that for a signal to be perfectly reconstructed from its samples, the sampling rate must be at least **twice** the maximum frequency present in the signal. In other words, if *fmax* is the maximum frequency in the signal, the sampling rate *fs* must satisfy the condition:
+```Task1
+Nyquist criterion formula: *fs >= 2 x fmax*
 
-*fs >= 2 x fmax*
+f1 = 1.75 kHz
+f2 = 2 kHz
+f3 = 3 kHz
+=> fmax = 3 kHz
+given_fs = 5 kHz
 
-### Given Information:
-- The signal *x(t)* consists of sine waves with frequencies: 1.75 kHz, 2 kHz, and 3 kHz.
-- The sampling rate *fs = 5* kHz.
+compute needed_fs:
 
-### Maximum Frequency in the Signal:
-The highest frequency component in the signal is 3 kHz.
+needed_fs >= 2 x fmax = 2 x 3 kHz = 6 kHz
 
-### Nyquist Criterion:
-According to the Nyquist-Shannon theorem, the minimum sampling rate required to reconstruct the signal is:
+=> given_fs < needed_fs
 
-*fs >= 2 x fmax = 2 x 3 kHz = 6 kHz*
-
-However, the given sampling rate is 5 kHz, which is **less than** the required 6 kHz. This means that the sampling rate does **not satisfy** the Nyquist criterion.
-
-### Conclusion:
-Since the sampling rate of *5* kHz is less than the required *6* kHz, we will not be able to perfectly reconstruct the original signal. **Aliasing** will occur, which means that higher frequency components (like the *3* kHz component) will be "folded" into lower frequencies, distorting the signal after discretization.
+=> The sampling rate of 5 kHz that we have is not enough to perfectly reconstruct to original signal, this according to the Nyquist criterion.
+```
 
 ## Task 2
+
+```Task2
+
+```
 
 To convert voltages using a **successive approximation-based 4-bit Analog-to-Digital Converter (ADC)**, the ADC sequentially compares the input voltage to midpoints within its range, adjusting the bits in its binary output until it converges on a close digital representation of the input voltage.
 
