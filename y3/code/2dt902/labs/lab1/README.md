@@ -74,6 +74,8 @@ funktionalitet en komponent behöver i ”requires interface”.
 Rita ett UML komponentdiagram med de komponenter du identifierat, koppla
 samman komponenterna med interface, providesßà requires.
 
+![UML component](./img/task3.drawio.png)
+
 ## Uppgift 4.
 Fundera lite på den fysiska arkitekturen (systemarkitekturen). Vilka delar består
 systemet av, vilka enheter ingår och vilken mjukvara installeras på respektive enhet?
@@ -81,3 +83,4 @@ Redovisa i textform.
 
 ## Uppgift 5.
 Rita ett UML deploymentdiagram som illustrerar det du identifierat i uppgift 4.
+![UML deployment](./img/task5.drawio.png)
