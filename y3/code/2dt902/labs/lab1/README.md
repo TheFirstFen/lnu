@@ -5,7 +5,7 @@ Fokusera på funktionaliteten i beskrivningen. Vilka funktionella
 komponenter kan du identifiera? Vilket ansvar (funktionellt) har respektive
 komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 
-**User components**
+**User/Supplier components**
 - User Authentication & Registration
     * Account creation
     * Login
@@ -26,6 +26,10 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 - Manage Orders
     * Change order status
     * Cancel/Refund Orders
+- Supplier Management
+    * Manage Supplier Information
+- Reporting
+    * View Daily/Weekly/Monthly/Yearly reports
 
 **Transaction components**
 - Cart
@@ -35,15 +39,31 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
     * Delivery Service
 - Payment API
     * Third-party payment integration
+- Reporting
+    * # of sales
+    * Value of sales
+    * # of sold products(of each product)
 
 **Communication components**
 - Order status
     * Notified on updates on your order(recived, sent, deliverd, ready for pick-up)
 - Product reviews/feedback
     * Can leave reviews on products and services that they have ordered and recived
+- Reporting
+    * Collect Summary of Reviews
 
 **Data storage component**
 - Stores the data of all other components
+
+The *user/supplier component* **Motivate!!**
+
+The *employee component* **Motivate!!**
+
+The *transaction component* **Motivate!!**
+
+The *communication component* **Motivate!!**
+
+The *data storage component* **Motivate!!**
 
 
 ## Uppgift 2. 
