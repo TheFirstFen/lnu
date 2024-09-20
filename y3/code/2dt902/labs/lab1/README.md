@@ -55,15 +55,15 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 **Data storage component**
 - Stores the data of all other components
 
-The *user/supplier component* **Motivate!!**
+The ***user/supplier component*** **Motivate!!**
 
-The *employee component* **Motivate!!**
+The ***employee component*** **Motivate!!**
 
-The *transaction component* **Motivate!!**
+The ***transaction component*** **Motivate!!**
 
-The *communication component* **Motivate!!**
+The ***communication component*** **Motivate!!**
 
-The *data storage component* **Motivate!!**
+The ***data storage component*** **Motivate!!**
 
 
 ## Uppgift 2. 
