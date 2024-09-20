@@ -40,9 +40,9 @@ komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 - Payment API
     * Third-party payment integration
 - Reporting
-    * # of sales
-    * Value of sales
-    * # of sold products(of each product)
+    * Number of Sales
+    * Value of Sales
+    * Number of Sold Products(of each product)
 
 **Communication components**
 - Order status
