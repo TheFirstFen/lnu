@@ -64,7 +64,7 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 
 ## Uppgift 2. 
 
-***User/Supplier component*** **requires** prudoct data from the *employee component*, order managmnet from *transaction component* and data storage from the *data sotrage component*. **Provides** authentication, profile managment and order history interfaces.
+***User/Supplier component*** **requires** product data from the *employee component*, order managmnet from *transaction component* and data storage from the *data storage component*. **Provides** authentication, profile managment and order history interfaces.
 
 ***Employee component*** **requires** *user/supplier component* data for managing orders and user/supplier profiles, also *data storage component* for accessing and updating data. **Provides** product, customer, supplier management interfaces.
 
