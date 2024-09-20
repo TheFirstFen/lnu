@@ -16,8 +16,7 @@ needed_fs >= 2 x fmax = 2 x 3 kHz = 6 kHz
 
 => given_fs < needed_fs
 
-=> The sampling rate of 5 kHz that we have is not enough to perfectly reconstruct to original
-signal, this according to the Nyquist criterion.
+=> The sampling rate of 5 kHz that we have is not enough to perfectly reconstruct to original signal, this according to the Nyquist criterion.
 ```
 
 ## Task 2
