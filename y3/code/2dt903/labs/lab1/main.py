@@ -21,7 +21,7 @@ while True:
     # Read the potentiometer values
     adc_value, voltage = read_potentiometer()
     
-    # Display the ADC and Voltage values on the OLED
+    # Display the ADC and Voltage
     print("ADC Value: {}".format(adc_value))
     print("Voltage: {:.2f} V".format(voltage))
    

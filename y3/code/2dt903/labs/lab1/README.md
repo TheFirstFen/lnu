@@ -64,6 +64,8 @@ V4 (="XXXX") =>
 
 ### Diagram:
 
+# Look Slack 
+
 - For **1.8V**, the steps in each comparison would follow: 2.75V, 1.625V, 2.1875V, and 1.90625V, resulting in the binary number "0110".
 - Similarly, for **2.3V**, the comparisons narrow down the binary output to "0111".
 - For **3.0V**, the steps converge to "1000", and for **3.8V**, the approximation yields "1011".
@@ -95,6 +97,10 @@ ADC resolution = (Vmax - Vmin) / (2^N - 1)
 
 ### Third
 
+Setup:
+![Pico with potensometer](./img/pico.jpg)
+
+Code: 
 ```python
 from machine import Pin, ADC
 import utime
@@ -119,10 +125,13 @@ while True:
     # Read the potentiometer values
     adc_value, voltage = read_potentiometer()
     
-    # Display the ADC and Voltage values on the OLED
+    # Display the ADC and Voltage
     print("ADC Value: {}".format(adc_value))
     print("Voltage: {:.2f} V".format(voltage))
     
     # Delay for stability
     utime.sleep(0.5)
 ```
+
+Output:
+![Output](./img/output.jpg)
