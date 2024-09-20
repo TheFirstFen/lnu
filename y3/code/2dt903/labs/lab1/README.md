@@ -3,7 +3,7 @@
 ## Task 1
 
 ```Task1
-Nyquist criterion formula: *fs >= 2 x fmax*
+Nyquist criterion formula: fs >= 2 x fmax
 
 f1 = 1.75 kHz
 f2 = 2 kHz
@@ -12,7 +12,6 @@ f3 = 3 kHz
 given_fs = 5 kHz
 
 compute needed_fs:
-
 needed_fs >= 2 x fmax = 2 x 3 kHz = 6 kHz
 
 => given_fs < needed_fs
@@ -23,78 +22,51 @@ needed_fs >= 2 x fmax = 2 x 3 kHz = 6 kHz
 ## Task 2
 
 ```Task2
+Vmin = 0.5 V (="0000")
+Vmax = 5.0 V (="1111")
+N = 4
 
+step_size = (Vmax - Vmin) / (2^N - 1) = (5.0 V - 0.5 V) / (2^4 - 1) = 4.5 V / 15 = 0.3 
+
+V1 = 1.8 V
+V2 = 2.3 V
+V3 = 3.0 V
+V4 = 3.8 V
+
+V1 (="XXXX") => 
+(((5 - 0.5) / 2) + 0.5) = 2.75 > 1.8 V -> 0
+(((2.75 - 0.5) / 2) + 0.5) = 1.625 < 1.8 -> 1
+(((2.75 - 1.625) / 2) + 1.625) = 2.1875 > 1.8 -> 0
+(((2.1875 - 1.625) / 2) + 1.625) = 1.90625 > 1.8 -> 0
+=> (="0100")
+
+V2 (="XXXX") => 
+(((5 - 0.5) / 2) + 0.5) = 2.75 > 2.3 V -> 0
+(((2.75 - 0.5) / 2) + 0.5) = 1.625 < 2.3 -> 1
+(((2.75 - 1.625) / 2) + 1.625) = 2.1875 < 2.3 -> 1
+(((2.75 - 2.1875) / 2) + 2.1875) = 2.46875 < 2.3 -> 1
+=> (="0111")
+
+V3 (="XXXX") => 
+(((5 - 0.5) / 2) + 0.5) = 2.75 < 3.0 V -> 1
+(((5 - 2.75) / 2) + 2.75) = 3.875 > 3.0 -> 0
+(((3.875 - 2.75) / 2) + 2.75) = 3.3125 > 3.0 -> 0
+(((3.3125 - 2.75) / 2) + 2.75) = 3.03125 > 3.0 -> 0
+=> (="1000")
+
+V4 (="XXXX") => 
+(((5 - 0.5) / 2) + 0.5) = 2.75 < 3.8 V -> 1
+(((5 - 2.75) / 2) + 2.75) = 3.875 > 3.8 -> 0
+(((3.875 - 2.75) / 2) + 2.75) = 3.3125 < 3.8 -> 1
+(((3.875 - 3.3125) / 2) + 3.3125) = 3.59375 < 3.8 -> 1
+=> (="1011")
 ```
 
-To convert voltages using a **successive approximation-based 4-bit Analog-to-Digital Converter (ADC)**, the ADC sequentially compares the input voltage to midpoints within its range, adjusting the bits in its binary output until it converges on a close digital representation of the input voltage.
-
-In your case:
-- **Vmin = 0.5V** corresponds to "0000".
-- **Vmax = 5V** corresponds to "1111".
-  
-Thus, the step size of the ADC is calculated as:
-
-\[
-\text{Step size} = \frac{V_{\text{max}} - V_{\text{min}}}{2^n - 1} = \frac{5V - 0.5V}{15} = 0.3V
-\]
-
-This means each increment in the digital output represents 0.3V.
-
-### Key Steps of Successive Approximation:
-1. Start by assuming the midpoint of the range (approximately half of Vmax).
-2. Compare the input voltage to the current midpoint and set a higher or lower bit depending on the result.
-3. Continue adjusting one bit at a time from the MSB (most significant bit) to the LSB (least significant bit).
-4. After each comparison, refine the approximation of the voltage by adjusting the output bits.
-
----
-
-### Conversion for Given Voltages:
-
-Let's now convert voltages of **1.8V, 2.3V, 3V, and 3.8V**:
-
-1. **For 1.8V**:
-   - Midpoint of 0.5V–5V: 2.75V → 1.8V is lower, so MSB = 0.
-   - Midpoint of 0.5V–2.75V: 1.625V → 1.8V is higher, so 2nd bit = 1.
-   - Midpoint of 1.625V–2.75V: 2.1875V → 1.8V is lower, so 3rd bit = 0.
-   - Midpoint of 1.625V–2.1875V: 1.90625V → 1.8V is lower, so LSB = 0.
-   
-   Final digital output: **"0110"** (6 in decimal).
-
-2. **For 2.3V**:
-   - Midpoint of 0.5V–5V: 2.75V → 2.3V is lower, so MSB = 0.
-   - Midpoint of 0.5V–2.75V: 1.625V → 2.3V is higher, so 2nd bit = 1.
-   - Midpoint of 1.625V–2.75V: 2.1875V → 2.3V is higher, so 3rd bit = 1.
-   - Midpoint of 2.1875V–2.75V: 2.46875V → 2.3V is lower, so LSB = 0.
-   
-   Final digital output: **"0111"** (7 in decimal).
-
-3. **For 3.0V**:
-   - Midpoint of 0.5V–5V: 2.75V → 3.0V is higher, so MSB = 1.
-   - Midpoint of 2.75V–5V: 3.875V → 3.0V is lower, so 2nd bit = 0.
-   - Midpoint of 2.75V–3.875V: 3.3125V → 3.0V is lower, so 3rd bit = 0.
-   - Midpoint of 2.75V–3.3125V: 3.03125V → 3.0V is lower, so LSB = 0.
-   
-   Final digital output: **"1000"** (8 in decimal).
-
-4. **For 3.8V**:
-   - Midpoint of 0.5V–5V: 2.75V → 3.8V is higher, so MSB = 1.
-   - Midpoint of 2.75V–5V: 3.875V → 3.8V is lower, so 2nd bit = 0.
-   - Midpoint of 2.75V–3.875V: 3.3125V → 3.8V is higher, so 3rd bit = 1.
-   - Midpoint of 3.3125V–3.875V: 3.59375V → 3.8V is higher, so LSB = 1.
-   
-   Final digital output: **"1011"** (11 in decimal).
-
----
-
 ### Diagram:
-
-Imagine a flow like this, where each comparison (midpoint) adjusts a bit in the binary output.
 
 - For **1.8V**, the steps in each comparison would follow: 2.75V, 1.625V, 2.1875V, and 1.90625V, resulting in the binary number "0110".
 - Similarly, for **2.3V**, the comparisons narrow down the binary output to "0111".
 - For **3.0V**, the steps converge to "1000", and for **3.8V**, the approximation yields "1011".
-
-Would you like a graphical representation for this?
 
 ## Task 3
 
