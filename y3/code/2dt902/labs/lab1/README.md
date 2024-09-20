@@ -1,9 +1,6 @@
 # 2DT902 : Assaignment 1 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
 
 ## Uppgift 1.
-Fokusera på funktionaliteten i beskrivningen. Vilka funktionella
-komponenter kan du identifiera? Vilket ansvar (funktionellt) har respektive
-komponent? Svara i text med komponentnamn och beskrivning av ansvaret
 
 **User/Supplier components**
 - User Authentication & Registration
