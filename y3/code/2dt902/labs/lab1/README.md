@@ -125,9 +125,9 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 
 ***Transaction component*** **requires** order data to be able to view stored items in carts and to be able give users/suppliers the possibility to view their old orders, product data to be able to give the most up-to-date prices and in-stock quantity and order status to be able to give the user/supplier an estimate of delivery time. **Provides** cart, order processing and payment intergration interfaces for the user/supplier to be able to have a plesent experience to view their cart and handle their payment in an simple and secure way.
 
-***Communication component*** **requires** order data from the *transaction component* and user contact information for effective communication from the *user/supplier component*. **Provides** order status notifications and review management interfaces.
+***Communication component*** **requires** order data(including order status) & user/supplier data to be able to send out notifications to the user/supplier about updates to their order and review data to be able to provide detailed reports of user reviews and sales to empolyees. **Provides** order status and review management interfaces to send out notifications about orders to users/suppliers and to employees to be able to see when sales and user reviews are availible to be viewed.
 
-***Data Storage component*** **requires** *user/supplier*, *employee*, *transaction* and *communication components* and **provides** to *user/supplier*, *employee*, *transaction* and *communication components*.
+***Data Storage component*** **requires** review data, sale data, user/supplier data, product data and order data(including order status) are all required to be able to be provideded to all the diffrent components of the system. **Provides** review data, sale data, user/supplier data, product data and order data(including order status) are provided to the components that requiers them to function as intended, if they are not needed by a component it is not provided and just kept in storage.
 
 
 ## Uppgift 3.
