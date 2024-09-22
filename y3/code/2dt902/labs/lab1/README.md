@@ -52,7 +52,7 @@
 **Data storage component**
 - Stores the data of all other components
 
-The ***user/supplier component*** facilitate user and supplier interactions with the system. For users, they provide a way to manage personal information, browse products, and place orders. For suppliers, they ensure that product availability is updated and relevant.
+The ***user/supplier component*** provides the user and supplier interactions with the system. For users, they provide a way to manage personal information, browse products, and place orders. For suppliers, they ensure that product availability is updated and relevant.
 
 The ***employee component*** are crucial for the operational management of the pet shop. They ensure that the inventory is up-to-date, customers receive the correct orders, and management has the necessary information for effective business decisions.
 
@@ -63,6 +63,61 @@ The ***communication component*** are important for maintaining a positive custo
 The ***data storage component*** is the backbone of the system, ensuring that all information is securely stored, accessible, and retrievable for various functionalities across the system. It supports all operations and reporting needs by providing a central repository for all data.
 
 ## Uppgift 2. 
+
+**User/supplier component**
+- Provides
+    * User/supplier data to *Data storage*, *Employee* & *Communication*
+    * Order data to *Transaction*
+    * Review data to *Communication*
+- Requires
+    * Fetch user/supplier data from *Data storage*
+    * Fetch product data from *Data storage*
+    * Order & payment processing from *Transaction*
+
+**Employee component**
+- Provides
+    * Product data to *Data storage*
+    * Order data to *Data storage*
+    * Order status to *Communication*
+- Requires
+    * User/supplier data from *User/supplier*
+    * Employee data from *Data storage*
+    * Review data from *Communication*
+    * Order data from *Transaction*
+
+**Transaction component**
+- Provides
+    * Order & payment processing to *User/supplier*
+    * Sale data to *Data storage*
+    * Order data to *Communication* & *Employee*
+- Requires
+    * Order data from *User/supplier* & *Data storage*
+    * Product data from *Data storage*
+    * Order status from *Communication*
+
+**Communication component**
+- Provides
+    * Order status to *Transaction*
+    * Review data to *Employee* & *Data storage*
+- Requires
+    * Order data from *Transaction*
+    * Review data from *Data storage* & *User/supplier*
+    * Order status from *Employee*
+    * User/supplier data from *User/supplier*
+
+**Data Storage component**
+- Provides
+    * Order data to *Transaction*
+    * Product data to *Transaction*
+    * User/supplier data to *User/supplier*
+    * Employee data to *Empolyee*
+    * Review data to *Communication*
+- Requires
+    * Review data from *Communication*
+    * Sale data from *Transaction*
+    * User/supplier data from *User/supplier*
+    * Product data from *Employee* & *User/supplier*
+    * Order status from *Employee*
 
 ***User/Supplier component*** **requires** product data from the *employee component*, order managmnet from *transaction component* and data storage from the *data storage component*. **Provides** authentication, profile managment and order history interfaces.
 
@@ -76,8 +131,6 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 
 
 ## Uppgift 3.
-Rita ett UML komponentdiagram med de komponenter du identifierat, koppla
-samman komponenterna med interface, provides & requires.
 
 ![UML component](./img/task3.drawio.png)
 
