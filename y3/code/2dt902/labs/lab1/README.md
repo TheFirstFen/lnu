@@ -142,6 +142,7 @@ Redovisa i textform.
 - Backend
     * Web server hosting the website(possibly linux server install with apache or Nginx) and for the website it self the backend could be built with rust, javascript as an example.
     * Database server to host the database could be done with mysql, mongoDB as examples.
+    
     Note: Separate servers for website/web server then database and in practice, they just need to be connected so that they can communicate with each other and provide the information needed.
 
 - Frontend
