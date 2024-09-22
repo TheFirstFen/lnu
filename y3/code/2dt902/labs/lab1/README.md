@@ -119,7 +119,7 @@ The ***data storage component*** is the backbone of the system, ensuring that al
     * Product data from *Employee* & *User/supplier*
     * Order status from *Employee*
 
-***User/Supplier component*** **requires** product data from the *employee component*, order managmnet from *transaction component* and data storage from the *data storage component*. **Provides** authentication, profile managment and order history interfaces.
+***User/Supplier component*** **requires** user/supplier data to provide the user with the details from previous orders and previous visit to the site where they may have put something into their cart, product data to make sure they have the most up-to date prices and in-stock details and order & payment processing to be able to purchase and check-out the items in their cart. **Provides** authentication to be able to make sure someone other the the actual user/supplier access the account in question, profile managment to be able to update their personal details such as payment options and delivery address and order history interfaces to be able to view order status and view their previous purchases with out store.
 
 ***Employee component*** **requires** *user/supplier component* data for managing orders and user/supplier profiles, also *data storage component* for accessing and updating data. **Provides** product, customer, supplier management interfaces.
 
