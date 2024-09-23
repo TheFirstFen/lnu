@@ -135,9 +135,6 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 ![UML component](./img/task3.drawio.png)
 
 ## Uppgift 4.
-Fundera lite på den fysiska arkitekturen (systemarkitekturen). Vilka delar består
-systemet av, vilka enheter ingår och vilken mjukvara installeras på respektive enhet?
-Redovisa i textform.
 
 - Backend
     * Web server hosting the website(possibly linux server install with apache or Nginx) and for the website it self the backend could be built with rust, javascript as an example.
@@ -156,5 +153,5 @@ Redovisa i textform.
     * For an engineer to be able to update, fix or change diffrent parts of the website or server, they will need a computer of that is able to connect via SSH (TCP) to both the web server and the database server.
 
 ## Uppgift 5.
-Rita ett UML deploymentdiagram som illustrerar det du identifierat i uppgift 4.
+
 ![UML deployment](./img/task5.drawio.png)
