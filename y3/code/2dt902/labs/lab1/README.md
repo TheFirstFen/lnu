@@ -157,4 +157,4 @@ Redovisa i textform.
 
 ## Uppgift 5.
 Rita ett UML deploymentdiagram som illustrerar det du identifierat i uppgift 4.
-![UML deployment](./img/)
+![UML deployment](./img/task5.drawio.png)
