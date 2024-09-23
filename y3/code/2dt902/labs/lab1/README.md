@@ -52,9 +52,9 @@
 **Data storage component**
 - Stores the data of all other components
 
-The ***user/supplier component*** provides the user and supplier interactions with the system. For users, they provide a way to manage personal information, browse products, and place orders. For suppliers, they ensure that product availability is updated and relevant.
+The ***user/supplier component*** provides the user/supplier interactions with the system. For users, they provide a way to manage personal information, browse products, and place orders. For suppliers, they ensure that product availability is updated and relevant.
 
-The ***employee component*** are crucial for the operational management of the pet shop. They ensure that the inventory is up-to-date, customers receive the correct orders, and management has the necessary information for effective business decisions.
+The ***employee component*** are crucial for the operational management of the pet shop. They ensure that the inventory and details are up-to-date, customers receive the correct orders, and management has the necessary information for effective business decisions.
 
 The ***transaction component*** are essential for the core transactional functions of the pet shop, enabling customers to purchase products and services while providing the business with detailed insights into the preformance of sales.
 
@@ -150,7 +150,7 @@ The ***data storage component*** is the backbone of the system, ensuring that al
     * Notification/email service to provide notifications to both users/suppliers and employees, this includes newsletter, sales and order notifications via Gmail, outlook, etc.
 
 - Maintenance
-    * For an engineer to be able to update, fix or change diffrent parts of the website or server, they will need a computer of that is able to connect via SSH (TCP) to both the web server and the database server.
+    * For an engineer to be able to update, fix or change diffrent parts of the website or server with an code/text editor(IDE), they will need a computer of that is able to connect via SSH (TCP) to both the web server and the database server.
 
 ## Uppgift 5.
 
