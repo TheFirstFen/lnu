@@ -22,6 +22,8 @@ this according to the Nyquist criterion.
 
 ## Task 2
 
+### Solution
+
 ```powershell
 Vmin = 0.5 V (="0000")
 Vmax = 5.0 V (="1111")
@@ -118,7 +120,7 @@ import utime
 
 potentiometer = ADC(Pin(26))  # GP26 corresponds to ADC0
 
-VREF = 3.3  # The Pico's ADC reference voltage
+VREF = 3.3  # The Pico ADC reference voltage
 
 def read_potentiometer():
     adc_value = potentiometer.read_u16()  # Returns a 16-bit value 
