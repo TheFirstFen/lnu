@@ -67,19 +67,19 @@ V4 (="XXXX") =>
 
 #### V1
 
-[V1 Diagram]()
+[V1 Diagram](./img/diagrams/V1_diagram.jpg)
 
 #### V2
 
-[V2 Diagram]()
+[V2 Diagram](./img/diagrams/V2_diagram.jpg)
 
 #### V3
 
-[V3 Diagram]()
+[V3 Diagram](./img/diagrams/V3_diagram.jpg)
 
 #### V4
 
-[V4 Diagram]()
+[V4 Diagram](./img/diagrams/V4_diagram.jpg)
 
 ## Task 3
 
