@@ -45,8 +45,8 @@ V2 (="XXXX") =>
 (((5 - 0.5) / 2) + 0.5) = 2.75 > 2.3 V -> 0
 (((2.75 - 0.5) / 2) + 0.5) = 1.625 < 2.3 -> 1
 (((2.75 - 1.625) / 2) + 1.625) = 2.1875 < 2.3 -> 1
-(((2.75 - 2.1875) / 2) + 2.1875) = 2.46875 < 2.3 -> 1
-=> (="0111")
+(((2.75 - 2.1875) / 2) + 2.1875) = 2.46875 > 2.3 -> 0
+=> (="0110")
 
 V3 (="XXXX") => 
 (((5 - 0.5) / 2) + 0.5) = 2.75 < 3.0 V -> 1
@@ -63,13 +63,23 @@ V4 (="XXXX") =>
 => (="1011")
 ```
 
-### Diagram:
+### Diagrams:
 
-# Look Slack 
+#### V1
 
-- For **1.8V**, the steps in each comparison would follow: 2.75V, 1.625V, 2.1875V, and 1.90625V, resulting in the binary number "0110".
-- Similarly, for **2.3V**, the comparisons narrow down the binary output to "0111".
-- For **3.0V**, the steps converge to "1000", and for **3.8V**, the approximation yields "1011".
+[V1 Diagram]()
+
+#### V2
+
+[V2 Diagram]()
+
+#### V3
+
+[V3 Diagram]()
+
+#### V4
+
+[V4 Diagram]()
 
 ## Task 3
 
