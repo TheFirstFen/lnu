@@ -5,29 +5,27 @@ from umqtt import MQTTClient
 import ubinascii
 import machine
 import dht
-import json  # Import JSON module for handling JSON data
+import json 
 
-# Wi-Fi credentials
-ssid = 'fen'      # Replace with your Wi-Fi network name
-password = '3q1t6ibj'      # Replace with your Wi-Fi password
+ssid = 'fen'
+password = '3q1t6ibj'
 
-# MQTT server credentials
 URL = "broker.emqx.io"
 Port = 1883
-mqtt_user = ""       # MQTT username (if needed)
-mqtt_password = ""  # MQTT password (if needed)
+mqtt_user = ""
+mqtt_password = ""
 Topic = "U/test2"
-Button = Pin(0, Pin.IN)  # Set up the button on GPIO 0
-LED = Pin(1, Pin.OUT)  # Set up the LED on GPIO 1
+Button = Pin(0, Pin.IN)
+LED = Pin(1, Pin.OUT)
 DHT = dht.DHT11(Pin(16))
 
-# Device unique ID, make sure it's decoded as string
+
 client_id = ubinascii.hexlify(machine.unique_id()).decode()
 
-# Declare the client variable globally
-client = None
 
-# Function to connect to Wi-Fi
+client = MQTTClient(client_id, URL, Port, mqtt_user, mqtt_password)
+
+
 def connect_wifi():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
@@ -36,18 +34,17 @@ def connect_wifi():
         print(f"Connecting to Wi-Fi: {ssid}")
         wlan.connect(ssid, password)
         
-        # Wait until connection
+        
         while not wlan.isconnected():
             time.sleep(1)
             print(".", end="")
     
     print("\nConnected to Wi-Fi")
-    print(wlan.ifconfig())  # Print IP details
+    print(wlan.ifconfig()) 
 
-# Function to connect to MQTT server
 def connect_mqtt():
-    global client  # Declare client as a global variable so it's accessible in other functions
-    client = MQTTClient(client_id, URL, Port, mqtt_user, mqtt_password)
+    global client
+    
     
     try:
         client.connect()
@@ -58,7 +55,6 @@ def connect_mqtt():
     
     return client
 
-# Function to publish a message to a topic
 def publish_message(client, topic, message):
     try:
         client.publish(topic, message)
@@ -66,21 +62,17 @@ def publish_message(client, topic, message):
     except Exception as e:
         print(f"Failed to publish message: {e}")
 
-# Callback function to handle received messages
 def message_callback(topic, msg):
     print(f"Received message: {msg.decode()} from topic: {topic.decode()}")
     
-    # Turn on the LED if the message is "1"
     if msg.decode() == "1":
         LED.on()
-        DHT_Sensor()  # Read sensor data and publish it
-        time.sleep(10)
-        # Send a new message "0" after receiving "1"
+        DHT_Sensor()
+        time.sleep(2)
         publish_message(client, Topic, "0")
     else:
         LED.off()
 
-# Function to subscribe to a topic
 def subscribe_topic(client, topic):
     client.set_callback(message_callback)
     
@@ -90,47 +82,37 @@ def subscribe_topic(client, topic):
     except Exception as e:
         print(f"Failed to subscribe to topic: {e}")
 
-# Debouncing function
 def button_pressed():
-    # Check if button is pressed and apply a short delay to debounce
-    if Button.value() == 1:  # Button is active-low (pressed when 1)
-        time.sleep(0.05)  # Short debounce delay of 50 ms
-        if Button.value() == 1:  # Check again to confirm the button is still pressed
+    if Button.value() == 1:
+        time.sleep(0.05)
+        if Button.value() == 1:
             return True
     return False
 
-# Function to read DHT sensor and publish data
 def DHT_Sensor():
-    DHT.measure()  # Trigger the DHT11 to take a measurement
-    temp = DHT.temperature()  # Read temperature
-    hum = DHT.humidity()  # Read humidity
+    DHT.measure()
+    temp = DHT.temperature() 
+    hum = DHT.humidity()
     print("Temp:", temp, "Hum:", hum)
 
-    # Create a JSON payload
-    payload = json.dumps({"t": temp, "h": hum})  # Create JSON object
-    publish_message(client, Topic, payload)  # Publish the JSON payload
+    payload = json.dumps({"t": temp, "h": hum})
+    publish_message(client, Topic, payload)
 
-# Main program
 def main():
-    # Connect to Wi-Fi
     connect_wifi()
     
-    # Connect to MQTT broker
     mqtt_client = connect_mqtt()
     
     if mqtt_client:
-        # Subscribe to a topic
         subscribe_topic(mqtt_client, Topic)
         
-        # Publish message when the button is pressed
         try:
             while True:
-                mqtt_client.check_msg()  # Check for incoming messages
+                mqtt_client.check_msg()
                 
-                # Check if the button is pressed with debouncing
                 if button_pressed():
                     publish_message(mqtt_client, Topic, "1")
-                    time.sleep(0.5)  # Additional delay to prevent rapid retriggering
+                    time.sleep(0.5)
                 
                 time.sleep(0.1)
                 
@@ -138,7 +120,5 @@ def main():
             print("Disconnecting from MQTT...")
             mqtt_client.disconnect()
 
-# Run the program
-if __name__ == "__main__":
-    main()
+main()
 
