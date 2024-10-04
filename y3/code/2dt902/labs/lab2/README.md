@@ -38,7 +38,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Confidentiality Scenario**: Unauthorized Data Access
 
+* **Source**: ??
 * **Stimulus**: A user attempts to access data or resources they are not authorized to view, such as another user's account details or sensitive product information.
+* **Artifact**: ??
 * **Environment**: The system is operational, and the user is logged in but only has customer-level access rights.
 * **Response**: The system detects the user’s role and restricts access to only the resources they are permitted to view. The attempt to access restricted information is logged for security monitoring.
 * **Response Measure**: Unauthorized access is prevented 100% of the time, and an alert or log entry is generated within 1 second of the attempted breach.
