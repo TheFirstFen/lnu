@@ -32,7 +32,6 @@ System beskrivningen för Pet Shop saknar konkreta kvalitetskrav. Det blir därf
 * **Outcome**: The user is granted appropriate access based on their role.
 
 ## Uppgift 2. (WIP!!)
-Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig för att begränsa tillgången till resurser och information i systemet.
 
 ### QAS 1
 
