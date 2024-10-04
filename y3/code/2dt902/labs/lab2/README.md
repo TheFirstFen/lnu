@@ -1,6 +1,6 @@
 # 2DT902 : Assaignment 2 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se)
 
-## Uppgift 1.
+## Uppgift 1. (WIP!!)
 System beskrivningen för Pet Shop saknar konkreta kvalitetskrav. Det blir därför ditt ansvar som arkitekt att arbeta med säkerhetsattributet, som är en viktig angelägenhet (concern) för den här typen av system. Modellera med hjälp av en usecase-modell hur en mekanism för identifiering, autentisering och auktorisering skall fungera utifrån ett användarperspektiv.
 
 ### Identification (User Registration):
