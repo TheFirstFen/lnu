@@ -38,9 +38,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Confidentiality Scenario**: Unauthorized Data Access
 
-* **Source**: ??
+* **Source**: An unauthorized or underprivileged user (e.g., a customer or external actor). 
 * **Stimulus**: A user attempts to access data or resources they are not authorized to view, such as another user's account details or sensitive product information.
-* **Artifact**: ??
+* **Artifact**: The data access control system or the specific sensitive data being requested (e.g., user account details, financial data).
 * **Environment**: The system is operational, and the user is logged in but only has customer-level access rights.
 * **Response**: The system detects the user’s role and restricts access to only the resources they are permitted to view. The attempt to access restricted information is logged for security monitoring.
 * **Response Measure**: Unauthorized access is prevented 100% of the time, and an alert or log entry is generated within 1 second of the attempted breach.
@@ -49,9 +49,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Integrity Scenario**: Tampering with Data
 
-* **Source**: ??
+* **Source**: An employee or user with some level of administrative access (e.g., product manager).
 * **Stimulus**: An employee with product management privileges tries to manipulate sensitive data, such as changing product prices without proper authorization.
-* **Artifact**: ??
+* **Artifact**: The database or the specific data fields that are being tampered with (e.g., product pricing data).
 * **Environment**: The system is live and handling multiple transactions, with role-based access control (RBAC) enabled.
 * **Response**: The system verifies the employee’s role and privileges before allowing any modification. If the user lacks the required authorization, the modification is rejected, and a security alert is generated.
 * **Response Measure**: Unauthorized modifications are rejected instantly, with an error message shown to the user, and the attempted action is logged for audit purposes.
@@ -60,9 +60,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Availability Scenario**: Denial of Service Protection
 
-* **Source**: ??
+* **Source**: A malicious actor or external attacker.
 * **Stimulus**: A malicious actor attempts a Denial of Service (DoS) attack by sending a large number of requests to overwhelm the server hosting the Pet Shop system.
-* **Artifact**: ??
+* **Artifact**: The web server or network infrastructure (e.g., firewall, load balancer) that handles incoming requests.
 * **Environment**: The system is under attack, but the user-facing components are still functional.
 * **Response**: The system detects the abnormally high number of requests and activates rate-limiting and firewall measures to block malicious traffic while maintaining service availability for legitimate users.
 * **Response Measure**: The system continues to serve legitimate users with a 99% uptime during the attack, and the attack is neutralized within 5 minutes of detection.
