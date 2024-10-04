@@ -49,7 +49,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Integrity Scenario**: Tampering with Data
 
+* **Source**: ??
 * **Stimulus**: An employee with product management privileges tries to manipulate sensitive data, such as changing product prices without proper authorization.
+* **Artifact**: ??
 * **Environment**: The system is live and handling multiple transactions, with role-based access control (RBAC) enabled.
 * **Response**: The system verifies the employee’s role and privileges before allowing any modification. If the user lacks the required authorization, the modification is rejected, and a security alert is generated.
 * **Response Measure**: Unauthorized modifications are rejected instantly, with an error message shown to the user, and the attempted action is logged for audit purposes.
@@ -58,7 +60,9 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 **Availability Scenario**: Denial of Service Protection
 
+* **Source**: ??
 * **Stimulus**: A malicious actor attempts a Denial of Service (DoS) attack by sending a large number of requests to overwhelm the server hosting the Pet Shop system.
+* **Artifact**: ??
 * **Environment**: The system is under attack, but the user-facing components are still functional.
 * **Response**: The system detects the abnormally high number of requests and activates rate-limiting and firewall measures to block malicious traffic while maintaining service availability for legitimate users.
 * **Response Measure**: The system continues to serve legitimate users with a 99% uptime during the attack, and the attack is neutralized within 5 minutes of detection.
