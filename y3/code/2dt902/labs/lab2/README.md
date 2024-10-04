@@ -36,30 +36,30 @@ Modellera tre kvalitetsattributscenarios som visar hur systemet skall bete sig f
 
 ### QAS 1
 
-Confidentiality Scenario: Unauthorized Data Access
+**Confidentiality Scenario**: Unauthorized Data Access
 
-    Stimulus: A user attempts to access data or resources they are not authorized to view, such as another user's account details or sensitive product information.
-    Environment: The system is operational, and the user is logged in but only has customer-level access rights.
-    Response: The system detects the user’s role and restricts access to only the resources they are permitted to view. The attempt to access restricted information is logged for security monitoring.
-    Response Measure: Unauthorized access is prevented 100% of the time, and an alert or log entry is generated within 1 second of the attempted breach.
+* **Stimulus**: A user attempts to access data or resources they are not authorized to view, such as another user's account details or sensitive product information.
+* **Environment**: The system is operational, and the user is logged in but only has customer-level access rights.
+* **Response**: The system detects the user’s role and restricts access to only the resources they are permitted to view. The attempt to access restricted information is logged for security monitoring.
+* **Response Measure**: Unauthorized access is prevented 100% of the time, and an alert or log entry is generated within 1 second of the attempted breach.
 
 ### QAS 2
 
-Integrity Scenario: Tampering with Data
+**Integrity Scenario**: Tampering with Data
 
-    Stimulus: An employee with product management privileges tries to manipulate sensitive data, such as changing product prices without proper authorization.
-    Environment: The system is live and handling multiple transactions, with role-based access control (RBAC) enabled.
-    Response: The system verifies the employee’s role and privileges before allowing any modification. If the user lacks the required authorization, the modification is rejected, and a security alert is generated.
-    Response Measure: Unauthorized modifications are rejected instantly, with an error message shown to the user, and the attempted action is logged for audit purposes.
+* **Stimulus**: An employee with product management privileges tries to manipulate sensitive data, such as changing product prices without proper authorization.
+* **Environment**: The system is live and handling multiple transactions, with role-based access control (RBAC) enabled.
+* **Response**: The system verifies the employee’s role and privileges before allowing any modification. If the user lacks the required authorization, the modification is rejected, and a security alert is generated.
+* **Response Measure**: Unauthorized modifications are rejected instantly, with an error message shown to the user, and the attempted action is logged for audit purposes.
 
 ### QAS 3
 
-Availability Scenario: Denial of Service Protection
+**Availability Scenario**: Denial of Service Protection
 
-    Stimulus: A malicious actor attempts a Denial of Service (DoS) attack by sending a large number of requests to overwhelm the server hosting the Pet Shop system.
-    Environment: The system is under attack, but the user-facing components are still functional.
-    Response: The system detects the abnormally high number of requests and activates rate-limiting and firewall measures to block malicious traffic while maintaining service availability for legitimate users.
-    Response Measure: The system continues to serve legitimate users with a 99% uptime during the attack, and the attack is neutralized within 5 minutes of detection.
+* **Stimulus**: A malicious actor attempts a Denial of Service (DoS) attack by sending a large number of requests to overwhelm the server hosting the Pet Shop system.
+* **Environment**: The system is under attack, but the user-facing components are still functional.
+* **Response**: The system detects the abnormally high number of requests and activates rate-limiting and firewall measures to block malicious traffic while maintaining service availability for legitimate users.
+* **Response Measure**: The system continues to serve legitimate users with a 99% uptime during the attack, and the attack is neutralized within 5 minutes of detection.
 
 ## Uppgift 3.
 Rita ett UML komponentdiagram med de komponentabstraktioner, ansvar och relationer som behövs för den säkerhetsfunktionalitet som modellerats i uppgift 1 och 2.
