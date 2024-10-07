@@ -30,7 +30,7 @@
     - For example, an employee may access product management, while a customer can only view their order history and manage personal details.
 * **Outcome**: The user is granted appropriate access based on their role.
 
-[Use case diagram](./img/task1.drawio.png)
+![Use case diagram](./img/task1.drawio.png)
 
 ## Uppgift 2. (WIP!!)
 
