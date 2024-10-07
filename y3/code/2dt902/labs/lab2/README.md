@@ -1,6 +1,6 @@
 # 2DT902 : Assaignment 2 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se)
 
-## Uppgift 1. (WIP!!)
+## Uppgift 1. (WiP!!)
 
 ![Use case diagram](./img/task1.drawio.png)
 
@@ -39,12 +39,11 @@
 * **Response**: System detects abnormal traffic pattern, limits requests, diverts the abnormal traffic to backup server.
 * **Response Measure**: System maintains availablity for regular users by limiting the abnormal traffic to 5% of the systemsm resources, logs attack and notifies security and administrators immediately.
 
-## Uppgift 3.
-Rita ett UML komponentdiagram med de komponentabstraktioner, ansvar och relationer som behövs för den säkerhetsfunktionalitet som modellerats i uppgift 1 och 2.
+## Uppgift 3. (WiP!!)
 
 ![UML of task1 & 2](./img/task3.drawio.png)
 
-## Uppgift 4.
+## Uppgift 4. (WiP!!)
 
 ![UML of assignment1 & task3](./img/task4.drawio.png)
 
