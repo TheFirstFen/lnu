@@ -42,11 +42,10 @@
 ## Uppgift 3.
 Rita ett UML komponentdiagram med de komponentabstraktioner, ansvar och relationer som behövs för den säkerhetsfunktionalitet som modellerats i uppgift 1 och 2.
 
-![...](./img/task3.drawio.png)
+![UML of task1 & 2](./img/task3.drawio.png)
 
 ## Uppgift 4.
-Integrera komponenterna från uppgift 3 med den modell av systemets funktionalitet som du tog fram i inlämningsuppgift 1.
 
-![..](./img/task4.drawio.png)
+![UML of assignment1 & task3](./img/task4.drawio.png)
 
 Diskutera eventuella anpassningar som behöver göras.
