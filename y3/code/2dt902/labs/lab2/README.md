@@ -4,7 +4,7 @@
 
 ![Use case diagram](./img/task1.drawio.png)
 
-## Uppgift 2. (WIP!!)
+## Uppgift 2.
 
 ### QAS 1
 
