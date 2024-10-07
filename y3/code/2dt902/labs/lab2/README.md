@@ -43,8 +43,10 @@
 
 ![UML of task1 & 2](./img/task3.drawio.png)
 
-## Uppgift 4. (WiP!!)
+## Uppgift 4.
 
 ![UML of assignment1 & task3](./img/task4.drawio.png)
+
+### Discussion
 
 Diskutera eventuella anpassningar som behöver göras.
