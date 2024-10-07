@@ -12,7 +12,7 @@ A user can login with diffrent methods, such as email&password, google account o
 
 **Unauthorized Access Attempt**
 
-* **Source**: Unidentified User.
+* **Source**: Unidentified User / User.
 * **Stimulus**: Attempts to access restricted resources, (employee dashboard).
 * **Artifact**: Access control systems (Authentication & Authorization).
 * **Environment**: The system is operational and user only has user-rights.
@@ -42,6 +42,10 @@ A user can login with diffrent methods, such as email&password, google account o
 * **Response Measure**: System maintains availablity for regular users by limiting the abnormal traffic to 5% of the systemsm resources, logs attack and notifies security and administrators immediately.
 
 ## Uppgift 3. (WiP!!)
+
+When an unidentified user attempts to access restricted resources they require the unidentified user to login with employee/administrator privileged account if they fail todo so the attempt is logged, if a logged in user tries to access a restricted resource their user-rights would be checked to see if they have the rights to access the resource in question if not it will be logged. In both cases the administrators will be notified and the IP-addresses of the attempts will be logged for review. This will be handled by **Identification & Authentication**, **Authorization** and **Logging** components.
+
+When an unidentified user tries to login to an account serveral times but fails it will be logged and the account will be locked till the user reviews the security email to restore their account has been handle correctly, the IP-address of the failed attempts will be logged for review and blocked till further review by administrators or user handles their security email correctly, saying that it was them attempting to login. This will be handled by the **Identification & Authentication**, **Account management**, **Servers** and **Logging** components.
 
 
 
