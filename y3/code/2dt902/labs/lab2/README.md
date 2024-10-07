@@ -41,7 +41,7 @@ A user can login with diffrent methods, such as email&password, google account o
 * **Response**: System detects abnormal traffic pattern, limits requests, diverts the abnormal traffic to backup server.
 * **Response Measure**: System maintains 95% availablity for regular users by limiting the abnormal traffic to 5% of the systems resources, logs attack and notifies security and administrators within seconds of recognizing the attack.
 
-## Uppgift 3. (WiP!!)
+## Uppgift 3.
 
 When an unidentified user attempts to access restricted resources they require the unidentified user to login with employee/administrator privileged account if they fail todo so the attempt is logged, if a logged in user tries to access a restricted resource their user-rights would be checked to see if they have the rights to access the resource in question if not it will be logged. In both cases the administrators will be notified and the IP-addresses of the attempts will be logged for review. This will be handled by **Identification & Authentication**, **Authorization** and **Logging** components.
 
