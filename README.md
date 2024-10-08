@@ -3,4 +3,4 @@
 - Projects done on school time
 - School assignments
 
-test
+A proper shit show of a repo
