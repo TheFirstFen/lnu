@@ -1,4 +1,4 @@
-# 2DT903 : Lab 1 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se)
+# 2DT903 : Lab 2 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se)
 
 ## Task 1
 
@@ -25,8 +25,8 @@ function Decoder(topic, payload) {
     try {
         payload = JSON.parse(payload);
         
-        var Temp = payload.t;
-        var Hum = payload.h;
+        var Temp = payload.temp;
+        var Hum = payload.hum;
         
         return [
             {
@@ -46,4 +46,7 @@ function Decoder(topic, payload) {
     }
 }
 ```
+
+### Report
+
 

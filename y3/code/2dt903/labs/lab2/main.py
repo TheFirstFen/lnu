@@ -57,9 +57,8 @@ def message_callback(topic, msg):
     if msg.decode() == "1":
         LED.on()
         DHT_Sensor()
-        time.sleep(2)
+        time.sleep(0.5)
         publish_message(c, topic, "0")
-    else:
         LED.off()
 
 def subscribe_topic(client, topic):
@@ -85,7 +84,7 @@ def DHT_Sensor():
     temp = DHT.temperature() 
     hum = DHT.humidity()
 
-    payload = json.dumps({"t": temp, "h": hum})
+    payload = json.dumps({"temp": temp, "hum": hum})
     publish_message(c, topic, payload)
 
 def main():
@@ -96,15 +95,19 @@ def main():
         subscribe_topic(c, topic)
         
         try:
+            elapsed_time = time.time()
+            
             while True:
                 c.check_msg()
                 
                 if button_pressed():
                     publish_message(c, topic, "1")
                     time.sleep(0.5)
-                
-                time.sleep(0.1)
-                
+
+                if time.time() - elapsed_time >= 300:
+                    publish_message(c, topic, "1")
+                    elapsed_time = time.time()
+
         except KeyboardInterrupt:
             print("Disconnecting from MQTT...")
             if c:

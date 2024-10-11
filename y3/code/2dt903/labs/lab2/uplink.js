@@ -2,8 +2,8 @@ function Decoder(topic, payload) {
     try {
         payload = JSON.parse(payload);
         
-        var Temp = payload.t;
-        var Hum = payload.h;
+        var Temp = payload.temp;
+        var Hum = payload.hum;
         
         return [
             {
