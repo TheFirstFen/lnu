@@ -16,11 +16,12 @@
 
 ### Data preview
 
-![Image of dashboard](./img/dashboard.png)
+***Image of dashboard(python implementation)***
+![Image of dashboard(python implementation)](./img/dashboard.png)
 
-[Link to dashboard](https://app.datacake.co/pd/0276f2c5-9a61-4e08-87d3-b2f182c03933)
+[Link to dashboard(python implementation)](https://app.datacake.co/pd/0276f2c5-9a61-4e08-87d3-b2f182c03933)
 
-[Video of the C code working]()
+[Video of the C code running](https://youtube.com/shorts/zWvzqauL3pM?feature=share)
 
 ### Code
 
