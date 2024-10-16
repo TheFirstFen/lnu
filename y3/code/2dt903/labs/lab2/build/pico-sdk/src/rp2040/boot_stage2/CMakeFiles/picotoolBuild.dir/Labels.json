@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/CMakeFiles/picotoolBuild-complete.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-build.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-configure.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-download.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-install.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-mkdir.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-patch.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-test.rule"
+		},
+		{
+			"file" : "/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pico-sdk/src/rp2040/boot_stage2/picotool/src/picotoolBuild-stamp/picotoolBuild-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"picotoolBuild"
+		],
+		"name" : "picotoolBuild"
+	}
+}

@@ -1,0 +1,7 @@
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/pioasm.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/edit_cache.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/rebuild_cache.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/list_install_components.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/install.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/install/local.dir
+/home/fen/lnu/y3/code/2dt903/labs/lab2/build/pioasm/CMakeFiles/install/strip.dir
