@@ -1,22 +1,22 @@
 import network
 import time
-from machine import Pin
-from umqtt import MQTTClient
+import machine
+import umqtt
 import ubinascii
 import machine
 import dht
 import json 
 
-ssid = 'wifi-name'
-password = 'wifi-password'
+ssid = 'fen'
+password = '3q1t6ibj'
 topic = "Samuel/RPIPico"
-Button = Pin(0, Pin.IN)
-LED = Pin(1, Pin.OUT)
-DHT = dht.DHT11(Pin(16))
+btn = machine.Pin(0, machine.Pin.IN)
+led = machine.Pin(1, machine.Pin.OUT)
+dht = dht.DHT11(machine.Pin(16))
 
-c = None
+mqtt_c = None
 
-def connect_wifi():
+def conn_wifi():
     wlan = network.WLAN(network.STA_IF)
     wlan.active(True)
     
@@ -31,86 +31,88 @@ def connect_wifi():
     print("\nConnected to Wi-Fi")
     print(wlan.ifconfig()) 
 
-def connect_mqtt():
-    global c
+def conn_mqtt():
+    global mqtt_c
     try:
-        c = MQTTClient(client_id=ubinascii.hexlify(machine.unique_id()).decode(), server="broker.emqx.io", port=1883, user="", password="")
-        c.connect()
+        mqtt_c = umqtt.MQTTClient(client_id=ubinascii.hexlify(machine.unique_id()).decode(), server="broker.emqx.io", port=1883, user="", password="")
+        mqtt_c.connect()
         print("Connected to MQTT")
     except Exception as e:
         print(f"Failed to connect to MQTT: {e}")
-        c = None
+        mqtt_c = None
 
-def publish_message(client, topic, message):
-    if client:
+def p_msg(mqtt_c, topic, message):
+    
+    if mqtt_c:
         try:
-            client.publish(topic, message)
+            mqtt_c.publish(topic, message)
             print(f"Message published to {topic}: {message}")
         except Exception as e:
             print(f"Failed to publish message: {e}")
     else:
         print("MQTT client not connected.")
+    led.off()
 
-def message_callback(topic, msg):
-    print(f"Received message: {msg.decode()} from topic: {topic.decode()}")
-    
-    if msg.decode() == "1":
-        LED.on()
-        DHT_Sensor()
-        time.sleep(0.5)
-        publish_message(c, topic, "0")
-        LED.off()
+def msg_cb(topic, msg):
+    print(f"Received message: {msg.decode()} from topic: {topic.decode()} \n")
+    if msg.decode() == "Data comming..." or msg.decode() == "Btn data comming...":
+        temp()
+        p_msg(mqtt_c, topic, "Data ending...")
+    else:
+        led.on()
 
-def subscribe_topic(client, topic):
-    if client:
-        client.set_callback(message_callback)
+def sub_topic(mqtt_c, topic):
+    if mqtt_c:
+        mqtt_c.set_callback(msg_cb)
         try:
-            client.subscribe(topic)
+            mqtt_c.subscribe(topic)
             print(f"Subscribed to {topic}")
         except Exception as e:
             print(f"Failed to subscribe to topic: {e}")
     else:
         print("MQTT client not connected.")
 
-def button_pressed():
-    if Button.value() == 1:
+def btn_cb():
+    if btn.value() == 1:
         time.sleep(0.05)
-        if Button.value() == 1:
+        if btn.value() == 1:
             return True
     return False
 
-def DHT_Sensor():
-    DHT.measure()
-    temp = DHT.temperature() 
-    hum = DHT.humidity()
+def temp():
+    dht.measure()
+    temp = dht.temperature() 
+    hum = dht.humidity()
 
     payload = json.dumps({"temp": temp, "hum": hum})
-    publish_message(c, topic, payload)
+    p_msg(mqtt_c, topic, payload)
 
 def main():
-    connect_wifi()
-    connect_mqtt()
+    conn_wifi()
+    conn_mqtt()
     
-    if c:
-        subscribe_topic(c, topic)
+    if mqtt_c:
+        sub_topic(mqtt_c, topic)
         
         try:
             elapsed_time = time.time()
             
             while True:
-                c.check_msg()
+                mqtt_c.check_msg()
                 
-                if button_pressed():
-                    publish_message(c, topic, "1")
-                    time.sleep(0.5)
-
                 if time.time() - elapsed_time >= 300:
-                    publish_message(c, topic, "1")
+                    p_msg(c, topic, "Data comming...")
                     elapsed_time = time.time()
-
+                
+                if btn_cb():
+                    led.on()
+                    p_msg(mqtt_c, topic, "Btn data comming...")
+                    time.sleep(0.5)
+                led.off()
+                
         except KeyboardInterrupt:
             print("Disconnecting from MQTT...")
-            if c:
-                c.disconnect()
+            if mqtt_c:
+                mqtt_c.disconnect()
 
 main()
