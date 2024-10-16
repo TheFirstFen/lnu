@@ -10,6 +10,7 @@ SET(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/FreeRTOS-Kernel)
 include(pico_sdk_import.cmake)
 include(${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/FreeRTOS_Kernel_import.cmake)
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(${CMAKE_SOURCE_DIR}lib/Raspberry-Pi-Pico-DHT-sensor)
 
 # Define project
 project(${ProjectName} C CXX ASM)
@@ -29,7 +30,6 @@ target_include_directories(${ProjectName} PRIVATE
 
 target_link_libraries(${ProjectName} 
     pico_stdlib
-    hardware_adc
     FreeRTOS-Kernel-Heap4 
     )
 
