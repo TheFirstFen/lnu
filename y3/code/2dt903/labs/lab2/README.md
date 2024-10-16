@@ -32,7 +32,6 @@ import time
 import machine
 import umqtt
 import ubinascii
-import machine
 import dht
 import json 
 
