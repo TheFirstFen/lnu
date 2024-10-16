@@ -24,6 +24,8 @@
 
 ### Code
 
+#### Python implementation
+
 ```python
 import network
 import time
@@ -145,6 +147,8 @@ def main():
 main()
 ```
 
+##### Datacake uplink code
+
 ```javascript
 function Decoder(topic, payload) {
     try {
@@ -171,6 +175,8 @@ function Decoder(topic, payload) {
     }
 }
 ```
+
+#### C implementation (no networking)
 
 ```c
 
