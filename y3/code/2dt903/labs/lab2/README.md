@@ -18,7 +18,7 @@
 
 ![Image of dashboard](./img/dashboard.png)
 
-[Dashboard](https://app.datacake.co/pd/0276f2c5-9a61-4e08-87d3-b2f182c03933)
+[Link to dashboard](https://app.datacake.co/pd/0276f2c5-9a61-4e08-87d3-b2f182c03933)
 
 [Video of the C code working]()
 
