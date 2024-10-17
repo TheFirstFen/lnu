@@ -1,1 +1,0 @@
-/usr/bin/c++ -g CMakeFiles/oneArmedBandit.dir/src/main.cpp.o CMakeFiles/oneArmedBandit.dir/src/core/bettingFunctions.cpp.o CMakeFiles/oneArmedBandit.dir/src/core/boardFunctions.cpp.o CMakeFiles/oneArmedBandit.dir/src/core/gameHistory.cpp.o CMakeFiles/oneArmedBandit.dir/src/core/helpers.cpp.o CMakeFiles/oneArmedBandit.dir/src/core/gameManager.cpp.o -o oneArmedBandit
