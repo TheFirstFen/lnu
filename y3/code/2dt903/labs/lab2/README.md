@@ -3,6 +3,7 @@
 ## Task 1
 
 ![Ex 1 circuit](./img/e1.png)
+*Taken from lab description document*
 
 ```powershell
 R24 = R2 + R4
@@ -20,6 +21,7 @@ g_closed = -(Rf/Rin) = -(R6/(R1 + (R24 * R35)/(R24 + R35)))
 ## Task 2
 
 ![Ex 2 circuit](./img/e2.png)
+*Made using drawio*
 
 ```powershell
 X = {X0, X1, X2} where X2 is the MSB & X0 is the LSB
