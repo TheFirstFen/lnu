@@ -22,7 +22,21 @@ g_closed = -(Rf/Rin) = -(R6/(R1 + (R24 * R35)/(R24 + R35)))
 ![Ex 2 circuit](./img/e2.png)
 
 ```powershell
+X = {X0, X1, X2} where X2 is the MSB & X0 is the LSB
 
+X2 = 1/2 * Vref (Due to being MSB)
+X1 = 1/4 * Vref
+X0 = 1/8 * Vref (Due to being LSB)
+=>
+Vout = Vref * (X2/4 + X1/4 + X0/8)
+
+Example: 
+If we have the bit value 101, which is represented by X = {1, 0, 1} then, 
+Vout = Vref * (1/2 + 0/4 + 1/8) = Vref * (4/8 + 0/8 + 1/8) = Vref * 5/8
+and this is correct due to (101(in base 2) = 5(in base 10))
+
+Conclusion:
+The output voltage of a 3-bit DAC is linearly proportional to the value represented by the input vector X as demonstrated. 
 ```
 
 ## Task 3
@@ -268,6 +282,97 @@ int main() {
 }
 ```
 
+# TODO FIX REPORT!!!!
+
 ### Report
 
+#### 1. Introduction
 
+Brief introduction to the **Real-time Hardware Project**:
+- Demonstrating the necessity of an RTOS.
+- Implementing the project in both **Python** and **C**.
+- Overview of real-time requirements that MicroPython alone cannot meet.
+
+#### 2. Project Overview
+
+##### Hardware Setup
+
+- **RPi Pico 2040**: Microcontroller.
+- **DHT11 Sensor (Pin 16)**: Measures temperature and humidity.
+- **Button (Pin 0)**: User input.
+- **LED (Pin 1)**: Visual feedback.
+- **Wi-Fi Module**: Onboard Pico W for wireless communication.
+
+##### Communication Protocol
+
+- Using MQTT over Wi-Fi.
+- Topic: `"Samuel/RPIPico"`.
+- Sending sensor data and publishing to datacake via MQTT.
+
+#### 3. Real-time Requirements
+
+Define the real-time constraints:
+- **Button press**: Immediate response to user input.
+- **Sensor data transmission**: Collect and transmit data every 300 seconds.
+- **Wireless communication**: Real-time communication over Wi-Fi to an MQTT broker.
+
+Explain why real-time performance is critical:
+- **Task delays**: How delayed response (e.g., missing button presses or delayed sensor data) impacts the system.
+
+#### 4. Implementation in MicroPython (Python)
+
+##### Code Overview
+
+- **Wi-Fi and MQTT connection**.
+- **Periodic temperature and humidity readings**.
+- **Button press detection** and LED feedback.
+- **Data transmission via MQTT**.
+
+##### Real-time Challenges in Python
+
+- **No task prioritization**: Sequential task execution can cause delays.
+- **Blocking operations**: Network or sensor delays block other tasks.
+- **Polling vs. Interrupts**: Lack of hardware interrupts leads to inefficient real-time performance.
+
+##### Test Results
+
+- **Observed issues**: Delayed sensor readings.
+- **Real-time performance shortcomings**: Demonstrating the need for RTOS.
+
+#### 5. Implementation in C
+
+##### Code Overview
+
+- **Task scheduling** with FreeRTOS.
+- **Interrupt-driven button press detection**.
+- **Concurrent task execution**: Real-time handling of multiple tasks (sensor, button, MQTT).
+  
+##### Advantages of C with an RTOS
+
+- **Precise task scheduling**: Meeting real-time constraints through prioritized tasks.
+- **Non-blocking behavior**: Tasks can yield control for immediate responses.
+- **Interrupt-driven events**: Efficient handling of button presses and critical tasks.
+
+##### Test Results
+
+- **Improved responsiveness**: Faster reaction to button presses, consistent sensor data.
+- **Comparison with Python**: Demonstrating how RTOS in C meets the real-time requirements.
+
+#### 6. Comparison and Evaluation
+
+##### Python (MicroPython) vs. C (RTOS)
+
+- **Responsiveness**: RTOS with C handles button presses and sensor data more effectively.
+- **Task management**: Python's limitations in concurrent task execution vs. precise scheduling in C.
+- **Real-time fulfillment**: How the C implementation meets real-time constraints that Python could not.
+
+##### Real-time Requirements Fulfillment
+
+- Recap how the C implementation with RTOS successfully meets the project’s real-time goals.
+
+#### 7. Conclusion
+
+- Summarize key findings:
+  - Why an RTOS is necessary for real-time tasks.
+  - Comparison between MicroPython and C.
+- Reflect on lessons learned from both implementations.
