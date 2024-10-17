@@ -1,4 +1,4 @@
-# 2DT903 : Lab 2 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se)
+# 2DT903 : Lab 2 : [Samuel Berg(sb224sc)](mailto:sb224sc@student.lnu.se) & [Jesper Wingren(jw223rn)](mailto:jw223rn@student.lnu.se)
 
 ## Task 1
 

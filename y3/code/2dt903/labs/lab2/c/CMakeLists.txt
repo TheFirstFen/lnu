@@ -5,7 +5,7 @@ SET(ProjectName lab2_RTOS)
 
 # Set any variables required for importing libraries
 SET(FREERTOS_KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/FreeRTOS-Kernel)
-SET(PICO_DHT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/Pico_dht)
+# SET(PICO_DHT_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/Pico_dht)
 
 # Import those libraries
 include(pico_sdk_import.cmake)
