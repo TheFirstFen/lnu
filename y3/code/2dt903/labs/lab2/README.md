@@ -364,19 +364,16 @@ This demonstrates how RTOS in C meets the real-time requirements in comparison t
 
 #### 7. Conclusion
 
-- RTOS is essential for real-time tasks due to the strict timing requirements involved in many embedded systems.
+RTOS is essential for real-time tasks due to the strict timing requirements involved in many embedded systems.
+
+**MicroPython** is ideal for simplifying work with sensors, wireless communication, and I/O operations. Its abstractions allow for faster development, but it struggles with real-time performance due to overhead and less precise timing control. It is suited for projects that prioritize ease of use.
+
+**C** on the other hand, offers greater control over hardware and enables more accurate timing, making it well-suited for real-time systems. Though more complex and time-consuming to develop, C provides the performance and real-time guarantees that MicroPython lacks, especially when combined with an RTOS.
 
 |Feature            | **MicroPython**                                    | **C**                                              |
 |--------------------|----------------------------------------------------|----------------------------------------------------|
-| **Ease of Use**     | High-level language, easier to write and debug. Ideal for prototyping. | Lower-level, more complex syntax. Better for optimized, performance-critical applications. |
-| **Performance**     | Slower due to high-level abstraction and interpreted nature. | Higher performance due to compiled code, direct memory access, and less overhead. |
-| **Memory Usage**    | Less efficient, higher memory overhead due to dynamic typing and runtime features. | More efficient, with fine-grained control over memory usage and optimizations. |
+| **Ease of Use**     | Easier to write and debug. | More complex syntax. Better for optimized, performance-critical applications. |
+| **Performance**     | Slower due to the level of abstraction and its interpreted nature. | Higher performance due to compiled code, direct memory access and less overhead. |
 | **Real-Time Capabilities** | Limited real-time control, less suitable for strict timing constraints. | Highly suitable for real-time tasks, better timing accuracy, and more predictable behavior. |
-| **Development Time** | Shorter development cycle due to simplicity and powerful libraries. | Longer development time but more control over the hardware and system. |
 | **Libraries and Ecosystem** | Extensive libraries for sensors, communication, and quick development. | Rich library support, but requires more effort to integrate and manage. |
-| **Portability**     | Runs on many microcontrollers, but may not fully utilize hardware capabilities. | More portable across hardware, especially with an RTOS or bare-metal programming. |
-| **Error Handling**  | Easier to manage errors at a high level, with exceptions and built-in debugging tools. | Requires more careful management of errors and debugging but allows deeper insights into the hardware. |
 
-**MicroPython** is ideal for rapid prototyping, simplifying work with sensors, wireless communication, and I/O operations. Its high-level abstractions allow for faster development, but it struggles with real-time performance due to overhead and less precise timing control. It’s best suited for projects that prioritize ease of use and quick iteration over performance.
-
-**C**, on the other hand, offers greater control over hardware and enables more accurate timing, making it well-suited for real-time systems. Though more complex and time-consuming to develop, C provides the performance and real-time guarantees that MicroPython lacks, especially when combined with an RTOS.
