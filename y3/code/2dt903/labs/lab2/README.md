@@ -2,7 +2,7 @@
 
 ## Task 1
 
-![Ex 1 curcuit](./img/e1.png)
+![Ex 1 circuit](./img/e1.png)
 
 ```powershell
 R24 = R2 + R4
@@ -18,6 +18,8 @@ g_closed = -(Rf/Rin) = -(R6/(R1 + (R24 * R35)/(R24 + R35)))
 ```
 
 ## Task 2
+
+![Ex 2 circuit](./img/e2.png)
 
 ```powershell
 
