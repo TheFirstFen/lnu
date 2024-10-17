@@ -1,0 +1,5 @@
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/elf2uf2.dir
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/edit_cache.dir
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/rebuild_cache.dir
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/boot_uf2_headers/CMakeFiles/edit_cache.dir
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/boot_uf2_headers/CMakeFiles/rebuild_cache.dir
