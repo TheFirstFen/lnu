@@ -286,18 +286,17 @@ int main() {
 
 ### Report
 
-#### 1. Introduction
+#### 1. Introduction to the **Real-time Hardware Project**
 
-Brief introduction to the **Real-time Hardware Project**:
 - Demonstrating the necessity of an RTOS.
-- Implementing the project in both **Python** and **C**.
+- Implementing a similar project in both **Python** and **C**(due to constraints).
 - Overview of real-time requirements that MicroPython alone cannot meet.
 
 #### 2. Project Overview
 
 ##### Hardware Setup
 
-- **RPi Pico 2040**: Microcontroller.
+- **RPi Pico W 2040**: Microcontroller.
 - **DHT11 Sensor (Pin 16)**: Measures temperature and humidity.
 - **Button (Pin 0)**: User input.
 - **LED (Pin 1)**: Visual feedback.
@@ -306,47 +305,43 @@ Brief introduction to the **Real-time Hardware Project**:
 ##### Communication Protocol
 
 - Using MQTT over Wi-Fi.
+- Server: `"broker.emqx.io"`
 - Topic: `"Samuel/RPIPico"`.
-- Sending sensor data and publishing to datacake via MQTT.
+- Sending sensor data and publishing it to datacake via MQTT.
 
 #### 3. Real-time Requirements
 
-Define the real-time constraints:
-- **Button press**: Immediate response to user input.
-- **Sensor data transmission**: Collect and transmit data every 300 seconds.
+##### Python
+
+Real-time constraints:
+- **Button press**: Immediate response to user input & light LED until button press data reaches MQTT.
+- **Sensor data transmission**: Collect and transmit data every 30 seconds.
 - **Wireless communication**: Real-time communication over Wi-Fi to an MQTT broker.
 
-Explain why real-time performance is critical:
-- **Task delays**: How delayed response (e.g., missing button presses or delayed sensor data) impacts the system.
+##### C
 
-#### 4. Implementation in MicroPython (Python)
+Real-time constraints:
+- **Button press**: Immediate response to user input & light LED.
+- **Sensor data**: Collect and print data every 2000 ticks.
 
-##### Code Overview
+**Task delays**: A delayed response (missing button presses or delayed sensor data) impacts the system. If a safety critical system the consequences can be drastic.
 
-- **Wi-Fi and MQTT connection**.
-- **Periodic temperature and humidity readings**.
-- **Button press detection** and LED feedback.
-- **Data transmission via MQTT**.
+#### 4. MicroPython implementation
 
-##### Real-time Challenges in Python
+##### Real-time Challenges in MicroPython
 
 - **No task prioritization**: Sequential task execution can cause delays.
 - **Blocking operations**: Network or sensor delays block other tasks.
-- **Polling vs. Interrupts**: Lack of hardware interrupts leads to inefficient real-time performance.
+- **Hardware interrupts**: Lack of hardware interrupts leads to inefficient real-time performance.
 
 ##### Test Results
 
-- **Observed issues**: Delayed sensor readings.
-- **Real-time performance shortcomings**: Demonstrating the need for RTOS.
+- **Observed issues**: Delayed sensor readings, slow publish times to MQTT.
 
-#### 5. Implementation in C
+This demonstrates the need for RTOS.
 
-##### Code Overview
-
-- **Task scheduling** with FreeRTOS.
-- **Interrupt-driven button press detection**.
-- **Concurrent task execution**: Real-time handling of multiple tasks (sensor, button, MQTT).
-  
+#### 5. C implementation
+ 
 ##### Advantages of C with an RTOS
 
 - **Precise task scheduling**: Meeting real-time constraints through prioritized tasks.
@@ -356,23 +351,32 @@ Explain why real-time performance is critical:
 ##### Test Results
 
 - **Improved responsiveness**: Faster reaction to button presses, consistent sensor data.
-- **Comparison with Python**: Demonstrating how RTOS in C meets the real-time requirements.
+
+This demonstrates how RTOS in C meets the real-time requirements in comparison to the MicroPython implementation which **did not**.
 
 #### 6. Comparison and Evaluation
 
-##### Python (MicroPython) vs. C (RTOS)
+##### MicroPython vs C with RTOS
 
 - **Responsiveness**: RTOS with C handles button presses and sensor data more effectively.
-- **Task management**: Python's limitations in concurrent task execution vs. precise scheduling in C.
-- **Real-time fulfillment**: How the C implementation meets real-time constraints that Python could not.
-
-##### Real-time Requirements Fulfillment
-
-- Recap how the C implementation with RTOS successfully meets the project’s real-time goals.
+- **Task management**: Python is limited in concurrent task execution vs the possibility of precise scheduling in C.
+- **Real-time fulfillment**: The C implementation meets real-time constraints that MicroPython implementation could not.
 
 #### 7. Conclusion
 
-- Summarize key findings:
-  - Why an RTOS is necessary for real-time tasks.
-  - Comparison between MicroPython and C.
-- Reflect on lessons learned from both implementations.
+- RTOS is essential for real-time tasks due to the strict timing requirements involved in many embedded systems.
+
+|Feature            | **MicroPython**                                    | **C**                                              |
+|--------------------|----------------------------------------------------|----------------------------------------------------|
+| **Ease of Use**     | High-level language, easier to write and debug. Ideal for prototyping. | Lower-level, more complex syntax. Better for optimized, performance-critical applications. |
+| **Performance**     | Slower due to high-level abstraction and interpreted nature. | Higher performance due to compiled code, direct memory access, and less overhead. |
+| **Memory Usage**    | Less efficient, higher memory overhead due to dynamic typing and runtime features. | More efficient, with fine-grained control over memory usage and optimizations. |
+| **Real-Time Capabilities** | Limited real-time control, less suitable for strict timing constraints. | Highly suitable for real-time tasks, better timing accuracy, and more predictable behavior. |
+| **Development Time** | Shorter development cycle due to simplicity and powerful libraries. | Longer development time but more control over the hardware and system. |
+| **Libraries and Ecosystem** | Extensive libraries for sensors, communication, and quick development. | Rich library support, but requires more effort to integrate and manage. |
+| **Portability**     | Runs on many microcontrollers, but may not fully utilize hardware capabilities. | More portable across hardware, especially with an RTOS or bare-metal programming. |
+| **Error Handling**  | Easier to manage errors at a high level, with exceptions and built-in debugging tools. | Requires more careful management of errors and debugging but allows deeper insights into the hardware. |
+
+**MicroPython** is ideal for rapid prototyping, simplifying work with sensors, wireless communication, and I/O operations. Its high-level abstractions allow for faster development, but it struggles with real-time performance due to overhead and less precise timing control. It’s best suited for projects that prioritize ease of use and quick iteration over performance.
+
+**C**, on the other hand, offers greater control over hardware and enables more accurate timing, making it well-suited for real-time systems. Though more complex and time-consuming to develop, C provides the performance and real-time guarantees that MicroPython lacks, especially when combined with an RTOS.
