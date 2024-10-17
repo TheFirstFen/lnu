@@ -2,8 +2,19 @@
 
 ## Task 1
 
-```powershell
+![Ex 1 curcuit](./img/e1.png)
 
+```powershell
+R24 = R2 + R4
+R35 = R3 + R5
+
+Rin = R1 + (R24 * R35)/(R24 + R35)
+
+Rf = R6     (feedback resistance)
+
+g_closed = -(Rf/Rin) = -(R6/(R1 + (R24 * R35)/(R24 + R35)))
+
+=> Vout = g_closed * Vin = -(R6/(R1 + (R24 * R35)/(R24 + R35))) * Vin
 ```
 
 ## Task 2
