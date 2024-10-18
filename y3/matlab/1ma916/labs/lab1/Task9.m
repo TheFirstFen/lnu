@@ -53,6 +53,7 @@ grid on;
 
 % (4) z = sqrt(6 - x^2 - y^2)
 Z4 = sqrt(6 - X.^2 - Y.^2);
+Z4(imag(Z4) ~= 0) = NaN; % Set complex values to NaN to remove imaginary parts
 Z4(Z4 < 0) = NaN; % Set negative values to NaN for proper plotting
 figure(7); % Create figure 7
 surf(X, Y, Z4); % Plot the surface
