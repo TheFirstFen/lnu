@@ -7,8 +7,8 @@ b = [1; 1; 1];              % Column vector b
 % Calculations
 AB = A * B;        % Matrix multiplication A * B
 Aa = A * a;        % Matrix multiplication A * a
-BbT = B * b.';     % Error: Dimensions must agree
-aA = a * A;        % Error: Dimensions must agree
+% BbT = B * b.';     % Error: Dimensions must agree
+% aA = a * A;        % Error: Dimensions must agree
 bTB = b.' * B;     % Row vector b' multiplied by matrix B
 aTb = a.' * b;     % Dot product (scalar multiplication) of a and b
 abT = a * b.';     % Outer product (matrix multiplication) of a and b'
