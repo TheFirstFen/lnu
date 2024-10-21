@@ -4,7 +4,7 @@
 
 A user can login with diffrent methods, such as email&password, google account or diffrent types of social media accounts which extends from Identifying and Authentication since it is required from the user to be able to login. Logging in with google account or social media accounts realies on a Third-party to Identify and Authenticate the user. To view the profile page the user needs to be logged in, if user isn't logged in they will be prompted to do so when trying to go to profile page and if successful login then there will be an Authorization check. The store page is accessible to any user visiting the store without the need of being logged in, when the user proceeds to the checkout they will be promted to login or to create an account if they don't have one already, then the user will be asked to provide their billing information if they do not have any stored billing information from previous purcheses with authentication, lastly the payment is provided by a Third-party payment API that supports all the wanted payment methods.
 
-![Use case diagram](./img/task1.drawio.png)
+![Use case diagram](./img/use-case.drawio.png)
 
 ## Uppgift 2.
 
@@ -49,11 +49,11 @@ When an unidentified user tries to login to an account serveral times but fails 
 
 When an malicious actor(s) preforms an Denial of Service by sending an large amount of requests per second the traffic controller will pick up on the abnormal request pattern and limit the requests and divert the abnormal traffic to an backup server which will make it so it doesn't affect the main server in a major way by also limiting the abnormal traffic to only allowed to use/occupy more then 5% of the systems resources, all of this will be logged and administrators will be notified within seconds of the attack has been recognized for swift prevention. This will be handled by **Traffic Controller**, **Logging** and **Servers** components.
 
-![UML of task1 & 2](./img/task3.drawio.png)
+![UML of task1 & 2](./img/component2.drawio.png)
 
 ## Uppgift 4.
 
-![UML of assignment1 & task3](./img/task4.drawio.png)
+![UML of assignment1 & task3](./img/component3.drawio.png)
 
 ### Discussion
 
