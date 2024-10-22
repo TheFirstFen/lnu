@@ -9,12 +9,17 @@ b = [1; 1; 1];
 % Calculations
 AB = A * B;
 Aa = A * a;
-% BbT = B * b.';     % Error
+% BbT = B * b';     % Error
 % aA = a * A;        % Error
-bTB = b.' * B;
-aTb = a.' * b;
-abT = a * b.';
-adotb = a .* b;
+bTB = b' * B;
+aTb = a' * b;
+abT = a * b';
+a_dot_b = a .* b;
 A_dot_B = A .* B;
 
 % Comments:
+% B * b': does not work due to the dimensions does not match to be able to
+% preform the multiplication
+
+% a * A: does not work due to the dimensions does not match to be able to
+% preform the multiplication
