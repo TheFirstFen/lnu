@@ -10,7 +10,7 @@ N = 5
 time = 7200
 
 # Get path
-path = os.getcwd() + "\\mini-project\\mymap.csv"
+path = os.getcwd() + "/mymap.csv"
 
 # Create map and pixel map
 map = f.create_map(path)

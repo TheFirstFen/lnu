@@ -8,7 +8,7 @@ import statistics as sts
 
 
 DELTA = 0.1
-FILE_NAME = "/To Correct/g4/egen.csv"
+FILE_NAME = "/egen.csv"
 PLOT_NAME = FILE_NAME[1:-4]  # to use in plot and trace plot
 SCALE = 5  # the amount of pixels
 DAYS = 3  # how many days is evry run
