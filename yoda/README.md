@@ -1,3 +1,3 @@
 # yoda's partial repo
 
-"I am retarded" - yoda(William Schröder) 
+"Retarded, am I" - yoda(William Schröder) 
