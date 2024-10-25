@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Sivans tracker</title>
+    <link rel="stylesheet" href="./static/style.css">
+
+  </head>
+  <body>
+
+    <div id="content" class="status-box">
+      <h1 id="neon">Köuppdateringar</h1>
+      
+      <p>
+        Vi uppdaterar hur många rader kön är varje onnsdag och lördag mellan 21
+        och 00
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius dolorum
+        eligendi non laudantium tenetur delectus veritatis eos pariatur, neque
+        cumque repellat repudiandae corrupti cupiditate sunt nemo quasi
+        recusandae sint aliquam amet ex nam unde iusto. Fugit dolorum id veniam
+        quia alias. Libero dolore quod animi accusantium distinctio officiis
+        quibusdam blanditiis?
+      </p>
+      <h2 id="neon">Senaste Köuppdateringen</h2>
+      <p id='date'>Uppdaterades :</p>
+
+      <h2>Köhistorik</h2>
+      <p id='length'></p>
+      <!--knappen-->
+      <a href="{{ url_for('history_route') }}">
+        <button type="button" class="button">
+            <span class="button__text">Senaste månaden</span>
+            <span class="button__icon">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+            </span>
+        </button>
+      </a>
+
+    <script src="./static/index.js"></script>
+    <!--Testa pilen--> 
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  </body>
+</html>

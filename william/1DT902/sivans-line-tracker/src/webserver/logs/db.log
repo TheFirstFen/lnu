@@ -1,0 +1,95 @@
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 283-628-789
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 283-628-789
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:10:50] "[35m[1mGET / HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:10:50] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:10:50] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:10:50] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:10:50] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\willi\\OneDrive\\uni\\IOT\\sivans-line-tracker\\src\\webserver\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 283-628-789
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:11:55] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:11:55] "GET /static/styles.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:11:55] "GET /static/index.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:11:55] "GET /static/index.js HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:00] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:05] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:10] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:15] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:21] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:26] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:31] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:36] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:41] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:46] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:51] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:12:56] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:13:01] "GET /get_updates HTTP/1.1" 200 -
+INFO:root:Connected to database
+INFO:root:Updating data
+INFO:werkzeug:127.0.0.1 - - [14/Dec/2023 11:13:02] "GET /get_updates HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'c:\\Users\\willi\\OneDrive\\uni\\IOT\\sivans-line-tracker\\src\\webserver\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:root:Connected to database
+INFO:root:Closed connection to database
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 283-628-789
+INFO:root:Connected to database
+INFO:root:Closed connection to database

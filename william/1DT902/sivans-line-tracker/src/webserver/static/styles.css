@@ -1,0 +1,26 @@
+body{
+    background-image: url("./fest.jpeg");
+}
+h1{
+    color: #2980B9;
+    font-family: sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+}
+h2{
+    color: #2980B9;
+    font-family: sans-serif;
+}
+p{
+    
+    color: rgb(99, 106, 129);
+    font-family: "consolas", sans-serif;
+    border-style: solid;
+    border-width: 5px;
+    border-radius: 5px;
+    border-color: #c8e1f3;
+    padding: 10px;
+    padding-inline-end: 10px;
+    background: linear-gradient(to right, lightblue,blue )
+
+}

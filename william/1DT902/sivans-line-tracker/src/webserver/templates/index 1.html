@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./static/index.js"></script>
+    <link rel="stylesheet" href="./static/styles.css">
+    <title>Sivans tracker</title>
+  </head>
+  <body>
+    <div id="content" class="status-box">
+      <h1>Köuppdateringar</h1>
+      <p>
+        Vi uppdaterar hur många rader kön är varje onsdag och lördag mellan 21
+        och 00
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius dolorum
+        eligendi non laudantium tenetur delectus veritatis eos pariatur, neque
+        cumque repellat repudiandae corrupti cupiditate sunt nemo quasi
+        recusandae sint aliquam amet ex nam unde iusto. Fugit dolorum id veniam
+        quia alias. Libero dolore quod animi accusantium distinctio officiis
+        quibusdam blanditiis?
+      </p>
+      <h2>Senaste Köuppdateringen</h2>
+      <p id='date'>Uppdaterades senast: </p>
+      <h2>Den här dagen förra veckan</h2>
+      <select id="dropdown" name="dropdown">
+        <option value="1">1 vecka</option>
+        <option value="2">2 veckor</option>
+        <option value="3">3 veckor</option>
+        <option value="4">4 veckor</option>
+      </select>
+      <button id='Historik'>Klicka här!</button>
+
+      <!-- Placeholder for the graph -->
+      <div id="graph-container" style="display: none;">
+        <!-- Updated: Use an image tag to display the graph -->
+        <img id="graph-image" src="" alt="Graph Image">
+        <button id='close'>Close</button>
+      </div>
+    </div>
+
+    <script>
+      // Function to update the graph image
+      function updateGraphImage(imagePath) {
+        // Update the src attribute of the image tag
+        let img = new Image();
+        img.src = imagePath + '?_=' + new Date().getTime();
+        document.getElementById('graph-image').src = img.src;
+      }
+
+      let button = document.getElementById('Historik');
+      let dropdown = document.getElementById('dropdown');
+      button.addEventListener('click', function () {
+        let selectedValue = dropdown.value;
+
+        // Show the graph container
+        document.getElementById('graph-container').style.display = 'block';
+        
+        // Send a POST request to the server
+        $.ajax({
+          type: 'POST',
+          url: '/data-history',
+          data: JSON.stringify({ 'data': selectedValue }),
+          contentType: 'application/json',
+          success: function (response) {
+            // Assuming response contains the image path
+            updateGraphImage(response.imagePath);
+          },
+          error: function (error) {
+            console.error('Error sending POST request:', error);
+          },
+        });
+      });
+
+      let closeButton = document.getElementById('close');
+      closeButton.addEventListener('click', function () {
+        document.getElementById('graph-container').style.display = 'none'
+      });
+
+    </script>
+  </body>
+</html>

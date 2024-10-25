@@ -1,0 +1,215 @@
+body{
+    background-color: black;
+    
+    background-image: url("fest.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+    background-color: rgb(171, 97, 202);
+    background-blend-mode: multiply;
+
+}
+
+.button{
+    display: inline-flex;
+    height: 30px;
+    padding: 0;
+    background: rgb(34, 6, 83);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.button:hover {
+    background: rgb(23, 7, 53);
+}
+.button:active {
+    background: rgb(15, 7, 30);
+}
+
+.button__text,
+.button__icon{
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    height: 100%;
+
+}
+.button__icon{
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+.back{
+    display: inline-flex;
+    height: 30px;
+    padding: 0;
+    background: rgb(34, 6, 83);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.back:hover {
+    background: rgb(23, 7, 53);
+}
+.back:active {
+    background: rgb(15, 7, 30);
+}
+
+.back{
+    display: flex;
+}
+.back__icon{
+    order: 1;
+}
+.back__text{
+    order: 2;
+}
+
+.back__text,
+.back__icon{
+    display: inline-flex;
+    align-items: center;
+    padding: 0 10px;
+    color: white;
+    height: 100%;
+
+}
+.back__icon{
+    font-size: 1.5em;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+h1{
+    color: #fff;
+    font-size: 2em;
+    font-weight:  600;
+    letter-spacing: 0.1em;
+    font-family: system-ui;
+    font-family: 'Nunito', system-ui, sans-serif;
+    border-radius: 2.5em;
+    text-shadow:0 0 10px #9000ff,
+                0 0 20px #0044ff,
+                0 0 40px #9000ff,
+                0 0 80px #9000ff,
+                0 0 120px #9000ff;
+    
+
+}
+
+h2{
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    font-family: 'Nunito', system-ui, sans-serif;
+    text-shadow: 0 0 10px #0044ff,
+                0 0 20px #0044ff,
+                0 0 40px #9000ff,
+                0 0 80px #9000ff,
+                0 0 120px #9000ff;
+}
+p{
+    /*fonts*/
+    color: white;
+    font-family: 'Nunito', system-ui, sans-serif;
+    font-size: 1em;
+    font-weight: 1000px;
+    letter-spacing: 1px;
+
+    /*border*/
+    border-block-start: 0.2em solid;
+    border-image-source: radial-gradient(circle at top left, #7c02d9, transparent 90%);
+    border-image-slice: 1;
+    padding: 10px;
+
+    
+
+    border-inline-start: 0.2em solid;
+    border-image-source: radial-gradient(circle at top left, #460bdb, transparent 10%);
+    border-image-slice: 1;
+    padding: 10px;
+
+    background-color: rgba(0, 0, 0, 0.25);
+    /*background: linear-gradient(to bottom, #c247f3,#6e0299);*/
+    background-attachment: fixed;
+    
+}
+
+select {
+    
+    color: white;
+    font-size: 1em;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    font-family: 'Nunito', system-ui, sans-serif;
+    text-shadow: 0 0 10px #0044ff,
+                0 0 20px #0044ff,
+                0 0 40px #9000ff,
+                0 0 80px #9000ff,
+                0 0 120px #9000ff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+
+}
+
+select::before {
+    content: ""; 
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 0.2em solid;
+    border-image-source: radial-gradient(circle at top left, #7c02d9, transparent 90%);
+    border-image-slice: 1;
+    pointer-events: none;
+}
+
+#confirm {
+    color: white;
+    font-size: 1em;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    font-family: 'Nunito', system-ui, sans-serif;
+    text-shadow: 0 0 10px #0044ff,
+                0 0 20px #0044ff,
+                0 0 40px #9000ff,
+                0 0 80px #9000ff,
+                0 0 120px #9000ff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#close{
+    color: white;
+    font-size: 1em;
+    font-weight: 1000;
+    letter-spacing: 1px;
+    font-family: 'Nunito', system-ui, sans-serif;
+    text-shadow: 0 0 10px #0044ff,
+                0 0 20px #0044ff,
+                0 0 40px #9000ff,
+                0 0 80px #9000ff,
+                0 0 120px #9000ff;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.25); 
+}
