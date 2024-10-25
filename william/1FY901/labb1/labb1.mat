@@ -1,0 +1,2 @@
+data = load('MobileSensorData/statisk11.mat')
+ax = data.Acceleration.(1)

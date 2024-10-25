@@ -1,0 +1,16 @@
+function dydt =pendulum(t, y)
+    % Parameters
+    A = 0.1;  % amplitued at point of orgin
+    f = pi;  % freq at point of origin
+    g = 9.82;  % gravitation 
+    
+    % Extract variables 
+    phi = y(1);
+    phi_dot = y(2);
+    
+    % Define differential equations
+    phi_ddot = -sin(phi) * (A*t^2*cos(f*t) + g);
+    
+    % Return derivatives
+    dydt = [phi_dot; phi_ddot];
+end
