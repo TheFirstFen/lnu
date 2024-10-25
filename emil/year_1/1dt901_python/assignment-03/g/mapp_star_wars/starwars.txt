@@ -1,0 +1,15 @@
+Qui-Gon Jinn, Human, Coruscant
+Han Solo, Human, Corellia
+Leia Organa, Human, Alderaan
+Luke Skywalker, Human, Tatooine
+Chewbacca, Wookiee, Kashyyyk
+Cassian Andor, Human, Kenari
+Jar Jar Binks, Gungan, Naboo
+Ahsoka Tano, Togruta, Shili
+Plo Koon, Kel Dor, Dorin
+Din Djarin, Human, Aq Vetina
+Cad Bane, Duro, Duros
+Max Rebo, Ortolan, Orto
+Boba Fett, Human, Kamino
+Jabba the Hutt, Hutt, Nal Hutta
+Rey Skywalker, Human, Jakku 
