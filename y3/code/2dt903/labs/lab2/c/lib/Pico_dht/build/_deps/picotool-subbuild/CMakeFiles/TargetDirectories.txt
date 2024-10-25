@@ -1,3 +1,0 @@
-/home/fen/lnu/y3/code/2dt903/labs/lab2/lib/Pico_dht/build/_deps/picotool-subbuild/CMakeFiles/picotool-populate.dir
-/home/fen/lnu/y3/code/2dt903/labs/lab2/lib/Pico_dht/build/_deps/picotool-subbuild/CMakeFiles/edit_cache.dir
-/home/fen/lnu/y3/code/2dt903/labs/lab2/lib/Pico_dht/build/_deps/picotool-subbuild/CMakeFiles/rebuild_cache.dir
