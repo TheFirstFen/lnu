@@ -65,6 +65,8 @@ When an malicious actor(s) preforms an Denial of Service by sending an large amo
 
 ### New
 
+## What are the different components responsibilities ? This is what should be written here, according to the QAS & task1. 
+
 ### Logging
 
 #### Servers
