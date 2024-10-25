@@ -1,0 +1,3 @@
+## Airquality Project
+
+The project is called "air quality project" and the purpose is to measure the indoor air quality in our University by using a microcontroller and sensors. In this project we wanted study the temperature, humidity level, dust particles, and level of toxic gases such as corbon dioxide. The microcontroller rasberry pi pico W is the control unit which gathers data from our different sensors and provides vital information about the quality of the air. The information gathered can be used to identify whether the airquality is of the highest standard or if we need to take actions to improve it. In summary  the air quality project aims to research and promote a healthier school enviroment for both students and staff at our school. 
