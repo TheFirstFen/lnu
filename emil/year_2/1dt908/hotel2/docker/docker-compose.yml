@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+    db:
+        image: mysql:8.0.36
+        environment:
+            MYSQL_ROOT_PASSWORD: "toor"
+        ports:
+            - "3307:3306" # Mapping container port 3306 to host port 3307
+        volumes:
+            - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+        command: ["mysqld", "--bind-address=0.0.0.0"] # Allowing connections from any IP
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "mysqladmin",
+                    "ping",
+                    "-u",
+                    "root",
+                    "-p$MYSQL_ROOT_PASSWORD",
+                ]
+            interval: 30s
+            timeout: 3s
+            retries: 3
+
+networks:
+    default: # Sets IP to "localhost"/"127.0.0.1"

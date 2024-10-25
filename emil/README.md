@@ -1,0 +1,3 @@
+# SchoolFolder
+
+Fuck all

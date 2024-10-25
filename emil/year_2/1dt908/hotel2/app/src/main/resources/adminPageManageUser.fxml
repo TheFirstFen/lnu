@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="736.0" prefWidth="750.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel2.GUI.AdminUserController">
+   <children>
+      <Button fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="273.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleDeleteUser" prefHeight="63.0" prefWidth="204.0" style="-fx-font-size: 20;" text="Ta bort användare">
+         <font>
+            <Font name="Arimo Regular" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="31.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleUpdateUser" prefHeight="63.0" prefWidth="204.0" style="-fx-font-size: 17;" text="Uppdatera användare">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </Button>
+      <TextField fx:id="userName" layoutX="57.0" layoutY="157.0" prefHeight="29.0" prefWidth="206.0" />
+      <Label layoutX="57.0" layoutY="118.0" text="Användarnamn">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userMail" layoutX="57.0" layoutY="240.0" prefHeight="29.0" prefWidth="206.0" />
+      <Label layoutX="57.0" layoutY="201.0" text="Mailadress">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userPhone" layoutX="57.0" layoutY="319.0" prefHeight="29.0" prefWidth="206.0" />
+      <Label layoutX="57.0" layoutY="280.0" text="Telefonnummer">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="368.0" text="Roll">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="57.0" layoutY="450.0" text="Lösenord">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="searchUser" layoutX="430.0" layoutY="566.0" onAction="#handleSearchUser" prefHeight="38.0" prefWidth="266.0" />
+      <ChoiceBox fx:id="userType" layoutX="57.0" layoutY="406.0" prefHeight="26.0" prefWidth="204.0" />
+      <PasswordField fx:id="userPassword" layoutX="57.0" layoutY="490.0" prefHeight="26.0" prefWidth="207.0" />
+      <Button fx:id="createButton" alignment="CENTER" contentDisplay="CENTER" layoutX="514.0" layoutY="648.0" mnemonicParsing="false" onAction="#handleCreateUser" prefHeight="63.0" prefWidth="204.0" style="-fx-font-size: 18;" text="Skapa ny användare">
+         <font>
+            <Font name="Arimo Regular" size="18.0" />
+         </font>
+      </Button>
+      <ScrollPane fx:id="userList" layoutX="316.0" layoutY="118.0" prefHeight="416.0" prefWidth="380.0" />
+      <Label layoutX="57.0" layoutY="529.0" text="Plats">
+         <font>
+            <Font name="Arimo Regular" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="userLocation" layoutX="58.0" layoutY="566.0" prefHeight="29.0" prefWidth="206.0" />
+      <ChoiceBox fx:id="searchFor" layoutX="316.0" layoutY="566.0" prefHeight="38.0" prefWidth="97.0" />
+      <Label fx:id="userID" layoutX="210.0" layoutY="609.0" prefHeight="15.0" prefWidth="0.0" />
+      <Label layoutX="131.0" layoutY="609.0" text="Användar ID:" />
+      <Button layoutX="54.0" layoutY="609.0" mnemonicParsing="false" onAction="#resetFields" prefHeight="15.0" prefWidth="60.0" style="-fx-padding: 0; -fx-font-size: 14; -fx-: ;" text="Återställ" />
+   </children>
+</AnchorPane>
