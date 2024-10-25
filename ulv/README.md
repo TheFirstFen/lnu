@@ -1,3 +1,3 @@
-# SchoolFolder
+# Ulvs partial repo
 
-Fuck all
+"Socialism is humanity’s attempt at economic justice." - Ulv(Emil Ulvagården)
