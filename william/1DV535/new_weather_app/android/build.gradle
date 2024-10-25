@@ -1,0 +1,36 @@
+// All projects configuration
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+// Root project build directory configuration
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Ensure subprojects depend on the ':app' project
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Custom clean task
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}
+
+// Build script configuration
+buildscript {
+    ext.kotlin_version = '1.9.0'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:8.0.0'
+    }
+}
