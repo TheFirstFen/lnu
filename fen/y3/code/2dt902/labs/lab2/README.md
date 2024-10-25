@@ -4,7 +4,7 @@
 
 ## Assumptions
 
-
+- Assume that "Unidentified user" is a not logged in user which we only have the IP-address of. Reasoning to why this is an unidentified user is due to the fact the IP spoofing and VPNs are very common nowadays.
 
 ## Uppgift 1.
 
