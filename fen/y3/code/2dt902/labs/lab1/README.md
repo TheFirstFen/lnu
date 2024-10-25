@@ -132,7 +132,7 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 
 ## Uppgift 3.
 
-![UML component](./img/task3.drawio.png)
+![UML component](./img/component1.drawio.png)
 
 ## Uppgift 4.
 
@@ -154,4 +154,4 @@ The ***data storage component*** is the backbone of the system, ensuring that al
 
 ## Uppgift 5.
 
-![UML deployment](./img/task5.drawio.png)
+![UML deployment](./img/deployment.drawio.png)
