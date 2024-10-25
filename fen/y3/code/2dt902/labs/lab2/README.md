@@ -61,6 +61,34 @@ When an malicious actor(s) preforms an Denial of Service by sending an large amo
 
 ### New
 
+### Logging
+
+#### Servers
+
+
+
+#### Logging
+
+
+
+#### Traffic Controller
+
+
+
+### Security
+
+#### Identification & Authentication
+
+
+
+#### Authorization
+
+
+
+#### Account Management
+
+
+
 ![UML of task1 & 2](./img/component2.drawio.png)
 
 ## Uppgift 4.
