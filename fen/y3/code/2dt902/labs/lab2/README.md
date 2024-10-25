@@ -8,12 +8,6 @@
 
 ## Uppgift 1.
 
-### OLD
-
-A user can login with different methods, such as email&password, google account or different types of social media accounts which extends from Identifying and Authentication since it is required from the user to be able to login. Logging in with google account or social media accounts realies on a Third-party to Identify and Authenticate the user. To view the profile page the user needs to be logged in, if user isn't logged in they will be prompted to do so when trying to go to profile page and if successful login then there will be an Authorization check. The store page is accessible to any user visiting the store without the need of being logged in, when the user proceeds to the checkout they will be prompted to login or to create an account if they don't have one already, then the user will be asked to provide their billing information if they do not have any stored billing information from previous purcheses with authentication, lastly the payment is provided by a Third-party payment API that supports all the wanted payment methods.
-
-### New
-
 A user can be *identified* by username, email or a third-party service, after a user has been *identified* they can be *authenticated* by providing their password, this is done by matching hashes against the back-end server. When the user has been *authenticated* their user details are checked to provide them with the correct amount of *authorization* according to their privilege-level. When a user wants to complete a order/purchase they will be prompted to authorize it via eID by the third-party payment API that will be used.
 
 ![Use case diagram](./img/use-case.drawio.png)
