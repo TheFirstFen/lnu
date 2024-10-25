@@ -67,7 +67,7 @@ When an malicious actor(s) preforms an Denial of Service by sending an large amo
 
 
 
-#### Logging
+#### Logger
 
 
 
