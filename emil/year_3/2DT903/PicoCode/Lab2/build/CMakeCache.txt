@@ -172,7 +172,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=HelloWorld
+CMAKE_PROJECT_NAME:STATIC=Project
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/arm-none-eabi-ranlib
@@ -260,15 +260,6 @@ FreeRTOS-Kernel_IS_TOP_LEVEL:STATIC=OFF
 //Value Computed by CMake
 FreeRTOS-Kernel_SOURCE_DIR:STATIC=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/lib/FreeRTOS-Kernel/portable/ThirdParty/GCC/RP2040
 
-//Value Computed by CMake
-HelloWorld_BINARY_DIR:STATIC=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build
-
-//Value Computed by CMake
-HelloWorld_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-HelloWorld_SOURCE_DIR:STATIC=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2
-
 //PICO target board (e.g. pico)
 PICO_BOARD:STRING=pico
 
@@ -322,6 +313,15 @@ PICO_STDIO_UART:BOOL=ON
 
 //Globally enable stdio USB
 PICO_STDIO_USB:BOOL=OFF
+
+//Value Computed by CMake
+Project_BINARY_DIR:STATIC=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build
+
+//Value Computed by CMake
+Project_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+Project_SOURCE_DIR:STATIC=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2
 
 //The directory containing a CMake configuration file for pico-sdk-tools.
 pico-sdk-tools_DIR:PATH=pico-sdk-tools_DIR-NOTFOUND

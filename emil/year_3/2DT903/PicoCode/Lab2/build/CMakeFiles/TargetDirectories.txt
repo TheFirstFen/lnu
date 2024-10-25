@@ -1,4 +1,4 @@
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/HelloWorld.dir
+/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/Project.dir
 /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/ELF2UF2Build.dir
 /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/edit_cache.dir
 /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/rebuild_cache.dir

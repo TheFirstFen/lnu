@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/HelloWorld.dir/all
+all: CMakeFiles/Project.dir/all
 all: CMakeFiles/ELF2UF2Build.dir/all
 all: FREERTOS_KERNEL/all
 all: pico-sdk/all
@@ -77,7 +77,7 @@ preinstall: dht/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/HelloWorld.dir/clean
+clean: CMakeFiles/Project.dir/clean
 clean: CMakeFiles/ELF2UF2Build.dir/clean
 clean: FREERTOS_KERNEL/clean
 clean: pico-sdk/clean
@@ -1536,32 +1536,32 @@ pico-sdk/tools/clean:
 .PHONY : pico-sdk/tools/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/HelloWorld.dir
+# Target rules for target CMakeFiles/Project.dir
 
 # All Build rule for target.
-CMakeFiles/HelloWorld.dir/all: CMakeFiles/ELF2UF2Build.dir/all
-CMakeFiles/HelloWorld.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
-CMakeFiles/HelloWorld.dir/all: dht/CMakeFiles/dht_dht_pio_h.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles --progress-num=8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86 "Built target HelloWorld"
-.PHONY : CMakeFiles/HelloWorld.dir/all
+CMakeFiles/Project.dir/all: CMakeFiles/ELF2UF2Build.dir/all
+CMakeFiles/Project.dir/all: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_asm.dir/all
+CMakeFiles/Project.dir/all: dht/CMakeFiles/dht_dht_pio_h.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project.dir/build.make CMakeFiles/Project.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project.dir/build.make CMakeFiles/Project.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles --progress-num=15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93 "Built target Project"
+.PHONY : CMakeFiles/Project.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/HelloWorld.dir/rule: cmake_check_build_system
+CMakeFiles/Project.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles 98
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/HelloWorld.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Project.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles 0
-.PHONY : CMakeFiles/HelloWorld.dir/rule
+.PHONY : CMakeFiles/Project.dir/rule
 
 # Convenience name for target.
-HelloWorld: CMakeFiles/HelloWorld.dir/rule
-.PHONY : HelloWorld
+Project: CMakeFiles/Project.dir/rule
+.PHONY : Project
 
 # clean rule for target.
-CMakeFiles/HelloWorld.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/HelloWorld.dir/build.make CMakeFiles/HelloWorld.dir/clean
-.PHONY : CMakeFiles/HelloWorld.dir/clean
+CMakeFiles/Project.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project.dir/build.make CMakeFiles/Project.dir/clean
+.PHONY : CMakeFiles/Project.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/ELF2UF2Build.dir
@@ -1674,7 +1674,7 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_padded_checksummed_as
 pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/all:
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/build.make pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/depend
 	$(MAKE) $(MAKESILENT) -f pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/build.make pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles --progress-num=87,88,89,90,91,92,93 "Built target PioasmBuild"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles --progress-num=8,9,10,11,12,13,14 "Built target PioasmBuild"
 .PHONY : pico-sdk/src/rp2_common/pico_cyw43_driver/CMakeFiles/PioasmBuild.dir/all
 
 # Build rule for subdir invocation for target.

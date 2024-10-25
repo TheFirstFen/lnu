@@ -131,13 +131,11 @@ def main():
                     publish_message(mqtt_client, Topic, "1")
                     #time.sleep(0.3)  # Additional delay to prevent rapid retriggering
                 
-                # Check if 30 seconds have passed since the last message
+                # Check if 300 seconds have passed since the last message
                 current_time = time.time()
                 if current_time - last_publish_time >= 300:  # 300-second interval or 5 minutes 
                     publish_message(mqtt_client, Topic, "1")
                     last_publish_time = current_time  # Reset the last publish time
-                
-                time.sleep(0.1)  # Small delay to avoid hogging the CPU
                 
         except KeyboardInterrupt:
             print("Disconnecting from MQTT...")

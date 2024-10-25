@@ -25,3 +25,13 @@ cmake ..
 make
 
 ```
+
+View the output in the terminal.
+
+```Powershell
+
+minicom -b 115200 -o -D /dev/ttyACM0
+
+```
+
+Exit with ctrl x and then a .
