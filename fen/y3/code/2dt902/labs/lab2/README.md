@@ -4,7 +4,11 @@
 
 ## Uppgift 1.
 
+### OLD
+
 A user can login with different methods, such as email&password, google account or different types of social media accounts which extends from Identifying and Authentication since it is required from the user to be able to login. Logging in with google account or social media accounts realies on a Third-party to Identify and Authenticate the user. To view the profile page the user needs to be logged in, if user isn't logged in they will be prompted to do so when trying to go to profile page and if successful login then there will be an Authorization check. The store page is accessible to any user visiting the store without the need of being logged in, when the user proceeds to the checkout they will be prompted to login or to create an account if they don't have one already, then the user will be asked to provide their billing information if they do not have any stored billing information from previous purcheses with authentication, lastly the payment is provided by a Third-party payment API that supports all the wanted payment methods.
+
+### New
 
 A user can be *identified* by username, email or a third-party service, after a user has been *identified* they can be *authenticated* by providing their password, this is done by matching hashes against the back-end server. When the user has been *authenticated* their user details are checked to provide them with the correct amount of *authorization* according to their privilege-level. When a user wants to complete a order/purchase they will be prompted to authorize it via eID by the third-party payment API that will be used.
 
@@ -47,11 +51,15 @@ A user can be *identified* by username, email or a third-party service, after a 
 
 ## Uppgift 3.
 
+### OLD
+
 When an unidentified user attempts to access restricted resources they require the unidentified user to login with employee/administrator privileged account if they fail todo so the attempt is logged, if a logged in user tries to access a restricted resource their user-rights would be checked to see if they have the rights to access the resource in question if not it will be logged. In both cases the administrators will be notified and the IP-addresses of the attempts will be logged for review. This will be handled by **Identification & Authentication**, **Authorization** and **Logging** components.
 
 When an unidentified user tries to login to an account serveral times but fails it will be logged and the account will be locked till the user reviews the security email to restore their account has been handle correctly, the IP-address of the failed attempts will be logged for review and blocked till further review by administrators or user handles their security email correctly, saying that it was them attempting to login. This will be handled by the **Identification & Authentication**, **Account management**, **Servers** and **Logging** components.
 
 When an malicious actor(s) preforms an Denial of Service by sending an large amount of requests per second the traffic controller will pick up on the abnormal request pattern and limit the requests and divert the abnormal traffic to an backup server which will make it so it doesn't affect the main server in a major way by also limiting the abnormal traffic to only allowed to use/occupy more then 5% of the systems resources, all of this will be logged and administrators will be notified within seconds of the attack has been recognized for swift prevention. This will be handled by **Traffic Controller**, **Logging** and **Servers** components.
+
+### New
 
 ![UML of task1 & 2](./img/component2.drawio.png)
 
