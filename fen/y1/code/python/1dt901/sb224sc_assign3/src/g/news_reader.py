@@ -4,6 +4,7 @@
 # Date: 06-Oct-2022
 
 import os
+import zipfile
 
 '''get_words(path, file_name):
 Opens the specified file in the specified path
@@ -54,10 +55,14 @@ def save_words(path, name, words):
         for word in words:
             f.write(word + '\n')
 
-
 # Main code
 path = os.getcwd()
-input_file = '/data/swe_news/swe_news.txt'      # Changed
+zip_file = '/data/swe_news.zip'
+input_file = '/data/swe_news.txt'      # Changed
+
+with zipfile.ZipFile(path + zip_file, 'r') as zip_ref:
+    zip_ref.extractall(path + '/data/')
+
 
 words = get_words(path, input_file)
 
