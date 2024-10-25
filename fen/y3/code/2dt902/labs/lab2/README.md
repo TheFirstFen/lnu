@@ -93,7 +93,7 @@ When an malicious actor(s) preforms an Denial of Service by sending an large amo
 
 
 
-![UML of task1 & 2](./img/component2.drawio.)
+![UML of task1 & 2](./img/component2.drawio.png)
 
 ## Uppgift 4.
 
