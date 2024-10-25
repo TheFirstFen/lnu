@@ -69,4 +69,8 @@ When an malicious actor(s) preforms an Denial of Service by sending an large amo
 
 ### Discussion
 
+#### OLD
+
 Possible optimizations for the system could be to move away from third-party dependecies to be able to avoid possible limitations and risks that might come with them, there are also possible bottlenecks regarding the handling of possible DoS attacks and for user experience vs security of the system there will be a trade-off when it comes to user convinience when locking accounts after failed login attempts one maybe should look for an more optimized solution like possibly using something like a CAPTCHA after a failed login attempt before locking the user accounts. These are just some of the possible optimizations that could be done to this system, there are most likly serveral more optimizations that I could not think of at the moment that would be relevant to improve the systems overall functionallity and user experience.
+
+#### New
