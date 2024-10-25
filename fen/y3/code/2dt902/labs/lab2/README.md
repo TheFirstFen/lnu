@@ -2,6 +2,10 @@
 
 # WiP TODO: rewrite text according to feedback_U.pdf
 
+## Assumptions
+
+
+
 ## Uppgift 1.
 
 ### OLD
