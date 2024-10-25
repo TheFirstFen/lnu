@@ -1,0 +1,1 @@
+print("hej på dig".strip())
