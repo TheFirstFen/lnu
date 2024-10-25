@@ -32,9 +32,9 @@ A user can be *identified* by username, email or a third-party service, after a 
 * **Source**: Unidentified User.
 * **Stimulus**: Multiple failed login attempts to an account.
 * **Artifact**: Login System (Authentication & Identification, account management, servers and logging).
-* **Environment**: The system is operational and fuctioning normally.
+* **Environment**: The system is operational and functioning normally.
 * **Response**: After set amount of attempts blocks further login attempts, attempts are logged for security monitoring.
-* **Response Measure**: Locks the account, sends security alert to user email to be able to unlock account, this with a 100% prevention rate of unauthorized access to a users account. 
+* **Response Measure**: Locks the account, sends security alert to user email to be able to unlock account, this with a 100% prevention rate of unauthenticated access to a users account. 
 
 ### QAS 3
 
