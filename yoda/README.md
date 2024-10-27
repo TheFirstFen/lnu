@@ -4,4 +4,6 @@
 
 "Retarded, am I" - yoda(William Schröder) 
 
+"HD, am I" - yoda(William Schröder)
+
 "Anal, recive I love" - yoda(William Schröder)
