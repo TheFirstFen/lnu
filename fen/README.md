@@ -7,3 +7,5 @@
 "Din mor" - fen(Samuel Berg)
 
 "Roligt my a## alltså" - fen(Samuel Berg)
+
+"Den gruppen vart lika slumpad som Nordkorea är en demokrati..." - fen(Samuel Berg)
