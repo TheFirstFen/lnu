@@ -18,45 +18,45 @@
 
 #### QAS 1 : Data Availability 
 
-Source: Unexpected power outage.
+**Source**: Unexpected power outage.
 
-Stimulus: The system is restarted after an unexpected power outage.
+**Stimulus**: The system is restarted after an unexpected power outage.
 
-Artifact: Web-server.
+**Artifact**: Web-server.
 
-Environment: System has just recovered from an unexpected shutdown.
+**Environment**: System has just recovered from an unexpected shutdown.
 
-Response: The system should restore all the data exactly as it was before the outage, with no data loss or corruption.
+**Response**: The system should restore all the data exactly as it was before the outage, with no data loss or corruption.
 
-Response Measure: All data is accessible and system is fully operational within x minutes.
+**Response Measure**: All data is accessible and system is fully operational within x minutes.
 
 #### QAS 2 : Data Integrity
 
-Source: An Employee.
+**Source**: An Employee.
 
-Stimulus: An employee updates the price of a product in the inventory.
+**Stimulus**: An employee updates the price of a product in the inventory.
 
-Artifact: Web-server.
+**Artifact**: Web-server.
 
-Environment: System is fully operational.
+**Environment**: System is fully operational.
 
-Response: The system ensures that the price update is reflected across all orders, reports, and inventory views. The old price is archived (logs).
+**Response**: The system ensures that the price update is reflected across all orders, reports, and inventory views. The old price is archived (logs).
 
-Response Measure: The update is applied across the system within 2 seconds (MySQL/PostgresSQL).
+**Response Measure**: The update is applied across the system within 2 seconds (MySQL/PostgresSQL).
 
 #### QAS 3 : System Maintenance
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
 ### Solutions
 
@@ -160,45 +160,45 @@ Response Measure:
 
 #### QAS 1 : System Error 
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
 #### QAS 2 : Data Modification
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
  #### QAS 3 : Transaction
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
 ### Solutions
 
@@ -302,45 +302,45 @@ Response Measure:
 
 #### QAS 1 : Unauthorized Access Attempt 
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
 #### QAS 2 : Multiple Failed Login Attempts
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
  #### QAS 3 : Denial of Service Protection
 
-Source:
+**Source**:
 
-Stimulus:
+**Stimulus**:
 
-Artifact:
+**Artifact**:
 
-Environment:
+**Environment**:
 
-Response:
+**Response**:
 
-Response Measure:
+**Response Measure**:
 
 ### Solutions
 
