@@ -19,28 +19,71 @@
 #### QAS 1 
 
 Source:
+
 Stimulus:
+
 Artifact:
+
 Environment:
+
 Response:
+
 Response Measure:
 
 #### QAS 2 
 
 Source:
+
 Stimulus:
+
 Artifact:
+
 Environment:
+
 Response:
+
 Response Measure:
 
  #### QAS 3 
 
 Source:
+
 Stimulus:
+
 Artifact:
+
 Environment:
+
 Response:
+
+Response Measure:
+
+#### QAS 4
+
+Source:
+
+Stimulus:
+
+Artifact:
+
+Environment:
+
+Response:
+
+Response Measure:
+
+ #### QAS 5
+
+Source:
+
+Stimulus:
+
+Artifact:
+
+Environment:
+
+Response:
+
 Response Measure:
 
 ### Solutions
@@ -69,7 +112,113 @@ Response Measure:
 
 ##### **Our choice:**
 
+#### QAS 2
+
+##### **Alternative 1:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Alternative 2:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Our choice:**
+
+#### QAS 3
+
+##### **Alternative 1:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Alternative 2:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Our choice:**
+
+#### QAS 4
+
+##### **Alternative 1:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Alternative 2:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Our choice:**
+
+#### QAS 5
+
+##### **Alternative 1:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Alternative 2:**
+
+**Pros:**
+
+-
+
+**Cons:**
+
+-
+
+##### **Our choice:**
+
 ### Security components
+
+#### **XXX component**
+
+##### **Responsibilities:**
+
+##### **Provides:**
+
+##### **Requires:**
+
+##### **Choice of technology/software:**
 
 #### **XXX component**
 
