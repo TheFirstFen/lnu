@@ -603,7 +603,7 @@ Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
 
 #### Logging and Monitoring Component
 
-##### **Responsibilities:**
+###### **Responsibilities:**
 
 - Records access attempts, monitors security events, and sends alerts for suspicious activities.
 
