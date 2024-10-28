@@ -44,7 +44,7 @@ Response:
 
 Response Measure:
 
- #### QAS 3 
+#### QAS 3 
 
 Source:
 
