@@ -150,45 +150,45 @@
 
 #### QAS 1 : System Error 
 
-**Source**:
+**Source**: System (hardware or software failure).
 
-**Stimulus**:
+**Stimulus**: A system error occurs (database connection failure or server crash).
 
-**Artifact**:
+**Artifact**: ??.
 
-**Environment**:
+**Environment**: The system encounters an error while processing requests.
 
-**Response**:
+**Response**: The system logs the error, including a description of the affected service, the severity level and the time-stamp. Alerts may be sent to administrators.
 
-**Response Measure**:
+**Response Measure**: The error is logged instantly, and the administrators are notified for immediate troubleshooting.
 
 #### QAS 2 : Data Modification
 
-**Source**:
+**Source**: Authorized user (admin or employee).
 
-**Stimulus**:
+**Stimulus**: A user modifies critical data (product price or inventory details).
 
-**Artifact**:
+**Artifact**: Database/API.
 
-**Environment**:
+**Environment**: The system is fully operational.
 
-**Response**:
+**Response**: The system logs the modification, capturing the user's identifier, the data before and after the change, the resource affected and the time-stamp.
 
-**Response Measure**:
+**Response Measure**: Modifications are logged in real-time, ensuring an audit trail of changes to critical system data.
 
  #### QAS 3 : Transaction
 
-**Source**:
+**Source**: User (customer).
 
-**Stimulus**:
+**Stimulus**: The customer initiates a payment for an order (whether success/failure).
 
-**Artifact**:
+**Artifact**: Web Server (payment authorization/payment gateway).
 
-**Environment**:
+**Environment**: The system is operational.
 
-**Response**:
+**Response**: The system logs the transaction details, including payment method, order number/id, time-stamp and the result (success/failure), along with any relevant error messages if the transaction fails.
 
-**Response Measure**:
+**Response Measure**: The transaction is logged immediately after the attempt whether successful or failed, and stored securely for audit and monitoring purposes.
 
 ### Solutions
 
@@ -292,45 +292,46 @@
 
 #### QAS 1 : Unauthorized Access Attempt 
 
-**Source**:
+**Source**: Unidentified User / User.
 
-**Stimulus**:
+**Stimulus**: Attempts to access restricted resources, (employee dashboard).
 
-**Artifact**:
+**Artifact**: Access control systems (Authentication & Authorization).
 
-**Environment**:
+**Environment**: The system is operational and user only has user-rights.
 
-**Response**:
+**Response**: System detects user-rights, denies the request, logs the attempt for security monitoring.
 
-**Response Measure**:
+**Response Measure**: Unauthorized access is prevented 100% of the time, and an alert is sent to security with the IP-address of the attempt.
 
 #### QAS 2 : Multiple Failed Login Attempts
 
-**Source**:
+**Source**: Unidentified User.
 
-**Stimulus**:
+**Stimulus**: Multiple failed login attempts to an account.
 
-**Artifact**:
+**Artifact**: Login System (Authentication & Identification, account management, servers and logging).
 
-**Environment**:
+**Environment**: The system is operational and functioning normally.
 
-**Response**:
+**Response**: After set amount of attempts blocks further login attempts, attempts are logged for security monitoring.
 
-**Response Measure**:
+**Response Measure**: Locks the account, sends security alert to user email to be able to unlock account, this with a 100% prevention rate of unauthorized access to a users account.
+
 
  #### QAS 3 : Denial of Service Protection
 
-**Source**:
+**Source**: Malicious actor(s).
 
-**Stimulus**:
+**Stimulus**: X amount of requests per second, overloading the system (X >= 1000).
 
-**Artifact**:
+**Artifact**: Servers, traffic controller and logging.
 
-**Environment**:
+**Environment**: The system is operational but slow (under a (D)DoS attack).
 
-**Response**:
+**Response**: System detects abnormal traffic patterns, limits requests and diverts the abnormal traffic to a backup server with limited resources.
 
-**Response Measure**:
+**Response Measure**: System maintains 95% availability for regular users by limiting the abnormal traffic to 5% of the system's resources, logs attacks and notifies security and administrators within seconds of recognizing the attack.
 
 ### Solutions
 
