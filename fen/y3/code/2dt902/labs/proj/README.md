@@ -230,6 +230,7 @@ Response Measure:
 
 ###### **Choice of technology/software:**
 
+
 ### Logging
 
 #### QAS 1 
@@ -445,6 +446,7 @@ Response Measure:
 ###### **Requires:**
 
 ###### **Choice of technology/software:**
+
 
 ### Security
 
