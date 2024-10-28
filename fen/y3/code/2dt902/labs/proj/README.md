@@ -16,63 +16,35 @@
 
 ### Persistence
 
-#### QAS 1 
+#### QAS 1 : Data Availability 
 
-Source:
+Source: Unexpected power outage.
 
-Stimulus:
+Stimulus: The system is restarted after an unexpected power outage.
 
-Artifact:
+Artifact: Web-server.
 
-Environment:
+Environment: System has just recovered from an unexpected shutdown.
 
-Response:
+Response: The system should restore all the data exactly as it was before the outage, with no data loss or corruption.
 
-Response Measure:
+Response Measure: All data is accessible and system is fully operational within x minutes.
 
-#### QAS 2 
+#### QAS 2 : Data Integrity
 
-Source:
+Source: An Employee.
 
-Stimulus:
+Stimulus: An employee updates the price of a product in the inventory.
 
-Artifact:
+Artifact: Web-server.
 
-Environment:
+Environment: System is fully operational.
 
-Response:
+Response: The system ensures that the price update is reflected across all orders, reports, and inventory views. The old price is archived (logs).
 
-Response Measure:
+Response Measure: The update is applied across the system within 2 seconds (MySQL/PostgresSQL).
 
-#### QAS 3 
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
-#### QAS 4
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
- #### QAS 5
+#### QAS 3 : System Maintenance
 
 Source:
 
@@ -88,7 +60,7 @@ Response Measure:
 
 ### Solutions
 
-#### QAS 1 
+#### QAS 1 : Data Availability 
 
 ##### **Alternative 1:**
 
@@ -112,7 +84,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 2
+#### QAS 2 : Data Integrity
 
 ##### **Alternative 1:**
 
@@ -136,55 +108,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 3
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 4
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 5
+#### QAS 3 : System Maintenance
 
 ##### **Alternative 1:**
 
@@ -219,6 +143,7 @@ Response Measure:
 ###### **Requires:**
 
 ###### **Choice of technology/software:**
+
 
 ##### **XXX component**
 
@@ -233,7 +158,7 @@ Response Measure:
 
 ### Logging
 
-#### QAS 1 
+#### QAS 1 : System Error 
 
 Source:
 
@@ -247,7 +172,7 @@ Response:
 
 Response Measure:
 
-#### QAS 2 
+#### QAS 2 : Data Modification
 
 Source:
 
@@ -261,35 +186,7 @@ Response:
 
 Response Measure:
 
- #### QAS 3 
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
-#### QAS 4
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
- #### QAS 5
+ #### QAS 3 : Transaction
 
 Source:
 
@@ -305,7 +202,7 @@ Response Measure:
 
 ### Solutions
 
-#### QAS 1 
+#### QAS 1 : System Error 
 
 ##### **Alternative 1:**
 
@@ -329,7 +226,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 2
+#### QAS 2 : Data Modification
 
 ##### **Alternative 1:**
 
@@ -353,55 +250,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 3
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 4
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 5
+#### QAS 3 : Transaction
 
 ##### **Alternative 1:**
 
@@ -436,6 +285,7 @@ Response Measure:
 ###### **Requires:**
 
 ###### **Choice of technology/software:**
+
 
 ##### **XXX component**
 
@@ -450,7 +300,7 @@ Response Measure:
 
 ### Security
 
-#### QAS 1 
+#### QAS 1 : Unauthorized Access Attempt 
 
 Source:
 
@@ -464,7 +314,7 @@ Response:
 
 Response Measure:
 
-#### QAS 2 
+#### QAS 2 : Multiple Failed Login Attempts
 
 Source:
 
@@ -478,35 +328,7 @@ Response:
 
 Response Measure:
 
- #### QAS 3 
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
-#### QAS 4
-
-Source:
-
-Stimulus:
-
-Artifact:
-
-Environment:
-
-Response:
-
-Response Measure:
-
- #### QAS 5
+ #### QAS 3 : Denial of Service Protection
 
 Source:
 
@@ -522,7 +344,7 @@ Response Measure:
 
 ### Solutions
 
-#### QAS 1 
+#### QAS 1 : Unauthorized Access Attempt 
 
 ##### **Alternative 1:**
 
@@ -546,7 +368,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 2
+#### QAS 2 : Multiple Failed Login Attempts
 
 ##### **Alternative 1:**
 
@@ -570,55 +392,7 @@ Response Measure:
 
 ##### **Our choice:**
 
-#### QAS 3
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 4
-
-##### **Alternative 1:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Alternative 2:**
-
-**Pros:**
-
--
-
-**Cons:**
-
--
-
-##### **Our choice:**
-
-#### QAS 5
+#### QAS 3 : Denial of Service Protection
 
 ##### **Alternative 1:**
 
@@ -654,6 +428,7 @@ Response Measure:
 
 ###### **Choice of technology/software:**
 
+
 ##### **XXX component**
 
 ###### **Responsibilities:**
@@ -663,5 +438,7 @@ Response Measure:
 ###### **Requires:**
 
 ###### **Choice of technology/software:**
+
+
 
 ## Overview
