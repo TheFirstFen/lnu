@@ -140,15 +140,15 @@
 
 ###### **Responsibilities:**
 
-Manages user login, logout, and session handling.
+- Manages user login, logout, and session handling.
 
 ###### **Provides:**
 
-Secure access control for employees and customers.
+- Secure access control for employees and customers.
 
 ###### **Requires:**
 
-Secure storage for user credentials, preferably with encryption.
+- Secure storage for user credentials, preferably with encryption.
 
 ###### **Choice of technology/software:** 
 
@@ -159,15 +159,15 @@ OAuth 2.0 or OpenID Connect.
 
 ###### **Responsibilities:**
 
-Defines and enforces permissions for different user roles.
+- Defines and enforces permissions for different user roles.
 
 ###### **Provides:**
 
-Role-based access management for employee actions and customer data.
+- Role-based access management for employee actions and customer data.
 
 ###### **Requires:**
 
-Integration with the Authentication Component and database for user roles.
+- Integration with the Authentication Component and database for user roles.
 
 ###### **Choice of technology/software:**
 
@@ -399,99 +399,147 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 #### QAS 1 : Unauthorized Access Attempt 
 
-##### **Alternative 1:**
+##### **Alternative 1 : Role-Based Access Control (RBAC)**
 
 **Pros:**
 
--
+- Simple to implement and understand.
+- Limits access based on predefined roles, reducing risk of unauthorized access.
 
 **Cons:**
 
--
+- Lacks flexibility for dynamic access needs.
+- Requires careful role management to avoid over-privileged access.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Multi-Factor Authentication (MFA) + Context-Based Access Control**
 
 **Pros:**
 
--
+- Provides stronger access control by requiring a second factor.
+- Context-based controls (such as IP location checks) can further limit unauthorized attempts.
 
 **Cons:**
 
--
+- More complex to implement, requiring additional hardware or software.
+- Could inconvenience legitimate users, increasing login time.
 
-##### **Our choice:**
+##### **Our choice: Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.**
 
 #### QAS 2 : Multiple Failed Login Attempts
 
-##### **Alternative 1:**
+##### **Alternative 1 : Temporary Account Lockout**
 
 **Pros:**
 
--
+- Limits brute-force attack success by locking out after a few failed attempts.
+- Simple to implement with most authentication systems.
 
 **Cons:**
 
--
+- Could result in denial-of-access for legitimate users if they forget their credentials.
+- Requires careful lockout time management to avoid frustrating users.
 
-##### **Alternative 2:**
+##### **Alternative 2 : CAPTCHA Implementation after X Failed Attempts**
 
 **Pros:**
 
--
+- Prevents automated brute-force attacks effectively.
+- Allows users to attempt to log in without full lockout.
 
 **Cons:**
 
--
+- CAPTCHA may reduce user-friendliness.
+- Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
-##### **Our choice:**
+##### **Our choice: CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.**
 
 #### QAS 3 : Denial of Service Protection
 
-##### **Alternative 1:**
+##### **Alternative 1 : Rate Limiting with Cloudflare / API Gateway**
 
 **Pros:**
 
--
+- Easy to configure rate limits and monitor traffic patterns.
+- Can scale automatically to handle legitimate high-traffic events.
 
 **Cons:**
 
--
+- Costs can increase with the level of usage and protection.
+- Limited protection for complex (D)DoS attacks.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Load Balancer with Automated Traffic Analysis and Filtering**
 
 **Pros:**
 
--
+- Allows real-time monitoring and redirection of abnormal traffic.
+- Provides flexibility for adjusting resources to meet normal user demand.
 
 **Cons:**
 
--
+- Higher infrastructure costs.
+- May require complex configuration and maintenance.
 
-##### **Our choice:**
+##### **Our choice: Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.**
 
 #### Security components
 
-##### **XXX component**
+##### **Authentication Component**
 
 ###### **Responsibilities:**
 
+- Verifies user identity before granting access.
+- Implements RBAC and MFA to secure user sessions.
+
 ###### **Provides:**
+
+- User authentication, login monitoring, and account management.
 
 ###### **Requires:**
 
+
+- Integration with user management systems and logging services for security monitoring.
+
 ###### **Choice of technology/software:**
 
+OAuth 2.0 (for secure authorization), Google Authenticator (for MFA), and JWT (JSON Web Tokens for session management).
 
-##### **XXX component**
+
+##### **Traffic Controller Component**
 
 ###### **Responsibilities:**
 
+- Manages incoming traffic and mitigates DoS attacks by redirecting or rate-limiting requests.
+
 ###### **Provides:**
+
+- Real-time traffic analysis and DoS protection, availability monitoring.
 
 ###### **Requires:**
 
+- Connectivity with logging and alert systems, communication with backup server resources.
+
 ###### **Choice of technology/software:**
 
+Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
+
+
+#### Logging and Monitoring Component
+
+##### **Responsibilities:**
+
+- Records access attempts, monitors security events, and sends alerts for suspicious activities.
+
+###### **Provides:**
+
+- Log storage, access for security audits, real-time alerts.
+
+###### **Requires:**
+
+- Access to authentication and traffic controller logs, integration with notification services.
+
+###### **Choice of technology/software:**
+
+Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting.
 
 
 ## Overview
