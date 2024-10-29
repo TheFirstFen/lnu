@@ -2,7 +2,7 @@
 
 [link to document on gdrive](https://docs.google.com/document/d/1H6UAzhqQBWQc88c6wg2Y2SLOo98k4P8d5MFhyZ5edHs/edit?pli=1&tab=t.0)
 
-## Report template
+## Report
 
 ### Persistence
 
@@ -36,114 +36,142 @@
 
 #### QAS 3 : System Maintenance
 
-**Source**:
+**Source**: System Administrator.
 
-**Stimulus**:
+**Stimulus**: Administrator initiates a system upgrade during off-peak hours.
 
-**Artifact**:
+**Artifact**: Database and web-server.
 
-**Environment**:
+**Environment**: System is partially operational (only administrator access is allowed).
 
-**Response**:
+**Response**: The system should allow data migration, backup, or configuration changes with minimal downtime, while ensuring no data loss.
 
-**Response Measure**:
+**Response Measure**: Maintenance tasks are completed and system is back online within 15 minutes.
 
 ### Solutions
 
 #### QAS 1 : Data Availability 
 
-##### **Alternative 1:**
+##### **Alternative 1 : Database Replication with Automatic Failover**
 
 **Pros:**
 
--
+- Ensures high availability and rapid recovery.
+- Protects against hardware failures by distributing data copies.
 
 **Cons:**
 
--
+- Additional server costs for replication.
+- May require complex setup and monitoring.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Regular Backups with Manual Recovery**
 
 **Pros:**
 
--
+- Lower cost than replication.
+- Simpler to implement and manage.
 
 **Cons:**
 
--
+- Longer recovery time in case of an outage.
+- Risk of some data loss between backup intervals.
 
-##### **Our choice:**
+##### **Our choice: Alternative 1, as high availability is critical for minimizing downtime in an e-commerce environment.**
 
 #### QAS 2 : Data Integrity
 
-##### **Alternative 1:**
+##### **Alternative 1 : Database Transactions with Versioning**
 
 **Pros:**
 
--
+- Ensures atomicity and prevents data corruption during updates.
+- Maintains history for rollback or auditing.
 
 **Cons:**
 
--
+- Higher storage requirements due to versioning.
+- Potentially slower for frequent updates.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Event Sourcing for Data Changes**
 
 **Pros:**
 
--
+- Allows rollback and auditing by preserving events.
+- Effective for tracking data changes over time.
 
 **Cons:**
 
--
+- Adds complexity in data retrieval.
+- More challenging to query current state.
 
-##### **Our choice:**
+##### **Our choice: Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.**
 
 #### QAS 3 : System Maintenance
 
-##### **Alternative 1:**
+##### **Alternative 1 : Rolling Updates**
 
 **Pros:**
 
--
+- Minimizes downtime by updating components sequentially.
+- Allows system to remain accessible to users during updates.
 
 **Cons:**
 
--
+- Requires support for backward-compatible updates.
+- More complex deployment process.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Scheduled Downtime for Maintenance**
 
 **Pros:**
 
--
+- Easier to implement with fewer compatibility concerns.
+- Lower infrastructure demands as it doesn’t require redundant setups.
 
 **Cons:**
 
--
+- System is completely inaccessible during updates.
+- Might impact user experience if not scheduled during low traffic.
 
-##### **Our choice:**
+##### **Our choice: Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.**
 
-#### Security components
+#### Security Components
 
-##### **XXX component**
-
-###### **Responsibilities:**
-
-###### **Provides:**
-
-###### **Requires:**
-
-###### **Choice of technology/software:**
-
-
-##### **XXX component**
+##### **Authentication component**
 
 ###### **Responsibilities:**
 
+Manages user login, logout, and session handling.
+
 ###### **Provides:**
+
+Secure access control for employees and customers.
 
 ###### **Requires:**
 
+Secure storage for user credentials, preferably with encryption.
+
+###### **Choice of technology/software:** 
+
+OAuth 2.0 or OpenID Connect.
+
+
+##### **Access Control Component**
+
+###### **Responsibilities:**
+
+Defines and enforces permissions for different user roles.
+
+###### **Provides:**
+
+Role-based access management for employee actions and customer data.
+
+###### **Requires:**
+
+Integration with the Authentication Component and database for user roles.
+
 ###### **Choice of technology/software:**
+
+Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 
 ### Logging
