@@ -639,6 +639,10 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 *Decomposition diagram*
 
 ![sub-sys1](./img/sub-system1.drawio.png)
+*Persistence sub-system*
+
+![sub-sys2-3](./img/sub-system2-3.drawio.png)
+*Logging sub-system*
 
 *Persistence sub-system*
 
