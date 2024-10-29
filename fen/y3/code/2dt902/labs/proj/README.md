@@ -567,13 +567,17 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 
 *Persistence sub-system*
 
-![sub-sys2-3](./img/sub-system2-3.drawio.png)
+![sub-system2](./img/sub-system2.drawio.png)
 
 *Logging sub-system*
 
-![sub-sys2-3](./img/sub-system2-3.drawio.png)
+![sub-system3](./img/sub-system3.drawio.png)
 
 *Security sub-system*
+
+![Connected sub-system](./img/sub-system-all.drawio.png)
+
+*Connected sub-systems*
 
 ![component](./img/component.drawio.png)
 
