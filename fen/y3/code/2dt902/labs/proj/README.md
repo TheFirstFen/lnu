@@ -182,7 +182,7 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 **Stimulus**: A system error occurs (database connection failure or server crash).
 
-**Artifact**: ??.
+**Artifact**: Error logs stored in a centralized logging service (e.g., ELK stack, Cloud logging).
 
 **Environment**: The system encounters an error while processing requests.
 
@@ -222,98 +222,132 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 #### QAS 1 : System Error 
 
-##### **Alternative 1:**
+##### **Alternative 1 : Log errors locally with periodic batch uploads to centralized storage**
 
 **Pros:**
 
--
+- Reduces immediate strain on network and server resources during high load.
+- Allows for error data to persist locally in case of temporary network outages.
 
 **Cons:**
 
--
+- Potential delay in error visibility, slowing response time for admins.
+- Higher risk of data loss if local logs are compromised before upload.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Real-time error logging to a centralized monitoring and alert system**
 
 **Pros:**
 
--
+- Immediate log capture and alert, enabling rapid troubleshooting.
+- Allows for pattern detection (e.g., multiple errors in a short time) which can help prevent cascading failures.
 
 **Cons:**
 
--
+- Increased bandwidth and processing resources for real-time logging, especially during high-error periods.
+- Potential risk if centralized logging becomes unavailable during critical failures.
 
-##### **Our choice:**
+##### **Our choice: Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.**
 
 #### QAS 2 : Data Modification
 
-##### **Alternative 1:**
+##### **Alternative 1 : Log modifications in a dedicated audit log database**
 
 **Pros:**
 
--
+- Provides structured, searchable records for efficient audit tracking.
+- Can be optimized for logging and retrieval without affecting main application performance.
 
 **Cons:**
 
--
+- Requires additional maintenance and storage costs for a separate audit database.
+- Introduces some additional latency in the modification process.
 
-##### **Alternative 2:**
+##### **Alternative 2 : In-line logging within the main database using triggers**
 
 **Pros:**
 
--
+- No need for an additional database; simplifies data management.
+- Logging is tied directly to the modification transaction, ensuring atomicity.
 
 **Cons:**
 
--
+- Potential performance degradation of main database operations.
+- Can complicate database schema and require more careful backup strategies.
 
-##### **Our choice:**
+##### **Our choice: Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.**
 
 #### QAS 3 : Transaction
 
-##### **Alternative 1:**
+##### **Alternative 1 : Log all transactions in the main application server logs**
 
 **Pros:**
 
--
+- Easier to implement with fewer moving parts.
+- Maintains transaction data close to the application logic, simplifying troubleshooting.
 
 **Cons:**
 
--
+- Log file growth can be high, increasing storage costs.
+- Parsing and analysis of logs can be less efficient compared to structured storage.
 
-##### **Alternative 2:**
+##### **Alternative 2 : Use a specialized transaction log system or service (e.g., transaction log database or third-party payment logging)**
 
 **Pros:**
 
--
+- Dedicated system for transaction data, optimized for retrieval and analysis.
+- Provides secure, tamper-proof records which are essential for financial data.
 
 **Cons:**
 
--
+- Requires integration with external systems, which may add complexity.
+- Additional costs for setup, maintenance, or third-party service fees.
 
-##### **Our choice:**
+##### **Our choice: Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.**
 
 #### Security components
 
-##### **XXX component**
+##### **Authentication Component**
 
 ###### **Responsibilities:**
 
+- Validates and manages user identities.
+- Enforces access controls for different user roles (e.g., customer, admin).
+
 ###### **Provides:**
+
+- Secure user login and logout.
+- Session management to prevent unauthorized access.
 
 ###### **Requires:**
 
+- Connection to user database for identity verification.
+- Secure channel for credential transmission (e.g., SSL/TLS).
+
 ###### **Choice of technology/software:**
 
+OAuth 2.0 for secure token-based authentication, possibly with an identity provider like Auth0 or Firebase Authentication.
 
-##### **XXX component**
+
+##### **Logging and Monitoring Component**
 
 ###### **Responsibilities:**
 
+- Captures, stores, and provides access to system logs and alerts.
+- Ensures that logs are retained securely for auditing and troubleshooting.
+
 ###### **Provides:**
+
+- Real-time monitoring and alerting for critical system errors.
+- Log search and filtering to support issue diagnosis and resolution.
 
 ###### **Requires:**
 
+- Access to all application components for log aggregation.
+- Integration with alerting and notification systems for administrator alerts.
+
 ###### **Choice of technology/software:**
+
+ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging and monitoring.
 
 
 ### Security
