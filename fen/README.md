@@ -11,3 +11,5 @@
 "Den gruppen vart lika slumpad som Nordkorea är en demokrati..." - fen(Samuel Berg)
 
 "Har du en bra Thorobber på din sida" - fen(Samuel Berg)
+
+"William är en retarded" - fen(Samuel Berg)
