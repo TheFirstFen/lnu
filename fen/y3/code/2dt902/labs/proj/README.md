@@ -635,25 +635,29 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 
 **Motivation**
 
+*Persistence*
+
 Database Manager
-- Responsibilities: Manages data storage, retrieval, and backup processes. Interfaces with the web server and ensures data consistency and versioning.
 - Connection to Security: Collaborates with Identification & Authentication and Authorization to verify access permissions for data interactions.
 - Connection to Logging: Sends logs for critical events like data updates and backups to the Logger for auditing purposes.
 
 Backup & Recovery Module
-- Responsibilities: Handles data replication and restoration, with options for both automatic and manual recovery depending on the backup approach.
 - Connection to Logging: Logs backup and recovery activities, errors, and recovery time to the Logger for operational transparency.
 - Connection to Security: Requires secure access to backup data, integrating with Account Management to ensure access restrictions during sensitive operations.
 
 Transaction Manager
-- Responsibilities: Manages data integrity by ensuring atomic, consistent, isolated, and durable (ACID) transactions, using versioning for changes like price updates.
 - Connection to Security: Works with Authorization to verify that only permitted users (e.g., employees) can make data changes.
 - Connection to Logging: Sends transaction records and version control logs to the Logger to support auditing and rollback if needed.
 
 Maintenance Controller
-- Responsibilities: Coordinates and manages maintenance tasks, such as rolling updates and scheduled downtimes, ensuring minimal impact on the live system.
 - Connection to Security: Engages Identification & Authentication to restrict access during maintenance to authorized system administrators.
 - Connection to Logging: Logs all maintenance activities and updates status to the Traffic Controller for real-time system status monitoring.
+
+*Logging*
+
+
+
+*Security*
 
 
 
