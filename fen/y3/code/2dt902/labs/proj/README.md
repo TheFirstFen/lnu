@@ -6,21 +6,23 @@
 
 ## Table of Contents
 - [Persistence](#persistence)
-  - [Requirements]()
+  - [Requirements](#requirements)
   - [Solutions](#solutions)
   - [Security Components](#security-components)
 - [Logging](#logging)
-  - [Requirements]()
+  - [Requirements](#requirements-1)
   - [Solutions](#solutions-1)
   - [Security Components](#security-components-1)
 - [Security](#security)
-  - [Requirements]()
+  - [Requirements](#requirements-2)
   - [Solutions](#solutions-2)
   - [Security Components](#security-components-2)
 - [Overview](#overview)
 - [Images](#images)
 
 ### Persistence
+
+### Requirements
 
 #### QAS 1 : Data Availability 
 
@@ -197,6 +199,8 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 ### Logging
 
+### Requirements
+
 #### QAS 1 : System Error 
 
 **Source**: System (hardware or software failure).
@@ -372,6 +376,8 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 
 ### Security
+
+### Requirements
 
 #### QAS 1 : Unauthorized Access Attempt 
 
