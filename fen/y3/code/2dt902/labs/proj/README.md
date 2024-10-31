@@ -22,7 +22,7 @@
 
 ### Persistence
 
-### Requirements
+### Requirements TODO
 
 #### QAS 1 : Data Availability 
 
@@ -131,7 +131,10 @@ Alternative 1, as high availability is critical for minimizing downtime in an e-
 - Adds complexity in data retrieval.
 - More challenging to query current state.
 
-##### **Our choice: Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.**
+##### **Our choice: 
+
+***TODO Motivation***
+Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.**
 
 #### QAS 3 : System Maintenance
 
@@ -159,7 +162,10 @@ Alternative 1, as high availability is critical for minimizing downtime in an e-
 - System is completely inaccessible during updates.
 - Might impact user experience if not scheduled during low traffic.
 
-##### **Our choice: Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.**
+##### **Our choice: 
+
+***TODO Motivation***
+Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.**
 
 #### Security Components
 
@@ -203,11 +209,11 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 ### Logging
 
-### Requirements
+### Requirements TODO
 
 #### QAS 1 : System Error 
 
-
+***TODO Description***
 
 **Source**: System (hardware or software failure).
 
@@ -223,6 +229,8 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 #### QAS 2 : Data Modification
 
+***TODO Description***
+
 **Source**: Authorized user (admin or employee).
 
 **Stimulus**: A user modifies critical data (product price or inventory details).
@@ -236,6 +244,8 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 **Response Measure**: Modifications are logged in real-time, ensuring an audit trail of changes to critical system data.
 
  #### QAS 3 : Transaction
+
+ ***TODO Description***
 
 **Source**: User (customer).
 
@@ -277,7 +287,10 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 - Increased bandwidth and processing resources for real-time logging, especially during high-error periods.
 - Potential risk if centralized logging becomes unavailable during critical failures.
 
-##### **Our choice: Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.**
+##### **Our choice: 
+
+***TODO Motivation***
+Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.**
 
 #### QAS 2 : Data Modification
 
@@ -305,7 +318,10 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 - Potential performance degradation of main database operations.
 - Can complicate database schema and require more careful backup strategies.
 
-##### **Our choice: Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.**
+##### **Our choice: 
+
+***TODO Motivation***
+Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.**
 
 #### QAS 3 : Transaction
 
@@ -333,7 +349,10 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 - Requires integration with external systems, which may add complexity.
 - Additional costs for setup, maintenance, or third-party service fees.
 
-##### **Our choice: Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.**
+##### **Our choice: 
+
+***TODO Motivation***
+Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.**
 
 #### Security components
 
@@ -383,9 +402,11 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 ### Security
 
-### Requirements
+### Requirements TODO
 
 #### QAS 1 : Unauthorized Access Attempt 
+
+***TODO Description***
 
 **Source**: Unidentified User / User.
 
@@ -401,6 +422,8 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 #### QAS 2 : Multiple Failed Login Attempts
 
+***TODO Description***
+
 **Source**: Unidentified User.
 
 **Stimulus**: Multiple failed login attempts to an account.
@@ -415,6 +438,8 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 
  #### QAS 3 : Denial of Service Protection
+
+ ***TODO Description***
 
 **Source**: Malicious actor(s).
 
@@ -456,7 +481,10 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 - More complex to implement, requiring additional hardware or software.
 - Could inconvenience legitimate users, increasing login time.
 
-##### **Our choice: Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.**
+##### **Our choice: 
+
+***TODO Motivation***
+Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.**
 
 #### QAS 2 : Multiple Failed Login Attempts
 
@@ -484,7 +512,10 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 - CAPTCHA may reduce user-friendliness.
 - Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
-##### **Our choice: CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.**
+##### **Our choice: 
+
+***TODO Motivation***
+CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.**
 
 #### QAS 3 : Denial of Service Protection
 
@@ -512,7 +543,10 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 - Higher infrastructure costs.
 - May require complex configuration and maintenance.
 
-##### **Our choice: Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.**
+##### **Our choice: 
+
+***TODO Motivation***
+Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.**
 
 #### Security components
 
@@ -575,7 +609,7 @@ Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
 Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting.
 
 
-## Overview
+## Overview TODO
 
 ## Images
 
