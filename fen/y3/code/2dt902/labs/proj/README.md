@@ -629,11 +629,13 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 
 *Security sub-system*
 
+**Now the sub-systems will be connected to provide a "solution" that showcases how they will work together and dependent on each other.** 
+
 ![Connected sub-system](./img/sub-system-all.drawio.png)
 
 *Connected sub-systems*
 
-**Motivation**
+<!-- **Motivation**
 
 *Persistence*
 
@@ -659,7 +661,7 @@ Maintenance Controller
 
 *Security*
 
-
+--!>
 
 ![component](./img/component.drawio.png)
 
