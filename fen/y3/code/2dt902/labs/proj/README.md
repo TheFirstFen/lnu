@@ -26,7 +26,7 @@
 
 #### QAS 1 : Data Availability 
 
-***Description***
+***TODO Description***
 
 **Source**: Unexpected power outage.
 
@@ -42,6 +42,8 @@
 
 #### QAS 2 : Data Integrity
 
+***TODO Description***
+
 **Source**: An Employee.
 
 **Stimulus**: An employee updates the price of a product in the inventory.
@@ -55,6 +57,8 @@
 **Response Measure**: The update is applied across the system within 2 seconds (MySQL/PostgresSQL).
 
 #### QAS 3 : System Maintenance
+
+***TODO Description***
 
 **Source**: System Administrator.
 
@@ -98,7 +102,7 @@
 
 ##### **Our choice: 
 
-***Motivation***
+***TODO Motivation***
 Alternative 1, as high availability is critical for minimizing downtime in an e-commerce environment.**
 
 #### QAS 2 : Data Integrity
@@ -202,6 +206,8 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 ### Requirements
 
 #### QAS 1 : System Error 
+
+
 
 **Source**: System (hardware or software failure).
 
