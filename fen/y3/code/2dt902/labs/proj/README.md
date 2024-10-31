@@ -663,6 +663,8 @@ Maintenance Controller
 
 -->
 
+**Lastly the final component diagram including all the relations between components and sub-systems, including the decomposition diagram**
+
 ![component](./img/component.drawio.png)
 
 *Component diagram*
