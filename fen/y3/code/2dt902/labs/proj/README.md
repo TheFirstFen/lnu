@@ -436,7 +436,6 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 **Response Measure**: Locks the account, sends security alert to user email to be able to unlock account, this with a 100% prevention rate of unauthorized access to a users account.
 
-
  #### QAS 3 : Denial of Service Protection
 
  ***TODO Description***
