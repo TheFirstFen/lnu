@@ -6,12 +6,15 @@
 
 ## Table of Contents
 - [Persistence](#persistence)
+  - [Requirements]()
   - [Solutions](#solutions)
   - [Security Components](#security-components)
 - [Logging](#logging)
+  - [Requirements]()
   - [Solutions](#solutions-1)
   - [Security Components](#security-components-1)
 - [Security](#security)
+  - [Requirements]()
   - [Solutions](#solutions-2)
   - [Security Components](#security-components-2)
 - [Overview](#overview)
@@ -20,6 +23,8 @@
 ### Persistence
 
 #### QAS 1 : Data Availability 
+
+***Description***
 
 **Source**: Unexpected power outage.
 
@@ -89,7 +94,10 @@
 - Longer recovery time in case of an outage.
 - Risk of some data loss between backup intervals.
 
-##### **Our choice: Alternative 1, as high availability is critical for minimizing downtime in an e-commerce environment.**
+##### **Our choice: 
+
+***Motivation***
+Alternative 1, as high availability is critical for minimizing downtime in an e-commerce environment.**
 
 #### QAS 2 : Data Integrity
 
