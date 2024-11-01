@@ -103,7 +103,7 @@
 ##### **Our choice: 
 
 ***TODO Motivation***
-Alternative 1, as high availability is critical for minimizing downtime in an e-commerce environment.**
+Alternative 1, as high availability is critical for minimizing downtime in an online store environment.**
 
 #### QAS 2 : Data Integrity
 
