@@ -165,7 +165,7 @@ Alternative 1, as database transactions with versioning provide a reliable and s
 ##### **Our choice: 
 
 ***TODO Motivation***
-Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.**
+Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.
 
 #### Security Components
 
