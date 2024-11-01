@@ -100,10 +100,10 @@
 - Longer recovery time in case of an outage.
 - Risk of some data loss between backup intervals.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Alternative 1, as high availability is critical for minimizing downtime in an online store environment.**
+Alternative 1, as high availability is critical for minimizing downtime in an online store environment.
 
 #### QAS 2 : Data Integrity
 
@@ -131,10 +131,10 @@ Alternative 1, as high availability is critical for minimizing downtime in an on
 - Adds complexity in data retrieval.
 - More challenging to query current state.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.**
+Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.
 
 #### QAS 3 : System Maintenance
 
@@ -162,7 +162,7 @@ Alternative 1, as database transactions with versioning provide a reliable and s
 - System is completely inaccessible during updates.
 - Might impact user experience if not scheduled during low traffic.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
 Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.
@@ -287,10 +287,10 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 - Increased bandwidth and processing resources for real-time logging, especially during high-error periods.
 - Potential risk if centralized logging becomes unavailable during critical failures.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.**
+Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.
 
 #### QAS 2 : Data Modification
 
@@ -318,10 +318,10 @@ Real-time error logging to a centralized monitoring and alert system for better 
 - Potential performance degradation of main database operations.
 - Can complicate database schema and require more careful backup strategies.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.**
+Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.
 
 #### QAS 3 : Transaction
 
@@ -349,10 +349,10 @@ Dedicated audit log database to minimize performance impact on the primary datab
 - Requires integration with external systems, which may add complexity.
 - Additional costs for setup, maintenance, or third-party service fees.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.**
+Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.
 
 #### Security components
 
@@ -480,10 +480,10 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 - More complex to implement, requiring additional hardware or software.
 - Could inconvenience legitimate users, increasing login time.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.**
+Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.
 
 #### QAS 2 : Multiple Failed Login Attempts
 
@@ -511,10 +511,10 @@ Multi-Factor Authentication + Context-Based Access Control to enhance security a
 - CAPTCHA may reduce user-friendliness.
 - Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.**
+CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.
 
 #### QAS 3 : Denial of Service Protection
 
@@ -542,10 +542,10 @@ CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to 
 - Higher infrastructure costs.
 - May require complex configuration and maintenance.
 
-##### **Our choice: 
+##### Our choice: 
 
 ***TODO Motivation***
-Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.**
+Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.
 
 #### Security components
 
