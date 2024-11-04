@@ -47,8 +47,43 @@ class BinaryTree:
             if currValue.right is not None:    
                 self.printTree(currValue.right)  # move into right tree
     
-    def remove():
-        pass
+    
+    def findNode(self, n: Node, currValue: Node = None, parent = None):
+        if currValue is None:
+            currValue = self.root
+        if currValue is None:
+            return None # leaf value found
+        if n.value == currValue.value:
+            print("FOUND IT WOOOOOO")
+            return currValue, parent
+        elif n.value < currValue.value:
+            parent = currValue
+            self.findNode(n, currValue.left, parent)
+        else:
+            parent = currValue
+            self.findNode(n, currValue.right, parent)
+    
+
+    def remove(self, n: Node):
+        searchResult = self.findNode(n)
+        
+        if searchResult is None:
+            return False
+        
+        value, parent = searchResult
+        left = value.left
+        right = value.right
+        
+        # handle leaf
+        if left is None and right is None: 
+            if parent:
+                if parent.left = value:
+                    parent.left = None
+                else:
+                    parent.right = None
+            else: # if parent is none than empty tree
+                self.root = None
+       
 
 # Create a binary tree and insert nodes
 tree = BinaryTree()
@@ -59,6 +94,8 @@ tree.insert(Node(3))
 tree.insert(Node(7))
 tree.insert(Node(13))
 tree.insert(Node(17))
+
+tree.findNode(Node(17))
 
 # Print the tree
 tree.printTree()  # This should print the values in sorted order
