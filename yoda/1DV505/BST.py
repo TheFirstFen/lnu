@@ -7,52 +7,59 @@ class Node:
     left: Any = None
     right: Any = None
 
-
+@dataclass
 class BinaryTree:
-    root = None
+    root: Node = None  # root node
 
-    def insert(self, value):
+    def insert(self, n: Node, currValue: Node = None):
         if self.root is None:
-            self.root = Node(value)
+            # if tree is empty set parent to n
+            self.root = n
         else:
-            self._insert_recursive(self.root, value)
+            if currValue is None:
+                currValue = self.root  # Start from the root
+            
+            # Check where to insert
+            if n.value < currValue.value: # left is lower values
+                # move left
+                if currValue.left is None:
+                    currValue.left = n
+                else:
+                    # Go to left child
+                    self.insert(n, currValue.left)
+            elif n.value > currValue.value: # right is increasing values
+                # Move right
+                if currValue.right is None:
+                    currValue.right = n
+                else:
+                    # Go to the right child
+                    self.insert(n, currValue.right)
 
-    def _insert_recursive(self, current, value):
-        if value < current.value:
-            if current.left is None:
-                current.left = Node(value)
-            else:
-                self._insert_recursive(current.left, value)
-        else:
-            if current.right is None:
-                current.right = Node(value)
-            else:
-                self._insert_recursive(current.right, value)
+    def printTree(self, currValue: Node = None):
+        if currValue is None:
+            currValue = self.root  # Start at the root value
+        
+        if currValue is not None:
+            if currValue.left is not None:
+                self.printTree(currValue.left)  # move into left tree
+            
+            print(currValue.value)           # Print the current node's value
+            if currValue.right is not None:    
+                self.printTree(currValue.right)  # move into right tree
+    
+    def remove():
+        pass
 
-    def inorder_traversal(self):
-        result = []
-        self._inorder_traversal_recursive(self.root, result)
-        return result
-
-    def _inorder_traversal_recursive(self, node, result):
-        if node:
-            self._inorder_traversal_recursive(node.left, result)
-            result.append(node.value)
-            self._inorder_traversal_recursive(node.right, result)
-
-# Create the binary tree
+# Create a binary tree and insert nodes
 tree = BinaryTree()
+tree.insert(Node(10))
+tree.insert(Node(5))
+tree.insert(Node(15))
+tree.insert(Node(3))
+tree.insert(Node(7))
+tree.insert(Node(13))
+tree.insert(Node(17))
 
-# Insert nodes
-tree.insert(10)
-tree.insert(5)
-tree.insert(15)
-tree.insert(3)
-tree.insert(7)
-tree.insert(13)
-tree.insert(17)
-
-# In-order traversal
-print("In-order Traversal:", tree.inorder_traversal())
-
+# Print the tree
+tree.printTree()  # This should print the values in sorted order
 
