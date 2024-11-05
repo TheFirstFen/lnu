@@ -1,17 +1,21 @@
 from dataclasses import dataclass
 from typing import Any
 
+
 @dataclass
 class Node:
     value: int
-    left: Any = None
-    right: Any = None
+    left: Any = None # smaller value
+    right: Any = None # bigger value
 
 @dataclass
 class BinaryTree:
     root: Node = None  # root node
 
     def insert(self, n: Node, currValue: Node = None):
+        if self.findNode(n) is not None:
+            # checks for dups
+            return 
         if self.root is None:
             # if tree is empty set parent to n
             self.root = n
@@ -19,7 +23,7 @@ class BinaryTree:
             if currValue is None:
                 currValue = self.root  # Start from the root
             
-            # Check where to insert
+            # check where to insert
             if n.value < currValue.value: # left is lower values
                 # move left
                 if currValue.left is None:
@@ -54,15 +58,21 @@ class BinaryTree:
         if currValue is None:
             return None # leaf value found
         if n.value == currValue.value:
-            print("FOUND IT WOOOOOO")
+            print("Found it")
             return currValue, parent
-        elif n.value < currValue.value:
+        if n.value < currValue.value:
             parent = currValue
-            self.findNode(n, currValue.left, parent)
-        else:
+            if currValue.left is not None:
+                self.findNode(n, currValue.left, parent)
+        if n.value > currValue.value:
             parent = currValue
-            self.findNode(n, currValue.right, parent)
+            if currValue.right is not None:
+                self.findNode(n, currValue.right, parent)
     
+    def findLeftMostValue(self, subTree: Node):
+        while subTree.left is not None:
+            subTree = subTree.left
+        return subTree
 
     def remove(self, n: Node):
         searchResult = self.findNode(n)
@@ -77,26 +87,21 @@ class BinaryTree:
         # handle leaf
         if left is None and right is None: 
             if parent:
-                if parent.left = value:
+                if parent.left == value:
                     parent.left = None
                 else:
                     parent.right = None
             else: # if parent is none than empty tree
                 self.root = None
-       
 
-# Create a binary tree and insert nodes
-tree = BinaryTree()
-tree.insert(Node(10))
-tree.insert(Node(5))
-tree.insert(Node(15))
-tree.insert(Node(3))
-tree.insert(Node(7))
-tree.insert(Node(13))
-tree.insert(Node(17))
-
-tree.findNode(Node(17))
-
-# Print the tree
-tree.printTree()  # This should print the values in sorted order
-
+        # parent has exactly one child
+        if parent:
+            if parent.left = value:
+                parent.left = right
+            else:
+                parent.right = right
+        else:
+            self.root = right
+    
+        furthestValueLeft = self.findLeftMostValue(right.left)
+        parent = furthestValueLeft
