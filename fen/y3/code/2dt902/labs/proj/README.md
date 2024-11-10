@@ -16,7 +16,6 @@
   - [Requirements](#requirements-2)
   - [Solutions](#solutions-2)
   - [Security Components](#security-components-2)
-- [Overview](#overview)
 - [Images](#images)
 
 ### Assumptions
