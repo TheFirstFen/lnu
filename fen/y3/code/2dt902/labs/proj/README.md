@@ -5,6 +5,7 @@
 ## Report
 
 ## Table of Contents
+- [Assumptions](#assumptions)
 - [Persistence](#persistence)
   - [Requirements](#requirements)
   - [Solutions](#solutions)
@@ -19,6 +20,10 @@
   - [Security Components](#security-components-2)
 - [Overview](#overview)
 - [Images](#images)
+
+### Assumptions
+
+- Assume that user reffers to a logged in user, one that has a registered account or one that is in the process of making an account. Meanwhile an unidentified user refers to someone that does not have an account and browsing around the online shop. 
 
 ### Persistence
 
