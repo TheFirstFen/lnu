@@ -418,7 +418,7 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 #### QAS 1 : Unauthorized Access Attempt 
 
-***TODO Description***
+This scenario addresses attempts by an unauthorized user to access restricted resources, such as the employee dashboard. The system's access control mechanisms, including authentication and authorization, detect these attempts and deny access. The system also logs the attempt for security monitoring, with alerts sent to the security team, including the IP address of the attempt, ensuring rapid identification and response to potential security breaches.
 
 **Source**: Unidentified User / User.
 
@@ -434,7 +434,7 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 #### QAS 2 : Multiple Failed Login Attempts
 
-***TODO Description***
+This scenario covers the prevention of unauthorized access through multiple failed login attempts. The system detects when an account experiences several consecutive failed login attempts and automatically locks the account after a predefined threshold is reached. Security alerts are sent to the user’s email with instructions on unlocking the account, effectively preventing unauthorized access while ensuring the legitimate user can regain access securely.
 
 **Source**: Unidentified User.
 
@@ -450,7 +450,7 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
  #### QAS 3 : Denial of Service Protection
 
- ***TODO Description***
+This scenario deals with the protection of the system against Denial of Service (DoS) or Distributed Denial of Service (DDoS) attacks. The system monitors traffic patterns and, upon detecting abnormal spikes in requests (e.g., more than 1000 requests per second), it limits the requests and reroutes abnormal traffic to backup servers with limited resources. This response helps maintain 95% availability for legitimate users while mitigating the attack, with real-time logging and notifications sent to security and administrators for prompt action.
 
 **Source**: Malicious actor(s).
 
