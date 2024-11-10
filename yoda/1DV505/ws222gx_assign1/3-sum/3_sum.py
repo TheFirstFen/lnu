@@ -52,14 +52,17 @@ def two_pointer(lst, target):
 
 
 def caching(lst, target):
-    cash = set()
     unique_pairs = set()
-    k = 0
     for i in range(len(lst) - 2):
-        for j in range(len(lst) - 1):
-            summa = lst[k] + lst[i] + lst[j] 
-            if summa in cash:
-        cash.add(lst[])
+        cash = set() # reset it to find unique combinations
+        for j in range(i+1, len(lst)):
+            needed_value = (target - lst[i]) - lst[j]
+            if needed_value in cash:
+                unique_pairs.add((lst[i], needed_value, lst[j]))
+        
+            cash.add(lst[j])
+    return unique_pairs
+
 
 def benchmark_function(test_func, target=50, min_size=0, max_size=1000,
                        step=50, trials=5):
@@ -87,9 +90,15 @@ def benchmark_function(test_func, target=50, min_size=0, max_size=1000,
 
 avg_times_bf, size_lst = benchmark_function(brute_force)
 avg_times_tP, size_lst = benchmark_function(two_pointer)
+avg_times_ch, size_lst = benchmark_function(caching)
+
+
+
 
 plt.plot(size_lst, avg_times_bf, "-+r")
 plt.plot(size_lst, avg_times_tP, "-+b")
+plt.plot(size_lst, avg_times_ch, "-+g")
+
 plt.xlabel("List Size")
 plt.ylabel("Average Execution Time (s)")
 plt.show()
