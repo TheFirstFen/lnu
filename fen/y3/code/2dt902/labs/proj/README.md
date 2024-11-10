@@ -109,10 +109,11 @@ This scenario focuses on the system's ability to perform essential maintenance t
 - Longer recovery time in case of an outage.
 - Risk of some data loss between backup intervals.
 
-##### **Our choice: **
+##### **Our choice: Alternative 1**
 
-***TODO Motivation***
-Alternative 1, as high availability is critical for minimizing downtime in an online store environment.
+Motivation for choosing Alternative 1: Database Replication with Automatic Failover
+- In an online store environment, high availability is crucial to maintaining customer satisfaction and avoiding lost sales. With automatic failover, the system can quickly recover from hardware failures without significant downtime, ensuring a seamless user experience.
+- While the additional server costs may be a concern, the cost of downtime or lost sales far outweighs the investment in redundancy. The more complex setup and monitoring are manageable with the right tools and resources, and the benefits of minimizing downtime make it worthwhile.
 
 #### QAS 2 : Data Integrity
 
@@ -140,10 +141,11 @@ Alternative 1, as high availability is critical for minimizing downtime in an on
 - Adds complexity in data retrieval.
 - More challenging to query current state.
 
-##### **Our choice: **
+##### **Our choice: Alternative 1**
 
-***TODO Motivation***
-Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.
+Motivation for choosing Alternative 1: Database Transactions with Versioning
+- Database transactions with versioning offer a reliable, well-understood mechanism to ensure data integrity. Atomicity prevents partial or corrupted data from being saved, which is essential for an e-commerce platform where accuracy and consistency are critical.
+- The higher storage requirements are an acceptable trade-off for the added reliability, and while frequent updates may cause performance hits, the added complexity of event sourcing (Alternative 2) may introduce challenges that are unnecessary in this context.
 
 #### QAS 3 : System Maintenance
 
@@ -171,10 +173,11 @@ Alternative 1, as database transactions with versioning provide a reliable and s
 - System is completely inaccessible during updates.
 - Might impact user experience if not scheduled during low traffic.
 
-##### **Our choice: **
+##### **Our choice: Alternative 1**
 
-***TODO Motivation***
-Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.
+Motivation for choosing Alternative 1: Rolling Updates
+- Rolling updates are ideal for online platforms that require continuous availability. They allow updates to be deployed incrementally, ensuring that there is no single point of failure and users can continue interacting with the site during the process.
+- Despite the added complexity of ensuring backward-compatible updates, the ability to avoid scheduled downtime and ensure consistent service for users is more valuable in the long run. This approach minimizes disruptions and enhances the user experience.
 
 #### Security Components
 
