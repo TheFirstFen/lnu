@@ -202,19 +202,20 @@ OAuth 2.0 or OpenID Connect.
 
 ###### **Responsibilities:**
 
-- Defines and enforces permissions for different user roles.
+- Defines and enforces access permissions based on contextual factors such as device, location, and time, rather than user roles.
 
 ###### **Provides:**
 
-- Role-based access management for employee actions and customer data.
+- Context-based access management that dynamically adjusts permissions for employees and customers, considering the context of each access attempt (e.g., IP address, device type).
 
 ###### **Requires:**
 
-- Integration with the Authentication Component and database for user roles.
+- Integration with the Authentication Component for MFA and CBAC policies.
+- Access to the user database for verification of context-based conditions and session validation.
 
 ###### **Choice of technology/software:**
 
-Role-based access control (RBAC) using Access Control Lists (ACLs).
+Context-Based Access Control (CBAC), integrated with Multi-Factor Authentication (MFA) for added security.
 
 
 ### Logging
@@ -378,7 +379,7 @@ Motivation for choosing Alternative 2: Specialized transaction log system
 ###### **Responsibilities:**
 
 - Validates and manages user identities.
-- Enforces access controls for different user roles (e.g., customer, admin).
+- Uses CBAC to enforces access controls for different users.
 
 ###### **Provides:**
 
@@ -578,7 +579,7 @@ Motivation for choosing Alternative 2: Load Balancer with automated traffic anal
 ###### **Responsibilities:**
 
 - Verifies user identity before granting access.
-- Implements RBAC and MFA to secure user sessions.
+- Implements MFA and CBAC to secure user sessions.
 
 ###### **Provides:**
 
@@ -586,13 +587,11 @@ Motivation for choosing Alternative 2: Load Balancer with automated traffic anal
 
 ###### **Requires:**
 
-
 - Integration with user management systems and logging services for security monitoring.
 
 ###### **Choice of technology/software:**
 
 OAuth 2.0 (for secure authorization), Google Authenticator (for MFA), and JWT (JSON Web Tokens for session management).
-
 
 ##### **Traffic Controller Component**
 
@@ -611,7 +610,6 @@ OAuth 2.0 (for secure authorization), Google Authenticator (for MFA), and JWT (J
 ###### **Choice of technology/software:**
 
 Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
-
 
 #### Logging and Monitoring Component
 
