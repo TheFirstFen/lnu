@@ -109,7 +109,7 @@ This scenario focuses on the system's ability to perform essential maintenance t
 - Longer recovery time in case of an outage.
 - Risk of some data loss between backup intervals.
 
-##### Our choice: 
+##### **Our choice: **
 
 ***TODO Motivation***
 Alternative 1, as high availability is critical for minimizing downtime in an online store environment.
@@ -140,7 +140,7 @@ Alternative 1, as high availability is critical for minimizing downtime in an on
 - Adds complexity in data retrieval.
 - More challenging to query current state.
 
-##### Our choice: 
+##### **Our choice: **
 
 ***TODO Motivation***
 Alternative 1, as database transactions with versioning provide a reliable and simpler solution for ensuring data integrity across the system.
@@ -171,7 +171,7 @@ Alternative 1, as database transactions with versioning provide a reliable and s
 - System is completely inaccessible during updates.
 - Might impact user experience if not scheduled during low traffic.
 
-##### Our choice: 
+##### **Our choice: **
 
 ***TODO Motivation***
 Alternative 1, to ensure maximum uptime for users and avoid disrupting the shopping experience.
@@ -300,10 +300,11 @@ This scenario covers the logging of transaction events initiated by customers, p
 - Increased bandwidth and processing resources for real-time logging, especially during high-error periods.
 - Potential risk if centralized logging becomes unavailable during critical failures.
 
-##### Our choice: 
+##### **Our choice: Alternative 2**
 
-***TODO Motivation***
-Real-time error logging to a centralized monitoring and alert system for better response times and visibility into system health.
+Motivation for choosing Alternative 2: Real-time error logging to a centralized monitoring and alert system
+- Real-time error logging allows immediate detection of issues, providing quick visibility into the system’s health. This is crucial in an online pet shop system, where quick response times and continuous monitoring are essential to minimize service disruptions and ensure a seamless user experience.
+- While it may strain bandwidth and resources during high-error periods, the ability to act swiftly on errors and potentially prevent cascading failures justifies the cost. Real-time logging enables pattern detection, offering proactive measures for long-term system stability.
 
 #### QAS 2 : Data Modification
 
@@ -331,10 +332,11 @@ Real-time error logging to a centralized monitoring and alert system for better 
 - Potential performance degradation of main database operations.
 - Can complicate database schema and require more careful backup strategies.
 
-##### Our choice: 
+##### **Our choice: Alternative 1**
 
-***TODO Motivation***
-Dedicated audit log database to minimize performance impact on the primary database and streamline compliance with data logging standards.
+Motivation for choosing Alternative 1: Log modifications in a dedicated audit log database
+- A dedicated audit log database provides structured, searchable records that allow for efficient tracking of data modifications. This is particularly important in e-commerce systems for compliance, auditing, and ensuring the integrity of sensitive customer and transaction data.
+- While additional maintenance and storage costs may arise, having a separate database prevents the primary application database from being overloaded and ensures that logging does not impact application performance. It also helps to maintain security and compliance, which are crucial in a business environment.
 
 #### QAS 3 : Transaction
 
@@ -362,10 +364,11 @@ Dedicated audit log database to minimize performance impact on the primary datab
 - Requires integration with external systems, which may add complexity.
 - Additional costs for setup, maintenance, or third-party service fees.
 
-##### Our choice: 
+##### **Our choice: Alternative 2**
 
-***TODO Motivation***
-Specialized transaction log system to ensure secure and scalable logging, compliant with financial data handling requirements.
+Motivation for choosing Alternative 2: Specialized transaction log system
+- For handling transactions, especially financial data, it is essential to have a secure, tamper-proof logging system. A specialized transaction log system is designed for high volumes of transaction data, ensuring data integrity and compliance with financial regulations.
+- While integration complexity and additional costs may be a concern, the benefits of having secure, scalable logs that meet industry standards for financial data outweigh the drawbacks. This approach provides optimized retrieval and analysis, ensuring the reliability and security of the transaction process.
 
 #### Security components
 
@@ -497,7 +500,7 @@ This scenario deals with the protection of the system against Denial of Service 
 - More complex to implement, requiring additional hardware or software.
 - Could inconvenience legitimate users, increasing login time.
 
-##### Our choice: Alternative 2
+##### **Our choice: Alternative 2**
 
 Motivation for choosing Alternative 2: Multi-Factor Authentication (MFA) + Context-Based Access Control
 - Multi-Factor Authentication (MFA) significantly strengthens the security of user accounts by requiring an additional layer of authentication beyond just a password. This is especially important in an e-commerce environment where unauthorized access could lead to data breaches or fraud.
@@ -529,7 +532,7 @@ Motivation for choosing Alternative 2: Multi-Factor Authentication (MFA) + Conte
 - CAPTCHA may reduce user-friendliness.
 - Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
-##### Our choice: Alternative 2
+##### **Our choice: Alternative 2**
 
 Motivation for choosing Alternative 2: CAPTCHA after X failed attempts, followed by temporary lockout if necessary
 - Implementing a CAPTCHA after a set number of failed login attempts provides a balance between security and user experience. It prevents automated brute-force attacks without fully locking out legitimate users, allowing them to recover from mistakes without significant disruption.
@@ -561,7 +564,7 @@ Motivation for choosing Alternative 2: CAPTCHA after X failed attempts, followed
 - Higher infrastructure costs.
 - May require complex configuration and maintenance.
 
-##### Our choice: Alternative 2
+##### **Our choice: Alternative 2**
 
 Motivation for choosing Alternative 2: Load Balancer with automated traffic analysis to filter malicious traffic
 - A Load Balancer with automated traffic analysis is more effective in detecting and mitigating (D)DoS attacks. It provides real-time monitoring of traffic patterns and dynamically adjusts resources to handle both legitimate high-traffic events and malicious traffic spikes, ensuring continuous availability of the online pet shop system.
