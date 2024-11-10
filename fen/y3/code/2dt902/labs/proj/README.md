@@ -108,7 +108,6 @@ This scenario focuses on the system's ability to perform essential maintenance t
 - Risk of some data loss between backup intervals.
 
 ##### **Our choice: Alternative 1**
-
 Motivation for choosing Alternative 1: Database Replication with Automatic Failover
 - In an online store environment, high availability is crucial to maintaining customer satisfaction and avoiding lost sales. With automatic failover, the system can quickly recover from hardware failures without significant downtime, ensuring a seamless user experience.
 - While the additional server costs may be a concern, the cost of downtime or lost sales far outweighs the investment in redundancy. The more complex setup and monitoring are manageable with the right tools and resources, and the benefits of minimizing downtime make it worthwhile.
@@ -140,7 +139,6 @@ Motivation for choosing Alternative 1: Database Replication with Automatic Failo
 - More challenging to query current state.
 
 ##### **Our choice: Alternative 1**
-
 Motivation for choosing Alternative 1: Database Transactions with Versioning
 - Database transactions with versioning offer a reliable, well-understood mechanism to ensure data integrity. Atomicity prevents partial or corrupted data from being saved, which is essential for an e-commerce platform where accuracy and consistency are critical.
 - The higher storage requirements are an acceptable trade-off for the added reliability, and while frequent updates may cause performance hits, the added complexity of event sourcing (Alternative 2) may introduce challenges that are unnecessary in this context.
@@ -172,7 +170,6 @@ Motivation for choosing Alternative 1: Database Transactions with Versioning
 - Might impact user experience if not scheduled during low traffic.
 
 ##### **Our choice: Alternative 1**
-
 Motivation for choosing Alternative 1: Rolling Updates
 - Rolling updates are ideal for online platforms that require continuous availability. They allow updates to be deployed incrementally, ensuring that there is no single point of failure and users can continue interacting with the site during the process.
 - Despite the added complexity of ensuring backward-compatible updates, the ability to avoid scheduled downtime and ensure consistent service for users is more valuable in the long run. This approach minimizes disruptions and enhances the user experience.
@@ -303,7 +300,6 @@ This scenario covers the logging of transaction events initiated by customers, p
 - Potential risk if centralized logging becomes unavailable during critical failures.
 
 ##### **Our choice: Alternative 2**
-
 Motivation for choosing Alternative 2: Real-time error logging to a centralized monitoring and alert system
 - Real-time error logging allows immediate detection of issues, providing quick visibility into the system’s health. This is crucial in an online pet shop system, where quick response times and continuous monitoring are essential to minimize service disruptions and ensure a seamless user experience.
 - While it may strain bandwidth and resources during high-error periods, the ability to act swiftly on errors and potentially prevent cascading failures justifies the cost. Real-time logging enables pattern detection, offering proactive measures for long-term system stability.
@@ -335,7 +331,6 @@ Motivation for choosing Alternative 2: Real-time error logging to a centralized 
 - Can complicate database schema and require more careful backup strategies.
 
 ##### **Our choice: Alternative 1**
-
 Motivation for choosing Alternative 1: Log modifications in a dedicated audit log database
 - A dedicated audit log database provides structured, searchable records that allow for efficient tracking of data modifications. This is particularly important in e-commerce systems for compliance, auditing, and ensuring the integrity of sensitive customer and transaction data.
 - While additional maintenance and storage costs may arise, having a separate database prevents the primary application database from being overloaded and ensures that logging does not impact application performance. It also helps to maintain security and compliance, which are crucial in a business environment.
@@ -367,7 +362,6 @@ Motivation for choosing Alternative 1: Log modifications in a dedicated audit lo
 - Additional costs for setup, maintenance, or third-party service fees.
 
 ##### **Our choice: Alternative 2**
-
 Motivation for choosing Alternative 2: Specialized transaction log system
 - For handling transactions, especially financial data, it is essential to have a secure, tamper-proof logging system. A specialized transaction log system is designed for high volumes of transaction data, ensuring data integrity and compliance with financial regulations.
 - While integration complexity and additional costs may be a concern, the benefits of having secure, scalable logs that meet industry standards for financial data outweigh the drawbacks. This approach provides optimized retrieval and analysis, ensuring the reliability and security of the transaction process.
@@ -503,7 +497,6 @@ This scenario deals with the protection of the system against Denial of Service 
 - Could inconvenience legitimate users, increasing login time.
 
 ##### **Our choice: Alternative 2**
-
 Motivation for choosing Alternative 2: Multi-Factor Authentication (MFA) + Context-Based Access Control
 - Multi-Factor Authentication (MFA) significantly strengthens the security of user accounts by requiring an additional layer of authentication beyond just a password. This is especially important in an e-commerce environment where unauthorized access could lead to data breaches or fraud.
 - Context-Based Access Control adds further security by considering factors like IP location or device type, ensuring that only legitimate access attempts are granted. Though it may require more complex implementation and could introduce slight inconvenience for users, the enhanced security far outweighs these drawbacks.
@@ -535,7 +528,6 @@ Motivation for choosing Alternative 2: Multi-Factor Authentication (MFA) + Conte
 - Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
 ##### **Our choice: Alternative 2**
-
 Motivation for choosing Alternative 2: CAPTCHA after X failed attempts, followed by temporary lockout if necessary
 - Implementing a CAPTCHA after a set number of failed login attempts provides a balance between security and user experience. It prevents automated brute-force attacks without fully locking out legitimate users, allowing them to recover from mistakes without significant disruption.
 - While CAPTCHA may reduce user-friendliness, it is an effective way to thwart automated attacks. If necessary, a temporary account lockout can be triggered after repeated CAPTCHA failures, further securing the account while maintaining a user-friendly approach.
@@ -567,7 +559,6 @@ Motivation for choosing Alternative 2: CAPTCHA after X failed attempts, followed
 - May require complex configuration and maintenance.
 
 ##### **Our choice: Alternative 2**
-
 Motivation for choosing Alternative 2: Load Balancer with automated traffic analysis to filter malicious traffic
 - A Load Balancer with automated traffic analysis is more effective in detecting and mitigating (D)DoS attacks. It provides real-time monitoring of traffic patterns and dynamically adjusts resources to handle both legitimate high-traffic events and malicious traffic spikes, ensuring continuous availability of the online pet shop system.
 - Although the infrastructure costs are higher, the ability to quickly redirect and filter malicious traffic is crucial for maintaining service availability and preventing downtime during attacks. This solution offers greater flexibility and protection against more complex attacks, making it the ideal choice for an e-commerce platform that must ensure its uptime and security.
@@ -628,9 +619,6 @@ Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
 ###### **Choice of technology/software:**
 
 Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting.
-
-
-## Overview TODO
 
 ## Images
 
