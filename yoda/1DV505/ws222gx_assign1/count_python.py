@@ -20,8 +20,7 @@ def count_lines(path, depth=0):
                                    for line in lines if line.strip()]
                 summa += len(non_empty_lines)
 
-            print(" " * depth + curr_path.name)
 
 
-count_lines(os.getcwd())
+count_lines(os.path.expanduser("~/lnu/"))
 print("Total lines:", summa)
