@@ -22,7 +22,11 @@
 
 ### Persistence
 
-### Requirements TODO
+### Requirements
+
+- High availability and data resilience in case of failures.
+- Consistent data integrity across all views and transactions.
+- Maintenance readiness that minimizes downtime and ensures reliability during upgrades.
 
 #### QAS 1 : Data Availability 
 
