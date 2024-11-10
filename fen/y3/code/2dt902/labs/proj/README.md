@@ -213,7 +213,11 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 ### Logging
 
-### Requirements TODO
+### Requirements
+
+- Reliable error detection and administrator alerts for quick troubleshooting and system recovery.
+- Accountability in data modification by recording changes made by authorized users, providing a full audit trail.
+- Secure and auditable transaction logging that supports financial data integrity and compliance.
 
 #### QAS 1 : System Error 
 
@@ -406,7 +410,11 @@ ELK Stack (Elasticsearch, Logstash, Kibana) or CloudWatch for real-time logging 
 
 ### Security
 
-### Requirements TODO
+### Requirements
+
+- Strong access control and protection from unauthorized access.
+- Resilience to brute-force login attempts with measures for user notifications.
+- Protection against DoS attacks with rate limiting, traffic filtering, and load balancing to maintain system availability.
 
 #### QAS 1 : Unauthorized Access Attempt 
 
