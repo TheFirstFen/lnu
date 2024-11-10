@@ -221,7 +221,7 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 #### QAS 1 : System Error 
 
-***TODO Description***
+This scenario addresses the handling of system errors caused by hardware or software failures, such as a database connection failure or server crash. The system is designed to immediately capture and log error information in a centralized logging service, ensuring administrators are promptly notified of the issue. This rapid response allows for effective troubleshooting and system recovery.
 
 **Source**: System (hardware or software failure).
 
@@ -237,7 +237,7 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
 #### QAS 2 : Data Modification
 
-***TODO Description***
+This scenario focuses on the modification of critical system data, such as changes to product prices or inventory details by authorized users like administrators or employees. The system ensures that every modification is logged with key details, including the user's identity, the data before and after the change, and the timestamp. This audit trail ensures accountability and traceability for all changes to critical system data.
 
 **Source**: Authorized user (admin or employee).
 
@@ -253,7 +253,7 @@ Role-based access control (RBAC) using Access Control Lists (ACLs).
 
  #### QAS 3 : Transaction
 
- ***TODO Description***
+This scenario covers the logging of transaction events initiated by customers, particularly payment attempts for orders. Whether the transaction is successful or fails, the system logs all relevant details, including the payment method, order ID, and result. This ensures accurate tracking and secure storage of transaction data for future reference, providing transparency and supporting monitoring for fraud or errors.
 
 **Source**: User (customer).
 
