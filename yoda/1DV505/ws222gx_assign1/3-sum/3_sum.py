@@ -97,7 +97,6 @@ avg_times_ch, size_lst = benchmark_function(caching)
 
 plt.plot(size_lst, avg_times_bf, "-+r")
 plt.plot(size_lst, avg_times_tP, "-+b")
-plt.plot(size_lst, avg_times_ch, "-+g")
 
 plt.xlabel("List Size")
 plt.ylabel("Average Execution Time (s)")

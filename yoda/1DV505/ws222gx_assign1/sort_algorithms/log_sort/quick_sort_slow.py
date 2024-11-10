@@ -11,7 +11,7 @@ def partion_lst(lst):
     return pivot_element, left_lst, right_lst
 
 
-def quick_sort(lst):
+def quick_sort_slow(lst):
     if len(lst) <= 1: # already sorted
         return lst
     pivot_element, left_lst, right_lst = partion_lst(lst)
