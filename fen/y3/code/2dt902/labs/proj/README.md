@@ -497,10 +497,11 @@ This scenario deals with the protection of the system against Denial of Service 
 - More complex to implement, requiring additional hardware or software.
 - Could inconvenience legitimate users, increasing login time.
 
-##### Our choice: 
+##### Our choice: Alternative 2
 
-***TODO Motivation***
-Multi-Factor Authentication + Context-Based Access Control to enhance security and ensure unauthorized access attempts are strictly managed.
+Motivation for choosing Alternative 2: Multi-Factor Authentication (MFA) + Context-Based Access Control
+- Multi-Factor Authentication (MFA) significantly strengthens the security of user accounts by requiring an additional layer of authentication beyond just a password. This is especially important in an e-commerce environment where unauthorized access could lead to data breaches or fraud.
+- Context-Based Access Control adds further security by considering factors like IP location or device type, ensuring that only legitimate access attempts are granted. Though it may require more complex implementation and could introduce slight inconvenience for users, the enhanced security far outweighs these drawbacks.
 
 #### QAS 2 : Multiple Failed Login Attempts
 
@@ -528,10 +529,11 @@ Multi-Factor Authentication + Context-Based Access Control to enhance security a
 - CAPTCHA may reduce user-friendliness.
 - Limited impact on sophisticated attacks, especially if CAPTCHA is bypassable.
 
-##### Our choice: 
+##### Our choice: Alternative 2
 
-***TODO Motivation***
-CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to balance user experience and security.
+Motivation for choosing Alternative 2: CAPTCHA after X failed attempts, followed by temporary lockout if necessary
+- Implementing a CAPTCHA after a set number of failed login attempts provides a balance between security and user experience. It prevents automated brute-force attacks without fully locking out legitimate users, allowing them to recover from mistakes without significant disruption.
+- While CAPTCHA may reduce user-friendliness, it is an effective way to thwart automated attacks. If necessary, a temporary account lockout can be triggered after repeated CAPTCHA failures, further securing the account while maintaining a user-friendly approach.
 
 #### QAS 3 : Denial of Service Protection
 
@@ -559,10 +561,11 @@ CAPTCHA after X failed attempts, followed by temporary lockout if necessary, to 
 - Higher infrastructure costs.
 - May require complex configuration and maintenance.
 
-##### Our choice: 
+##### Our choice: Alternative 2
 
-***TODO Motivation***
-Load Balancer with automated traffic analysis to filter malicious traffic and maintain service availability during attacks.
+Motivation for choosing Alternative 2: Load Balancer with automated traffic analysis to filter malicious traffic
+- A Load Balancer with automated traffic analysis is more effective in detecting and mitigating (D)DoS attacks. It provides real-time monitoring of traffic patterns and dynamically adjusts resources to handle both legitimate high-traffic events and malicious traffic spikes, ensuring continuous availability of the online pet shop system.
+- Although the infrastructure costs are higher, the ability to quickly redirect and filter malicious traffic is crucial for maintaining service availability and preventing downtime during attacks. This solution offers greater flexibility and protection against more complex attacks, making it the ideal choice for an e-commerce platform that must ensure its uptime and security.
 
 #### Security components
 
