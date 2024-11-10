@@ -30,7 +30,7 @@
 
 #### QAS 1 : Data Availability 
 
-***TODO Description***
+This scenario addresses the system's ability to recover and maintain data integrity after an unexpected power outage and ensures the system’s resilience to power disruptions, enabling continuity of service with minimal downtime.
 
 **Source**: Unexpected power outage.
 
@@ -46,7 +46,7 @@
 
 #### QAS 2 : Data Integrity
 
-***TODO Description***
+This scenario ensures that any modifications to data within the system are accurately reflected across all relevant components, preserving data consistency and traceability and emphasizes the system’s ability to handle real-time data updates reliably, ensuring that all dependent views and reports reflect the latest information.
 
 **Source**: An Employee.
 
@@ -62,7 +62,7 @@
 
 #### QAS 3 : System Maintenance
 
-***TODO Description***
+This scenario focuses on the system's ability to perform essential maintenance tasks efficiently, minimizing downtime and ensuring data protection and ensures that maintenance activities are conducted efficiently, preserving data integrity and minimizing impact on system availability.
 
 **Source**: System Administrator.
 
