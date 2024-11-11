@@ -15,5 +15,14 @@ A proper shit show of a repo
 
 ## GIT COMMAND RECOMMENDATIONS (WiP)
 
-### Git pull
+## GIT ADD/COMMIT/PUSH
+1. `git add .`
+
+2. `git commit -m ''`
+
+3. [GIT PULL](#git-pull)
+
+4. `git push`
+
+### GIT PULL
 `git pull --rebase`
