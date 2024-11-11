@@ -5,6 +5,7 @@
 - fen = Samuel
 - yoda = William
 - ulv = Emil
+- soppa = Jesper
 
 ## Description
 
