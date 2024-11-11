@@ -1,1 +1,3 @@
-cmd='/usr/bin/cmake;-DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake;-GUnix Makefiles;-C<TMP_DIR>/PioasmBuild-cache-$<CONFIG>.cmake;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+version https://git-lfs.github.com/spec/v1
+oid sha256:8d9c4a1c96d2b7c6b2e246c0231415059d8083d5d5a774322af34d70b327cd09
+size 176

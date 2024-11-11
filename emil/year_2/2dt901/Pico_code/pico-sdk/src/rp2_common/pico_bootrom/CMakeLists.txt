@@ -1,10 +1,3 @@
-pico_add_library(pico_bootrom_headers NOFLAG)
-
-target_include_directories(pico_bootrom_headers INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
-
-add_library(pico_bootrom INTERFACE)
-target_sources(pico_bootrom INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/bootrom.c
-        )
-
-pico_mirrored_target_link_libraries(pico_bootrom INTERFACE pico_base)
+version https://git-lfs.github.com/spec/v1
+oid sha256:a8b26f1f0b52a0a410de5503797721fffb33be4419cd1e85db37efef4b805de6
+size 340

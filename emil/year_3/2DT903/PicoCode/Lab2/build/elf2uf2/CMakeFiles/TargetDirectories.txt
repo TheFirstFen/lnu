@@ -1,5 +1,3 @@
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/elf2uf2.dir
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/edit_cache.dir
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/CMakeFiles/rebuild_cache.dir
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/boot_uf2_headers/CMakeFiles/edit_cache.dir
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/boot_uf2_headers/CMakeFiles/rebuild_cache.dir
+version https://git-lfs.github.com/spec/v1
+oid sha256:9ed55c6f0a0dda9628dc1d42de9050128304c9fc165469449af748e726d538dc
+size 547

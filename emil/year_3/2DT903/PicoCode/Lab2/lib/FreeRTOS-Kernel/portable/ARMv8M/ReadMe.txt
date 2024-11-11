@@ -1,11 +1,3 @@
-This directory tree contains the master copy of the FreeeRTOS Armv8-M and
-Armv8.1-M ports.
-Do not use the files located here!  These file are copied into separate
-FreeRTOS/Source/portable/[compiler]/ARM_CM[23|33|55|85]_NNN directories prior to each
-FreeRTOS release.
-
-If your Armv8-M and Armv8.1-M application uses TrustZone then use the files from the
-FreeRTOS/Source/portable/[compiler]/ARM_CM[23|33|55|85] directories.
-
-If your Armv8-M and Armv8.1-M application does not use TrustZone then use the files from
-the FreeRTOS/Source/portable/[compiler]/ARM_CM[23|33|55|85]_NTZ directories.
+version https://git-lfs.github.com/spec/v1
+oid sha256:e244aa1b8d1d57696c045b6a32baccc569d8b5fb932739f4036dab91e2b13586
+size 589

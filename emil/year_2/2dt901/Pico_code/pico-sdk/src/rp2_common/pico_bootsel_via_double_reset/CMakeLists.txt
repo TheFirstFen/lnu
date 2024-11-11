@@ -1,11 +1,3 @@
-pico_add_library(pico_bootsel_via_double_reset)
-
-target_sources(pico_bootsel_via_double_reset INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/pico_bootsel_via_double_reset.c
-        )
-
-pico_mirrored_target_link_libraries(pico_bootsel_via_double_reset INTERFACE
-        pico_bootrom
-        pico_time
-        pico_binary_info
-        )
+version https://git-lfs.github.com/spec/v1
+oid sha256:ca715997906e7878d0dc4fc5c594183f3e81e04109852b4979227723c475d6bf
+size 331

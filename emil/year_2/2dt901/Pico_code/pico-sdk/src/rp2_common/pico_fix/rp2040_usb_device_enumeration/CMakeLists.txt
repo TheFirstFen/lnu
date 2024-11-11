@@ -1,9 +1,3 @@
-pico_add_library(pico_fix_rp2040_usb_device_enumeration)
-
-target_sources(pico_fix_rp2040_usb_device_enumeration INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/rp2040_usb_device_enumeration.c
-        )
-
-target_include_directories(pico_fix_rp2040_usb_device_enumeration_headers INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
-
-pico_mirrored_target_link_libraries(pico_fix_rp2040_usb_device_enumeration INTERFACE hardware_structs hardware_gpio pico_time)
+version https://git-lfs.github.com/spec/v1
+oid sha256:0de4d21f28a301f428cf0baf478b04861a2409bac1e51389688384f84097f66f
+size 445

@@ -1,7 +1,3 @@
-pico_simple_hardware_target(irq)
-
-# additional sources/libraries
-
-target_sources(hardware_irq INTERFACE ${CMAKE_CURRENT_LIST_DIR}/irq_handler_chain.S)
-
-pico_mirrored_target_link_libraries(hardware_irq INTERFACE pico_sync)
+version https://git-lfs.github.com/spec/v1
+oid sha256:06c8c999407a7e746de018ecfe336e98cc7ffe63dd7944a7a5250eccb7249c86
+size 221

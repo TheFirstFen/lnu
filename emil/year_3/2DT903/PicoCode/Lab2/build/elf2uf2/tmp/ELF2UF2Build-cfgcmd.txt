@@ -1,1 +1,3 @@
-cmd='/usr/bin/cmake;-DCMAKE_MAKE_PROGRAM:FILEPATH=/usr/bin/gmake;-GUnix Makefiles;-S;<SOURCE_DIR><SOURCE_SUBDIR>;-B;<BINARY_DIR>'
+version https://git-lfs.github.com/spec/v1
+oid sha256:00ae621e653c52b9a185d806bf0483a8032b424da86ac4e237e71928b613f63c
+size 130

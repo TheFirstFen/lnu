@@ -1,9 +1,3 @@
-pico_add_library(pico_stdio_uart)
-
-target_sources(pico_stdio_uart INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/stdio_uart.c
-)
-
-target_include_directories(pico_stdio_uart_headers INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
-
-pico_mirrored_target_link_libraries(pico_stdio_uart INTERFACE pico_stdio)
+version https://git-lfs.github.com/spec/v1
+oid sha256:b16c26c98a880a5f97f34de41014fa98be33e970c7feeebc03c69006b7e89e20
+size 296

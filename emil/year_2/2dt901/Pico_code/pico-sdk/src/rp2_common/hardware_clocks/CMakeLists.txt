@@ -1,13 +1,3 @@
-pico_simple_hardware_target(clocks)
-
-pico_mirrored_target_link_libraries(hardware_clocks INTERFACE
-        hardware_gpio
-        hardware_irq
-        hardware_resets
-        hardware_pll
-        # not currently used by clocks.c, but sensibly bundled here
-        # as changing frequencies may require upping voltage
-        hardware_vreg
-        hardware_watchdog
-        hardware_xosc
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:e78a0746b20543de544b71458efcf7de98b7b3af80dabc02718870fdd0612289
+size 387

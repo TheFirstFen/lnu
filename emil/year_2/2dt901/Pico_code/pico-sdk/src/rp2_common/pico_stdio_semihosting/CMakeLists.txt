@@ -1,9 +1,3 @@
-pico_add_library(pico_stdio_semihosting)
-
-target_sources(pico_stdio_semihosting INTERFACE
-        ${CMAKE_CURRENT_LIST_DIR}/stdio_semihosting.c
-)
-
-target_include_directories(pico_stdio_semihosting_headers INTERFACE ${CMAKE_CURRENT_LIST_DIR}/include)
-
-pico_mirrored_target_link_libraries(pico_stdio_semihosting INTERFACE pico_stdio)
+version https://git-lfs.github.com/spec/v1
+oid sha256:d90c5fc62e3b55d375bc824ddec019f6970b11be6b22bc3bde3b8cb810c3f4bf
+size 331

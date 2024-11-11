@@ -1,13 +1,3 @@
-# Target labels
- ELF2UF2Build
-# Source files and their labels
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/ELF2UF2Build
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/ELF2UF2Build.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/CMakeFiles/ELF2UF2Build-complete.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-build.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-configure.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-download.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-install.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-mkdir.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-patch.rule
-/home/emil/Documents/schoolfolder/year_3/2DT903/PicoCode/Lab2/build/elf2uf2/src/ELF2UF2Build-stamp/ELF2UF2Build-update.rule
+version https://git-lfs.github.com/spec/v1
+oid sha256:3b2612fb95615167252d1bf435cff5c5f0001a1904701b634fd84b566a2545ff
+size 1228

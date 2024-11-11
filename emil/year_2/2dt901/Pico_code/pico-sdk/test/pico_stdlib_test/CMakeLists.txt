@@ -1,8 +1,3 @@
-add_executable(pico_stdlib_test pico_stdlib_test.c)
-
-target_compile_definitions(pico_stdlib_test PRIVATE
-        #PICO_ENTER_USB_BOOT_ON_EXIT=1
-)
-
-target_link_libraries(pico_stdlib_test PRIVATE pico_stdlib)
-pico_add_extra_outputs(pico_stdlib_test)
+version https://git-lfs.github.com/spec/v1
+oid sha256:ce9426f22fff1fdcf7e49fcb1ba9d7c0496c689121c4ca525d0e520dda6ba1df
+size 248

@@ -1,19 +1,3 @@
-add_library(dht INTERFACE)
-
-pico_generate_pio_header(dht ${CMAKE_CURRENT_LIST_DIR}/dht.pio)
-
-target_include_directories(dht
-    INTERFACE
-    ./include)
-
-target_sources(dht
-    INTERFACE
-    dht.c
-)
-
-target_link_libraries(dht
-    INTERFACE
-    hardware_clocks
-    hardware_dma
-    hardware_pio
-)
+version https://git-lfs.github.com/spec/v1
+oid sha256:eb08f78607846688cfeda8764468564e65b4cf86485ab90cfc5f4b2ebef0399a
+size 296

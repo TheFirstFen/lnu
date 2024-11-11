@@ -1,3 +1,3 @@
-pico_simple_hardware_headers_only_target(divider)
-target_sources(hardware_divider INTERFACE ${CMAKE_CURRENT_LIST_DIR}/divider.S)
-target_link_libraries(hardware_divider_headers INTERFACE hardware_structs)
+version https://git-lfs.github.com/spec/v1
+oid sha256:55ea3d9bd2af5571d351a37138268fee99df21f581c537671371a29c701ccbc0
+size 203
