@@ -15,4 +15,5 @@ A proper shit show of a repo
 
 ## How to commit to this repo (WiP)
 
-- 
+### Git pull
+`git pull --rebase`
