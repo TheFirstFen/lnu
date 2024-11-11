@@ -16,7 +16,6 @@
   - [Requirements](#requirements-2)
   - [Solutions](#solutions-2)
   - [Security Components](#security-components-2)
-- [Overview](#overview)
 - [Images](#images)
 
 ### Assumptions
@@ -604,7 +603,7 @@ Cloudflare or AWS WAF for rate limiting, and HAProxy for load balancing.
 
 #### Logging and Monitoring Component
 
-###### **Responsibilities:**
+##### **Responsibilities:**
 
 - Records access attempts, monitors security events, and sends alerts for suspicious activities.
 
@@ -634,12 +633,6 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 
 *Logging sub-system*
 
-*Persistence sub-system*
-
-![sub-system2](./img/sub-system2.drawio.png)
-
-*Logging sub-system*
-
 ![sub-system3](./img/sub-system3.drawio.png)
 
 *Security sub-system*
@@ -649,8 +642,6 @@ Elasticsearch and Kibana for logging and monitoring, with PagerDuty for alerting
 ![Connected sub-system](./img/sub-system-all.drawio.png)
 
 *Connected sub-systems*
-
-**Lastly the final component diagram including all the relations between components and sub-systems, including the decomposition diagram**
 
 **Lastly the final component diagram including all the relations between components and sub-systems, including the decomposition diagram**
 

@@ -42,7 +42,6 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<<<<<<< HEAD
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -52,25 +51,12 @@
     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
          <children>
             <TabPane layoutX="-2.0" layoutY="367.0" prefHeight="418.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="480.0" tabMinWidth="480.0">
-=======
-<?import javafx.scene.text.Font?>
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="a02.project.com.GUI.Controller">
-  <children>
-    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
-         <children>
-            <TabPane layoutX="-2.0" layoutY="408.0" prefHeight="377.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE" tabMaxWidth="480.0" tabMinWidth="480.0">
->>>>>>> 44db41c6 (...)
               <tabs>
                 <Tab text="Buttons">
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-<<<<<<< HEAD
                               <GridPane alignment="CENTER" layoutX="352.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="300.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="40.0">
-=======
-                              <GridPane alignment="CENTER" layoutX="352.0" layoutY="20.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="300.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
->>>>>>> 44db41c6 (...)
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="75.0" prefWidth="75.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="75.0" prefWidth="75.0" />
@@ -84,7 +70,6 @@
                                     <RowConstraints maxHeight="-Infinity" minHeight="75.0" prefHeight="75.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-<<<<<<< HEAD
                                     <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#uButton" prefHeight="54.0" prefWidth="96.0" text="u" textAlignment="CENTER" />
                                     <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#uPrimeButton" prefHeight="54.0" prefWidth="96.0" text="u'" textAlignment="CENTER" GridPane.columnIndex="1" />
                                     <Button alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" onAction="#dButton" prefHeight="54.0" prefWidth="96.0" text="d" textAlignment="CENTER" GridPane.columnIndex="2" />
@@ -107,30 +92,6 @@
                               <Button focusTraversable="false" layoutX="134.0" layoutY="215.0" mnemonicParsing="false" onAction="#solveButton" text="Auto-Solve" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="150.0" />
                               <Button focusTraversable="false" layoutX="790.0" layoutY="88.0" mnemonicParsing="false" onAction="#startTButton" text="Start/stop timer" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="150.0" />
                               <Button focusTraversable="false" layoutX="790.0" layoutY="215.0" mnemonicParsing="false" onAction="#resetRecordButton" text="Reset best time" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="150.0" />
-=======
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="54.0" prefWidth="96.0" text="u" textAlignment="CENTER" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="54.0" prefWidth="96.0" text="u'" textAlignment="CENTER" GridPane.columnIndex="1" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="54.0" prefWidth="96.0" text="d" textAlignment="CENTER" GridPane.columnIndex="2" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="54.0" prefWidth="96.0" text="d'" textAlignment="CENTER" GridPane.columnIndex="3" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lButton" prefHeight="54.0" prefWidth="96.0" text="l" textAlignment="CENTER" GridPane.rowIndex="1" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fButton" prefHeight="54.0" prefWidth="96.0" text="f" textAlignment="CENTER" GridPane.rowIndex="2" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#yButton" prefHeight="54.0" prefWidth="96.0" text="y" textAlignment="CENTER" GridPane.rowIndex="3" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#lPrimeButton" prefHeight="54.0" prefWidth="96.0" text="l'" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#fPrimeButton" prefHeight="54.0" prefWidth="96.0" text="f'" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rButton" prefHeight="54.0" prefWidth="96.0" text="r" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mButton" prefHeight="54.0" prefWidth="96.0" text="m" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#rPrimeButton" prefHeight="54.0" prefWidth="96.0" text="r'" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#mPrimeButton" prefHeight="54.0" prefWidth="96.0" text="m'" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#yPrimeButton" prefHeight="54.0" prefWidth="96.0" text="y'" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#xButton" prefHeight="54.0" prefWidth="96.0" text="x" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                    <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#xPrimeButton" prefHeight="54.0" prefWidth="96.0" text="x'" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                                 </children>
-                              </GridPane>
-                              <Button layoutX="138.0" layoutY="88.0" mnemonicParsing="false" text="Scramble" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="150.0" />
-                              <Button layoutX="134.0" layoutY="215.0" mnemonicParsing="false" text="Auto-Solve" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="150.0" />
-                              <Button layoutX="790.0" layoutY="88.0" mnemonicParsing="false" text="Start timer" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="150.0" />
-                              <Button layoutX="790.0" layoutY="215.0" mnemonicParsing="false" text="Reset timer" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="150.0" />
->>>>>>> 44db41c6 (...)
                            </children>
                         </AnchorPane>
                   </content>
@@ -139,53 +100,32 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
-<<<<<<< HEAD
                               <Button focusTraversable="false" layoutX="183.0" layoutY="86.0" mnemonicParsing="false" onAction="#scrambleButton" text="Scramble" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="150.0" />
                               <Button focusTraversable="false" layoutX="183.0" layoutY="224.0" mnemonicParsing="false" onAction="#solveButton" text="Auto-Solve" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="150.0" />
                               <Button focusTraversable="false" layoutX="796.0" layoutY="86.0" mnemonicParsing="false" onAction="#startTButton" text="Start/stop timer" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="150.0" />
                               <Button focusTraversable="false" layoutX="796.0" layoutY="212.0" mnemonicParsing="false" onAction="#resetRecordButton" text="Reset best time" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="150.0" />
                               <TextField fx:id="inputField" layoutX="322.0" layoutY="115.0" prefHeight="45.0" prefWidth="393.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="303.0">
-=======
-                              <Button layoutX="183.0" layoutY="86.0" mnemonicParsing="false" text="Scramble" AnchorPane.bottomAnchor="230.0" AnchorPane.leftAnchor="150.0" />
-                              <Button layoutX="183.0" layoutY="224.0" mnemonicParsing="false" text="Auto-Solve" AnchorPane.bottomAnchor="120.0" AnchorPane.leftAnchor="150.0" />
-                              <Button layoutX="796.0" layoutY="86.0" mnemonicParsing="false" text="Start timer" AnchorPane.bottomAnchor="230.0" AnchorPane.rightAnchor="150.0" />
-                              <Button layoutX="796.0" layoutY="212.0" mnemonicParsing="false" text="Reset timer" AnchorPane.bottomAnchor="120.0" AnchorPane.rightAnchor="150.0" />
-                              <TextField layoutX="322.0" layoutY="115.0" prefHeight="45.0" prefWidth="393.0" AnchorPane.leftAnchor="304.0" AnchorPane.rightAnchor="303.0">
->>>>>>> 44db41c6 (...)
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </TextField>
-<<<<<<< HEAD
                               <Label layoutX="306.0" layoutY="52.0" prefHeight="47.0" prefWidth="392.0" text="Input algorithm separated by whitespace(Example: f f' r x))" AnchorPane.bottomAnchor="275.0" AnchorPane.leftAnchor="304.0">
-=======
-                              <Label layoutX="306.0" layoutY="52.0" prefHeight="47.0" prefWidth="392.0" text="Input algorithm separated by whitespace(Example: f f' r x))" AnchorPane.bottomAnchor="235.0" AnchorPane.leftAnchor="304.0">
->>>>>>> 44db41c6 (...)
                                  <font>
                                     <Font size="16.0" />
                                  </font>
                               </Label>
-<<<<<<< HEAD
                               <Button focusTraversable="false" layoutX="443.0" layoutY="213.0" mnemonicParsing="false" onAction="#performInput" text="Perform algorithm" />
-=======
-                              <Button layoutX="443.0" layoutY="213.0" mnemonicParsing="false" text="Perform algorithm" />
->>>>>>> 44db41c6 (...)
                            </children>
                         </AnchorPane>
                   </content>
                 </Tab>
               </tabs>
             </TabPane>
-<<<<<<< HEAD
             <Label layoutX="12.0" layoutY="295.0" prefHeight="50.0" prefWidth="264.0" text="Timer: " AnchorPane.topAnchor="295.0">
-=======
-            <Label layoutX="38.0" layoutY="342.0" prefHeight="50.0" prefWidth="264.0" text="Timer: xxxxxx">
->>>>>>> 44db41c6 (...)
                <font>
                   <Font size="36.0" />
                </font>
             </Label>
-<<<<<<< HEAD
             <Rectangle fx:id="Cube11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="350.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
             <Rectangle fx:id="Cube12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="380.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
             <Rectangle fx:id="Cube13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" layoutX="410.0" layoutY="66.0" stroke="BLACK" strokeType="INSIDE" width="30.0" />
@@ -271,8 +211,6 @@
                </font>
             </Label>
 
-=======
->>>>>>> 44db41c6 (...)
          </children>
     </AnchorPane>
   </children>
