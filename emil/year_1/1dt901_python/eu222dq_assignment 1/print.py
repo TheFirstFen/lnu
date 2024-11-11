@@ -1,5 +1,0 @@
-print("Knowledge is power!")
-print("\n")
-print("Knowledge\n   Is\n  Power")
-print("\n")
-print("======================\n|                    |\n| Knowledge is power | \n|                    |\n======================")
