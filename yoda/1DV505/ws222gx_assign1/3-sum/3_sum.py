@@ -1,76 +1,16 @@
 import time
 import matplotlib.pyplot as plt
+from algorithms.bf import brute_force
+from algorithms.two_pointer import two_pointer
+from algorithms.caching import caching
 
+def benchmark_function(test_func, target=50, min_size=0, max_size=600,
+                       step=10, trials=5):
 
-def brute_force(lst, target):
-    unique_pairs = set()
-
-    for i in range(len(lst)-2):
-        for j in range(i+1, len(lst)-1):
-            for k in range(j+1, len(lst)):
-                v1, v2, v3 = lst[i], lst[j], lst[k]
-                summa = v1 + v2 + v3
-                if i == j or k == i or k == j:
-                    continue
-                if summa == target:
-                    unique_pairs.add((v1, v2, v3))
-
-    return unique_pairs
-
-
-def two_pointer(lst, target):
-    unique_pairs = set()
-    lst = sorted(lst)  # Two-pointer requires a sorted list
-
-    for fP in range(len(lst) - 2):  # Use `-2` for the three-pointer approach
-        if fP > 0 and lst[fP] == lst[fP - 1]:  # Skip duplicate values for the fixed pointer
-            continue
-
-        left_p = fP + 1
-        right_p = len(lst) - 1
-
-        while left_p < right_p:
-            summa = lst[fP] + lst[left_p] + lst[right_p] - target
-            if summa == 0:
-                unique_pairs.add((lst[fP], lst[left_p], lst[right_p]))
-
-                # move side to side to avoid left pointer and right pointer to be dups
-                while left_p < right_p and lst[left_p] == lst[left_p + 1]:
-                    left_p += 1
-                while left_p < right_p and lst[right_p] == lst[right_p - 1]:
-                    right_p -= 1
-
-                # increase the pointers for the sequence
-                left_p += 1
-                right_p -= 1
-            elif summa < 0:
-                left_p += 1
-            else:
-                right_p -= 1
-
-    return unique_pairs
-
-
-def caching(lst, target):
-    unique_pairs = set()
-    for i in range(len(lst) - 2):
-        cash = set() # reset it to find unique combinations
-        for j in range(i+1, len(lst)):
-            needed_value = (target - lst[i]) - lst[j]
-            if needed_value in cash:
-                unique_pairs.add((lst[i], needed_value, lst[j]))
-        
-            cash.add(lst[j])
-    return unique_pairs
-
-
-def benchmark_function(test_func, target=50, min_size=0, max_size=1000,
-                       step=50, trials=5):
     size_lst = list(range(min_size, max_size + 1, step))
     avg_times = []
 
     for size in size_lst:
-        print(f"Now running size: {size}")
         times = []
         lst = list(range(1, size + 1))
 
@@ -92,11 +32,14 @@ avg_times_bf, size_lst = benchmark_function(brute_force)
 avg_times_tP, size_lst = benchmark_function(two_pointer)
 avg_times_ch, size_lst = benchmark_function(caching)
 
-
+print("Brute force:", avg_times_bf[-1])
+print("Two pointer:", avg_times_tP[-1])
+print("Caching:", avg_times_ch[-1])
 
 
 plt.plot(size_lst, avg_times_bf, "-+r")
 plt.plot(size_lst, avg_times_tP, "-+b")
+plt.plot(size_lst, avg_times_ch, "-+y")
 
 plt.xlabel("List Size")
 plt.ylabel("Average Execution Time (s)")

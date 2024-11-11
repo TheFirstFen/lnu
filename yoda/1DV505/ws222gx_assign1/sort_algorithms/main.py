@@ -23,6 +23,6 @@ print("Slow Quick Sort Time:", quick_sort_times[1][-1])
 # labels for each algorithm
 labels = ["Quick Sort", "Slow Quick Sort"]
 
-make_plot("Time in seconds", "Number sorted", 
+make_plot("Number sorted", "Time in seconds", 
           quick_sort_times[0], quick_sort_times[1], 
           labels=labels, size=sizes)
