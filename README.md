@@ -17,7 +17,7 @@ A proper shit show of a repo
 
 1. `git add .`
 
-2. `git commit -m ''`
+2. `git commit -m '$1'`
 
 3. `git pull --rebase`
 
