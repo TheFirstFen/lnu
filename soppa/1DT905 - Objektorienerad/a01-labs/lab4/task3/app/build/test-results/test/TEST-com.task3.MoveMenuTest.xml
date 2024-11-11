@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.MoveMenuTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:54" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.014">
+  <properties/>
+  <testcase name="testMoveMenuInputNoEnergyFalse()" classname="com.task3.MoveMenuTest" time="0.001"/>
+  <testcase name="testMoveMenuInputNoEnergy5()" classname="com.task3.MoveMenuTest" time="0.002"/>
+  <testcase name="testMoveMenuInputNoEnergyq()" classname="com.task3.MoveMenuTest" time="0.001"/>
+  <testcase name="testMoveMenuInputErrorOutsideField()" classname="com.task3.MoveMenuTest" time="0.001"/>
+  <testcase name="testMoveMenuInputError()" classname="com.task3.MoveMenuTest" time="0.001"/>
+  <testcase name="testMoveMenuInput5()" classname="com.task3.MoveMenuTest" time="0.003"/>
+  <testcase name="testMoveMenuInputq()" classname="com.task3.MoveMenuTest" time="0.0"/>
+  <testcase name="testMoveMenuInput()" classname="com.task3.MoveMenuTest" time="0.004"/>
+  <system-out><![CDATA[No energy left please rest: Current energy: 0
+Current health: 10
+]]>&#x1f916;<![CDATA[- - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - ]]>&#x1f43a;<![CDATA[- 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: The robot has now rested, gained 1 energy
+Energy increased by 3
+Cant go there! Try again: Cant go there! Try again: Cant go there! Try again: Cant go there! Try again: Incorrect input: Current energy: 5
+Current health: 10
+]]>&#x1f916;<![CDATA[- - - - - - - - - 
+- - - - - - ]]>&#x1f353;<![CDATA[- - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - ]]>&#x1f43a;<![CDATA[- - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: The robot has now rested, gained 4 energy
+Health increased by 2
+Current energy: 5
+Current health: 10
+]]>&#x1f916;<![CDATA[- - - - - - - - - 
+- - ]]>&#x1f35c;<![CDATA[- - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - ]]>&#x1f43a;<![CDATA[- 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: Current energy: 4
+Current health: 10
+]]>&#x1f353;<![CDATA[]]>&#x1f916;<![CDATA[- - - - - - - - 
+- - ]]>&#x1f35c;<![CDATA[- - - - - - - 
+- - - - - - - - - - 
+- - - - - - - ]]>&#x1f43a;<![CDATA[- - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: Current energy: 3
+Current health: 10
+]]>&#x1f353;<![CDATA[- - - - - - - - - 
+- ]]>&#x1f916;<![CDATA[]]>&#x1f35c;<![CDATA[- - - - - - - 
+- - - - - - - - - - 
+- - - - - - ]]>&#x1f43a;<![CDATA[- - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: Current energy: 2
+Current health: 10
+]]>&#x1f353;<![CDATA[- - - - - - - - - 
+]]>&#x1f916;<![CDATA[- ]]>&#x1f35c;<![CDATA[- - - - - - - 
+- - - - - - - - - - 
+- - - - - ]]>&#x1f43a;<![CDATA[- - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - ]]>&#x1f3db;<![CDATA[
+********************
+
+1) Move up
+2) Move right
+3) Move down
+4) Move left
+5) Rest (Gain 1 to 5 energy)
+q) Quit
+Your choice: Energy increased by 3
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

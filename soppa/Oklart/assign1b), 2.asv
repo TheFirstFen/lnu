@@ -1,0 +1,21 @@
+1.
+b) Because A * b is not possible to calculate. A has to have the same amount of columns as b 
+has rows which in this case is not true, hence the multiplication A * b is not possible.
+
+
+2.
+z is a solution to Ax = b beacuse the a * z is a column vector of the sum of each row beacuse it is multiplied 
+by ones into a column vector.If we the transpose A and take the sum of A' we get a row vector containing the sum of 
+each column of A' which is the same as each row in A.
+Then we transpose the sum into a column vector which is equal to A * z hence z is a solution to Ax = b.
+
+Conclusion of exercise 2:
+To calculate the solution of Ax = b we can do it in two different ways. Inv(A) * b or A\b which takes different amount of time
+to calculate. If we use inv(A) * b method it is faster for smaller systems but as the systems gets bigger A\b gets faster than
+inv(A) * b method. Although this, the method of A\b is more accurate than inv(A) * b for all sizes of the matrix.
+When using sym(A) the method of A\b is much quicker than the other one but both of them are fully accurate.
+tic,x = A \ b;toc
+tic,y = inv(A) * b;toc
+max(abs(x-z))
+max(abs(y-z))
+

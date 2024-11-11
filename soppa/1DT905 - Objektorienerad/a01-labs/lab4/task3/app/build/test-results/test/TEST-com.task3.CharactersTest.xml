@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.CharactersTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:53" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.001">
+  <properties/>
+  <testcase name="SetPosTest()" classname="com.task3.CharactersTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

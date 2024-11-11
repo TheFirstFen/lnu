@@ -1,0 +1,11 @@
+% Bredd mellersta måttet
+a = 
+% längd längsta måttet
+b =
+% Höjd kortast måttet
+c = 
+
+
+AVX = AngularVelocity.X
+AVY = AngularVelocity.Y
+AVZ = AngularVelocity.Z

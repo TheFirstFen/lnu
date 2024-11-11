@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.calculator.MainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-09-29T08:21:33" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.004">
+  <properties/>
+  <testcase name="testMainWithExit()" classname="com.calculator.MainTest" time="0.002"/>
+  <testcase name="testMainWithCalculation()" classname="com.calculator.MainTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MoveMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.task3</a> &gt; <span class="el_source">MoveMenu.java</span></div><h1>MoveMenu.java</h1><pre class="source lang-java linenums">package com.task3;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class MoveMenu {</span>
+    public static void menu(Scanner scanner, Robot robot) {
+<span class="fc" id="L7">        System.out.println(&quot;\n1) Move up\n&quot; +</span>
+                           &quot;2) Move right\n&quot; +
+                           &quot;3) Move down\n&quot; +
+                           &quot;4) Move left\n&quot; +
+                           &quot;5) Rest (Gain 1 to 5 energy)\n&quot; +
+                           &quot;q) Quit&quot;); 
+<span class="fc" id="L13">        System.out.print(&quot;Your choice: &quot;);</span>
+<span class="fc" id="L14">        String choice = scanner.nextLine();</span>
+<span class="fc bfc" id="L15" title="All 2 branches covered.">        if (choice.equalsIgnoreCase(&quot;q&quot;)) {</span>
+<span class="fc" id="L16">            Main.exitprogram = true;</span>
+        } else {
+<span class="fc" id="L18">            check_input_choice(choice, scanner, robot);</span>
+        }
+<span class="fc" id="L20">    }</span>
+
+    public static void check_input_choice(String choice, Scanner scanner, Robot robot) {
+<span class="fc" id="L23">        boolean executeDefault = true;</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (((Robot) robot).getEnergy() == 0) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">            if (choice.equalsIgnoreCase(&quot;5&quot;)) {</span>
+<span class="fc" id="L26">                Integer restedEnergy = ((Robot) robot).rest();</span>
+<span class="fc" id="L27">                System.out.println(&quot;The robot has now rested, gained &quot; + restedEnergy + &quot; energy&quot;);</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">            } else if (choice.equalsIgnoreCase(&quot;q&quot;)) {</span>
+<span class="fc" id="L29">                Main.exitprogram = true;</span>
+            } else {
+<span class="fc" id="L31">                System.out.print(&quot;No energy left please rest: &quot;);</span>
+<span class="fc" id="L32">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L33">                check_input_choice(newChoice, scanner, robot);</span>
+<span class="fc" id="L34">            }</span>
+        } else {
+<span class="fc bfc" id="L36" title="All 7 branches covered.">            switch (choice) {</span>
+                case &quot;1&quot;:
+<span class="fc bfc" id="L38" title="All 2 branches covered.">                    if (((Robot) robot).getCurrentRow() != 0) {</span>
+<span class="fc" id="L39">                        Movement.moveUp(robot, null);</span>
+<span class="fc" id="L40">                        ((Robot) robot).makeStep();</span>
+<span class="fc" id="L41">                        executeDefault = false; // Don't execute default case</span>
+                    } else {
+<span class="fc" id="L43">                        executeDefault = true;</span>
+                    }
+<span class="fc" id="L45">                    break;</span>
+                case &quot;2&quot;:
+<span class="fc bfc" id="L47" title="All 2 branches covered.">                    if (((Robot) robot).getCurrentColumn() != 9) {</span>
+<span class="fc" id="L48">                        Movement.moveRight(robot, null);</span>
+<span class="fc" id="L49">                        ((Robot) robot).makeStep();</span>
+<span class="fc" id="L50">                        executeDefault = false; // Don't execute default case</span>
+                    } else {
+<span class="fc" id="L52">                        executeDefault = true;</span>
+                    }
+<span class="fc" id="L54">                    break;</span>
+                case &quot;3&quot;:
+<span class="fc bfc" id="L56" title="All 2 branches covered.">                    if (((Robot) robot).getCurrentRow() != 9) {</span>
+<span class="fc" id="L57">                        Movement.moveDown(robot, null);</span>
+<span class="fc" id="L58">                        ((Robot) robot).makeStep();</span>
+<span class="fc" id="L59">                        executeDefault = false; // Don't execute default case</span>
+                    } else {
+<span class="fc" id="L61">                        executeDefault = true;</span>
+                    }
+<span class="fc" id="L63">                    break;</span>
+                case &quot;4&quot;:
+<span class="fc bfc" id="L65" title="All 2 branches covered.">                    if (((Robot) robot).getCurrentColumn() != 0) {</span>
+<span class="fc" id="L66">                        Movement.moveLeft(robot, null);</span>
+<span class="fc" id="L67">                        ((Robot) robot).makeStep();</span>
+<span class="fc" id="L68">                        executeDefault = false; // Don't execute default case</span>
+                    } else {
+<span class="fc" id="L70">                        executeDefault = true;</span>
+                    }
+<span class="fc" id="L72">                    break;</span>
+                case &quot;5&quot;:
+<span class="fc" id="L74">                    Integer restedEnergy = ((Robot) robot).rest();</span>
+<span class="fc" id="L75">                    System.out.println(&quot;The robot has now rested, gained &quot; + restedEnergy + &quot; energy&quot;);</span>
+<span class="fc" id="L76">                    executeDefault = false;</span>
+<span class="fc" id="L77">                    break;</span>
+                case &quot;q&quot;:
+<span class="fc" id="L79">                    Main.exitprogram = true;</span>
+<span class="fc" id="L80">                    executeDefault = false; // Don't execute default case</span>
+<span class="fc" id="L81">                    break;</span>
+                default:
+<span class="fc" id="L83">                    executeDefault = false;</span>
+<span class="fc" id="L84">                    System.out.print(&quot;Incorrect input: &quot;);</span>
+<span class="fc" id="L85">                    String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L86">                    check_input_choice(newChoice, scanner, robot);</span>
+            }
+        
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            if (executeDefault) {</span>
+<span class="fc" id="L90">                System.out.print(&quot;Cant go there! Try again: &quot;);</span>
+<span class="fc" id="L91">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L92">                check_input_choice(newChoice, scanner, robot);</span>
+            }
+        }
+<span class="fc" id="L95">    }</span>
+    }
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

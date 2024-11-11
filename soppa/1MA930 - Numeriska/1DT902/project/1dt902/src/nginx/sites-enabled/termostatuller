@@ -1,0 +1,41 @@
+server {
+    server_name termostatuller.billenius.com;
+
+    root /var/www/termostatuller/;
+    index index.html index.htm index.nginx-debian.html;
+
+
+    location /sql {
+    	proxy_pass http://localhost:8579;
+    }
+    location / {
+	if ($request_method ~* "(GET|POST)") {
+     	   add_header 'Access-Control-Allow-Origin' '*' always;
+    	}
+        try_files $uri $uri/ =404;
+    }
+
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/billenius.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/billenius.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+
+server {
+    if ($host = termostatuller.billenius.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+    listen 80;
+    listen [::]:80;
+
+    server_name termostatuller.billenius.com;
+    return 404; # managed by Certbot
+
+
+}

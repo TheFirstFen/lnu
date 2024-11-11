@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.CollisionsTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:53" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.005">
+  <properties/>
+  <testcase name="testFightInteractionRobotWin()" classname="com.task3.CollisionsTest" time="0.001"/>
+  <testcase name="testCheckCollisionsWithHome()" classname="com.task3.CollisionsTest" time="0.001"/>
+  <testcase name="testCheckCollisionsWithSoup()" classname="com.task3.CollisionsTest" time="0.001"/>
+  <testcase name="testCheckCollisionsWithWolf()" classname="com.task3.CollisionsTest" time="0.0"/>
+  <testcase name="testCheckCollisionsWithStrawberry()" classname="com.task3.CollisionsTest" time="0.001"/>
+  <testcase name="testFightInteractionRobotDead()" classname="com.task3.CollisionsTest" time="0.001"/>
+  <testcase name="testFightInteractionRobotLose()" classname="com.task3.CollisionsTest" time="0.0"/>
+  <system-out><![CDATA[You succesfully won the fight, wolf has to rest for 5 rounds
+Health increased by 2
+You succesfully won the fight, wolf has to rest for 5 rounds
+Energy increased by 3
+You sadly lost the fight, wolf did 10 damage to you.
+You lost! The wolf succesfully caught and killed you.
+You sadly lost the fight, wolf did 5 damage to you.
+The wolf is exhausted and now has to rest for 3 rounds, Run!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.onlinefarmacy","l":"Drug"},{"p":"com.onlinefarmacy","l":"DrugStorage"},{"p":"com.onlinefarmacy","l":"Main"},{"p":"com.onlinefarmacy","l":"Menu"},{"p":"com.onlinefarmacy","l":"Receipt"},{"p":"com.onlinefarmacy","l":"ReceiptHandling"}];updateSearchResults();

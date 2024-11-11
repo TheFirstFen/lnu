@@ -1,0 +1,41 @@
+/* Date Picker Style */
+.date-picker {
+    -fx-font-size: 14px;
+}
+
+/* Date Picker Arrow Button */
+.date-picker .arrow-button {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+}
+
+/* Date Picker Calendar Pane */
+.date-picker .popup {
+    -fx-background-color: #f5f5f5;
+}
+
+/* Date Picker Day Cell */
+.date-picker .date-cell {
+    -fx-background-color: #f5f5f5;
+    -fx-font-size: 14px;
+    -fx-text-fill: #000000; /* Set a consistent text color */
+}
+
+.date-picker .date-cell:hover {
+    -fx-background-color: #f48f0b;
+}
+
+/* Date Picker Today's Date */
+.date-picker .today {
+    -fx-background-color: #f48f0b;
+    -fx-text-fill: black;
+}
+
+/* Date Picker Highlighted Range */
+.date-picker .highlight-range {
+    -fx-background-color: #f48f0b;
+    -fx-text-fill: #f48f0b;
+}
+.date-picker .week-number-cell {
+    -fx-background-color: lightgrey;
+}

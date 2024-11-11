@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Controller.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">a02.project.com.GUI</a> &gt; <span class="el_source">Controller.java</span></div><h1>Controller.java</h1><pre class="source lang-java linenums">package a02.project.com.GUI;
+
+import javafx.scene.shape.Rectangle;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
+
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import a02.project.com.cube.RubiksCube;
+
+import java.util.ArrayList;
+
+
+<span class="nc" id="L27">public class Controller { </span>
+    @FXML private Rectangle Cube11;
+    @FXML private Rectangle Cube12;
+    @FXML private Rectangle Cube13;
+    @FXML private Rectangle Cube14;
+    @FXML private Rectangle Cube15;
+    @FXML private Rectangle Cube16;
+    @FXML private Rectangle Cube17;
+    @FXML private Rectangle Cube18;
+    @FXML private Rectangle Cube19;
+    @FXML private Rectangle Cube21;
+    @FXML private Rectangle Cube22;
+    @FXML private Rectangle Cube23;
+    @FXML private Rectangle Cube24;
+    @FXML private Rectangle Cube25;
+    @FXML private Rectangle Cube26;
+    @FXML private Rectangle Cube27;
+    @FXML private Rectangle Cube28;
+    @FXML private Rectangle Cube29;
+    @FXML private Rectangle Cube31;
+    @FXML private Rectangle Cube32;
+    @FXML private Rectangle Cube33;
+    @FXML private Rectangle Cube34;
+    @FXML private Rectangle Cube35;
+    @FXML private Rectangle Cube36;
+    @FXML private Rectangle Cube37;
+    @FXML private Rectangle Cube38;
+    @FXML private Rectangle Cube39;
+    @FXML private Rectangle Cube41;
+    @FXML private Rectangle Cube42;
+    @FXML private Rectangle Cube43;
+    @FXML private Rectangle Cube44;
+    @FXML private Rectangle Cube45;
+    @FXML private Rectangle Cube46;
+    @FXML private Rectangle Cube47;
+    @FXML private Rectangle Cube48;
+    @FXML private Rectangle Cube49;
+    @FXML private Rectangle Cube51;
+    @FXML private Rectangle Cube52;
+    @FXML private Rectangle Cube53;
+    @FXML private Rectangle Cube54;
+    @FXML private Rectangle Cube55;
+    @FXML private Rectangle Cube56;
+    @FXML private Rectangle Cube57;
+    @FXML private Rectangle Cube58;
+    @FXML private Rectangle Cube59;
+    @FXML private Rectangle Cube61;
+    @FXML private Rectangle Cube62;
+    @FXML private Rectangle Cube63;
+    @FXML private Rectangle Cube64;
+    @FXML private Rectangle Cube65;
+    @FXML private Rectangle Cube66;
+    @FXML private Rectangle Cube67;
+    @FXML private Rectangle Cube68;
+    @FXML private Rectangle Cube69;
+    @FXML private TextField inputField;
+    @FXML private Label timer;
+    @FXML private Label recentTime;
+    @FXML private Label bestTime;
+<span class="nc" id="L86">    private static Double besttime = 0.0;</span>
+<span class="nc" id="L87">    private Boolean isInit = false;</span>
+    private static Rectangle [][][] cube3d;
+    private static Timeline timeline;
+    private Double seconds;
+    @FXML public static VBox test;
+
+
+    
+    public void initializeCube() {
+<span class="nc" id="L96">        List&lt;Rectangle&gt; parts = new ArrayList&lt;&gt;();</span>
+<span class="nc" id="L97">        parts.add(Cube11);</span>
+<span class="nc" id="L98">        parts.add(Cube12);</span>
+<span class="nc" id="L99">        parts.add(Cube13);</span>
+<span class="nc" id="L100">        parts.add(Cube14);</span>
+<span class="nc" id="L101">        parts.add(Cube15);</span>
+<span class="nc" id="L102">        parts.add(Cube16);</span>
+<span class="nc" id="L103">        parts.add(Cube17);</span>
+<span class="nc" id="L104">        parts.add(Cube18);</span>
+<span class="nc" id="L105">        parts.add(Cube19);</span>
+<span class="nc" id="L106">        parts.add(Cube21);</span>
+<span class="nc" id="L107">        parts.add(Cube22);</span>
+<span class="nc" id="L108">        parts.add(Cube23);</span>
+<span class="nc" id="L109">        parts.add(Cube24);</span>
+<span class="nc" id="L110">        parts.add(Cube25);</span>
+<span class="nc" id="L111">        parts.add(Cube26);</span>
+<span class="nc" id="L112">        parts.add(Cube27);</span>
+<span class="nc" id="L113">        parts.add(Cube28);</span>
+<span class="nc" id="L114">        parts.add(Cube29);</span>
+<span class="nc" id="L115">        parts.add(Cube31);</span>
+<span class="nc" id="L116">        parts.add(Cube32);</span>
+<span class="nc" id="L117">        parts.add(Cube33);</span>
+<span class="nc" id="L118">        parts.add(Cube34);</span>
+<span class="nc" id="L119">        parts.add(Cube35);</span>
+<span class="nc" id="L120">        parts.add(Cube36);</span>
+<span class="nc" id="L121">        parts.add(Cube37);</span>
+<span class="nc" id="L122">        parts.add(Cube38);</span>
+<span class="nc" id="L123">        parts.add(Cube39);</span>
+<span class="nc" id="L124">        parts.add(Cube41);</span>
+<span class="nc" id="L125">        parts.add(Cube42);</span>
+<span class="nc" id="L126">        parts.add(Cube43);</span>
+<span class="nc" id="L127">        parts.add(Cube44);</span>
+<span class="nc" id="L128">        parts.add(Cube45);</span>
+<span class="nc" id="L129">        parts.add(Cube46);</span>
+<span class="nc" id="L130">        parts.add(Cube47);</span>
+<span class="nc" id="L131">        parts.add(Cube48);</span>
+<span class="nc" id="L132">        parts.add(Cube49);</span>
+<span class="nc" id="L133">        parts.add(Cube61);</span>
+<span class="nc" id="L134">        parts.add(Cube62);</span>
+<span class="nc" id="L135">        parts.add(Cube63);</span>
+<span class="nc" id="L136">        parts.add(Cube64);</span>
+<span class="nc" id="L137">        parts.add(Cube65);</span>
+<span class="nc" id="L138">        parts.add(Cube66);</span>
+<span class="nc" id="L139">        parts.add(Cube67);</span>
+<span class="nc" id="L140">        parts.add(Cube68);</span>
+<span class="nc" id="L141">        parts.add(Cube69);</span>
+<span class="nc" id="L142">        parts.add(Cube51);</span>
+<span class="nc" id="L143">        parts.add(Cube52);</span>
+<span class="nc" id="L144">        parts.add(Cube53);</span>
+<span class="nc" id="L145">        parts.add(Cube54);</span>
+<span class="nc" id="L146">        parts.add(Cube55);</span>
+<span class="nc" id="L147">        parts.add(Cube56);</span>
+<span class="nc" id="L148">        parts.add(Cube57);</span>
+<span class="nc" id="L149">        parts.add(Cube58);</span>
+<span class="nc" id="L150">        parts.add(Cube59);</span>
+<span class="nc" id="L151">        cube3d = new Rectangle [6][3][3];</span>
+<span class="nc" id="L152">        Integer index = 0;</span>
+<span class="nc bnc" id="L153" title="All 2 branches missed.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc bnc" id="L154" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="nc" id="L156">                    cube3d[i][j][k] = parts.get(index);</span>
+<span class="nc" id="L157">                    index ++;</span>
+                }
+            }
+        }
+<span class="nc" id="L161">    isInit = true;</span>
+<span class="nc" id="L162">    }</span>
+
+    public static void changeFaces(String [][][] newCube){
+<span class="nc bnc" id="L165" title="All 2 branches missed.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc bnc" id="L166" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L167" title="All 2 branches missed.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="nc" id="L168">                    Color color = getColor(newCube[i][j][k]);</span>
+<span class="nc" id="L169">                    cube3d[i][j][k].setFill(color);</span>
+                }
+            }
+        }
+<span class="nc" id="L173">    }</span>
+
+    private static Color getColor(String color) {
+<span class="nc bnc" id="L176" title="All 7 branches missed.">        switch (color) {</span>
+            case &quot;\033[97m\u25A0\033[0m&quot;:
+<span class="nc" id="L178">                return Color.WHITE;</span>
+            case &quot;\033[92m\u25A0\033[0m&quot;:
+<span class="nc" id="L180">                return Color.web(&quot;#1fff68&quot;);</span>
+            case &quot;\033[31m\u25A0\033[0m&quot;:
+<span class="nc" id="L182">                return Color.web(&quot;#ff1f1f&quot;);</span>
+            case &quot;\033[94m\u25A0\033[0m&quot;:
+<span class="nc" id="L184">                return Color.DODGERBLUE;</span>
+            case &quot;\033[93m\u25A0\033[0m&quot;:
+<span class="nc" id="L186">                return Color.web(&quot;#e7ff1f&quot;);</span>
+            case &quot;\033[95m\u25A0\033[0m&quot;:
+<span class="nc" id="L188">                return Color.web(&quot;#ff8e1f&quot;);</span>
+            }
+<span class="nc" id="L190">            return Color.BLACK;</span>
+    }
+
+    public void performInput(ActionEvent event){
+<span class="nc" id="L194">        String input = inputField.getText();</span>
+<span class="nc bnc" id="L195" title="All 2 branches missed.">        if (checkInputString(input)) {</span>
+<span class="nc" id="L196">            String[] algo = input.split(&quot; &quot;);</span>
+<span class="nc bnc" id="L197" title="All 2 branches missed.">            for (String a : algo) {</span>
+<span class="nc bnc" id="L198" title="All 17 branches missed.">                switch (a) {</span>
+                    case &quot;r&quot;:
+<span class="nc" id="L200">                        rButton(event);</span>
+<span class="nc" id="L201">                        break;</span>
+                    case &quot;r'&quot;:
+<span class="nc" id="L203">                        rPrimeButton(event);</span>
+<span class="nc" id="L204">                        break;</span>
+                    case &quot;m&quot;:
+<span class="nc" id="L206">                        mButton(event);</span>
+<span class="nc" id="L207">                        break;</span>
+                    case &quot;m'&quot;:
+<span class="nc" id="L209">                        mPrimeButton(event);</span>
+<span class="nc" id="L210">                        break;</span>
+                    case &quot;l&quot;:
+<span class="nc" id="L212">                        lButton(event);</span>
+<span class="nc" id="L213">                        break;</span>
+                    case &quot;l'&quot;:
+<span class="nc" id="L215">                        lPrimeButton(event);</span>
+<span class="nc" id="L216">                        break;</span>
+                    case &quot;f&quot;:
+<span class="nc" id="L218">                        fButton(event);</span>
+<span class="nc" id="L219">                        break;</span>
+                    case &quot;f'&quot;:
+<span class="nc" id="L221">                        fPrimeButton(event);</span>
+<span class="nc" id="L222">                        break;</span>
+                    case &quot;u&quot;:
+<span class="nc" id="L224">                        uButton(event);</span>
+<span class="nc" id="L225">                        break;</span>
+                    case &quot;u'&quot;:
+<span class="nc" id="L227">                        uPrimeButton(event);</span>
+<span class="nc" id="L228">                        break;</span>
+                    case &quot;d&quot;:
+<span class="nc" id="L230">                        dButton(event);</span>
+<span class="nc" id="L231">                        break;</span>
+                    case &quot;d'&quot;:
+<span class="nc" id="L233">                        dPrimeButton(event);</span>
+<span class="nc" id="L234">                        break;</span>
+                    case &quot;x&quot;:
+<span class="nc" id="L236">                        xButton(event);</span>
+<span class="nc" id="L237">                        break;</span>
+                    case &quot;x'&quot;:
+<span class="nc" id="L239">                        xPrimeButton(event);</span>
+<span class="nc" id="L240">                        break;</span>
+                    case &quot;y&quot;:
+<span class="nc" id="L242">                        yButton(event);</span>
+<span class="nc" id="L243">                        break;</span>
+                    case &quot;y'&quot;:
+<span class="nc" id="L245">                        yPrimeButton(event);</span>
+<span class="nc" id="L246">                        break;</span>
+                    default:
+<span class="nc" id="L248">                        Alert alert = new Alert(AlertType.ERROR);</span>
+<span class="nc" id="L249">                        alert.setTitle(&quot;Invalid Input&quot;);</span>
+<span class="nc" id="L250">                        alert.setHeaderText(null);</span>
+<span class="nc" id="L251">                        alert.setContentText(&quot;Please provide a valid input separated by whitespace!&quot;);</span>
+<span class="nc" id="L252">                        alert.showAndWait(); </span>
+                        break;
+                    }
+                    
+                }
+<span class="nc" id="L257">            } else {</span>
+<span class="nc" id="L258">                Alert alert = new Alert(AlertType.ERROR);</span>
+<span class="nc" id="L259">                alert.setTitle(&quot;Invalid Input&quot;);</span>
+<span class="nc" id="L260">                alert.setHeaderText(null);</span>
+<span class="nc" id="L261">                alert.setContentText(&quot;Please provide a valid input separated by whitespace!&quot;);</span>
+<span class="nc" id="L262">                alert.showAndWait(); </span>
+        }
+        
+<span class="nc" id="L265">    }</span>
+    public static boolean checkInputString(String input) {
+<span class="nc bnc" id="L267" title="All 2 branches missed.">        if (!input.matches(&quot;^[udfrlmxyUDFRLMXY\\s']+$&quot;)) {</span>
+<span class="nc" id="L268">            return false;</span>
+        }
+
+<span class="nc" id="L271">        Pattern pattern = Pattern.compile(&quot;^[udfrlmxyUDFRLMXY\\s']*&quot;);</span>
+<span class="nc" id="L272">        Matcher matcher = pattern.matcher(input);</span>
+
+<span class="nc" id="L274">        return matcher.matches();</span>
+    }
+
+    
+    public void scrambleButton (ActionEvent event) {
+<span class="nc bnc" id="L279" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L280">            initializeCube();</span>
+        }
+<span class="nc" id="L282">        String [][][] newCube = RubiksCube.mainLoop(&quot;sc&quot;);</span>
+<span class="nc" id="L283">        changeFaces(newCube);</span>
+<span class="nc" id="L284">    }</span>
+    public void solveButton (ActionEvent event) {
+<span class="nc bnc" id="L286" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L287">            initializeCube();</span>
+        }
+<span class="nc" id="L289">        String [][][] newCube = RubiksCube.mainLoop(&quot;solve&quot;);</span>
+<span class="nc" id="L290">        changeFaces(newCube);</span>
+        
+<span class="nc" id="L292">    }</span>
+    public void keyPressed(KeyEvent key) {
+<span class="nc bnc" id="L294" title="All 2 branches missed.">        if (key.getCode().equals(KeyCode.SPACE)) {</span>
+<span class="nc bnc" id="L295" title="All 2 branches missed.">            if (timeline != null) {</span>
+<span class="nc" id="L296">                stopTimer();</span>
+<span class="nc" id="L297">                reset();</span>
+            } else {
+<span class="nc" id="L299">                start(null);</span>
+            }
+        }
+<span class="nc" id="L302">    }</span>
+    public void start(ActionEvent eventt) {
+<span class="nc bnc" id="L304" title="All 2 branches missed.">        if (timeline == null) {</span>
+<span class="nc" id="L305">            seconds = 0.0;</span>
+    
+    
+<span class="nc" id="L308">            timeline = new Timeline(new KeyFrame(Duration.millis(10), event -&gt; {</span>
+<span class="nc" id="L309">                seconds += 0.01;</span>
+<span class="nc" id="L310">                timer.setText(String.format(&quot;%.2f&quot;, seconds));</span>
+<span class="nc" id="L311">            }));</span>
+    
+<span class="nc" id="L313">            timeline.setCycleCount(Timeline.INDEFINITE);</span>
+    
+<span class="nc" id="L315">            timeline.play();</span>
+        }
+<span class="nc" id="L317">    }</span>
+    public void reset() {
+<span class="nc" id="L319">        timeline.stop();</span>
+<span class="nc" id="L320">        timeline = null;</span>
+<span class="nc" id="L321">        seconds = 0.0;</span>
+<span class="nc" id="L322">        timer.setText(&quot;0,00&quot;);</span>
+<span class="nc" id="L323">    }</span>
+
+    public void stopTimer() {
+<span class="nc bnc" id="L326" title="All 2 branches missed.">        if (timeline != null) {</span>
+<span class="nc bnc" id="L327" title="All 4 branches missed.">            if (seconds &lt; besttime || besttime == 0.0){</span>
+<span class="nc" id="L328">                besttime = seconds;</span>
+<span class="nc" id="L329">                bestTime.setText(String.format(&quot;%.2f&quot;, seconds));</span>
+            }
+<span class="nc" id="L331">            recentTime.setText(String.format(&quot;%.2f&quot;, seconds));</span>
+<span class="nc" id="L332">            timeline.stop();</span>
+<span class="nc" id="L333">            timeline = null;</span>
+        }
+<span class="nc" id="L335">    }</span>
+    public void startTButton(ActionEvent event) {
+<span class="nc bnc" id="L337" title="All 2 branches missed.">        if (timeline != null) {</span>
+<span class="nc" id="L338">            stopTimer();</span>
+<span class="nc" id="L339">            reset();</span>
+        } else {
+<span class="nc" id="L341">            start(null);</span>
+        }  
+<span class="nc" id="L343">    }</span>
+    public void resetRecordButton(ActionEvent event) {
+<span class="nc" id="L345">        besttime = 0.0;</span>
+<span class="nc" id="L346">        bestTime.setText(&quot;0,00&quot;);</span>
+<span class="nc" id="L347">    }</span>
+    
+    public void rButton (ActionEvent event) {
+<span class="nc bnc" id="L350" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L351">            initializeCube();</span>
+        }
+<span class="nc" id="L353">        String [][][] newCube = RubiksCube.mainLoop(&quot;R&quot;);</span>
+<span class="nc" id="L354">        changeFaces(newCube);</span>
+<span class="nc" id="L355">    }</span>
+    
+    public void rPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L358" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L359">            initializeCube();</span>
+        }
+<span class="nc" id="L361">        String [][][] newCube = RubiksCube.mainLoop(&quot;r&quot;);</span>
+<span class="nc" id="L362">        changeFaces(newCube);</span>
+<span class="nc" id="L363">    }</span>
+    
+    public void mButton (ActionEvent event) {
+<span class="nc bnc" id="L366" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L367">            initializeCube();</span>
+        }
+<span class="nc" id="L369">        String [][][] newCube = RubiksCube.mainLoop(&quot;r&quot;);</span>
+<span class="nc" id="L370">        newCube = RubiksCube.mainLoop(&quot;L&quot;);</span>
+<span class="nc" id="L371">        newCube = RubiksCube.mainLoop(&quot;Y&quot;);</span>
+<span class="nc" id="L372">        changeFaces(newCube);</span>
+<span class="nc" id="L373">    }</span>
+    
+    public void mPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L376" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L377">            initializeCube();</span>
+        }
+<span class="nc" id="L379">        String [][][] newCube = RubiksCube.mainLoop(&quot;R&quot;);</span>
+<span class="nc" id="L380">        newCube = RubiksCube.mainLoop(&quot;l&quot;);</span>
+<span class="nc" id="L381">        newCube = RubiksCube.mainLoop(&quot;y&quot;);</span>
+<span class="nc" id="L382">        changeFaces(newCube);</span>
+<span class="nc" id="L383">    }</span>
+    
+    public void lButton (ActionEvent event) {
+<span class="nc bnc" id="L386" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L387">            initializeCube();</span>
+        }
+<span class="nc" id="L389">        String [][][] newCube = RubiksCube.mainLoop(&quot;L&quot;);</span>
+<span class="nc" id="L390">        changeFaces(newCube);</span>
+<span class="nc" id="L391">    }</span>
+    
+    public void lPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L394" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L395">            initializeCube();</span>
+        }
+<span class="nc" id="L397">        String [][][] newCube = RubiksCube.mainLoop(&quot;l&quot;);</span>
+<span class="nc" id="L398">        changeFaces(newCube);</span>
+<span class="nc" id="L399">    }</span>
+    
+    
+    public void fButton (ActionEvent event) {
+<span class="nc bnc" id="L403" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L404">            initializeCube();</span>
+        }
+<span class="nc" id="L406">        String [][][] newCube = RubiksCube.mainLoop(&quot;F&quot;);</span>
+<span class="nc" id="L407">        changeFaces(newCube);</span>
+<span class="nc" id="L408">    }</span>
+    
+    
+    public void fPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L412" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L413">            initializeCube();</span>
+        }
+<span class="nc" id="L415">        String [][][] newCube = RubiksCube.mainLoop(&quot;f&quot;);</span>
+<span class="nc" id="L416">        changeFaces(newCube);</span>
+<span class="nc" id="L417">    }</span>
+    public void dButton (ActionEvent event) {
+<span class="nc bnc" id="L419" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L420">            initializeCube();</span>
+        }
+<span class="nc" id="L422">        String [][][] newCube = RubiksCube.mainLoop(&quot;D&quot;);</span>
+<span class="nc" id="L423">        changeFaces(newCube);</span>
+<span class="nc" id="L424">    }</span>
+    
+    
+    public void dPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L428" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L429">            initializeCube();</span>
+        }
+<span class="nc" id="L431">        String [][][] newCube = RubiksCube.mainLoop(&quot;d&quot;);</span>
+<span class="nc" id="L432">        changeFaces(newCube);</span>
+<span class="nc" id="L433">    }</span>
+    public void uButton (ActionEvent event) {
+<span class="nc bnc" id="L435" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L436">            initializeCube();</span>
+        }
+<span class="nc" id="L438">        String [][][] newCube = RubiksCube.mainLoop(&quot;U&quot;);</span>
+<span class="nc" id="L439">        changeFaces(newCube);</span>
+<span class="nc" id="L440">    }</span>
+    
+    
+    public void uPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L444" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L445">            initializeCube();</span>
+        }
+<span class="nc" id="L447">        String [][][] newCube = RubiksCube.mainLoop(&quot;u&quot;);</span>
+<span class="nc" id="L448">        changeFaces(newCube);</span>
+<span class="nc" id="L449">    }</span>
+    
+    public void xButton (ActionEvent event) {
+<span class="nc bnc" id="L452" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L453">            initializeCube();</span>
+        }
+<span class="nc" id="L455">        String [][][] newCube = RubiksCube.mainLoop(&quot;X&quot;);</span>
+<span class="nc" id="L456">        changeFaces(newCube);</span>
+<span class="nc" id="L457">    }</span>
+    public void xPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L459" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L460">            initializeCube();</span>
+        }
+<span class="nc" id="L462">        String [][][] newCube = RubiksCube.mainLoop(&quot;x&quot;);</span>
+<span class="nc" id="L463">        changeFaces(newCube);</span>
+<span class="nc" id="L464">    }</span>
+    public void yButton (ActionEvent event) {
+<span class="nc bnc" id="L466" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L467">            initializeCube();</span>
+        }
+<span class="nc" id="L469">        String [][][] newCube = RubiksCube.mainLoop(&quot;Y&quot;);</span>
+<span class="nc" id="L470">        changeFaces(newCube);</span>
+<span class="nc" id="L471">    }</span>
+    public void yPrimeButton (ActionEvent event) {
+<span class="nc bnc" id="L473" title="All 2 branches missed.">        if (!isInit) {</span>
+<span class="nc" id="L474">            initializeCube();</span>
+        }
+<span class="nc" id="L476">        String [][][] newCube = RubiksCube.mainLoop(&quot;y&quot;);</span>
+<span class="nc" id="L477">        changeFaces(newCube);</span>
+<span class="nc" id="L478">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.MainTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:54" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.007">
+  <properties/>
+  <testcase name="exitTest()" classname="com.task3.MainTest" time="0.004"/>
+  <testcase name="RobotWonTest()" classname="com.task3.MainTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

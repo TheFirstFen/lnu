@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RubiksCube.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">a02.project.com.cube</a> &gt; <span class="el_source">RubiksCube.java</span></div><h1>RubiksCube.java</h1><pre class="source lang-java linenums">package a02.project.com.cube;
+
+<span class="nc" id="L3">public class RubiksCube {</span>
+    public static void main(String[] args) {
+<span class="nc" id="L5">        String[][][] colorMatrix = new String[6][3][3];</span>
+
+<span class="nc" id="L7">        char[] colorLetters = { 'R', 'G', 'B', 'W', 'Y', 'O' };</span>
+
+<span class="nc bnc" id="L9" title="All 2 branches missed.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc bnc" id="L10" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L11" title="All 2 branches missed.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="nc" id="L12">                    colorMatrix[i][j][k] = String.valueOf(colorLetters[i]);</span>
+                }
+            }
+        }
+
+<span class="nc" id="L17">        print2DCube(colorMatrix);</span>
+<span class="nc" id="L18">        print3DCube(colorMatrix);</span>
+
+<span class="nc" id="L20">        rotateCube(colorMatrix, &quot;clockwise&quot;);</span>
+
+<span class="nc" id="L22">        print2DCube(colorMatrix);</span>
+<span class="nc" id="L23">        print3DCube(colorMatrix);</span>
+<span class="nc" id="L24">    }</span>
+
+    private static void print2DCube(String[][][] cube) {
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="nc" id="L28">            System.out.print(&quot;       &quot;);</span>
+<span class="nc bnc" id="L29" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L30">                System.out.print(cube[1][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L32">            System.out.println();</span>
+        }
+        
+        // Print the left, front, right, and back faces
+<span class="nc bnc" id="L36" title="All 2 branches missed.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L38">                System.out.print(cube[4][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L40">            System.out.print(&quot; &quot;);</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L42">                System.out.print(cube[0][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L44">            System.out.print(&quot; &quot;);</span>
+<span class="nc bnc" id="L45" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L46">                System.out.print(cube[2][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L48">            System.out.print(&quot; &quot;);</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L50">                System.out.print(cube[5][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L52">            System.out.println();</span>
+        }
+
+        // Print the bottom face
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        for (int i = 0; i &lt; 3; i++) {</span>
+<span class="nc" id="L57">            System.out.print(&quot;       &quot;);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc" id="L59">                System.out.print(cube[3][i][j] + &quot; &quot;);</span>
+            }
+<span class="nc" id="L61">            System.out.println();</span>
+        }
+<span class="nc" id="L63">    }</span>
+
+    private static void print3DCube(String[][][] cube) {
+<span class="nc bnc" id="L66" title="All 2 branches missed.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc" id="L67">            System.out.println(&quot;Face &quot; + i + &quot;:&quot;);</span>
+<span class="nc bnc" id="L68" title="All 2 branches missed.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L69" title="All 2 branches missed.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="nc" id="L70">                    System.out.print(cube[i][j][k] + &quot; &quot;);</span>
+                }
+<span class="nc" id="L72">                System.out.println();</span>
+            }
+        }
+<span class="nc" id="L75">        System.out.println();</span>
+<span class="nc" id="L76">    }</span>
+
+    private static void rotateCube(String[][][] cube, String direction) {
+<span class="nc bnc" id="L79" title="All 2 branches missed.">        if (direction.equals(&quot;clockwise&quot;)) {</span>
+<span class="nc" id="L80">            String[][][] temp = new String[6][3][3];</span>
+
+<span class="nc bnc" id="L82" title="All 2 branches missed.">            for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc bnc" id="L83" title="All 2 branches missed.">                for (int j = 0; j &lt; 3; j++) {</span>
+<span class="nc bnc" id="L84" title="All 2 branches missed.">                    for (int k = 0; k &lt; 3; k++) {</span>
+<span class="nc" id="L85">                        temp[i][j][k] = cube[i][j][k];</span>
+                    }
+                }
+            }
+<span class="nc bnc" id="L89" title="All 2 branches missed.">            for (int i = 0; i &lt; 6; i++) {</span>
+<span class="nc" id="L90">                cube[i][0][0] = temp[(i + 4) % 6][0][0];</span>
+<span class="nc" id="L91">                cube[i][0][1] = temp[(i + 4) % 6][0][1];</span>
+<span class="nc" id="L92">                cube[i][0][2] = temp[(i + 4) % 6][0][2];</span>
+<span class="nc" id="L93">                cube[i][1][0] = temp[(i + 4) % 6][1][0];</span>
+<span class="nc" id="L94">                cube[i][1][2] = temp[(i + 4) % 6][1][2];</span>
+<span class="nc" id="L95">                cube[i][2][0] = temp[(i + 4) % 6][2][0];</span>
+<span class="nc" id="L96">                cube[i][2][1] = temp[(i + 4) % 6][2][1];</span>
+<span class="nc" id="L97">                cube[i][2][2] = temp[(i + 4) % 6][2][2];</span>
+            }
+        }
+<span class="nc" id="L100">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

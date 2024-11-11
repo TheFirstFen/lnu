@@ -1,0 +1,42 @@
+Create a new receipt menu
+Choose which drug:
+
+1. Alvedon
+	2. Ipren
+3. Desloratadine
+4. Brikanyl
+5. Morifin
+,Your choice: Creating a receipt for Alvedon
+?Choose amount(min 1, max 1000): Created a recipe for 1 Alvedon
+Creating a receipt for Ipren
+=Choose amount(min 1, max 1000): Created a recipe for 2 Ipren
+%Creating a receipt for Desloratadine
+EChoose amount(min 1, max 1000): Created a recipe for 3 Desloratadine
+ Creating a receipt for Brikanyl
+@Choose amount(min 1, max 1000): Created a recipe for 4 Brikanyl
+Creating a receipt for Morifin
+?Choose amount(min 1, max 1000): Created a recipe for 5 Morifin
+0Incorrect input: Creating a receipt for Morifin
+?Choose amount(min 1, max 1000): Created a recipe for 5 Morifin
+8/Users/jesper/Documents/School/1dt905/a01-labs/lab5/app
+Welcome to the online farmacy
+
+1) View all receipts
+2) View one receipt
+3) Add a new receipt
+4) Change an existing receipt
+5) Remove an existing receipt
+6) Export all recipes as JSON
+7) Export all recipes as CSV
+q) Quit
+$Your choice: Exiting the program...
+(Incorrect input: Exiting the program...
+Exiting the program...
+124Receipt exported as Test Drug - 2023-10-17 15:41:20
+12_Files saved to /Users/jesper/Documents/School/1dt905/a01-labs/lab5/app/ExportsTest/JsonExports
+12 Json file deleted successfully.
+12!Failed to delete Json directory.
+144Receipt exported as Test Drug - 2023-10-17 15:41:20
+14^Files saved to /Users/jesper/Documents/School/1dt905/a01-labs/lab5/app/ExportsTest/CSVExports
+14CSV file deleted successfully.
+14 Failed to delete CSV directory.

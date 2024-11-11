@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onlinefarmacy.TestReceiptMenu" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-10-17T13:41:20" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.011">
+  <properties/>
+  <testcase name="testUpdateReceiptQuantity()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.002"/>
+  <testcase name="testUpdateReceiptDrug()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.001"/>
+  <testcase name="testShowReceiptFalseInputText()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.001"/>
+  <testcase name="testInputRemoveFalseInput()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.0"/>
+  <testcase name="testRemoveReceipt()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.001"/>
+  <testcase name="testDrugChoiceInput()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.001"/>
+  <testcase name="testIncorrectUpdateFalseInput()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.001"/>
+  <testcase name="testShowReceipt()" classname="com.onlinefarmacy.TestReceiptMenu" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

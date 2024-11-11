@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReceiptHandling.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.onlinefarmacy</a> &gt; <span class="el_source">ReceiptHandling.java</span></div><h1>ReceiptHandling.java</h1><pre class="source lang-java linenums"> package com.onlinefarmacy;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L6">public class ReceiptHandling {</span>
+<span class="fc" id="L7">    private static Integer uniqueId = 999;</span>
+<span class="fc" id="L8">    private static List&lt;String&gt; drugNames = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L9">    private static List&lt;Double&gt; drugPrices = new ArrayList&lt;&gt;();</span>
+
+    public static void setDrugNamesList(Drug alvedon, Drug ipren, Drug desloratadine, Drug brikanyl, Drug morifin) {
+        // Gives drugs &quot;Values&quot; 0-alvedon 1-ipren ands so on
+<span class="fc" id="L13">        drugNames.add(alvedon.getName());</span>
+<span class="fc" id="L14">        drugNames.add(ipren.getName());</span>
+<span class="fc" id="L15">        drugNames.add(desloratadine.getName());</span>
+<span class="fc" id="L16">        drugNames.add(brikanyl.getName());</span>
+<span class="fc" id="L17">        drugNames.add(morifin.getName());</span>
+<span class="fc" id="L18">    }</span>
+    public static void setDrugPriceList(Drug alvedon, Drug ipren, Drug desloratadine, Drug brikanyl, Drug morifin) {
+        // Gives drugs &quot;Values&quot; 0-alvedon 1-ipren ands so on
+<span class="fc" id="L21">        drugPrices.add(alvedon.getPrice());</span>
+<span class="fc" id="L22">        drugPrices.add(ipren.getPrice());</span>
+<span class="fc" id="L23">        drugPrices.add(desloratadine.getPrice());</span>
+<span class="fc" id="L24">        drugPrices.add(brikanyl.getPrice());</span>
+<span class="fc" id="L25">        drugPrices.add(morifin.getPrice());</span>
+<span class="fc" id="L26">    }</span>
+
+    public static void createReceipt(Integer choice, Integer amount) {
+<span class="fc" id="L29">        uniqueId += 1;</span>
+<span class="fc" id="L30">        Receipt newReceipt = new Receipt();</span>
+<span class="fc" id="L31">        newReceipt.setDateTime();</span>
+<span class="fc" id="L32">        newReceipt.setUniqueId(uniqueId);</span>
+<span class="fc" id="L33">        newReceipt.setDrugName(drugNames.get(choice));</span>
+<span class="fc" id="L34">        newReceipt.setAPrice(drugPrices.get(choice));</span>
+<span class="fc" id="L35">        newReceipt.setAmount(amount);</span>
+<span class="fc" id="L36">        ReceiptStorage.storeReceipt(newReceipt);</span>
+<span class="fc" id="L37">    }</span>
+    public static String getDrugNameByIndex(Integer index) {
+<span class="fc" id="L39">        return drugNames.get(index);</span>
+    }
+    public static Double getDrugPriceByIndex(Integer index) {
+<span class="fc" id="L42">        return drugPrices.get(index);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

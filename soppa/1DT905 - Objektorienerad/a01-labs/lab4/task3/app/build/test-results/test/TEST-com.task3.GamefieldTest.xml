@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.GamefieldTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:53" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.021">
+  <properties/>
+  <testcase name="setStartPosRobotTest()" classname="com.task3.GamefieldTest" time="0.009"/>
+  <testcase name="CheckWolfStartPosInInterval()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="CheckSoupStartPosInInterval()" classname="com.task3.GamefieldTest" time="0.001"/>
+  <testcase name="testSamePosSoup()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="updateGameFieldTimeToRemoveTest()" classname="com.task3.GamefieldTest" time="0.004"/>
+  <testcase name="testSamePosStraw()" classname="com.task3.GamefieldTest" time="0.001"/>
+  <testcase name="CheckStrawberryStartPosInInterval()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="setPosHomeTest()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="testRemoveStrawberry()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="updateGameFieldTimeToSpawnFalseTest()" classname="com.task3.GamefieldTest" time="0.001"/>
+  <testcase name="testRemoveSoup()" classname="com.task3.GamefieldTest" time="0.001"/>
+  <testcase name="updateGameFieldTest()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <testcase name="initializeTest()" classname="com.task3.GamefieldTest" time="0.0"/>
+  <system-out><![CDATA[- ]]>&#x1f916;<![CDATA[]]>&#x1f43a;<![CDATA[]]>&#x1f3db;<![CDATA[- - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+********************
+- ]]>&#x1f916;<![CDATA[]]>&#x1f43a;<![CDATA[]]>&#x1f3db;<![CDATA[- - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+- - - - - - - - - - 
+********************
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

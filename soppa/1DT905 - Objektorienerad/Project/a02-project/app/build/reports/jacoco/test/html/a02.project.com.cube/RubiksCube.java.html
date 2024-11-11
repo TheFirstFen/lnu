@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>RubiksCube.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">a02.project.com.cube</a> &gt; <span class="el_source">RubiksCube.java</span></div><h1>RubiksCube.java</h1><pre class="source lang-java linenums">package a02.project.com.cube;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+<span class="nc" id="L7">public class RubiksCube {</span>
+    private static String[][][] fullCube;
+<span class="fc" id="L9">    private static List&lt;String&gt; savedMoves = new ArrayList&lt;&gt;();</span>
+    public static void init(String[][][] cube) {
+
+<span class="fc" id="L12">        String square = &quot;\u25A0&quot;;</span>
+
+<span class="fc" id="L14">        String W = &quot;\033[97m&quot; + square + &quot;\033[0m&quot;;</span>
+<span class="fc" id="L15">        String G = &quot;\033[92m&quot; + square + &quot;\033[0m&quot;;</span>
+<span class="fc" id="L16">        String R = &quot;\033[31m&quot; + square + &quot;\033[0m&quot;;</span>
+<span class="fc" id="L17">        String B = &quot;\033[94m&quot; + square + &quot;\033[0m&quot;;</span>
+<span class="fc" id="L18">        String Y = &quot;\033[93m&quot; + square + &quot;\033[0m&quot;;</span>
+<span class="fc" id="L19">        String O = &quot;\033[95m&quot; + square + &quot;\033[0m&quot;;</span>
+
+<span class="fc" id="L21">        String[] colorLetters = { W, G, R, B, Y, O }; </span>
+
+<span class="fc bfc" id="L23" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L26">                    cube[i][j][k] = String.valueOf(colorLetters[i]);</span>
+                }
+            }
+        }
+<span class="fc" id="L30">        fullCube = cube;</span>
+<span class="fc" id="L31">    }</span>
+
+    public static String[][][] mainLoop(String choice) {
+        //print2DCube(fullCube);
+
+<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (choice.equals(&quot;X&quot;)){</span>
+<span class="fc" id="L37">            rotateCubeToRight(fullCube);</span>
+<span class="fc" id="L38">            savedMoves.add(choice);</span>
+        }
+<span class="pc bpc" id="L40" title="1 of 2 branches missed.">        else if (choice.equals(&quot;x&quot;)){</span>
+<span class="nc" id="L41">            rotateCubeToLeft(fullCube);</span>
+<span class="nc" id="L42">            savedMoves.add(choice);</span>
+        }
+<span class="fc bfc" id="L44" title="All 2 branches covered.">        else if (choice.equals(&quot;Y&quot;)){</span>
+<span class="fc" id="L45">            rotateCubeFrontfaceUp(fullCube);</span>
+<span class="fc" id="L46">            savedMoves.add(choice);</span>
+        }
+<span class="fc bfc" id="L48" title="All 2 branches covered.">        else if (choice.equals(&quot;y&quot;)){</span>
+<span class="fc" id="L49">            rotateCubeFrontfaceDown(fullCube);</span>
+<span class="fc" id="L50">            savedMoves.add(choice);</span>
+        }
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        else if (choice.equals(&quot;F&quot;)){</span>
+<span class="fc" id="L53">            rotateCubefaceClockwise(fullCube);</span>
+<span class="fc" id="L54">            savedMoves.add(choice);</span>
+<span class="fc" id="L55">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        else if (choice.equals(&quot;f&quot;)){</span>
+<span class="fc" id="L58">            rotateCubefaceCounterClockwise(fullCube);</span>
+<span class="fc" id="L59">            savedMoves.add(choice);</span>
+<span class="fc" id="L60">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        else if (choice.equals(&quot;R&quot;)){</span>
+<span class="fc" id="L63">            rotateRightSideClockwise(fullCube);</span>
+<span class="fc" id="L64">            savedMoves.add(choice);</span>
+<span class="fc" id="L65">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        else if (choice.equals(&quot;r&quot;)){</span>
+<span class="fc" id="L68">            rotaterightSideCounterClockwise(fullCube);</span>
+<span class="fc" id="L69">            savedMoves.add(choice);</span>
+<span class="fc" id="L70">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L72" title="All 2 branches covered.">        else if (choice.equals(&quot;L&quot;)){</span>
+<span class="fc" id="L73">            rotateLeftSideDown(fullCube);</span>
+<span class="fc" id="L74">            savedMoves.add(choice);</span>
+<span class="fc" id="L75">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L77" title="All 2 branches covered.">        else if (choice.equals(&quot;l&quot;)){</span>
+<span class="fc" id="L78">            rotateLeftSideUp(fullCube);</span>
+<span class="fc" id="L79">            savedMoves.add(choice);</span>
+<span class="fc" id="L80">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L82" title="All 2 branches covered.">        else if (choice.equals(&quot;U&quot;)){</span>
+<span class="fc" id="L83">            rotateTopClockwise(fullCube);</span>
+<span class="fc" id="L84">            savedMoves.add(choice);</span>
+<span class="fc" id="L85">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        else if (choice.equals(&quot;u&quot;)){</span>
+<span class="fc" id="L88">            rotateTopCounterClockwise(fullCube);</span>
+<span class="fc" id="L89">            savedMoves.add(choice);</span>
+<span class="fc" id="L90">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        else if (choice.equals(&quot;D&quot;)){</span>
+<span class="fc" id="L93">            rotateBottomClockwise(fullCube);</span>
+<span class="fc" id="L94">            savedMoves.add(choice);</span>
+<span class="fc" id="L95">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L97" title="All 2 branches covered.">        else if (choice.equals(&quot;d&quot;)){</span>
+<span class="fc" id="L98">            rotateBottomCounterClockwise(fullCube);</span>
+<span class="fc" id="L99">            savedMoves.add(choice);</span>
+<span class="fc" id="L100">            printIfCubeIsSolved(fullCube);</span>
+        }
+<span class="fc bfc" id="L102" title="All 4 branches covered.">        else if (choice.equals(&quot;q&quot;)||choice.equals(&quot;Q&quot;)){</span>
+<span class="fc" id="L103">            System.out.println(&quot;Quitting&quot;);</span>
+        }
+<span class="pc bpc" id="L105" title="1 of 2 branches missed.">        else if (choice.equals(&quot;show&quot;)){</span>
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            for(String input : savedMoves){</span>
+<span class="nc" id="L107">                System.out.println(input);</span>
+<span class="nc" id="L108">            }</span>
+        }
+<span class="fc bfc" id="L110" title="All 2 branches covered.">        else if (choice.equals(&quot;solve&quot;)){</span>
+<span class="fc" id="L111">            solveCube(savedMoves, fullCube);</span>
+<span class="fc" id="L112">            savedMoves.clear();</span>
+        }
+<span class="fc bfc" id="L114" title="All 2 branches covered.">        else if (choice.equals(&quot;sc&quot;)){</span>
+<span class="fc" id="L115">            scrambleCube(fullCube, savedMoves);</span>
+        }
+        else {
+<span class="fc" id="L118">            System.out.println(&quot;Invalid input&quot;);</span>
+        }
+        // print2DCube(fullCube);
+<span class="fc" id="L121">        return fullCube;</span>
+    }
+
+    //private static void print2DCube(String[][][] cube) {
+    //    for (int i = 0; i &lt; 3; i++) {
+    //        System.out.print(&quot;       &quot;);
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[0][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.println();
+    //    }
+    //    
+    //    // Print the left, front, right, and back faces
+    //    for (int i = 0; i &lt; 3; i++) {
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[1][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.print(&quot; &quot;);
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[2][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.print(&quot; &quot;);
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[3][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.print(&quot; &quot;);
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[5][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.println();
+    //    }
+//
+    //    // Print the bottom face
+    //    for (int i = 0; i &lt; 3; i++) {
+    //        System.out.print(&quot;       &quot;);
+    //        for (int j = 0; j &lt; 3; j++) {
+    //            System.out.print(cube[4][i][j] + &quot; &quot;);
+    //        }
+    //        System.out.println();
+    //    }
+    //    System.out.println();
+    //}
+
+    private static void rotateCubefaceClockwise(String[][][] cube) {
+<span class="fc" id="L165">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L167" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L168" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L169" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L170">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+            
+        // From face 1 to face 0
+<span class="fc" id="L176">        cube[0][2][2] = temp[1][0][2]; </span>
+<span class="fc" id="L177">        cube[0][2][1] = temp[1][1][2];</span>
+<span class="fc" id="L178">        cube[0][2][0] = temp[1][2][2];</span>
+
+        // From face 0 to face 3
+<span class="fc" id="L181">        cube[3][0][0] = temp[0][2][0];</span>
+<span class="fc" id="L182">        cube[3][1][0] = temp[0][2][1];</span>
+<span class="fc" id="L183">        cube[3][2][0] = temp[0][2][2];</span>
+
+        // From face 3 to face 4
+<span class="fc" id="L186">        cube[4][0][2] = temp[3][0][0];</span>
+<span class="fc" id="L187">        cube[4][0][1] = temp[3][1][0];</span>
+<span class="fc" id="L188">        cube[4][0][0] = temp[3][2][0];</span>
+
+        // From face 4 to face 1
+<span class="fc" id="L191">        cube[1][0][2] = temp[4][0][0];</span>
+<span class="fc" id="L192">        cube[1][1][2] = temp[4][0][1];</span>
+<span class="fc" id="L193">        cube[1][2][2] = temp[4][0][2];</span>
+
+        // Face 2 rotate clockwise
+<span class="fc" id="L196">        cube[2][0][0] = temp[2][2][0];</span>
+<span class="fc" id="L197">        cube[2][0][1] = temp[2][1][0];</span>
+<span class="fc" id="L198">        cube[2][0][2] = temp[2][0][0];</span>
+<span class="fc" id="L199">        cube[2][1][0] = temp[2][2][1];</span>
+<span class="fc" id="L200">        cube[2][1][2] = temp[2][0][1];</span>
+<span class="fc" id="L201">        cube[2][2][0] = temp[2][2][2];</span>
+<span class="fc" id="L202">        cube[2][2][1] = temp[2][1][2];</span>
+<span class="fc" id="L203">        cube[2][2][2] = temp[2][0][2];</span>
+<span class="fc" id="L204">    }</span>
+
+    private static void rotateCubefaceCounterClockwise(String[][][] cube) {
+<span class="fc" id="L207">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L209" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L211" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L212">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // From face 0 to face 1
+<span class="fc" id="L218">        cube[1][2][2] = temp[0][2][0]; </span>
+<span class="fc" id="L219">        cube[1][1][2] = temp[0][2][1];</span>
+<span class="fc" id="L220">        cube[1][0][2] = temp[0][2][2];</span>
+
+        // From face 3 to face 0
+<span class="fc" id="L223">        cube[0][2][0] = temp[3][0][0]; </span>
+<span class="fc" id="L224">        cube[0][2][1] = temp[3][1][0];</span>
+<span class="fc" id="L225">        cube[0][2][2] = temp[3][2][0];</span>
+
+        // From face 4 to face 3
+<span class="fc" id="L228">        cube[3][0][0] = temp[4][0][2]; </span>
+<span class="fc" id="L229">        cube[3][1][0] = temp[4][0][1];</span>
+<span class="fc" id="L230">        cube[3][2][0] = temp[4][0][0];</span>
+
+        // From face 1 to face 4
+<span class="fc" id="L233">        cube[4][0][0] = temp[1][0][2]; </span>
+<span class="fc" id="L234">        cube[4][0][1] = temp[1][1][2];</span>
+<span class="fc" id="L235">        cube[4][0][2] = temp[1][2][2];</span>
+
+        // Face 2 rotate counterclockwise 
+<span class="fc" id="L238">        cube[2][0][0] = temp[2][0][2]; </span>
+<span class="fc" id="L239">        cube[2][0][1] = temp[2][1][2];</span>
+<span class="fc" id="L240">        cube[2][0][2] = temp[2][2][2];</span>
+<span class="fc" id="L241">        cube[2][1][0] = temp[2][0][1]; </span>
+<span class="fc" id="L242">        cube[2][1][2] = temp[2][2][1];</span>
+<span class="fc" id="L243">        cube[2][2][0] = temp[2][0][0];</span>
+<span class="fc" id="L244">        cube[2][2][1] = temp[2][1][0]; </span>
+<span class="fc" id="L245">        cube[2][2][2] = temp[2][2][0];</span>
+<span class="fc" id="L246">    }</span>
+
+    private static void rotateCubeToRight(String[][][] cube) {
+<span class="fc" id="L249">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L251" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L252" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L253" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L254">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate Face 0 counterclockwise
+<span class="fc" id="L260">        cube[0][0][0] = temp[0][0][2]; </span>
+<span class="fc" id="L261">        cube[0][0][1] = temp[0][1][2];</span>
+<span class="fc" id="L262">        cube[0][0][2] = temp[0][2][2];</span>
+<span class="fc" id="L263">        cube[0][1][0] = temp[0][0][1]; </span>
+<span class="fc" id="L264">        cube[0][1][2] = temp[0][2][1];</span>
+<span class="fc" id="L265">        cube[0][2][0] = temp[0][0][0];</span>
+<span class="fc" id="L266">        cube[0][2][1] = temp[0][1][0]; </span>
+<span class="fc" id="L267">        cube[0][2][2] = temp[0][2][0];</span>
+
+        // Move face 1 to be face 2
+<span class="fc" id="L270">        cube[2][0][0] = temp[1][0][0]; </span>
+<span class="fc" id="L271">        cube[2][0][1] = temp[1][0][1];</span>
+<span class="fc" id="L272">        cube[2][0][2] = temp[1][0][2];</span>
+<span class="fc" id="L273">        cube[2][1][0] = temp[1][1][0]; </span>
+<span class="fc" id="L274">        cube[2][1][1] = temp[1][1][1];</span>
+<span class="fc" id="L275">        cube[2][1][2] = temp[1][1][2];</span>
+<span class="fc" id="L276">        cube[2][2][0] = temp[1][2][0];</span>
+<span class="fc" id="L277">        cube[2][2][1] = temp[1][2][1]; </span>
+<span class="fc" id="L278">        cube[2][2][2] = temp[1][2][2];</span>
+
+        // Move face 2 to be face 3
+<span class="fc" id="L281">        cube[3][0][0] = temp[2][0][0]; </span>
+<span class="fc" id="L282">        cube[3][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L283">        cube[3][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L284">        cube[3][1][0] = temp[2][1][0]; </span>
+<span class="fc" id="L285">        cube[3][1][1] = temp[2][1][1];</span>
+<span class="fc" id="L286">        cube[3][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L287">        cube[3][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L288">        cube[3][2][1] = temp[2][2][1]; </span>
+<span class="fc" id="L289">        cube[3][2][2] = temp[2][2][2];</span>
+
+        // Move face 3 to be face 5
+<span class="fc" id="L292">        cube[5][0][0] = temp[3][0][0]; </span>
+<span class="fc" id="L293">        cube[5][0][1] = temp[3][0][1];</span>
+<span class="fc" id="L294">        cube[5][0][2] = temp[3][0][2];</span>
+<span class="fc" id="L295">        cube[5][1][0] = temp[3][1][0]; </span>
+<span class="fc" id="L296">        cube[5][1][1] = temp[3][1][1];</span>
+<span class="fc" id="L297">        cube[5][1][2] = temp[3][1][2];</span>
+<span class="fc" id="L298">        cube[5][2][0] = temp[3][2][0];</span>
+<span class="fc" id="L299">        cube[5][2][1] = temp[3][2][1]; </span>
+<span class="fc" id="L300">        cube[5][2][2] = temp[3][2][2];</span>
+
+        // Move face 5 to face 1
+<span class="fc" id="L303">        cube[1][0][0] = temp[5][0][0]; </span>
+<span class="fc" id="L304">        cube[1][0][1] = temp[5][0][1];</span>
+<span class="fc" id="L305">        cube[1][0][2] = temp[5][0][2];</span>
+<span class="fc" id="L306">        cube[1][1][0] = temp[5][1][0]; </span>
+<span class="fc" id="L307">        cube[1][1][1] = temp[5][1][1];</span>
+<span class="fc" id="L308">        cube[1][1][2] = temp[5][1][2];</span>
+<span class="fc" id="L309">        cube[1][2][0] = temp[5][2][0];</span>
+<span class="fc" id="L310">        cube[1][2][1] = temp[5][2][1]; </span>
+<span class="fc" id="L311">        cube[1][2][2] = temp[5][2][2];</span>
+
+        // Rotate face 4 clockwise
+<span class="fc" id="L314">        cube[4][0][0] = temp[4][2][0];</span>
+<span class="fc" id="L315">        cube[4][0][1] = temp[4][1][0];</span>
+<span class="fc" id="L316">        cube[4][0][2] = temp[4][0][0];</span>
+<span class="fc" id="L317">        cube[4][1][0] = temp[4][2][1];</span>
+<span class="fc" id="L318">        cube[4][1][2] = temp[4][0][1];</span>
+<span class="fc" id="L319">        cube[4][2][0] = temp[4][2][2];</span>
+<span class="fc" id="L320">        cube[4][2][1] = temp[4][1][2];</span>
+<span class="fc" id="L321">        cube[4][2][2] = temp[4][0][2];</span>
+<span class="fc" id="L322">    }</span>
+
+    private static void rotateCubeToLeft(String[][][] cube) {
+<span class="fc" id="L325">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L327" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L328" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L329" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L330">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 0 clockwise
+<span class="fc" id="L336">        cube[0][0][0] = temp[0][2][0];</span>
+<span class="fc" id="L337">        cube[0][0][1] = temp[0][1][0];</span>
+<span class="fc" id="L338">        cube[0][0][2] = temp[0][0][0];</span>
+<span class="fc" id="L339">        cube[0][1][0] = temp[0][2][1];</span>
+<span class="fc" id="L340">        cube[0][1][2] = temp[0][0][1];</span>
+<span class="fc" id="L341">        cube[0][2][0] = temp[0][2][2];</span>
+<span class="fc" id="L342">        cube[0][2][1] = temp[0][1][2];</span>
+<span class="fc" id="L343">        cube[0][2][2] = temp[0][0][2];</span>
+
+        // Move face 1 to be face 5
+<span class="fc" id="L346">        cube[5][0][0] = temp[1][0][0]; </span>
+<span class="fc" id="L347">        cube[5][0][1] = temp[1][0][1];</span>
+<span class="fc" id="L348">        cube[5][0][2] = temp[1][0][2];</span>
+<span class="fc" id="L349">        cube[5][1][0] = temp[1][1][0]; </span>
+<span class="fc" id="L350">        cube[5][1][1] = temp[1][1][1];</span>
+<span class="fc" id="L351">        cube[5][1][2] = temp[1][1][2];</span>
+<span class="fc" id="L352">        cube[5][2][0] = temp[1][2][0];</span>
+<span class="fc" id="L353">        cube[5][2][1] = temp[1][2][1]; </span>
+<span class="fc" id="L354">        cube[5][2][2] = temp[1][2][2];</span>
+
+        // Move face 2 to be face 1
+<span class="fc" id="L357">        cube[1][0][0] = temp[2][0][0]; </span>
+<span class="fc" id="L358">        cube[1][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L359">        cube[1][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L360">        cube[1][1][0] = temp[2][1][0]; </span>
+<span class="fc" id="L361">        cube[1][1][1] = temp[2][1][1];</span>
+<span class="fc" id="L362">        cube[1][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L363">        cube[1][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L364">        cube[1][2][1] = temp[2][2][1]; </span>
+<span class="fc" id="L365">        cube[1][2][2] = temp[2][2][2];</span>
+
+        // Move face 3 to be face 2
+<span class="fc" id="L368">        cube[2][0][0] = temp[3][0][0]; </span>
+<span class="fc" id="L369">        cube[2][0][1] = temp[3][0][1];</span>
+<span class="fc" id="L370">        cube[2][0][2] = temp[3][0][2];</span>
+<span class="fc" id="L371">        cube[2][1][0] = temp[3][1][0]; </span>
+<span class="fc" id="L372">        cube[2][1][1] = temp[3][1][1];</span>
+<span class="fc" id="L373">        cube[2][1][2] = temp[3][1][2];</span>
+<span class="fc" id="L374">        cube[2][2][0] = temp[3][2][0];</span>
+<span class="fc" id="L375">        cube[2][2][1] = temp[3][2][1]; </span>
+<span class="fc" id="L376">        cube[2][2][2] = temp[3][2][2];</span>
+
+        // Move face 5 to be face 3
+<span class="fc" id="L379">        cube[3][0][0] = temp[5][0][0]; </span>
+<span class="fc" id="L380">        cube[3][0][1] = temp[5][0][1];</span>
+<span class="fc" id="L381">        cube[3][0][2] = temp[5][0][2];</span>
+<span class="fc" id="L382">        cube[3][1][0] = temp[5][1][0]; </span>
+<span class="fc" id="L383">        cube[3][1][1] = temp[5][1][1];</span>
+<span class="fc" id="L384">        cube[3][1][2] = temp[5][1][2];</span>
+<span class="fc" id="L385">        cube[3][2][0] = temp[5][2][0];</span>
+<span class="fc" id="L386">        cube[3][2][1] = temp[5][2][1]; </span>
+<span class="fc" id="L387">        cube[3][2][2] = temp[5][2][2];</span>
+
+        // Rotate face 4 counterclockwise 
+<span class="fc" id="L390">        cube[4][0][0] = temp[4][0][2]; </span>
+<span class="fc" id="L391">        cube[4][0][1] = temp[4][1][2];</span>
+<span class="fc" id="L392">        cube[4][0][2] = temp[4][2][2];</span>
+<span class="fc" id="L393">        cube[4][1][0] = temp[4][0][1]; </span>
+<span class="fc" id="L394">        cube[4][1][2] = temp[4][2][1];</span>
+<span class="fc" id="L395">        cube[4][2][0] = temp[4][0][0];</span>
+<span class="fc" id="L396">        cube[4][2][1] = temp[4][1][0]; </span>
+<span class="fc" id="L397">        cube[4][2][2] = temp[4][2][0];</span>
+<span class="fc" id="L398">    }</span>
+
+    public static void rotateCubeFrontfaceUp(String[][][] cube) {
+<span class="fc" id="L401">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L403" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L404" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L405" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L406">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Move face 0 to be face 5
+<span class="fc" id="L412">        cube[5][2][2] = temp[0][0][0];</span>
+<span class="fc" id="L413">        cube[5][2][1] = temp[0][0][1];</span>
+<span class="fc" id="L414">        cube[5][2][0] = temp[0][0][2];</span>
+<span class="fc" id="L415">        cube[5][1][2] = temp[0][1][0];</span>
+<span class="fc" id="L416">        cube[5][1][1] = temp[0][1][1];</span>
+<span class="fc" id="L417">        cube[5][1][0] = temp[0][1][2];</span>
+<span class="fc" id="L418">        cube[5][0][2] = temp[0][2][0];</span>
+<span class="fc" id="L419">        cube[5][0][1] = temp[0][2][1];</span>
+<span class="fc" id="L420">        cube[5][0][0] = temp[0][2][2];</span>
+
+        // Move face 2 to be face 0
+<span class="fc" id="L423">        cube[0][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L424">        cube[0][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L425">        cube[0][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L426">        cube[0][1][0] = temp[2][1][0];</span>
+<span class="fc" id="L427">        cube[0][1][1] = temp[2][1][1];</span>
+<span class="fc" id="L428">        cube[0][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L429">        cube[0][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L430">        cube[0][2][1] = temp[2][2][1];</span>
+<span class="fc" id="L431">        cube[0][2][2] = temp[2][2][2];</span>
+
+
+        // Move face 4 to be face 2
+<span class="fc" id="L435">        cube[2][0][0] = temp[4][0][0];</span>
+<span class="fc" id="L436">        cube[2][0][1] = temp[4][0][1];</span>
+<span class="fc" id="L437">        cube[2][0][2] = temp[4][0][2];</span>
+<span class="fc" id="L438">        cube[2][1][0] = temp[4][1][0];</span>
+<span class="fc" id="L439">        cube[2][1][1] = temp[4][1][1];</span>
+<span class="fc" id="L440">        cube[2][1][2] = temp[4][1][2];</span>
+<span class="fc" id="L441">        cube[2][2][0] = temp[4][2][0];</span>
+<span class="fc" id="L442">        cube[2][2][1] = temp[4][2][1];</span>
+<span class="fc" id="L443">        cube[2][2][2] = temp[4][2][2];</span>
+
+        // Move face 5 to be face 4
+<span class="fc" id="L446">        cube[4][2][2] = temp[5][0][0];</span>
+<span class="fc" id="L447">        cube[4][2][1] = temp[5][0][1];</span>
+<span class="fc" id="L448">        cube[4][2][0] = temp[5][0][2];</span>
+<span class="fc" id="L449">        cube[4][1][2] = temp[5][1][0];</span>
+<span class="fc" id="L450">        cube[4][1][1] = temp[5][1][1];</span>
+<span class="fc" id="L451">        cube[4][1][0] = temp[5][1][2];</span>
+<span class="fc" id="L452">        cube[4][0][2] = temp[5][2][0];</span>
+<span class="fc" id="L453">        cube[4][0][1] = temp[5][2][1];</span>
+<span class="fc" id="L454">        cube[4][0][0] = temp[5][2][2];</span>
+
+        // Rotate face 1 counterclockwise
+<span class="fc" id="L457">        cube[1][0][0] = temp[1][0][2];</span>
+<span class="fc" id="L458">        cube[1][0][1] = temp[1][1][2];</span>
+<span class="fc" id="L459">        cube[1][0][2] = temp[1][2][2];</span>
+<span class="fc" id="L460">        cube[1][1][0] = temp[1][0][1];</span>
+<span class="fc" id="L461">        cube[1][1][2] = temp[1][2][1];</span>
+<span class="fc" id="L462">        cube[1][2][0] = temp[1][0][0];</span>
+<span class="fc" id="L463">        cube[1][2][1] = temp[1][1][0];</span>
+<span class="fc" id="L464">        cube[1][2][2] = temp[1][2][0];</span>
+
+        // Rotate face 3 clockise
+<span class="fc" id="L467">        cube[3][0][0] = temp[3][2][0];</span>
+<span class="fc" id="L468">        cube[3][0][1] = temp[3][1][0];</span>
+<span class="fc" id="L469">        cube[3][0][2] = temp[3][0][0];</span>
+<span class="fc" id="L470">        cube[3][1][0] = temp[3][2][1];</span>
+<span class="fc" id="L471">        cube[3][1][2] = temp[3][0][1];</span>
+<span class="fc" id="L472">        cube[3][2][0] = temp[3][2][2];</span>
+<span class="fc" id="L473">        cube[3][2][1] = temp[3][1][2];</span>
+<span class="fc" id="L474">        cube[3][2][2] = temp[3][0][2];</span>
+<span class="fc" id="L475">    }</span>
+
+    public static void rotateCubeFrontfaceDown(String[][][] cube) {
+<span class="fc" id="L478">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L480" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L481" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L482" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L483">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Move face 5 to be face 0
+<span class="fc" id="L489">        cube[0][2][2] = temp[5][0][0];</span>
+<span class="fc" id="L490">        cube[0][2][1] = temp[5][0][1];</span>
+<span class="fc" id="L491">        cube[0][2][0] = temp[5][0][2];</span>
+<span class="fc" id="L492">        cube[0][1][2] = temp[5][1][0];</span>
+<span class="fc" id="L493">        cube[0][1][1] = temp[5][1][1];</span>
+<span class="fc" id="L494">        cube[0][1][0] = temp[5][1][2];</span>
+<span class="fc" id="L495">        cube[0][0][2] = temp[5][2][0];</span>
+<span class="fc" id="L496">        cube[0][0][1] = temp[5][2][1];</span>
+<span class="fc" id="L497">        cube[0][0][0] = temp[5][2][2];</span>
+
+        // Move face 0 to be face 2
+<span class="fc" id="L500">        cube[2][0][0] = temp[0][0][0];</span>
+<span class="fc" id="L501">        cube[2][0][1] = temp[0][0][1];</span>
+<span class="fc" id="L502">        cube[2][0][2] = temp[0][0][2];</span>
+<span class="fc" id="L503">        cube[2][1][0] = temp[0][1][0];</span>
+<span class="fc" id="L504">        cube[2][1][1] = temp[0][1][1];</span>
+<span class="fc" id="L505">        cube[2][1][2] = temp[0][1][2];</span>
+<span class="fc" id="L506">        cube[2][2][0] = temp[0][2][0];</span>
+<span class="fc" id="L507">        cube[2][2][1] = temp[0][2][1];</span>
+<span class="fc" id="L508">        cube[2][2][2] = temp[0][2][2];</span>
+
+        // Move fave 2 to be face 4
+<span class="fc" id="L511">        cube[4][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L512">        cube[4][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L513">        cube[4][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L514">        cube[4][1][0] = temp[2][1][0];</span>
+<span class="fc" id="L515">        cube[4][1][1] = temp[2][1][1];</span>
+<span class="fc" id="L516">        cube[4][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L517">        cube[4][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L518">        cube[4][2][1] = temp[2][2][1];</span>
+<span class="fc" id="L519">        cube[4][2][2] = temp[2][2][2];</span>
+
+        // Move face 4 to be face 5
+<span class="fc" id="L522">        cube[5][0][0] = temp[4][2][2];</span>
+<span class="fc" id="L523">        cube[5][0][1] = temp[4][2][1];</span>
+<span class="fc" id="L524">        cube[5][0][2] = temp[4][2][0];</span>
+<span class="fc" id="L525">        cube[5][1][0] = temp[4][1][2];</span>
+<span class="fc" id="L526">        cube[5][1][1] = temp[4][1][1];</span>
+<span class="fc" id="L527">        cube[5][1][2] = temp[4][1][0];</span>
+<span class="fc" id="L528">        cube[5][2][0] = temp[4][0][2];</span>
+<span class="fc" id="L529">        cube[5][2][1] = temp[4][0][1];</span>
+<span class="fc" id="L530">        cube[5][2][2] = temp[4][0][0];</span>
+
+        // Rotate face 1 clockwise
+<span class="fc" id="L533">        cube[1][0][0] = temp[1][2][0];</span>
+<span class="fc" id="L534">        cube[1][0][1] = temp[1][1][0];</span>
+<span class="fc" id="L535">        cube[1][0][2] = temp[1][0][0];</span>
+<span class="fc" id="L536">        cube[1][1][0] = temp[1][2][1];</span>
+<span class="fc" id="L537">        cube[1][1][2] = temp[1][0][1];</span>
+<span class="fc" id="L538">        cube[1][2][0] = temp[1][2][2];</span>
+<span class="fc" id="L539">        cube[1][2][1] = temp[1][1][2];</span>
+<span class="fc" id="L540">        cube[1][2][2] = temp[1][0][2];</span>
+
+
+        // Rotate face 3 counterclockwise
+<span class="fc" id="L544">        cube[3][0][0] = temp[3][0][2];</span>
+<span class="fc" id="L545">        cube[3][0][1] = temp[3][1][2];</span>
+<span class="fc" id="L546">        cube[3][0][2] = temp[3][2][2];</span>
+<span class="fc" id="L547">        cube[3][1][0] = temp[3][0][1];</span>
+<span class="fc" id="L548">        cube[3][1][2] = temp[3][2][1];</span>
+<span class="fc" id="L549">        cube[3][2][0] = temp[3][0][0];</span>
+<span class="fc" id="L550">        cube[3][2][1] = temp[3][1][0];</span>
+<span class="fc" id="L551">        cube[3][2][2] = temp[3][2][0];</span>
+<span class="fc" id="L552">    }</span>
+
+    public static void rotateRightSideClockwise(String[][][] cube) {
+<span class="fc" id="L555">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L557" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L558" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L559" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L560">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 3 clockwise
+<span class="fc" id="L566">        cube[3][0][0] = temp[3][2][0];</span>
+<span class="fc" id="L567">        cube[3][0][1] = temp[3][1][0];</span>
+<span class="fc" id="L568">        cube[3][0][2] = temp[3][0][0];</span>
+<span class="fc" id="L569">        cube[3][1][0] = temp[3][2][1];</span>
+<span class="fc" id="L570">        cube[3][1][2] = temp[3][0][1];</span>
+<span class="fc" id="L571">        cube[3][2][0] = temp[3][2][2];</span>
+<span class="fc" id="L572">        cube[3][2][1] = temp[3][1][2];</span>
+<span class="fc" id="L573">        cube[3][2][2] = temp[3][0][2];</span>
+
+        // Move part of face 2 to part of face 0
+<span class="fc" id="L576">        cube[0][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L577">        cube[0][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L578">        cube[0][2][2] = temp[2][2][2];</span>
+
+        // Move part of face 4 to parf of face 2
+<span class="fc" id="L581">        cube[2][0][2] = temp[4][0][2];</span>
+<span class="fc" id="L582">        cube[2][1][2] = temp[4][1][2];</span>
+<span class="fc" id="L583">        cube[2][2][2] = temp[4][2][2];</span>
+
+        // Move part of face 0 to part of face 5
+<span class="fc" id="L586">        cube[5][2][0] = temp[0][0][2];</span>
+<span class="fc" id="L587">        cube[5][1][0] = temp[0][1][2];</span>
+<span class="fc" id="L588">        cube[5][0][0] = temp[0][2][2];</span>
+
+        // Move part of face 5 to part of face 4
+<span class="fc" id="L591">        cube[4][2][2] = temp[5][0][0];</span>
+<span class="fc" id="L592">        cube[4][1][2] = temp[5][1][0];</span>
+<span class="fc" id="L593">        cube[4][0][2] = temp[5][2][0];</span>
+<span class="fc" id="L594">    }</span>
+
+    public static void rotaterightSideCounterClockwise(String[][][] cube) {
+<span class="fc" id="L597">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L599" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L600" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L601" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L602">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 3 counterclockwise
+<span class="fc" id="L608">        cube[3][0][0] = temp[3][0][2];</span>
+<span class="fc" id="L609">        cube[3][0][1] = temp[3][1][2];</span>
+<span class="fc" id="L610">        cube[3][0][2] = temp[3][2][2];</span>
+<span class="fc" id="L611">        cube[3][1][0] = temp[3][0][1];</span>
+<span class="fc" id="L612">        cube[3][1][2] = temp[3][2][1];</span>
+<span class="fc" id="L613">        cube[3][2][0] = temp[3][0][0];</span>
+<span class="fc" id="L614">        cube[3][2][1] = temp[3][1][0];</span>
+<span class="fc" id="L615">        cube[3][2][2] = temp[3][2][0];</span>
+
+        // Move part of face 0 to part of face 2
+<span class="fc" id="L618">        cube[2][0][2] = temp[0][0][2];</span>
+<span class="fc" id="L619">        cube[2][1][2] = temp[0][1][2];</span>
+<span class="fc" id="L620">        cube[2][2][2] = temp[0][2][2];</span>
+
+        // Move part of face 2 to part of face 4
+<span class="fc" id="L623">        cube[4][0][2] = temp[2][0][2];</span>
+<span class="fc" id="L624">        cube[4][1][2] = temp[2][1][2];</span>
+<span class="fc" id="L625">        cube[4][2][2] = temp[2][2][2];</span>
+
+        // Move part of face 4 to part of face 5
+<span class="fc" id="L628">        cube[5][2][0] = temp[4][0][2];</span>
+<span class="fc" id="L629">        cube[5][1][0] = temp[4][1][2];</span>
+<span class="fc" id="L630">        cube[5][0][0] = temp[4][2][2];</span>
+
+        // Move part of face 5 to part of face 0
+<span class="fc" id="L633">        cube[0][2][2] = temp[5][0][0];</span>
+<span class="fc" id="L634">        cube[0][1][2] = temp[5][1][0];</span>
+<span class="fc" id="L635">        cube[0][0][2] = temp[5][2][0];</span>
+<span class="fc" id="L636">    }</span>
+
+    public static void rotateLeftSideUp(String[][][] cube) {
+<span class="fc" id="L639">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L641" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L642" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L643" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L644">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 1 counterclockwise
+<span class="fc" id="L650">        cube[1][0][0] = temp[1][0][2];</span>
+<span class="fc" id="L651">        cube[1][0][1] = temp[1][1][2];</span>
+<span class="fc" id="L652">        cube[1][0][2] = temp[1][2][2];</span>
+<span class="fc" id="L653">        cube[1][1][0] = temp[1][0][1];</span>
+<span class="fc" id="L654">        cube[1][1][2] = temp[1][2][1];</span>
+<span class="fc" id="L655">        cube[1][2][0] = temp[1][0][0];</span>
+<span class="fc" id="L656">        cube[1][2][1] = temp[1][1][0];</span>
+<span class="fc" id="L657">        cube[1][2][2] = temp[1][2][0];</span>
+
+        // Move part of face 2 to part of face 0
+<span class="fc" id="L660">        cube[0][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L661">        cube[0][1][0] = temp[2][1][0];</span>
+<span class="fc" id="L662">        cube[0][2][0] = temp[2][2][0];</span>
+
+        // Move part of face 4 to part of face 2
+<span class="fc" id="L665">        cube[2][0][0] = temp[4][0][0];</span>
+<span class="fc" id="L666">        cube[2][1][0] = temp[4][1][0];</span>
+<span class="fc" id="L667">        cube[2][2][0] = temp[4][2][0];</span>
+
+        // Move part of face 0 to part of face 5
+<span class="fc" id="L670">        cube[5][0][2] = temp[0][2][0];</span>
+<span class="fc" id="L671">        cube[5][1][2] = temp[0][1][0];</span>
+<span class="fc" id="L672">        cube[5][2][2] = temp[0][0][0];</span>
+
+        // Move part of face 5 to part of face 4
+<span class="fc" id="L675">        cube[4][0][0] = temp[5][2][2];</span>
+<span class="fc" id="L676">        cube[4][1][0] = temp[5][1][2];</span>
+<span class="fc" id="L677">        cube[4][2][0] = temp[5][0][2];</span>
+<span class="fc" id="L678">    }</span>
+
+    public static void rotateLeftSideDown(String[][][] cube) {
+<span class="fc" id="L681">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L683" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L684" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L685" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L686">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 1 clockwise
+<span class="fc" id="L692">        cube[1][0][0] = temp[1][2][0];</span>
+<span class="fc" id="L693">        cube[1][0][1] = temp[1][1][0];</span>
+<span class="fc" id="L694">        cube[1][0][2] = temp[1][0][0];</span>
+<span class="fc" id="L695">        cube[1][1][0] = temp[1][2][1];</span>
+<span class="fc" id="L696">        cube[1][1][2] = temp[1][0][1];</span>
+<span class="fc" id="L697">        cube[1][2][0] = temp[1][2][2];</span>
+<span class="fc" id="L698">        cube[1][2][1] = temp[1][1][2];</span>
+<span class="fc" id="L699">        cube[1][2][2] = temp[1][0][2];</span>
+
+        // Move part of face 0 to part of face 2
+<span class="fc" id="L702">        cube[2][0][0] = temp[0][0][0];</span>
+<span class="fc" id="L703">        cube[2][1][0] = temp[0][1][0];</span>
+<span class="fc" id="L704">        cube[2][2][0] = temp[0][2][0];</span>
+
+        // Move part of face 2 to part of face 4
+<span class="fc" id="L707">        cube[4][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L708">        cube[4][1][0] = temp[2][1][0];</span>
+<span class="fc" id="L709">        cube[4][2][0] = temp[2][2][0];</span>
+
+        // Move part of face 4 to part of face 5
+<span class="fc" id="L712">        cube[5][2][2] = temp[4][0][0];</span>
+<span class="fc" id="L713">        cube[5][1][2] = temp[4][1][0];</span>
+<span class="fc" id="L714">        cube[5][0][2] = temp[4][2][0];</span>
+
+        // Move part of face 5 to part of face 0
+<span class="fc" id="L717">        cube[0][0][0] = temp[5][2][2];</span>
+<span class="fc" id="L718">        cube[0][1][0] = temp[5][1][2];</span>
+<span class="fc" id="L719">        cube[0][2][0] = temp[5][0][2];</span>
+<span class="fc" id="L720">    }</span>
+
+    public static void rotateTopClockwise(String[][][] cube) {
+<span class="fc" id="L723">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L725" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L726" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L727" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L728">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 0 clockwise
+<span class="fc" id="L734">        cube[0][0][0] = temp[0][2][0];</span>
+<span class="fc" id="L735">        cube[0][0][1] = temp[0][1][0];</span>
+<span class="fc" id="L736">        cube[0][0][2] = temp[0][0][0];</span>
+<span class="fc" id="L737">        cube[0][1][0] = temp[0][2][1];</span>
+<span class="fc" id="L738">        cube[0][1][2] = temp[0][0][1];</span>
+<span class="fc" id="L739">        cube[0][2][0] = temp[0][2][2];</span>
+<span class="fc" id="L740">        cube[0][2][1] = temp[0][1][2];</span>
+<span class="fc" id="L741">        cube[0][2][2] = temp[0][0][2];</span>
+
+        // Move part of face 2 to part of face 1
+<span class="fc" id="L744">        cube[1][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L745">        cube[1][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L746">        cube[1][0][2] = temp[2][0][2];</span>
+
+        // Move part of face 3 to face 2
+<span class="fc" id="L749">        cube[2][0][0] = temp[3][0][0];</span>
+<span class="fc" id="L750">        cube[2][0][1] = temp[3][0][1];</span>
+<span class="fc" id="L751">        cube[2][0][2] = temp[3][0][2];</span>
+
+        // Move part of face 5 to face 3
+<span class="fc" id="L754">        cube[3][0][0] = temp[5][0][0];</span>
+<span class="fc" id="L755">        cube[3][0][1] = temp[5][0][1];</span>
+<span class="fc" id="L756">        cube[3][0][2] = temp[5][0][2];</span>
+
+        // Move part of face 1 to face 5
+<span class="fc" id="L759">        cube[5][0][0] = temp[1][0][0];</span>
+<span class="fc" id="L760">        cube[5][0][1] = temp[1][0][1];</span>
+<span class="fc" id="L761">        cube[5][0][2] = temp[1][0][2];</span>
+<span class="fc" id="L762">    }</span>
+
+    public static void rotateTopCounterClockwise(String[][][] cube) {
+<span class="fc" id="L765">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L767" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L768" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L769" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L770">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 0 counterclockwise
+<span class="fc" id="L776">        cube[0][0][0] = temp[0][0][2];</span>
+<span class="fc" id="L777">        cube[0][0][1] = temp[0][1][2];</span>
+<span class="fc" id="L778">        cube[0][0][2] = temp[0][2][2];</span>
+<span class="fc" id="L779">        cube[0][1][0] = temp[0][0][1];</span>
+<span class="fc" id="L780">        cube[0][1][2] = temp[0][2][1];</span>
+<span class="fc" id="L781">        cube[0][2][0] = temp[0][0][0];</span>
+<span class="fc" id="L782">        cube[0][2][1] = temp[0][1][0];</span>
+<span class="fc" id="L783">        cube[0][2][2] = temp[0][2][0];</span>
+
+        // Move part of face 1 to part of face 2
+<span class="fc" id="L786">        cube[2][0][0] = temp[1][0][0];</span>
+<span class="fc" id="L787">        cube[2][0][1] = temp[1][0][1];</span>
+<span class="fc" id="L788">        cube[2][0][2] = temp[1][0][2];</span>
+
+        // Move part of face 2 to part of face 3
+<span class="fc" id="L791">        cube[3][0][0] = temp[2][0][0];</span>
+<span class="fc" id="L792">        cube[3][0][1] = temp[2][0][1];</span>
+<span class="fc" id="L793">        cube[3][0][2] = temp[2][0][2]; </span>
+
+        // Move part of face 3 to part of face 5
+<span class="fc" id="L796">        cube[5][0][0] = temp[3][0][0];</span>
+<span class="fc" id="L797">        cube[5][0][1] = temp[3][0][1];</span>
+<span class="fc" id="L798">        cube[5][0][2] = temp[3][0][2];</span>
+
+        // Move part of face 5 to part of face 1
+<span class="fc" id="L801">        cube[1][0][0] = temp[5][0][0];</span>
+<span class="fc" id="L802">        cube[1][0][1] = temp[5][0][1];</span>
+<span class="fc" id="L803">        cube[1][0][2] = temp[5][0][2];</span>
+<span class="fc" id="L804">    }</span>
+
+    public static void rotateBottomClockwise(String[][][] cube) {
+
+<span class="fc" id="L808">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L810" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L811" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L812" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L813">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // rotate face 4 clockwise
+<span class="fc" id="L819">        cube[4][0][0] = temp[4][2][0];</span>
+<span class="fc" id="L820">        cube[4][0][1] = temp[4][1][0];</span>
+<span class="fc" id="L821">        cube[4][0][2] = temp[4][0][0];</span>
+<span class="fc" id="L822">        cube[4][1][0] = temp[4][2][1];</span>
+<span class="fc" id="L823">        cube[4][1][2] = temp[4][0][1];</span>
+<span class="fc" id="L824">        cube[4][2][0] = temp[4][2][2];</span>
+<span class="fc" id="L825">        cube[4][2][1] = temp[4][1][2];</span>
+<span class="fc" id="L826">        cube[4][2][2] = temp[4][0][2];</span>
+
+        // Move part of face 1 to part of face 2
+<span class="fc" id="L829">        cube[2][2][0] = temp[1][2][0];</span>
+<span class="fc" id="L830">        cube[2][2][1] = temp[1][2][1];</span>
+<span class="fc" id="L831">        cube[2][2][2] = temp[1][2][2];</span>
+
+        // Move part of face 2 to part of face 3
+<span class="fc" id="L834">        cube[3][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L835">        cube[3][2][1] = temp[2][2][1];</span>
+<span class="fc" id="L836">        cube[3][2][2] = temp[2][2][2];</span>
+
+        // Move part of face 3 to part of face 5
+<span class="fc" id="L839">        cube[5][2][0] = temp[3][2][0];</span>
+<span class="fc" id="L840">        cube[5][2][1] = temp[3][2][1];</span>
+<span class="fc" id="L841">        cube[5][2][2] = temp[3][2][2];</span>
+
+        // Move part of face 5 to part of face 1
+<span class="fc" id="L844">        cube[1][2][0] = temp[5][2][0];</span>
+<span class="fc" id="L845">        cube[1][2][1] = temp[5][2][1];</span>
+<span class="fc" id="L846">        cube[1][2][2] = temp[5][2][2];</span>
+<span class="fc" id="L847">    }</span>
+
+    public static void rotateBottomCounterClockwise(String[][][] cube) {
+<span class="fc" id="L850">        String[][][] temp = new String[6][3][3];</span>
+
+<span class="fc bfc" id="L852" title="All 2 branches covered.">        for (int i = 0; i &lt; 6; i++) {</span>
+<span class="fc bfc" id="L853" title="All 2 branches covered.">            for (int j = 0; j &lt; 3; j++) {</span>
+<span class="fc bfc" id="L854" title="All 2 branches covered.">                for (int k = 0; k &lt; 3; k++) {</span>
+<span class="fc" id="L855">                    temp[i][j][k] = cube[i][j][k];</span>
+                }
+            }
+        }
+
+        // Rotate face 4 counterclockwise
+<span class="fc" id="L861">        cube[4][0][0] = temp[4][0][2];</span>
+<span class="fc" id="L862">        cube[4][0][1] = temp[4][1][2];</span>
+<span class="fc" id="L863">        cube[4][0][2] = temp[4][2][2];</span>
+<span class="fc" id="L864">        cube[4][1][0] = temp[4][0][1];</span>
+<span class="fc" id="L865">        cube[4][1][2] = temp[4][2][1];</span>
+<span class="fc" id="L866">        cube[4][2][0] = temp[4][0][0];</span>
+<span class="fc" id="L867">        cube[4][2][1] = temp[4][1][0];</span>
+<span class="fc" id="L868">        cube[4][2][2] = temp[4][2][0];</span>
+
+        // Move part of face 2 to part of face 1
+<span class="fc" id="L871">        cube[1][2][0] = temp[2][2][0];</span>
+<span class="fc" id="L872">        cube[1][2][1] = temp[2][2][1];</span>
+<span class="fc" id="L873">        cube[1][2][2] = temp[2][2][2];</span>
+
+        // Move part of face 3 to part of face 2
+<span class="fc" id="L876">        cube[2][2][0] = temp[3][2][0];</span>
+<span class="fc" id="L877">        cube[2][2][1] = temp[3][2][1];</span>
+<span class="fc" id="L878">        cube[2][2][2] = temp[3][2][2];</span>
+
+        // Move part of face 5 to part of face 3
+<span class="fc" id="L881">        cube[3][2][0] = temp[5][2][0];</span>
+<span class="fc" id="L882">        cube[3][2][1] = temp[5][2][1];</span>
+<span class="fc" id="L883">        cube[3][2][2] = temp[5][2][2];</span>
+
+        // Move part of face 1 to part of face 5
+<span class="fc" id="L886">        cube[5][2][0] = temp[1][2][0];</span>
+<span class="fc" id="L887">        cube[5][2][1] = temp[1][2][1];</span>
+<span class="fc" id="L888">        cube[5][2][2] = temp[1][2][2];</span>
+<span class="fc" id="L889">    }</span>
+
+
+    public static void solveCube(List&lt;String&gt; savedMoves, String[][][] cube) {
+<span class="fc bfc" id="L893" title="All 2 branches covered.">        for (int i = savedMoves.size() - 1; i &gt;= 0; i--){</span>
+<span class="fc" id="L894">            String moveToRevers = savedMoves.get(i);</span>
+<span class="fc bfc" id="L895" title="All 2 branches covered.">            if (moveToRevers.equals(&quot;x&quot;)){</span>
+<span class="fc" id="L896">                rotateCubeToRight(cube);</span>
+            }
+<span class="fc bfc" id="L898" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;X&quot;)){</span>
+<span class="fc" id="L899">                rotateCubeToLeft(cube);</span>
+            }
+<span class="fc bfc" id="L901" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;y&quot;)){</span>
+<span class="fc" id="L902">                rotateCubeFrontfaceUp(cube);</span>
+            }
+<span class="fc bfc" id="L904" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;Y&quot;)){</span>
+<span class="fc" id="L905">                rotateCubeFrontfaceDown(cube);</span>
+            }
+<span class="fc bfc" id="L907" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;f&quot;)){</span>
+<span class="fc" id="L908">                rotateCubefaceClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L910" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;F&quot;)){</span>
+<span class="fc" id="L911">                rotateCubefaceCounterClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L913" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;r&quot;)){</span>
+<span class="fc" id="L914">                rotateRightSideClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L916" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;R&quot;)){</span>
+<span class="fc" id="L917">                rotaterightSideCounterClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L919" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;l&quot;)){</span>
+<span class="fc" id="L920">                rotateLeftSideDown(cube);</span>
+            }
+<span class="fc bfc" id="L922" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;L&quot;)){</span>
+<span class="fc" id="L923">                rotateLeftSideUp(cube);</span>
+            }
+<span class="fc bfc" id="L925" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;u&quot;)){</span>
+<span class="fc" id="L926">                rotateTopClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L928" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;U&quot;)){</span>
+<span class="fc" id="L929">                rotateTopCounterClockwise(cube);</span>
+            }
+<span class="fc bfc" id="L931" title="All 2 branches covered.">            else if (moveToRevers.equals(&quot;d&quot;)){</span>
+<span class="fc" id="L932">                rotateBottomClockwise(cube);</span>
+            }
+<span class="pc bpc" id="L934" title="1 of 2 branches missed.">            else if (moveToRevers.equals(&quot;D&quot;)){</span>
+<span class="fc" id="L935">                rotateBottomCounterClockwise(cube);</span>
+            }
+        }
+<span class="fc" id="L938">    }</span>
+
+    public static void scrambleCube(String[][][] cube, List&lt;String&gt; savedMoves) {
+<span class="fc" id="L941">        String[] moves = { &quot;X&quot;, &quot;x&quot;, &quot;Y&quot;, &quot;y&quot;, &quot;F&quot;, &quot;f&quot;, &quot;R&quot;, &quot;r&quot;, &quot;L&quot;, &quot;l&quot;, &quot;U&quot;, &quot;u&quot;, &quot;D&quot;, &quot;d&quot; };</span>
+<span class="fc" id="L942">        Random rand = new Random();</span>
+
+<span class="fc" id="L944">        int numMoves = 80;</span>
+
+<span class="fc bfc" id="L946" title="All 2 branches covered.">        for (int i = 0; i &lt; numMoves; i++) {</span>
+<span class="fc" id="L947">            int randomMoveIndex = rand.nextInt(moves.length);</span>
+<span class="fc" id="L948">            String move = moves[randomMoveIndex];</span>
+<span class="fc" id="L949">            makeMove(cube, move, savedMoves);</span>
+        }
+<span class="fc" id="L951">    }</span>
+
+    public static void makeMove(String[][][] cube, String move, List&lt;String&gt; savedMoves) {
+<span class="fc bfc" id="L954" title="All 2 branches covered.">        if (move.equals(&quot;X&quot;)){</span>
+<span class="fc" id="L955">            rotateCubeToRight(cube);</span>
+<span class="fc" id="L956">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L958" title="All 2 branches covered.">        else if (move.equals(&quot;x&quot;)){</span>
+<span class="fc" id="L959">            rotateCubeToLeft(cube);</span>
+<span class="fc" id="L960">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L962" title="All 2 branches covered.">        else if (move.equals(&quot;Y&quot;)){</span>
+<span class="fc" id="L963">            rotateCubeFrontfaceUp(cube);</span>
+<span class="fc" id="L964">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L966" title="All 2 branches covered.">        else if (move.equals(&quot;y&quot;)){</span>
+<span class="fc" id="L967">            rotateCubeFrontfaceDown(cube);</span>
+<span class="fc" id="L968">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L970" title="All 2 branches covered.">        else if (move.equals(&quot;F&quot;)){</span>
+<span class="fc" id="L971">            rotateCubefaceClockwise(cube);</span>
+<span class="fc" id="L972">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L974" title="All 2 branches covered.">        else if (move.equals(&quot;f&quot;)){</span>
+<span class="fc" id="L975">            rotateCubefaceCounterClockwise(cube);</span>
+<span class="fc" id="L976">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L978" title="All 2 branches covered.">        else if (move.equals(&quot;R&quot;)){</span>
+<span class="fc" id="L979">            rotateRightSideClockwise(cube);</span>
+<span class="fc" id="L980">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L982" title="All 2 branches covered.">        else if (move.equals(&quot;r&quot;)){</span>
+<span class="fc" id="L983">            rotaterightSideCounterClockwise(cube);</span>
+<span class="fc" id="L984">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L986" title="All 2 branches covered.">        else if (move.equals(&quot;L&quot;)){</span>
+<span class="fc" id="L987">            rotateLeftSideDown(cube);</span>
+<span class="fc" id="L988">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L990" title="All 2 branches covered.">        else if (move.equals(&quot;l&quot;)){</span>
+<span class="fc" id="L991">            rotateLeftSideUp(cube);</span>
+<span class="fc" id="L992">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L994" title="All 2 branches covered.">        else if (move.equals(&quot;U&quot;)){</span>
+<span class="fc" id="L995">            rotateTopClockwise(cube);</span>
+<span class="fc" id="L996">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L998" title="All 2 branches covered.">        else if (move.equals(&quot;u&quot;)){</span>
+<span class="fc" id="L999">            rotateTopCounterClockwise(cube);</span>
+<span class="fc" id="L1000">            savedMoves.add(move);</span>
+        }
+<span class="fc bfc" id="L1002" title="All 2 branches covered.">        else if (move.equals(&quot;D&quot;)){</span>
+<span class="fc" id="L1003">            rotateBottomClockwise(cube);</span>
+<span class="fc" id="L1004">            savedMoves.add(move);</span>
+        }
+        else {
+<span class="fc" id="L1007">            rotateBottomCounterClockwise(cube);</span>
+<span class="fc" id="L1008">            savedMoves.add(move);</span>
+        }
+<span class="fc" id="L1010">    }</span>
+
+
+    public static void printIfCubeIsSolved(String[][][] cube) {
+<span class="pc bpc" id="L1014" title="1 of 2 branches missed.">        if (checkIfSolved(cube)){</span>
+<span class="nc" id="L1015">            System.out.println(&quot;Congratulation the cube is now solved&quot;);</span>
+        }
+<span class="fc" id="L1017">    }</span>
+
+    public static boolean checkIfSolved(String[][][] cube) {
+<span class="pc bpc" id="L1020" title="1 of 2 branches missed.">        for(int i = 0; i &lt; 6; i++) {</span>
+<span class="fc" id="L1021">            String referenceColor = cube[i][0][0];</span>
+<span class="fc bfc" id="L1022" title="All 2 branches covered.">            for(int j = 0; j &lt; 3; j++){</span>
+<span class="fc bfc" id="L1023" title="All 2 branches covered.">                for(int k = 0; k &lt; 3; k++){</span>
+<span class="fc bfc" id="L1024" title="All 2 branches covered.">                    if (!cube[i][j][k].equals(referenceColor)){</span>
+<span class="fc" id="L1025">                        return false;</span>
+                    }
+                }
+            }
+        }
+<span class="nc" id="L1030">        return true;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

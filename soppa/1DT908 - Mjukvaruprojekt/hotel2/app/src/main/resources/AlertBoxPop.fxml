@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hotel2.GUI.AlertController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: lightgrey;">
+         <children>
+            <Button layoutX="127.0" layoutY="215.0" mnemonicParsing="false" onAction="#doneButton" prefHeight="50.0" prefWidth="247.0" stylesheets="@css/style.css" text="Färdig" />
+            <Label fx:id="titleLabel" alignment="CENTER" layoutX="24.0" layoutY="20.0" prefHeight="64.0" prefWidth="452.0" text="Saknas info">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="descriptionLabel" alignment="CENTER" layoutX="100.0" layoutY="84.0" prefHeight="112.0" prefWidth="296.0" text="test" textAlignment="CENTER" textOverrun="CLIP" wrapText="true">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

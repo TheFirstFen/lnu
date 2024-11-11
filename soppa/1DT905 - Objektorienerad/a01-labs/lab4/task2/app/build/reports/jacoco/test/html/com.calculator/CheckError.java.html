@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CheckError.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.calculator</a> &gt; <span class="el_source">CheckError.java</span></div><h1>CheckError.java</h1><pre class="source lang-java linenums">package com.calculator;
+
+import java.util.List;
+
+<span class="nc" id="L5">public class CheckError {</span>
+    private static Boolean prevNum;
+    private static Boolean prevOpe;
+    private static Boolean prevDiv;
+
+    public static Boolean checkForError(List&lt;String&gt; input) {
+<span class="nc" id="L11">        prevNum = false;</span>
+<span class="nc" id="L12">        prevOpe = true;</span>
+<span class="nc" id="L13">        prevDiv = false;</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">        for (String c : input) {</span>
+            try {
+<span class="nc" id="L16">                Double num = Double.parseDouble(c);</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">                if (prevNum == true) {</span>
+<span class="nc" id="L18">                    return true;</span>
+<span class="nc bnc" id="L19" title="All 4 branches missed.">                } else if (num == 0.0 &amp;&amp; prevDiv) {</span>
+<span class="nc" id="L20">                    System.out.println(&quot;Cannot divide by zero!&quot;);</span>
+<span class="nc" id="L21">                    return true;</span>
+                }
+<span class="nc" id="L23">                prevNum = true;</span>
+<span class="nc" id="L24">                prevOpe = false;</span>
+<span class="nc" id="L25">                prevDiv = false;</span>
+<span class="nc" id="L26">            } catch (NumberFormatException e) {</span>
+<span class="nc bnc" id="L27" title="All 8 branches missed.">                if (c.equals(&quot;/&quot;) || c.equals(&quot;*&quot;) || c.equals(&quot;+&quot;) || c.equals(&quot;-&quot;)) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">                    if (c.equals(&quot;/&quot;)) {</span>
+<span class="nc" id="L29">                        prevDiv = true;</span>
+                    } else {
+<span class="nc" id="L31">                        prevDiv = false;</span>
+                    }
+<span class="nc bnc" id="L33" title="All 2 branches missed.">                    if (c.length() &gt; 1) {</span>
+<span class="nc" id="L34">                        return true;</span>
+                    } else {
+<span class="nc bnc" id="L36" title="All 2 branches missed.">                        if (prevOpe == true) {</span>
+<span class="nc" id="L37">                            Main.setNaN(true);</span>
+<span class="nc" id="L38">                            return true;</span>
+                        }
+<span class="nc" id="L40">                        prevNum = false;</span>
+<span class="nc" id="L41">                        prevOpe = true;</span>
+                    }
+                } else {
+<span class="nc" id="L44">                    return true;</span>
+                }
+<span class="nc" id="L46">            }</span>
+<span class="nc" id="L47">    }</span>
+<span class="nc" id="L48">    return false;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

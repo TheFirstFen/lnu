@@ -1,0 +1,31 @@
+.root {
+    -fx-font-family: "Arimo";
+}
+
+* {
+    -fx-font-family: "Arimo";
+}
+
+/* Style for all buttons */
+.button {
+    -fx-background-color: #f48f0b; /* Green background color */
+    -fx-text-fill: black;         /* White text color */
+    -fx-font-size: 25px;
+    -fx-padding: 10px 15px;
+    -fx-border-radius: 5px;
+    -fx-border-color: black;
+    -fx-background-radius: 5px;
+}
+
+/* Hover effect for buttons */
+.button:hover {
+    -fx-background-color: #ef9b0b89; /* Darker green on hover */
+}
+
+/* Pressed effect for buttons */
+.button:pressed {
+    -fx-background-color: #ef9b0b89; /* Slightly darker green on press */
+}
+.button:active {
+    -fx-border-color: black;
+}

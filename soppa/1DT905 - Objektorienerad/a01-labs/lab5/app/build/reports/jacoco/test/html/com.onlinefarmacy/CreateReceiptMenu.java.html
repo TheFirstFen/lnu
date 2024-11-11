@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateReceiptMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.onlinefarmacy</a> &gt; <span class="el_source">CreateReceiptMenu.java</span></div><h1>CreateReceiptMenu.java</h1><pre class="source lang-java linenums">package com.onlinefarmacy;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class CreateReceiptMenu {</span>
+    public static void createReceiptMenu(Scanner scanner) {
+<span class="fc" id="L7">        System.out.println(&quot;Create a new receipt menu&quot;);</span>
+<span class="fc" id="L8">        System.out.println(&quot;Choose which drug:\n&quot;);</span>
+<span class="fc" id="L9">        System.out.print(&quot;1. Alvedon\n&quot; +</span>
+                           &quot;2. Ipren\n&quot; +
+                           &quot;3. Desloratadine\n&quot; +
+                           &quot;4. Brikanyl\n&quot; + 
+                           &quot;5. Morifin\n&quot;);
+<span class="fc" id="L14">        System.out.print(&quot;Your choice: &quot;);</span>
+<span class="fc" id="L15">        String choice = scanner.nextLine();</span>
+<span class="pc bpc" id="L16" title="1 of 2 branches missed.">        if (!choice.equalsIgnoreCase(&quot;q&quot;)) {</span>
+<span class="fc" id="L17">            check_input_choice(choice, scanner);</span>
+        }
+<span class="fc" id="L19">    }</span>
+    public static void check_input_choice(String choice, Scanner scanner) {
+<span class="pc bpc" id="L21" title="1 of 7 branches missed.">        switch (choice)  {</span>
+            case &quot;1&quot;:
+<span class="fc" id="L23">                addQuantity(0, scanner);</span>
+<span class="fc" id="L24">                break;</span>
+            case &quot;2&quot;:
+<span class="fc" id="L26">                addQuantity(1, scanner);</span>
+<span class="fc" id="L27">                break;</span>
+            case &quot;3&quot;:
+<span class="fc" id="L29">                addQuantity(2, scanner);</span>
+<span class="fc" id="L30">                break;</span>
+            case &quot;4&quot;:
+<span class="fc" id="L32">                addQuantity(3, scanner);</span>
+<span class="fc" id="L33">                break;</span>
+            case &quot;5&quot;:
+<span class="fc" id="L35">                addQuantity(4, scanner);</span>
+<span class="fc" id="L36">                break;</span>
+            case &quot;q&quot;:
+<span class="nc" id="L38">                break;</span>
+            default:
+<span class="fc" id="L40">                System.out.print(&quot;Incorrect input: &quot;);</span>
+<span class="fc" id="L41">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L42">                check_input_choice(newChoice, scanner);</span>
+        }
+<span class="fc" id="L44">    }</span>
+    public static void addQuantity(Integer drugIndex, Scanner scanner) {
+<span class="fc" id="L46">        System.out.println(&quot;Creating a receipt for &quot; + ReceiptHandling.getDrugNameByIndex(drugIndex));</span>
+<span class="fc" id="L47">        System.out.print(&quot;Choose amount(min 1, max 1000): &quot;);</span>
+<span class="fc" id="L48">        String amount = scanner.nextLine();</span>
+        try {
+<span class="fc" id="L50">            Integer amountInt = Integer.parseInt(amount);</span>
+<span class="pc bpc" id="L51" title="2 of 4 branches missed.">            if (amountInt &lt;= 0 || amountInt &gt; 1000) {</span>
+<span class="nc" id="L52">                throw new NumberFormatException();</span>
+            } else {
+<span class="fc" id="L54">                ReceiptHandling.createReceipt(drugIndex, amountInt);</span>
+<span class="fc" id="L55">                System.out.println(&quot;Created a recipe for &quot; + amountInt + &quot; &quot; + ReceiptHandling.getDrugNameByIndex(drugIndex));</span>
+            }
+<span class="nc" id="L57">        } catch (NumberFormatException e) {</span>
+<span class="nc" id="L58">            System.out.println(&quot;Incorrect input, try again!&quot;);</span>
+<span class="nc" id="L59">            addQuantity(drugIndex, scanner);</span>
+<span class="fc" id="L60">        }</span>
+<span class="fc" id="L61">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

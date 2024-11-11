@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Menu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.onlinefarmacy</a> &gt; <span class="el_source">Menu.java</span></div><h1>Menu.java</h1><pre class="source lang-java linenums">package com.onlinefarmacy;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class Menu {</span>
+    public static void menu(Scanner scanner, String recDirectory) {
+<span class="fc" id="L7">        System.out.println(&quot;\n1) View all receipts\n&quot; +</span>
+                           &quot;2) View one receipt\n&quot; +
+                           &quot;3) Add a new receipt\n&quot; +
+                           &quot;4) Change an existing receipt\n&quot; +
+                           &quot;5) Remove an existing receipt\n&quot; +
+                           &quot;6) Export all recipes as JSON\n&quot; +
+                           &quot;7) Export all recipes as CSV\n&quot; +
+                           &quot;q) Quit&quot;); 
+<span class="fc" id="L15">        System.out.print(&quot;Your choice: &quot;);</span>
+<span class="fc" id="L16">        String choice = scanner.nextLine();</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (choice.equalsIgnoreCase(&quot;q&quot;)) {</span>
+<span class="fc" id="L18">            Main.exitprogram = true;</span>
+<span class="fc" id="L19">            System.out.println(&quot;Exiting the program...&quot;);</span>
+        } else {
+<span class="fc" id="L21">            check_input_choice(choice, scanner, recDirectory);</span>
+        }
+<span class="fc" id="L23">    }</span>
+    public static void check_input_choice(String choice, Scanner scanner, String recDirectory) {
+<span class="pc bpc" id="L25" title="1 of 9 branches missed.">        switch (choice)  {</span>
+            case &quot;1&quot;:
+<span class="fc" id="L27">                ReceiptStorage.printReceipts();</span>
+<span class="fc" id="L28">                break;</span>
+            case &quot;2&quot;:
+<span class="fc" id="L30">                ReceiptMenu.showChoices();</span>
+<span class="fc" id="L31">                System.out.print(&quot;Choice: &quot;);</span>
+<span class="fc" id="L32">                String receiptChoice = scanner.nextLine();</span>
+<span class="fc" id="L33">                ReceiptMenu.showReceipt(receiptChoice, scanner);</span>
+<span class="fc" id="L34">                break;</span>
+            case &quot;3&quot;:
+<span class="fc" id="L36">                CreateReceiptMenu.createReceiptMenu(scanner);</span>
+<span class="fc" id="L37">                break;</span>
+            case &quot;4&quot;:
+<span class="fc" id="L39">                ReceiptMenu.showChoices();</span>
+<span class="fc" id="L40">                System.out.print(&quot;Which one do you want to update? &quot;);</span>
+<span class="fc" id="L41">                String updateChoice = scanner.nextLine();</span>
+<span class="fc" id="L42">                ReceiptMenu.showReceipt(updateChoice, scanner);</span>
+<span class="fc" id="L43">                ReceiptMenu.updateReceipt(updateChoice, scanner);</span>
+<span class="fc" id="L44">                break;</span>
+            case &quot;5&quot;:
+<span class="nc" id="L46">                ReceiptMenu.showChoices();</span>
+<span class="nc" id="L47">                System.out.print(&quot;Which one do you want to delete? &quot;);</span>
+<span class="nc" id="L48">                String removeChoice = scanner.nextLine();</span>
+<span class="nc" id="L49">                ReceiptMenu.showReceipt(removeChoice, scanner);</span>
+<span class="nc" id="L50">                ReceiptMenu.removeReceipt(removeChoice, scanner);</span>
+<span class="nc" id="L51">                break;</span>
+            case &quot;6&quot;:
+<span class="fc" id="L53">                ReceiptStorage.exportAllAsJson(recDirectory);</span>
+<span class="fc" id="L54">                break;</span>
+            case &quot;7&quot;:
+<span class="fc" id="L56">                ReceiptStorage.exportAllAsCSV(recDirectory);</span>
+<span class="fc" id="L57">                break;</span>
+            case &quot;q&quot;:
+<span class="fc" id="L59">                Main.exitprogram = true;</span>
+<span class="fc" id="L60">                System.out.println(&quot;Exiting the program...&quot;);</span>
+<span class="fc" id="L61">                break;</span>
+            default:
+<span class="fc" id="L63">                System.out.print(&quot;Incorrect input: &quot;);</span>
+<span class="fc" id="L64">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L65">                check_input_choice(newChoice, scanner, recDirectory);</span>
+        }
+<span class="fc" id="L67">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

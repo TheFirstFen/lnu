@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.calculator.MenuTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-09-29T08:21:33" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.003">
+  <properties/>
+  <testcase name="exitTest()" classname="com.calculator.MenuTest" time="0.001"/>
+  <testcase name="correctInput()" classname="com.calculator.MenuTest" time="0.001"/>
+  <testcase name="falseInput()" classname="com.calculator.MenuTest" time="0.0"/>
+  <testcase name="NaNInput()" classname="com.calculator.MenuTest" time="0.001"/>
+  <system-out><![CDATA[The sum is: 2.0
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.task3.GameTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-03T05:01:54" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.061">
+  <properties/>
+  <testcase name="testToJsonAndFromJson()" classname="com.task3.GameTest" time="0.061"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

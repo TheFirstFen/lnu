@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Game.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.task3</a> &gt; <span class="el_source">Game.java</span></div><h1>Game.java</h1><pre class="source lang-java linenums">package com.task3;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+
+public class Game {
+    private Robot robot;
+    private Wolf wolf;
+    private Home home;
+    private Strawberry strawberry;
+    private Soup soup;
+    private Integer round;
+
+<span class="fc" id="L15">    public Game() {</span>
+        // Initialize your game objects and set initial values
+<span class="fc" id="L17">        this.robot = new Robot();</span>
+<span class="fc" id="L18">        this.wolf = new Wolf();</span>
+<span class="fc" id="L19">        this.home = new Home();</span>
+<span class="fc" id="L20">        this.strawberry = new Strawberry();</span>
+<span class="fc" id="L21">        this.soup = new Soup();</span>
+<span class="fc" id="L22">        this.round = 1;</span>
+<span class="fc" id="L23">    }</span>
+
+
+    public Robot getRobot() {
+<span class="fc" id="L27">        return robot;</span>
+    }
+
+    public Wolf getWolf() {
+<span class="fc" id="L31">        return wolf;</span>
+    }
+
+    public Home getHome() {
+<span class="fc" id="L35">        return home;</span>
+    }
+
+    public Strawberry getStrawberry() {
+<span class="fc" id="L39">        return strawberry;</span>
+    }
+
+    public Soup getSoup() {
+<span class="fc" id="L43">        return soup;</span>
+    }
+
+    public Integer getRound() {
+<span class="fc" id="L47">        return round;</span>
+    }
+
+    public String toJson() {
+<span class="fc" id="L51">        Gson gson = new GsonBuilder().setPrettyPrinting().create();</span>
+<span class="fc" id="L52">        return gson.toJson(this);</span>
+}
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

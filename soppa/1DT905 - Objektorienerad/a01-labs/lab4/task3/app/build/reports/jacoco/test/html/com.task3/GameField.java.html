@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>GameField.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.task3</a> &gt; <span class="el_source">GameField.java</span></div><h1>GameField.java</h1><pre class="source lang-java linenums">package com.task3;
+
+import java.util.Random;
+
+<span class="nc" id="L5">public class GameField {</span>
+        // Create a 2D array to represent the game board
+<span class="fc" id="L7">    private static char[][] board = new char[10][10];</span>
+
+
+    public static void initializeField() {
+
+        // Initialize the game board with empty spaces
+<span class="fc bfc" id="L13" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            for (int j = 0; j &lt; 10; j++) {</span>
+<span class="fc" id="L15">                board[i][j] = '-';</span>
+            }
+        }
+<span class="fc" id="L18">    }</span>
+
+    public static void setStartPosRobot(Robot robot) {
+<span class="fc" id="L21">        ((Robot) robot).SetNewPos(0, 0);</span>
+<span class="fc" id="L22">    }</span>
+
+    public static void setStartPosWolf(Wolf wolf) {
+<span class="fc" id="L25">        Random random = new Random();</span>
+<span class="fc" id="L26">        ((Wolf) wolf).SetNewPos(random.nextInt(3, 9), random.nextInt(3, 9));</span>
+<span class="fc" id="L27">    }</span>
+
+    public static void setPosHome(Home home) {
+<span class="fc" id="L30">        ((Home) home).SetNewPos(9, 9);</span>
+<span class="fc" id="L31">    }</span>
+
+    public static void setPosStrawberry(Strawberry strawberry, Soup soup, Integer row, Integer column) {
+<span class="pc bpc" id="L34" title="1 of 4 branches missed.">        if (((Soup) soup).getCurrentRow() == row &amp;&amp; ((Soup) soup).getCurrentColumn() == column) {</span>
+<span class="fc" id="L35">            Random random = new Random();</span>
+<span class="fc" id="L36">            Integer Nrow = random.nextInt(1, 8);</span>
+<span class="fc" id="L37">            Integer Ncolumn = random.nextInt(1, 8);</span>
+<span class="fc" id="L38">            setPosStrawberry(strawberry, soup, Nrow, Ncolumn);</span>
+<span class="fc" id="L39">        } else {</span>
+<span class="fc" id="L40">            ((Strawberry) strawberry).SetNewPos(row, column);</span>
+        }
+<span class="fc" id="L42">    }</span>
+
+    public static void setPosSoup(Soup soup, Strawberry strawberry, Integer row, Integer column) {
+<span class="fc bfc" id="L45" title="All 4 branches covered.">        if (((Strawberry) strawberry).getCurrentRow() == row &amp;&amp; ((Strawberry) strawberry).getCurrentColumn() == column) {</span>
+<span class="fc" id="L46">            Random random = new Random();</span>
+<span class="fc" id="L47">            Integer Nrow = random.nextInt(1, 8);</span>
+<span class="fc" id="L48">            Integer Ncolumn = random.nextInt(1, 8);</span>
+<span class="fc" id="L49">            setPosSoup(soup, strawberry, Nrow, Ncolumn);</span>
+<span class="fc" id="L50">        } else {</span>
+<span class="fc" id="L51">            ((Soup) soup).SetNewPos(row, column);</span>
+        }
+<span class="fc" id="L53">    }</span>
+
+    public static char[][] getBoard() {
+<span class="fc" id="L56">        return board;</span>
+    }
+
+    public static void removeStrawberry(Strawberry strawberry) {
+<span class="fc" id="L60">        Random random = new Random();</span>
+<span class="fc" id="L61">        ((Strawberry) strawberry).SetNewPos(random.nextInt(1, 8), random.nextInt(1, 8));</span>
+<span class="fc" id="L62">    }</span>
+
+    public static void removeSoup(Soup soup) {
+<span class="fc" id="L65">        Random random = new Random();</span>
+<span class="fc" id="L66">        ((Soup) soup).SetNewPos(random.nextInt(1, 8), random.nextInt(1, 8));</span>
+<span class="fc" id="L67">    }</span>
+
+    public static void updateGameField(Robot robot, Wolf wolf, Home home,  Strawberry strawberry, Soup soup) {
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        for (int i = 0; i &lt; 10; i++) {</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">            for (int j = 0; j &lt; 10; j++) {</span>
+<span class="fc bfc" id="L72" title="All 4 branches covered.">                if (i == home.getCurrentRow() &amp;&amp; j == home.getCurrentColumn()) {</span>
+<span class="fc" id="L73">                    System.out.print(home.getIcon());</span>
+<span class="fc bfc" id="L74" title="All 4 branches covered.">                } else if (i == wolf.getCurrentRow() &amp;&amp; j == wolf.getCurrentColumn()) {</span>
+<span class="fc" id="L75">                    System.out.print(wolf.getIcon());</span>
+<span class="fc bfc" id="L76" title="All 4 branches covered.">                } else if (i == robot.getCurrentRow() &amp;&amp; j == robot.getCurrentColumn()) {</span>
+<span class="fc" id="L77">                    System.out.print(robot.getIcon());</span>
+<span class="fc bfc" id="L78" title="All 6 branches covered.">                } else if (i == strawberry.getCurrentRow() &amp;&amp; j == strawberry.getCurrentColumn() &amp;&amp; ((Strawberry) strawberry).getTimeToSpawn().equals(true)) {</span>
+<span class="fc" id="L79">                    System.out.print(strawberry.getIcon());</span>
+<span class="fc bfc" id="L80" title="All 6 branches covered.">                } else if (i == soup.getCurrentRow() &amp;&amp; j == soup.getCurrentColumn() &amp;&amp; ((Soup) soup).getTimeToSpawn().equals(true)) {</span>
+<span class="fc" id="L81">                    System.out.print(soup.getIcon());</span>
+<span class="fc bfc" id="L82" title="All 6 branches covered.">                } else if (i == strawberry.getCurrentRow() &amp;&amp; j == strawberry.getCurrentColumn() &amp;&amp; ((Strawberry) strawberry).getTimeToRemove().equals(true)) {</span>
+<span class="fc" id="L83">                    ((Strawberry) strawberry).setTimeToremove(false);</span>
+<span class="fc bfc" id="L84" title="All 6 branches covered.">                } else if (i == soup.getCurrentRow() &amp;&amp; j == soup.getCurrentColumn() &amp;&amp; ((Soup) soup).getTimeToRemove().equals(true)) {</span>
+<span class="fc" id="L85">                    ((Soup) soup).setTimeToremove(false);</span>
+                } else {
+<span class="fc" id="L87">                    System.out.print(board[i][j] + &quot; &quot;);</span>
+                }
+            }
+<span class="fc" id="L90">            System.out.println();</span>
+    }
+<span class="fc" id="L92">    System.out.println(&quot;********************&quot;);</span>
+<span class="fc" id="L93">    }</span>
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

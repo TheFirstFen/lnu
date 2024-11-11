@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CubeTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2023-11-30T15:30:05" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.03">
+  <properties/>
+  <testcase name="testsolve()" classname="CubeTest" time="0.017"/>
+  <testcase name="testQuit()" classname="CubeTest" time="0.001"/>
+  <testcase name="testinit()" classname="CubeTest" time="0.0"/>
+  <testcase name="testquit()" classname="CubeTest" time="0.001"/>
+  <testcase name="testsc()" classname="CubeTest" time="0.001"/>
+  <testcase name="testD()" classname="CubeTest" time="0.001"/>
+  <testcase name="testF()" classname="CubeTest" time="0.0"/>
+  <testcase name="testL()" classname="CubeTest" time="0.0"/>
+  <testcase name="testR()" classname="CubeTest" time="0.001"/>
+  <testcase name="testU()" classname="CubeTest" time="0.0"/>
+  <testcase name="testX()" classname="CubeTest" time="0.001"/>
+  <testcase name="testY()" classname="CubeTest" time="0.0"/>
+  <testcase name="testd()" classname="CubeTest" time="0.001"/>
+  <testcase name="testf()" classname="CubeTest" time="0.0"/>
+  <testcase name="testl()" classname="CubeTest" time="0.0"/>
+  <testcase name="testr()" classname="CubeTest" time="0.0"/>
+  <testcase name="testu()" classname="CubeTest" time="0.0"/>
+  <testcase name="testx()" classname="CubeTest" time="0.0"/>
+  <testcase name="testy()" classname="CubeTest" time="0.0"/>
+  <testcase name="testInvalidInput()" classname="CubeTest" time="0.0"/>
+  <system-out><![CDATA[Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Quitting
+Invalid input
+Quitting
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

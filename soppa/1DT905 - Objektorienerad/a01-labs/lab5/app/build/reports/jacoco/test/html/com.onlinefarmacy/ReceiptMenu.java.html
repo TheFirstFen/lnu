@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="sv"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReceiptMenu.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">app</a> &gt; <a href="index.source.html" class="el_package">com.onlinefarmacy</a> &gt; <span class="el_source">ReceiptMenu.java</span></div><h1>ReceiptMenu.java</h1><pre class="source lang-java linenums">package com.onlinefarmacy;
+
+import java.util.Scanner;
+
+<span class="nc" id="L5">public class ReceiptMenu {</span>
+    public static void showChoices() {
+<span class="fc" id="L7">        System.out.println(&quot;Choose which recipe to view!\n&quot;);</span>
+<span class="fc" id="L8">        Integer i = 1;</span>
+<span class="fc bfc" id="L9" title="All 2 branches covered.">        for (Receipt receipt : ReceiptStorage.getStoredReceipts()) {</span>
+<span class="fc" id="L10">            System.out.println(i + &quot;: &quot; + receipt.getDateTime() + &quot;, &quot; + </span>
+<span class="fc" id="L11">                               receipt.getUniqueId() + &quot;, &quot; + receipt.getDrugName());</span>
+<span class="fc" id="L12">            i ++;</span>
+<span class="fc" id="L13">        }</span>
+<span class="fc" id="L14">    }</span>
+
+    public static void showReceipt(String choice, Scanner scanner) {
+<span class="pc bpc" id="L17" title="1 of 2 branches missed.">        if (!choice.equalsIgnoreCase(&quot;q&quot;)) {</span>
+            try {
+<span class="fc" id="L19">                Integer intChoice = Integer.parseInt(choice);</span>
+<span class="pc bpc" id="L20" title="2 of 4 branches missed.">                if (intChoice &lt;= ReceiptStorage.getStoredReceipts().size() &amp;&amp; intChoice &gt; 0) {</span>
+<span class="fc" id="L21">                    Receipt receiptToShow = ReceiptStorage.getStoredReceipts().get(intChoice - 1);</span>
+<span class="fc" id="L22">                    System.out.println(receiptToShow.toJson());</span>
+<span class="fc" id="L23">                } else {</span>
+<span class="nc" id="L24">                    throw new NumberFormatException();</span>
+                }
+<span class="fc" id="L26">            } catch (NumberFormatException e) {</span>
+<span class="fc" id="L27">                System.out.print(&quot;Incorrect input, try again: &quot;);</span>
+<span class="fc" id="L28">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L29">                showReceipt(newChoice, scanner);</span>
+<span class="fc" id="L30">            }            </span>
+        }
+<span class="fc" id="L32">    }</span>
+    public static void removeReceipt(String removeChoice, Scanner scanner) {
+<span class="fc" id="L34">        System.out.println(&quot;Are you sure you want to delete this one(y/n)? &quot;);</span>
+<span class="fc" id="L35">        String yesOrNo = scanner.nextLine();</span>
+<span class="fc" id="L36">        incorrectInputRemove(yesOrNo, scanner, removeChoice);</span>
+<span class="fc" id="L37">    }</span>
+    public static void incorrectInputRemove(String yesOrNo, Scanner scanner, String removeChoice) {
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (yesOrNo.equalsIgnoreCase(&quot;y&quot;)) {</span>
+<span class="fc" id="L40">            Integer intRemoveChoice = Integer.parseInt(removeChoice);</span>
+<span class="fc" id="L41">            ReceiptStorage.removeReceipt(intRemoveChoice - 1);</span>
+<span class="fc" id="L42">            System.out.println(&quot;Receipt was removed!&quot;);</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        } else if (!yesOrNo.equalsIgnoreCase(&quot;n&quot;)) {</span>
+<span class="fc" id="L44">            System.out.println(&quot;Incorrect input, try again: &quot;);</span>
+<span class="fc" id="L45">            String newYesOrNo = scanner.nextLine();</span>
+<span class="fc" id="L46">            incorrectInputRemove(newYesOrNo, scanner, removeChoice);</span>
+        } 
+<span class="fc" id="L48">    }</span>
+    public static void updateReceipt(String updateChoice, Scanner scanner) {
+<span class="fc" id="L50">        System.out.println(&quot;What do you want to change?\n&quot; +</span>
+                           &quot;1. Drug\n&quot; + 
+                           &quot;2. Quantity\n&quot;);
+<span class="fc" id="L53">        System.out.print(&quot;Your choice: &quot;);</span>
+<span class="fc" id="L54">        String quantOrDrug = scanner.nextLine();</span>
+<span class="fc" id="L55">        incorrectInputUpdate(quantOrDrug, scanner, updateChoice);</span>
+<span class="fc" id="L56">    }</span>
+    public static void incorrectInputUpdate(String quantOrDrug, Scanner scanner, String updateChoice) {
+<span class="fc bfc" id="L58" title="All 2 branches covered.">        if (quantOrDrug.equals(&quot;1&quot;)) {</span>
+
+<span class="fc" id="L60">            Integer intUpdateChoice = Integer.parseInt(updateChoice);</span>
+<span class="fc" id="L61">            Integer drugIndex = getDrug(scanner);</span>
+<span class="fc" id="L62">            String newDrug = ReceiptHandling.getDrugNameByIndex(0);</span>
+<span class="fc" id="L63">            ReceiptStorage.updateDrug(intUpdateChoice - 1, newDrug, drugIndex);</span>
+<span class="fc" id="L64">            System.out.println(&quot;Receipt was updated!&quot;);</span>
+<span class="fc bfc" id="L65" title="All 2 branches covered.">        } else if (quantOrDrug.equals(&quot;2&quot;)) {</span>
+<span class="fc" id="L66">            Integer intUpdateChoice = Integer.parseInt(updateChoice);</span>
+<span class="fc" id="L67">            Integer newAmount = getAmount(scanner);</span>
+<span class="fc" id="L68">            ReceiptStorage.updateQuantity(intUpdateChoice - 1, newAmount);</span>
+<span class="fc" id="L69">            System.out.println(&quot;Receipt was updated!&quot;);</span>
+<span class="fc bfc" id="L70" title="All 2 branches covered.">        } else if (!quantOrDrug.equalsIgnoreCase(&quot;q&quot;)) {</span>
+<span class="fc" id="L71">            System.out.println(&quot;Incorrect input, try again: &quot;);</span>
+<span class="fc" id="L72">            String newYesOrNo = scanner.nextLine();</span>
+<span class="fc" id="L73">            incorrectInputUpdate(newYesOrNo, scanner, updateChoice);</span>
+        }
+<span class="fc" id="L75">    }</span>
+    public static Integer getAmount(Scanner scanner) {
+<span class="fc" id="L77">        Integer intQuantity = 0;</span>
+        while (true) {
+<span class="fc" id="L79">            System.out.print(&quot;Choose a new quantity: &quot;);</span>
+<span class="fc" id="L80">            String newQuantity = scanner.nextLine();</span>
+            try {
+<span class="fc" id="L82">                intQuantity = Integer.parseInt(newQuantity);</span>
+<span class="pc bpc" id="L83" title="2 of 4 branches missed.">                if (intQuantity &lt;= 0 || intQuantity &gt; 1000) {</span>
+<span class="nc" id="L84">                    throw new NumberFormatException();</span>
+                } else {
+<span class="fc" id="L86">                    break;</span>
+                }
+<span class="nc" id="L88">            } catch (NumberFormatException e) {</span>
+<span class="nc" id="L89">                System.out.println(&quot;Incorrect input try again!&quot;);</span>
+            }
+<span class="nc" id="L91">        }</span>
+<span class="fc" id="L92">        return intQuantity;</span>
+    }
+
+    public static Integer getDrug(Scanner scanner) {
+<span class="fc" id="L96">        System.out.println(&quot;Choose which drug to change to:\n&quot;);</span>
+<span class="fc" id="L97">        System.out.print(&quot;1. Alvedon\n&quot; +</span>
+                           &quot;2. Ipren\n&quot; +
+                           &quot;3. Desloratadine\n&quot; +
+                           &quot;4. Brikanyl\n&quot; + 
+                           &quot;5. Morifin\n&quot;);
+<span class="fc" id="L102">        System.out.print(&quot;Your choice: &quot;);</span>
+<span class="fc" id="L103">        String choice = scanner.nextLine();</span>
+<span class="fc" id="L104">        return check_input_choice_drug(choice, scanner);</span>
+
+    }
+    public static Integer check_input_choice_drug(String choice, Scanner scanner) {
+<span class="fc bfc" id="L108" title="All 6 branches covered.">        switch (choice)  {</span>
+            case &quot;1&quot;:
+<span class="fc" id="L110">                return 0;</span>
+            case &quot;2&quot;:
+<span class="fc" id="L112">                return 1;</span>
+            case &quot;3&quot;:
+<span class="fc" id="L114">                return 2;</span>
+            case &quot;4&quot;:
+<span class="fc" id="L116">                return 3;</span>
+            case &quot;5&quot;:
+<span class="fc" id="L118">                return 4;</span>
+            default:
+<span class="fc" id="L120">                System.out.print(&quot;Incorrect input: &quot;);</span>
+<span class="fc" id="L121">                String newChoice = scanner.nextLine();</span>
+<span class="fc" id="L122">                return check_input_choice_drug(newChoice, scanner);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>

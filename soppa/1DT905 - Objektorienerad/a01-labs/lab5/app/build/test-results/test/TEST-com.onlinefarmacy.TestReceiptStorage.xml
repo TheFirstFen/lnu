@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onlinefarmacy.TestReceiptStorage" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-10-17T13:41:20" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.004">
+  <properties/>
+  <testcase name="testUpdateDrug()" classname="com.onlinefarmacy.TestReceiptStorage" time="0.0"/>
+  <testcase name="testJsonExport()" classname="com.onlinefarmacy.TestReceiptStorage" time="0.002"/>
+  <testcase name="testRemoveDrug()" classname="com.onlinefarmacy.TestReceiptStorage" time="0.001"/>
+  <testcase name="testCSVExport()" classname="com.onlinefarmacy.TestReceiptStorage" time="0.001"/>
+  <system-out><![CDATA[Receipt exported as Test Drug - 2023-10-17 15:41:20
+Files saved to /Users/jesper/Documents/School/1dt905/a01-labs/lab5/app/ExportsTest/JsonExports
+Json file deleted successfully.
+Failed to delete Json directory.
+Receipt exported as Test Drug - 2023-10-17 15:41:20
+Files saved to /Users/jesper/Documents/School/1dt905/a01-labs/lab5/app/ExportsTest/CSVExports
+CSV file deleted successfully.
+Failed to delete CSV directory.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

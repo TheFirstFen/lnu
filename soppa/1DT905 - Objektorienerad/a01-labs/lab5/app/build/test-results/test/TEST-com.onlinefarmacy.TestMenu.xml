@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onlinefarmacy.TestMenu" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-10-17T13:41:20" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.059">
+  <properties/>
+  <testcase name="testMenuWithUserInput()" classname="com.onlinefarmacy.TestMenu" time="0.003"/>
+  <testcase name="testInputFalse()" classname="com.onlinefarmacy.TestMenu" time="0.001"/>
+  <testcase name="testInput1()" classname="com.onlinefarmacy.TestMenu" time="0.028"/>
+  <testcase name="testInput2()" classname="com.onlinefarmacy.TestMenu" time="0.004"/>
+  <testcase name="testInput3()" classname="com.onlinefarmacy.TestMenu" time="0.001"/>
+  <testcase name="testInput4()" classname="com.onlinefarmacy.TestMenu" time="0.002"/>
+  <testcase name="testInput6()" classname="com.onlinefarmacy.TestMenu" time="0.011"/>
+  <testcase name="testInput7()" classname="com.onlinefarmacy.TestMenu" time="0.006"/>
+  <testcase name="testInputq()" classname="com.onlinefarmacy.TestMenu" time="0.001"/>
+  <system-out><![CDATA[
+1) View all receipts
+2) View one receipt
+3) Add a new receipt
+4) Change an existing receipt
+5) Remove an existing receipt
+6) Export all recipes as JSON
+7) Export all recipes as CSV
+q) Quit
+Your choice: Exiting the program...
+Incorrect input: Exiting the program...
+Exiting the program...
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

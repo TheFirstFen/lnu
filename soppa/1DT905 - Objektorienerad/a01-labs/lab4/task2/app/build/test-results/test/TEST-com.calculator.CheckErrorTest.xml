@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.calculator.CheckErrorTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-09-29T08:21:33" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.006">
+  <properties/>
+  <testcase name="LaterDivByZeroTest()" classname="com.calculator.CheckErrorTest" time="0.002"/>
+  <testcase name="tempTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <testcase name="DivideByZeroTest()" classname="com.calculator.CheckErrorTest" time="0.001"/>
+  <testcase name="DoubleNumTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <testcase name="NoErrorTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <testcase name="NotANumberTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <testcase name="DoubleOperatorTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <testcase name="failTest()" classname="com.calculator.CheckErrorTest" time="0.0"/>
+  <system-out><![CDATA[Cannot divide by zero!
+Cannot divide by zero!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

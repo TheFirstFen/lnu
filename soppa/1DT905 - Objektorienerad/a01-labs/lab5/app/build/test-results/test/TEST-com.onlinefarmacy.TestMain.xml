@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onlinefarmacy.TestMain" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-10-17T13:41:20" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.031">
+  <properties/>
+  <testcase name="testMain()" classname="com.onlinefarmacy.TestMain" time="0.031"/>
+  <system-out><![CDATA[/Users/jesper/Documents/School/1dt905/a01-labs/lab5/app
+Welcome to the online farmacy
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

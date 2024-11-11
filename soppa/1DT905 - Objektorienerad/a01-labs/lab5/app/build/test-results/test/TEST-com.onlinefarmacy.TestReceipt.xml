@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.onlinefarmacy.TestReceipt" tests="9" skipped="0" failures="0" errors="0" timestamp="2023-10-17T13:41:20" hostname="MacBook-Air-som-tillhor-Jesper.local" time="0.004">
+  <properties/>
+  <testcase name="testSetDateTime()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testGetJsonFilePath()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testGetCSVFilePath()" classname="com.onlinefarmacy.TestReceipt" time="0.001"/>
+  <testcase name="testSetAPrice()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testSetAmount()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testSetUniqueId()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testSetDrugName()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <testcase name="testSetTotSum()" classname="com.onlinefarmacy.TestReceipt" time="0.001"/>
+  <testcase name="testToJson()" classname="com.onlinefarmacy.TestReceipt" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
