@@ -30,7 +30,7 @@ A proper shit show of a repo
 - home/personal networking (optimization)
 - slidev
 
-### For Ulv & Yoda
+### For Ulv, Yoda & Soppa
 
 - C
 
