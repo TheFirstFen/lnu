@@ -4,6 +4,7 @@ from algorithms.bf import brute_force
 from algorithms.two_pointer import two_pointer
 from algorithms.caching import caching
 from utils.linear_regression import find_m_k
+import math
 
 
 def benchmark_function(test_func, target=50, min_size=0, max_size=100,
@@ -16,17 +17,16 @@ def benchmark_function(test_func, target=50, min_size=0, max_size=100,
         times = []
         lst = list(range(1, size + 1))
 
-        for _ in range(trials):
+        for trial in range(trials):
             start_time = time.time()
-            test_func(lst, target)  # Run the passed-in function
+            test_func(lst, target)
             elapsed_time = time.time() - start_time
             times.append(elapsed_time)
 
-        avg_time = sum(times) / trials  # Calculate average time for this list size
+        avg_time = sum(times) / trials
         avg_times.append(avg_time)
-        target += 10  # Adjust target incrementally
+        target += 10
 
-    # Plotting the results
     return avg_times, size_lst
 
 
@@ -41,17 +41,27 @@ print("Brute force:", avg_times_bf[-1])
 # print("Caching:", avg_times_ch[-1])
 
 k, m = find_m_k(size_lst, avg_times_bf)
-
+k = round(k, 3)
+m = round(m, 3)
 linear_lst = []
 for i in range(len(size_lst)):
     regression = k*i + m
     linear_lst.append(regression)
 print(k, m)
 
+
+log_times = []
+
+
+for i in avg_times_bf:
+    log_times.append(math.log(i))
+print(log_times)
+
 plt.plot(size_lst, avg_times_bf, "-+r", label=labels[0])
-plt.plot(size_lst, linear_lst, "-+b", label=f"k = {k}\nm = {m}")
+plt.plot(size_lst, linear_lst, "-+b", label=f"k = {k} m = {m}")
 # plt.plot(size_lst, avg_times_tP, "-+b", label=labels[1])
 # plt.plot(size_lst, avg_times_ch, "-+y", label=labels[2])
+# plt.plot(math.log(len(size_lst)), log_times, label="log")
 
 plt.xlabel("List Size")
 plt.ylabel("Average Execution Time (s)")

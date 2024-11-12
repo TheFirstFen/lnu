@@ -16,6 +16,7 @@ def Sxy(x, y):
         summa += (i*j)
     return summa
 
+
 def find_m_k(x, y):
     xx = Sxx(x)
     xy = Sxy(x, y)
