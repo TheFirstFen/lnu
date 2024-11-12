@@ -21,6 +21,5 @@ def count_lines(path, depth=0):
                 summa += len(non_empty_lines)
 
 
-
 count_lines(os.path.expanduser("~/lnu/"))
 print("Total lines:", summa)
