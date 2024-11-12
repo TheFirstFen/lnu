@@ -10,5 +10,5 @@ def make_plot(x_label, y_label, *time_result, labels, size):
 
     plt.xlabel(x_label)
     plt.ylabel(y_label)
-    plt.legend()
+    plt.legend(loc="best")
     plt.show()
