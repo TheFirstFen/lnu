@@ -2,3 +2,6 @@
 .fake
 .DS_Store
 __pycache__/
+*.class
+lectures/
+
