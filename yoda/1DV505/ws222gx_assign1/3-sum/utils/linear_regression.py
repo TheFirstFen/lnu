@@ -5,7 +5,7 @@ def Sx_y(x, y):
 def Sxx(x):
     summa = 0
     for i in x:
-        summa += i**2
+        summa += i**3
     return summa
 
 
@@ -29,3 +29,5 @@ def find_m_k(x, y):
     m = (xx - (s_x * xy)) / numerator
 
     return k, m
+
+
