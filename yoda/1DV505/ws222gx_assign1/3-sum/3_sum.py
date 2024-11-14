@@ -9,8 +9,8 @@ from utils.linear_regression import line_reg, log_values
 def benchmark_function(test_func):
 
     target = 20
-    min_size, max_size, step = 20_000, 70_000, 20_000
-    trials = 3
+    min_size, max_size, step = 10_000, 70_000, 10_000
+    trials = 5
 
     size_lst = list(range(min_size, max_size + 1, step))
     avg_times = []
@@ -63,6 +63,8 @@ plt.show()
 
 plt.plot(size_lst, avg_times_tP, "-+b", label=labels[0])
 plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
+plt.xlabel("List sizes")
+plt.ylabel("Time in seconds(s)")
 plt.legend()
 plt.show()
 
