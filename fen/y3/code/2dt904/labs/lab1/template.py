@@ -1,22 +1,20 @@
 import pygame as pg
 import ctypes
 from OpenGL.GL import *
-from OpenGL.GL.shaders import compileProgram, compileShader
 import numpy as np
+from OpenGL.GL.shaders import compileProgram, compileShader
 
 class App:
     def __init__(self):
         pg.init()
         pg.display.set_mode((800, 600), pg.OPENGL | pg.DOUBLEBUF)
         self.clock = pg.time.Clock()
-
         glClearColor(0.1, 0.2, 0.2, 1)
-
         self.shader = self.createShader('shaders/vertex.txt', 'shaders/fragment.txt')
         glUseProgram(self.shader)
-
-        self.point = Point()
-        
+        glUniform1i(glGetUniformLocation(self.shader, 'imageTexture'), 0)
+        self.triangle = Triangle()
+        self.wood_texture = Material('gfx/wood.jpeg')
         self.mainLoop()
 
     def createShader(self, vertexFilePath, fragmentFilePath):
@@ -43,40 +41,19 @@ class App:
             glClear(GL_COLOR_BUFFER_BIT)
 
             glUseProgram(self.shader)
-            glBindVertexArray(self.point.vao)
-            glDrawArrays(GL_POINTS, 0, 1)
+            self.wood_texture.use()
+            glBindVertexArray(self.triangle.vao)
+            glDrawArrays(GL_TRIANGLES, 0, self.triangle.vertex_count)
 
             pg.display.flip()
+
             self.clock.tick(60)
 
     def quit(self):
-        self.point.destroy()
+        self.triangle.destroy()
+        self.wood_texture.destroy()
         glDeleateProgram(self.shader)
         pg.quit()
-
-class Point:
-    def __init__(self):
-        self.vertices = (0.0, 0.0, 0.0, 
-                         1.0, 1.0, 1.0)
-
-        self.vertex_data = np.array(self.vertices, dtype=np.float32)
-
-        self.vao = glGenVertexArrays(1)
-        glBindVertexArray(self.vao)
-
-        self.vbo = glGenBuffers(1)
-        glBindBuffer(GL_ARRAY_BUFFER, self.vbo)
-        glBufferData(GL_ARRAY_BUFFER, self.vertex_data.nbytes, self.vertex_data, GL_STATIC_DRAW)
-
-        glEnableVertexAttribArray(0)
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 24, ctypes.c_void_p(0))
-        
-        glEnableVertexAttribArray(1)
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 24, ctypes.c_void_p(12))
-
-    def destroy(self):
-        glDeleteVertexArrays(1, [self.vao])
-        glDeleteBuffers(1, [self.vbo])
 
 class Triangle:
     def __init__(self):
@@ -95,7 +72,6 @@ class Triangle:
         self.vbo = glGenBuffers(1)
         glBindBuffer(GL_ARRAY_BUFFER, self.vbo)
         glBufferData(GL_ARRAY_BUFFER, self.vertices.nbytes, self.vertices, GL_STATIC_DRAW)
-        
         glEnableVertexAttribArray(0)
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 32, ctypes.c_void_p(0))
         glEnableVertexAttribArray(1)
