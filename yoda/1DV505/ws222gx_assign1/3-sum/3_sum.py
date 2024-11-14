@@ -9,10 +9,10 @@ from utils.linear_regression import line_reg, log_values
 def benchmark_function(test_func):
 
     target = 20
-    min_size, max_size, step = 10_000, 70_000, 10_000
+    min_size, max_size, step = 50, 550, 50
     trials = 5
 
-    size_lst = list(range(min_size, max_size + 1, step))
+    size_lst = list(range(min_size, max_size, step))
     avg_times = []
 
     for size in size_lst:
@@ -33,18 +33,19 @@ def benchmark_function(test_func):
     return avg_times, size_lst
 
 
-labels = ["Two pointer", "Caching"]
 
-# avg_times_bf, size_lst = benchmark_function(brute_force)
-avg_times_tP, size_lst = benchmark_function(two_pointer)
-avg_times_ch, size_lst = benchmark_function(caching)
+labels = ["", "Caching"]
+
+avg_times_bf, size_lst = benchmark_function(brute_force)
+# avg_times_tP, size_lst = benchmark_function(two_pointer)
+# avg_times_ch, size_lst = benchmark_function(caching)
 
 # print("Brute force:", avg_times_bf[-1])
 # print("Two pointer:", avg_times_tP[-1])
-# print("Caching:", avg_times_ch[-1])
+# print("Caching:", avg_times_ch[-1])fluctuates
 
 
-"""log_x, log_y = log_values(size_lst, avg_times_bf)
+log_x, log_y = log_values(size_lst, avg_times_bf)
 k, m, line_y = line_reg(log_x, log_y)
 rounded_k = round(k, 3)
 
@@ -57,19 +58,28 @@ plt.xlabel("log(n) size")
 plt.ylabel("log(t) time")
 plt.legend()
 plt.show()
-"""
 
 
 
-plt.plot(size_lst, avg_times_tP, "-+b", label=labels[0])
-plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
+
+# plt.plot(size_lst, avg_times_tP, "-+b", label=labels[0])
+# plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
+plt.plot(size_lst, avg_times_bf, "-+r", label="Brute force")
 plt.xlabel("List sizes")
 plt.ylabel("Time in seconds(s)")
 plt.legend()
 plt.show()
 
+"""
+for i in range(3):
+    avg_times_bf, size_lst = benchmark_function(brute_force)
+    plt.plot(size_lst, avg_times_bf, "+", label=f"Run {i+1}")
 
-
+plt.legend()
+plt.xlabel("List sizes")
+plt.ylabel("Time in seconds(s)")
+plt.show()
+"""
 
 
 # finds the max values to make the plot even
