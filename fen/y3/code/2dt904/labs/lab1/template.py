@@ -10,7 +10,7 @@ class App:
         pg.display.set_mode((800, 600), pg.OPENGL | pg.DOUBLEBUF)
         self.clock = pg.time.Clock()
         glClearColor(0.1, 0.2, 0.2, 1)
-        self.shader = self.createShader('shaders/vertex.txt', 'shaders/fragment.txt')
+        self.shader = self.createShader('shaders/vert_tri.txt', 'shaders/frag_tri.txt')
         glUseProgram(self.shader)
         glUniform1i(glGetUniformLocation(self.shader, 'imageTexture'), 0)
         self.triangle = Triangle()

@@ -12,7 +12,7 @@ class App:
 
         glClearColor(0.1, 0.2, 0.2, 1)
 
-        self.shader = self.createShader('shaders/vertex.txt', 'shaders/fragment.txt')
+        self.shader = self.createShader('shaders/vert_point.txt', 'shaders/frag_point.txt')
         glUseProgram(self.shader)
 
         self.point = Point()
@@ -44,6 +44,7 @@ class App:
 
             glUseProgram(self.shader)
             glBindVertexArray(self.point.vao)
+            glPointSize(10)
             glDrawArrays(GL_POINTS, 0, 1)
 
             pg.display.flip()
@@ -77,36 +78,6 @@ class Point:
     def destroy(self):
         glDeleteVertexArrays(1, [self.vao])
         glDeleteBuffers(1, [self.vbo])
-
-class Triangle:
-    def __init__(self):
-        self.vertices = (
-        -0.5, -0.5, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0,
-        0.5, -0.5, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0,
-        0.0, 0.5, 0.0, 0.0, 0.0, 1.0, 0.5, 0.0
-        )
-
-        self.vertices = np.array(self.vertices, dtype=np.float32)
-
-        self.vertex_count = 3
-
-        self.vao = glGenVertexArrays(1)
-        glBindVertexArray(self.vao)
-        self.vbo = glGenBuffers(1)
-        glBindBuffer(GL_ARRAY_BUFFER, self.vbo)
-        glBufferData(GL_ARRAY_BUFFER, self.vertices.nbytes, self.vertices, GL_STATIC_DRAW)
-        
-        glEnableVertexAttribArray(0)
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 32, ctypes.c_void_p(0))
-        glEnableVertexAttribArray(1)
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 32, ctypes.c_void_p(12))
-        glEnableVertexAttribArray(2)
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 32, ctypes.c_void_p(24))
-
-
-    def destroy(self):
-        glDeleateVertexArrays(1, (self.vao,))
-        glDeleateBuffers(1, (self.vbo,))
 
 class Material:
     def __init__(self, filePath):
