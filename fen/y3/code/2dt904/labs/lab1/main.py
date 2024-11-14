@@ -3,6 +3,7 @@ import ctypes
 from OpenGL.GL import *
 from OpenGL.GL.shaders import compileProgram, compileShader
 import numpy as np
+import math
 
 class App:
     def __init__(self):
@@ -16,6 +17,8 @@ class App:
         glUseProgram(self.shader)
 
         self.point = Point()
+
+        self.offset_location = glGetUniformLocation(self.shader, "offset")
         
         self.mainLoop()
 
@@ -35,20 +38,30 @@ class App:
 
     def mainLoop(self):
         running = True
+        angle = 0.0
+
         while (running):
             for e in pg.event.get():
                 if (e.type == pg.QUIT):
                     running = False
             
             glClear(GL_COLOR_BUFFER_BIT)
+            
+            # Movment
+            x = 0.5 * math.cos(angle)
+            y = 0.5 * math.sin(angle)
+            angle += 0.05
+
+            offset_location = glGetUniformLocation(self.shader, "offset")
+            glUniform2f(offset_location, x, y)
 
             glUseProgram(self.shader)
             glBindVertexArray(self.point.vao)
-            glPointSize(10)
+            glPointSize(20)
             glDrawArrays(GL_POINTS, 0, 1)
 
             pg.display.flip()
-            self.clock.tick(60)
+            self.clock.tick(1000)
 
     def quit(self):
         self.point.destroy()
