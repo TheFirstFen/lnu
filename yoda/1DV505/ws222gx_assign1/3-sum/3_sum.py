@@ -9,7 +9,7 @@ from utils.linear_regression import line_reg, log_values
 def benchmark_function(test_func):
 
     target = 20
-    min_size, max_size, step = 50, 550, 50
+    min_size, max_size, step = 50, 10_000, 1000
     trials = 5
 
     size_lst = list(range(min_size, max_size, step))
@@ -36,8 +36,8 @@ def benchmark_function(test_func):
 
 labels = ["", "Caching"]
 
-avg_times_bf, size_lst = benchmark_function(brute_force)
-# avg_times_tP, size_lst = benchmark_function(two_pointer)
+# avg_times_bf, size_lst = benchmark_function(brute_force)
+avg_times_tP, size_lst = benchmark_function(two_pointer)
 # avg_times_ch, size_lst = benchmark_function(caching)
 
 # print("Brute force:", avg_times_bf[-1])
@@ -45,7 +45,7 @@ avg_times_bf, size_lst = benchmark_function(brute_force)
 # print("Caching:", avg_times_ch[-1])fluctuates
 
 
-log_x, log_y = log_values(size_lst, avg_times_bf)
+log_x, log_y = log_values(size_lst, avg_times_tP)
 k, m, line_y = line_reg(log_x, log_y)
 rounded_k = round(k, 3)
 
@@ -64,9 +64,10 @@ plt.show()
 
 # plt.plot(size_lst, avg_times_tP, "-+b", label=labels[0])
 # plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
-plt.plot(size_lst, avg_times_bf, "-+r", label="Brute force")
+plt.plot(size_lst, avg_times_tP, "-+r", label="Caching force")
 plt.xlabel("List sizes")
 plt.ylabel("Time in seconds(s)")
+plt.title("Linear regression log(n) vs log(t)")
 plt.legend()
 plt.show()
 

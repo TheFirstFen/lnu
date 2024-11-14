@@ -25,7 +25,5 @@ def test_algorithm(func, lst, trials, start, step, stop):
             time_result.append(end - start)
 
         avg = (sum(time_result) / trials)
-        algo_time_result.append(avg)
-        
-
-
+        algo_time_results.append(avg)
+    return al

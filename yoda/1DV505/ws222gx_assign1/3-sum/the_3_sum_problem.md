@@ -63,7 +63,7 @@ This is done in three steps which are the following:
 
 
 ## II. Faster Approaches
-Understanding brute force is intuitive, but it is slow, the next three headlines will explain two faster methods these two approaches is less intuitive than brute force.
+Understanding brute force is a slow approach but a easy approach to code and also understand how it works. In the next three headlines will explain two faster methods to slow the 3-sum problem, they are faster but in they can be harder to understand how to code and also the theory behind them.
 
 ### A. 3-sum with caching
 Caching works by looking for what is needed rather than adding or subtracting to find when the sum is at the target or 0. By adding values we already have seen to the caching set were we compare what we have to what is needed in the cash to add up to the target.
@@ -132,13 +132,31 @@ def two_pointer(lst, target):
 
 
 ### C. Experiments with faster algorithms
+#### Experiment explanation
+The experiment was conducted using exactly the same lists for both of the algorithms. Everything other than the algorithms themselves were the same, every application on the machine that was not needed was closed down. When taking the average time this is done on 5 trials on the exact same list also.
+
+
+#### Comparing the algorithms
 The experiments using two pointer and caching yield that they are similar in speed for a dataset that has a size that is lower than 30 000, this can be seen in the plot below. But when the list grows to a size of 50 000 than two poi
 ![Two pointer vs caching](./images/two_vs_cach.png) 
 *<br>Two pointer vs Caching*
 
-The time complexity for two pointer is O(n * log(n)) this is because of the sorting part of the algorithm which sorts the algorithm in O(n * log(n)) while the other part of the algorithm is O(n²) but as n * log(n) is the main time consumer the algorithm is O(n * log(n)). Time complexity for caching on the other hand is O(n²)
+The methods to find the time complexity for these algorithms will be:
+1. Theoretical time complexity meaning analyzing the code itself
+2. Run linear regression on both of these algorithms
+
+The theoretical time complexity for two pointer will be the following: O(n * log(n)) for the sorting part, for the loops the total will be O(n²) there the O(n²) is the dominant one. Thus the arithmetic k value is excepted around 2. Below is the graph for linear regression with the k value in it:
+
+![Linear regression two pointer](./images/two_pointer_linear_reg.png)
+*<br>Linear regression for two pointer*
+
+For caching the analys shows that it has to be O(n²) because there are two for loops, the caching is O(1) there for O(n²) is the theoretical result. The calculated k value is also expected to be at around k = 2. Below is the graph for linear regression but for caching and also shows the k value:
+
+![Linear regression caching](./images/caching_linear_reg.png)
+*<br>Linear regression for caching*
+
 
 ## III. Summary and conclusions
-In summary the report has shown three diffrent algorithms for the 3-sum problem where each approach got faster not by much in the end but sufficient that it made a difference. The report also proved that brute force for 3-sum problem is a O(n³), this got done by at first looking at the code itself an analyzing each step of the code. But it also got computed by using linear regression.
+In summary the report has shown three different algorithms for the 3-sum problem where each approach got faster not by much in the end but sufficient that it made a difference. The report also proved that brute force for 3-sum problem is a O(n³), this got done by at first looking at the code itself an analyzing each step of the code. But it also got computed by using linear regression.
 
-When comparing caching and two pointer they were simillar in speed at values lower than 30 000 as discussed above, in my opinion for a dataset which is unknown the two pointer algorithm is better for the reason that it is faster in the bigger datasets. But caching is a better choice if we know that the dataset is less than around the low sizes, because the caching algorithm is faster to implement than the two pointer algorithm and also easier maintain if the problem would change. While the two pointer approach is slower to implement and also harder to change for a new problem set.
+When comparing caching and two pointer they were similar in speed at values lower than 30 000 as discussed above, in my opinion for a dataset which is unknown the two pointer algorithm is better for the reason that it is faster in the bigger datasets. But caching is a better choice if we know that the dataset is less than around the low sizes, because the caching algorithm is faster to implement than the two pointer algorithm and also easier maintain if the problem would change. While the two pointer approach is slower to implement and also harder to change for a new problem set. The surprising part of the experiment was that both algorithms are O(n²) but that there is one point were two pointer still becomes faster than caching. I believe this is because that caching uses a lot of memory and therefor at bigger sizes it takes a lot of memory to compute if the the needed value is in the cach. While two pointer only goes through the list itself and tries to find the target itself, which in turn leads to less memory use.
