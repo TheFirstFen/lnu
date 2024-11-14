@@ -1,5 +1,5 @@
 import random
-import time 
+import time
 
 
 def make_lst(size):
@@ -10,7 +10,7 @@ def make_lst(size):
     return lst
 
 
-def test_algorithm(*funcs, trials, begin, stop, step):
+def test_algorithm(funcs, trials, begin, stop, step):
     # stores the avg time for each function for each trial
     algo_time_results = {key: [] for key in range(len(funcs))}
     sizes = []
@@ -20,7 +20,7 @@ def test_algorithm(*funcs, trials, begin, stop, step):
         sizes.append(i)
 
         # stores every time for each trial for each function
-        total_times = {key: 0 for key in range(len(funcs))} 
+        total_times = {key: 0 for key in range(len(funcs))}
 
         for j in range(trials):
             for func in range(len(funcs)):
@@ -29,7 +29,7 @@ def test_algorithm(*funcs, trials, begin, stop, step):
                 end_time = time.time()
                 total_times[func] += (end_time - start_time)
 
-        # after every round of a certain list size calculate avg time 
+        # after every round of a certain list size calculate avg time
         # for that trial for each function
         for func in range(len(funcs)):
             avg_time = total_times[func] / trials

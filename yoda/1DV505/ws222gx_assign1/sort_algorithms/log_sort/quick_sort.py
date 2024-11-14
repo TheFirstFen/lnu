@@ -28,10 +28,9 @@ def partion_lst(lst):
 
 
 def quick_sort(lst):
-    if len(lst) <= 1: # already sorted
+    if len(lst) <= 1:   # already sorted
         return lst
     pivot_element, left_lst, right_lst = partion_lst(lst)
     left_sorted = quick_sort(left_lst)
     right_sorted = quick_sort(right_lst)
     return left_sorted + [pivot_element] + right_sorted
-

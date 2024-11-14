@@ -11,4 +11,4 @@ def brute_force(lst, target):
                 if summa == target:
                     unique_pairs.add((v1, v2, v3))
 
-    return unique_pairs
+    return list(unique_pairs)

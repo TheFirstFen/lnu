@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 
-def make_plot(x_label, y_label, *time_result, labels, size):
+
+def make_plot(x_label, y_label, size, time_result, labels):
     color_config = ["r", "b", "g", "y", "c", "m"]
 
     # plot each run for each algorithm
