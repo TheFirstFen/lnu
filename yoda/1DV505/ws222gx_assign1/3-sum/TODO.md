@@ -4,3 +4,4 @@
 4. snygga till koden
 5. få Samuel att kolla igenom rapporten och få ett ass wooping tack
 6. Få brorsan att leta efter språkliga fel
+7. Emil få han att kolla igenom min rapport

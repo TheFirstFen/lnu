@@ -4,22 +4,20 @@
 ## I. Introduction
 This report covers the 3-sum problem, outlining what the problem is and discussing a range of algorithms to solve it, from the straightforward brute-force approach to more optimized techniques. The experiments in this report aim to evaluate and compare the algorithms based on speed, looking at which methods perform best under different list sizes and target values.
 
+
+
 ### A. Problem Formulation
 
-In the 3-sum problem, given a list of integers of size NN, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it
+In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it
 
 ### B. Experimental Setup
 The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13gb of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The target for each test started at 20 and increased by 10 each time the list size increase. The target could be in practice any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
 
-
-
 ### C. Brute Force
-The brute-force approach to the 3-sum problem is straightforward but computationally intensive. It involves using three nested loops to check each possible combination of three numbers within the list, summing them to see if they match the target value. Specifically, the algorithm iterates over all elements with three loops:
-
-1. The first loop iterates from the beginning of the list to the third-last element.
-2. The second loop starts at the next element after the first loop's current position and iterates until the second-last element.
-3. The third loop starts one element after the second loop's position and continues to the end of the list.
-
+The brute-force approach to the 3-sum problem is a intuitve approach were it uses 3 for loops and goes through the list n³ times
+1. The first loop goes from the beginning of the list to the third-last element.
+2. The second loop starts at the first loops element + 1, and ends at the second to last element.
+3. The third loop starts the second loops element + 1, and ends at last element of the list.
 By coding the loops this way, the algorithm avoids going over the same element multiple times.
 
 ```py
