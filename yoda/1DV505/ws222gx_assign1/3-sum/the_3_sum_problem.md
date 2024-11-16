@@ -2,13 +2,13 @@
 ## William Schröder (ws222gx@student.lnu.se)
 
 ## I. Introduction
-This report covers the 3-sum problem, outlining what the problem is and discussing a range of algorithms to solve it, from the straightforward brute-force approach to more optimized techniques. The experiments in this report aim to evaluate and compare the algorithms based on speed, looking at which methods perform best under different list sizes and target values.
+This report covers the 3-sum problem, outlining what the problem is and discussing a range of algorithms to solve it, from a simple approach as which is brute force to two more complex approaches, as in two pointer and caching. The report will also cover time complexity, and how every experiment have been set up.
 
 
 
 ### A. Problem Formulation
 
-In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it
+In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it.
 
 ### B. Experimental Setup
 The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13gb of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could be in practice any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
@@ -36,7 +36,7 @@ def brute_force(lst, target):
 ```
 
 ### Brute Force Experiments
-Brute force was tested on list sizes ranging from 50 to 500 elements with each iteration of list increasing by 50 which yielded a time between 0.05 to 1.75 seconds.
+Brute force was tested on list sizes ranging from 50 to 650 elements with each iteration of list increasing by 50 which yielded a time between 0.02 to 4.6 seconds.
 
 To confirm that the algorithm works like how it got planned out, the code ran three different runs on the same list size. This is to get an approximation if the algorithm was consistent in the results. Below is the result of that experiment.
 

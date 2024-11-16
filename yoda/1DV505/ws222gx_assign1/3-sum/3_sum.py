@@ -9,8 +9,8 @@ from utils.linear_regression import line_reg, log_values
 def benchmark_function(test_func):
 
     target = 20
-    min_size, max_size, step = 50, 650, 100
-    trials = 5
+    min_size, max_size, step = 10_000, 70_000, 10_000
+    trials = 3
 
     size_lst = list(range(min_size, max_size, step))
     avg_times = []
@@ -34,18 +34,18 @@ def benchmark_function(test_func):
 
 
 
-labels = ["Brute force", "Caching"]
+labels = ["Brute force", "Two pointer", "Caching"]
 
-avg_times_bf, size_lst = benchmark_function(brute_force)
-# avg_times_tP, size_lst = benchmark_function(two_pointer)
-# avg_times_ch, size_lst = benchmark_function(caching)
+# avg_times_bf, size_lst = benchmark_function(brute_force)
+avg_times_tP, size_lst = benchmark_function(two_pointer)
+avg_times_ch, size_lst = benchmark_function(caching)
 
 # print("Brute force:", avg_times_bf[-1])
 # print("Two pointer:", avg_times_tP[-1])
 # print("Caching:", avg_times_ch[-1])fluctuates
 
 
-log_x, log_y = log_values(size_lst, avg_times_bf)
+"""log_x, log_y = log_values(size_lst, avg_times_bf)
 k, m, line_y = line_reg(log_x, log_y)
 rounded_k = round(k, 3)
 
@@ -58,104 +58,37 @@ plt.xlabel("log(n) size")
 plt.ylabel("log(t) time")
 plt.title("Time complexity analysis")
 plt.legend()
-plt.show()
+plt.show()"""
 
 
 
 
-plt.plot(size_lst, avg_times_bf, "-+b", label=labels[0])
-# plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
-# plt.plot(size_lst, avg_times_tP, "-+r", label="Caching force")
+# plt.plot(size_lst, avg_times_bf, "-+b", label=labels[0])
+plt.plot(size_lst, avg_times_ch, "-+y", label=labels[1])
+plt.plot(size_lst, avg_times_tP, "-+r", label=labels[2])
 plt.xlabel("List sizes")
 plt.ylabel("Time in seconds(s)")
-plt.title("Linear regression log(n) vs log(t)")
+plt.title("Two pointer vs caching")
 plt.legend()
 plt.show()
 
 
 
-"""
 
-for i in range(3):
+
+"""for i in range(3):
     avg_times_bf, size_lst = benchmark_function(brute_force)
     plt.plot(size_lst, avg_times_bf, "+", label=f"Run {i+1}")
 
 plt.legend()
 plt.xlabel("List sizes")
 plt.ylabel("Time in seconds(s)")
-plt.show()
-"""
+plt.title("Fluctuations")
+plt.show()"""
+
 
 
 # finds the max values to make the plot even
 # max_val = max(max(log_n_bf), max(log_t_bf), max(log_n_ch_tp), max(log_t_ch_tp))
 
 # plt.plot(size_lst, avg_times_bf, "-+r", label=labels[0])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
