@@ -1,6 +1,24 @@
 # The 3-sum problem
 ## William Schröder (ws222gx@student.lnu.se)
 
+
+## Table of Contents
+- [I. Introduction](#i-introduction)
+    - [A. Problem Formulation](#a-problem-formulation)
+    - [B. Experimental Setup](#b-experimental-setup)
+    - [C. Brute Force](#c-brute-force)
+- [Brute force experiments](#brute-force-experiments)
+    - [Time Complexity](#time-complexity)
+- [II. Faster approaches](#ii-faster-approaches)
+    - [A. 3-sum with caching](#a-3-sum-with-caching)
+    - [B. The two-pointer approach](#b-the-two-pointer-approach)
+    - [C. Experiments with faster algorithms](#c-experiments-with-faster-algorithms)
+        - [Experiment explanation](#experiment-explanation)
+        - [Comparing the algorithms](#comparing-the-algorithms)
+- [III. Summary and conclusions](#iii-summary-and-conclusions)
+
+
+
 ## I. Introduction
 This report covers the 3-sum problem, outlining what the problem is and discussing a range of algorithms to solve it, from a simple approach as which is brute force to two more complex approaches, as in two pointer and caching. The report will also cover time complexity, and how every experiment have been set up.
 
@@ -11,7 +29,7 @@ This report covers the 3-sum problem, outlining what the problem is and discussi
 In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it.
 
 ### B. Experimental Setup
-The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13gb of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could be in practice any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
+The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13gb of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could in theory be any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
 
 ### C. Brute Force
 The brute-force approach to the 3-sum problem is a intuitve approach were it uses 3 for loops and goes through the list n³ times
