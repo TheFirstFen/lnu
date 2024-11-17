@@ -3,7 +3,6 @@ from .plotting import make_plot
 
 
 def benchmark_function(test_func, range_values: tuple, trials: int = 5):
-
     target = 10
     size_lst = list(range(*range_values))
     avg_times = []
@@ -31,6 +30,7 @@ def fluctuations(func, name: str, range_values: tuple, trials: int = 3):
         current_avg_time = []
         current_avg_time, size_lst = benchmark_function(func, range_values, 5)
         avg_times_total.append(current_avg_time)
+
     labels = [f"Run {i+1}" for i in range(trials)]
     make_plot("List size", "Time in seconds", size_lst, avg_times_total,
-              labels, f"Fluctuations amongst {trials} for {name}")
+              labels, f"Fluctuations amongst {trials} for {name}", fluc=True)

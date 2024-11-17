@@ -2,14 +2,13 @@ import matplotlib.pyplot as plt
 
 
 def make_plot(x_label: str, y_label: str, size: list, time_result: list,
-              labels: list, title: str, regression=False):
+              labels: list, title: str, regression=False, fluc=False):
 
     color_config = ["r", "b", "g", "y", "c", "m"]
 
-    # plot each run for each algorithm
     for i in range(len(time_result)):
         color = "-+" + color_config[i]
-        if regression and i == 0:
+        if fluc or (regression and i == 0):
             color = color[1:]
 
         plt.plot(size, time_result[i], color, label=labels[i])

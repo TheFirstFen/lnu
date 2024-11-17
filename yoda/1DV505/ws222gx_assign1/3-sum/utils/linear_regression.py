@@ -50,4 +50,4 @@ def linear_reg_run(size_lst: list, avg_times: list, name: str):
 
     make_plot("log size list", "log size time", log_x, [log_y, line_y],
               ["log(n) vs log(t)", linear_label],
-              f"Linear regression for {name}", True)
+              f"Linear regression for {name}", regression=True)
