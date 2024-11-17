@@ -3,16 +3,20 @@ from n2_sort.selection_sort import selection_sort
 from n2_sort.insertion_sort import insertion_sort
 from utils.plotting import make_plot
 from utils.test_sort import test_algorithm
+from utils.linear_regression import linear_reg_run
 
-start, stop, step = 0, 1000, 100
-trials = 10
+range_values = (0, 1000, 100)
+trials = 5
 
-n2_sort_times, sizes = test_algorithm([selection_sort, insertion_sort,
-                                      bubble_sort], trials=trials,
-                                      begin=start, stop=stop, step=step)
+n2_sort_times, sizes = test_algorithm([bubble_sort, selection_sort,
+                                      insertion_sort], trials, range_values)
 
-# print(n2_sort_times[0])
-# print(n2_sort_times[1])
 
 labels = ["Selection sort", "Insertion sort", "Bubble sort"]
-make_plot("Size", "Time (s)", sizes, n2_sort_times,  labels)
+
+linear_results = linear_reg_run(sizes, n2_sort_times, labels)
+make_plot("List size", "Time result", "Average time", n2_sort_times, labels,
+          size=sizes)
+
+make_plot("List size", "Time result", "Time complexity with log-log plots",
+          linear_results, labels, True)

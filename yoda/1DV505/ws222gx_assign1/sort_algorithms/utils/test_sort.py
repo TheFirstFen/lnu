@@ -10,12 +10,12 @@ def make_lst(size):
     return lst
 
 
-def test_algorithm(funcs, trials, begin, stop, step):
+def test_algorithm(funcs, trials, range_values):
     # stores the avg time for each function for each trial
     algo_time_results = {key: [] for key in range(len(funcs))}
     sizes = []
 
-    for i in range(begin, stop, step):
+    for i in range(*range_values):
         lst = make_lst(i)
         sizes.append(i)
 
@@ -25,7 +25,7 @@ def test_algorithm(funcs, trials, begin, stop, step):
         for j in range(trials):
             for func in range(len(funcs)):
                 start_time = time.time()
-                funcs[func](lst)  # Run the algorithm
+                funcs[func](lst.copy())  # Run the algorithm
                 end_time = time.time()
                 total_times[func] += (end_time - start_time)
 

@@ -1,5 +1,4 @@
 import math
-from .plotting import make_plot
 
 
 def Sx_y(x: list, y: list):
@@ -41,13 +40,14 @@ def line_reg(log_x: list, log_y: list):
     return k, m, line_y
 
 
-def linear_reg_run(size_lst: list, avg_times: list, name: str):
-    avg_times = list(avg_times)
-    log_x, log_y = log_values(size_lst, avg_times)
-    k, m, line_y = line_reg(log_x, log_y)
-    rounded_k = round(k, 3)
-    linear_label = f"kx + m\nk = value {rounded_k}"
+def linear_reg_run(size_lst: list, avg_times: dict, names: list):
+    linear_results = {}
 
-    make_plot("log size list", "log size time", log_x, [log_y, line_y],
-              ["log(n) vs log(t)", linear_label],
-              f"Linear regression for {name}", regression=True)
+    for i in range(len(avg_times)):
+        times = list(avg_times[i])
+        log_x, log_y = log_values(size_lst, times)
+        k, m, line_y = line_reg(log_x, log_y)
+        rounded_k = round(k, 3)
+        linear_label = f"{names[i]}: kx + m\nk = value {rounded_k}"
+        linear_results[i] = [log_x, log_y, linear_label]
+    return linear_results
