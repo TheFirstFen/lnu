@@ -16,6 +16,8 @@ A proper shit show of a repo
 
 ## GIT COMMAND RECOMMENDATIONS (WiP)
 
+### For version control
+
 1. `git add .`
 
 2. `git commit -m '$1'`
@@ -23,6 +25,12 @@ A proper shit show of a repo
 3. `git pull --rebase`
 
 4. `git push`
+
+### For cloning
+
+1. `git clone --recurse-submodules URL/SSH`
+
+2. `git lfs pull` (make sure git lfs is installed on system)
 
 ## Tech to look in to
 
