@@ -5,35 +5,41 @@ from math import sin, cos, radians
 class App:
     def __init__(self):
         pg.init()
-        pg.display.set_mode((800, 600), pg.OPENGL | pg.DOUBLEBUF)
+        pg.display.set_mode((640, 480), pg.OPENGL | pg.DOUBLEBUF)
         self.clock = pg.time.Clock()
         glClearColor(0.1, 0.1, 0.1, 1)
         
         # Set up the point size
-        glPointSize(5.0)  # Adjust the size of the point
+        glPointSize(5.0)  # Adjust the size of the points
 
-        # Initialize rotation angles for multiple points
-        self.num_points = 5  # Number of points to display
+        # Initialize rotation angles for three points
+        self.num_points = 3  # We only need 3 points for the triangle
         self.angles = [i * (360 / self.num_points) for i in range(self.num_points)]  # Evenly spaced angles
 
         self.mainLoop()
 
-    def drawPoints(self):
+    def calculateVertices(self):
+        # Calculate the positions of the three points
         radius = 0.5  # Radius of the circular path
-        glBegin(GL_POINTS)
+        vertices = []
         for i in range(self.num_points):
-            # Calculate each point's position based on its angle
             x = radius * cos(radians(self.angles[i]))
             y = radius * sin(radians(self.angles[i]))
+            vertices.append((x, y))
+        return vertices
 
-            # Set color for each point (you can make it dynamic if desired)
-            glColor3f(1, 1, 0)  # Yellow for all points
-            glVertex2f(x, y)  # Position of the point
+    def drawTriangle(self, vertices):
+        glBegin(GL_TRIANGLES)
+        glColor3f(1, 0, 0)  # Set the color of the triangle (green in this case)
+        for vertex in vertices:
+            glVertex2f(vertex[0], vertex[1])  # Add each vertex to the triangle
+        glEnd()
 
-            # Update the angle to make the points rotate
-            self.angles[i] += 1  # Increment the angle for rotation
-            if self.angles[i] >= 360:
-                self.angles[i] = 0
+    def drawPoints(self, vertices):
+        glBegin(GL_POINTS)
+        for vertex in vertices:
+            glColor3f(1, 1, 0)  # Yellow for points
+            glVertex2f(vertex[0], vertex[1])  # Position of the point
         glEnd()
 
     def mainLoop(self):
@@ -45,8 +51,20 @@ class App:
             
             glClear(GL_COLOR_BUFFER_BIT)
 
-            # Draw the spinning points
-            self.drawPoints()
+            # Calculate vertices of the triangle
+            vertices = self.calculateVertices()
+
+            # Draw the filled triangle
+            self.drawTriangle(vertices)
+
+            # Draw the points
+            self.drawPoints(vertices)
+
+            # Update the angles to rotate the points
+            for i in range(self.num_points):
+                self.angles[i] += 1  # Increment each angle for rotation
+                if self.angles[i] >= 360:
+                    self.angles[i] = 0
 
             pg.display.flip()
             self.clock.tick(60)
