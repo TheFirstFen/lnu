@@ -1,5 +1,5 @@
 # The 3-sum problem
-## William Schröder (ws222gx@student.lnu.se)
+## [William Schröder](mailto:ws222gx@student.lnu.se)
 
 
 ## Table of Contents
