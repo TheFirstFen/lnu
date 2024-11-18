@@ -145,8 +145,6 @@ def two_pointer(lst, target):
 
 
 
-
-
 ### C. Experiments with faster algorithms
 #### Experiment explanation
 The experiment was conducted using exactly the same lists for both of the algorithms. Everything other than the algorithms themselves were the same, every application on the machine that was not needed was closed down. When taking the average time this is done on 5 trials on the exact same list also.

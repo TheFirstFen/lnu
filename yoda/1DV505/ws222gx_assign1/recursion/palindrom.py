@@ -17,7 +17,7 @@ def check_palindrome(s):
     return is_palindrome(s, first, last)
 
 
-true_cases = ["", "x", "annna", "madam", "abcdefedcba", "yyyyyyyyy"]    # True case
+true_cases = ["", " x", "annna", "madam", "abcdefedcba", "yyyyyyyyy"]
 false_cases = ["programming", "university", "microbiology",
                "counterproductive", "exaggeration"]
 
