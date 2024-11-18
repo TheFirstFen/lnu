@@ -5,27 +5,35 @@ from math import sin, cos, radians
 class App:
     def __init__(self):
         pg.init()
-        pg.display.set_mode((640, 480), pg.OPENGL | pg.DOUBLEBUF)
+        pg.display.set_mode((800, 600), pg.OPENGL | pg.DOUBLEBUF)
         self.clock = pg.time.Clock()
         glClearColor(0.1, 0.1, 0.1, 1)
         
         # Set up the point size
         glPointSize(5.0)  # Adjust the size of the point
 
-        # Initialize the angle for rotation
-        self.angle = 0
+        # Initialize rotation angles for multiple points
+        self.num_points = 5  # Number of points to display
+        self.angles = [i * (360 / self.num_points) for i in range(self.num_points)]  # Evenly spaced angles
 
         self.mainLoop()
 
-    def drawPoint(self):
-        # Calculate the position of the point using trigonometry
-        radius = 0.5
-        x = radius * cos(radians(self.angle))
-        y = radius * sin(radians(self.angle))
-
+    def drawPoints(self):
+        radius = 0.5  # Radius of the circular path
         glBegin(GL_POINTS)
-        glColor3f(1, 1, 0)  # Set color of the point (red in this case)
-        glVertex2f(x, y)  # Position of the point
+        for i in range(self.num_points):
+            # Calculate each point's position based on its angle
+            x = radius * cos(radians(self.angles[i]))
+            y = radius * sin(radians(self.angles[i]))
+
+            # Set color for each point (you can make it dynamic if desired)
+            glColor3f(1, 1, 0)  # Yellow for all points
+            glVertex2f(x, y)  # Position of the point
+
+            # Update the angle to make the points rotate
+            self.angles[i] += 1  # Increment the angle for rotation
+            if self.angles[i] >= 360:
+                self.angles[i] = 0
         glEnd()
 
     def mainLoop(self):
@@ -37,13 +45,8 @@ class App:
             
             glClear(GL_COLOR_BUFFER_BIT)
 
-            # Draw the spinning point
-            self.drawPoint()
-
-            # Update the angle to rotate the point
-            self.angle += 1  # Increment the angle for rotation
-            if self.angle >= 360:  # Reset angle after a full rotation
-                self.angle = 0
+            # Draw the spinning points
+            self.drawPoints()
 
             pg.display.flip()
             self.clock.tick(60)
