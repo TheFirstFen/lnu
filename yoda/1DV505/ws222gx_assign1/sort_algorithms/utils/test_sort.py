@@ -10,12 +10,13 @@ def make_lst(size):
     return lst
 
 
-def test_algorithm(funcs, trials, range_values):
+def test_algorithm(funcs, trials: int, range_values: tuple):
     # stores the avg time for each function for each trial
     algo_time_results = {key: [] for key in range(len(funcs))}
     sizes = []
 
-    for i in range(*range_values):
+    for i in range(range_values[0], range_values[1], range_values[2]):
+        # 0, 1000, 100
         lst = make_lst(i)
         sizes.append(i)
 

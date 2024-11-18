@@ -7,15 +7,15 @@
     - [A. Problem Formulation](#a-problem-formulation)
     - [B. Experimental Setup](#b-experimental-setup)
     - [C. Brute Force](#c-brute-force)
-- [Brute force experiments](#brute-force-experiments)
+- [II. Brute force experiments](#ii-brute-force-experiments)
     - [Time Complexity](#time-complexity)
-- [II. Faster approaches](#ii-faster-approaches)
+- [III. Faster approaches](#iii-faster-approaches)
     - [A. 3-sum with caching](#a-3-sum-with-caching)
     - [B. The two-pointer approach](#b-the-two-pointer-approach)
     - [C. Experiments with faster algorithms](#c-experiments-with-faster-algorithms)
         - [Experiment explanation](#experiment-explanation)
         - [Comparing the algorithms](#comparing-the-algorithms)
-- [III. Summary and conclusions](#iii-summary-and-conclusions)
+- [IV. Summary and conclusions](#iv-summary-and-conclusions)
 
 
 
@@ -29,10 +29,10 @@ This report covers the 3-sum problem, outlining what the problem is and discussi
 In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it.
 
 ### B. Experimental Setup
-The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13gb of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could in theory be any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
+The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13.5GiB of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could in theory be any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
 
 ### C. Brute Force
-The brute-force approach to the 3-sum problem is a intuitve approach were it uses 3 for loops and goes through the list n³ times
+The brute-force approach to the 3-sum problem is a intuitive approach were it uses 3 for loops and goes through the list n³ times
 1. The first loop goes from the beginning of the list to the third-last element.
 2. The second loop starts at the first loops element + 1, and ends at the second to last element.
 3. The third loop starts the second loops element + 1, and ends at last element of the list.
@@ -53,7 +53,7 @@ def brute_force(lst, target):
     return list(unique_pairs)
 ```
 
-### Brute Force Experiments
+### III. Brute Force Experiments
 Brute force was tested on list sizes ranging from 50 to 650 elements with each iteration of list increasing by 50 which yielded a time between 0.02 to 4.6 seconds.
 
 To confirm that the algorithm works like how it got planned out, the code ran three different runs on the same list size. This is to get an approximation if the algorithm was consistent in the results. Below is the result of that experiment.
@@ -78,7 +78,7 @@ This is done in three steps which are the following:
 
 
 
-## II. Faster Approaches
+## III. Faster Approaches
 Understanding brute force is a slow approach but a easy approach to code and also understand how it works. In the next three headlines will explain two faster methods to slow the 3-sum problem, they are faster but in they can be harder to understand how to code and also the theory behind them.
 
 ### A. 3-sum with caching
@@ -172,7 +172,7 @@ For caching the analys shows that it has to be O(n²) because there are two for 
 *<br>Linear regression for caching*
 
 
-## III. Summary and conclusions
+## IV. Summary and conclusions
 In summary the report has shown three different algorithms for the 3-sum problem where each approach got faster not by much in the end but sufficient that it made a difference. The report also proved that brute force for 3-sum problem is a O(n³), this got done by at first looking at the code itself an analyzing each step of the code. But it also got computed by using linear regression.
 
-When comparing caching and two pointer they were similar in speed at values lower than 30 000 as discussed above, in my opinion for a dataset which is unknown the two pointer algorithm is better for the reason that it is faster in the bigger datasets. But caching is a better choice if we know that the dataset is less than around the low sizes, because the caching algorithm is faster to implement than the two pointer algorithm and also easier maintain if the problem would change. While the two pointer approach is slower to implement and also harder to change for a new problem set. The surprising part of the experiment was that both algorithms are O(n²) but that there is one point were two pointer still becomes faster than caching. I believe this is because that caching uses a lot of memory and therefor at bigger sizes it takes a lot of memory to compute if the the needed value is in the cach. While two pointer only goes through the list itself and tries to find the target itself, which in turn leads to less memory use.
+When comparing caching and two pointer they were similar in speed at values lower than 30 000 as discussed above, in my opinion for a dataset which is unknown the two pointer algorithm is better for the reason that it is faster in the bigger datasets. But caching is a better choice if we know that the dataset is less than around the low sizes, because the caching algorithm is faster to implement than the two pointer algorithm and also easier maintain if the problem would change. While the two pointer approach is slower to implement and also harder to change for a new problem set. The surprising part of the experiment was that both algorithms are O(n²) but that there is one point were two pointer still becomes faster than caching. I believe this is because that caching uses a lot of memory and therefor at bigger sizes it takes a lot of memory to compute if the the needed value is in the cache. While two pointer only goes through the list itself and tries to find the target itself, which in turn leads to less memory use.

@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
 
 
-def make_plot(x_label, y_label, title, time_result, labels, regression=False,
-              size=[]):
+def make_plot(x_label: str, y_label: str, title: str, time_result: dict,
+              labels: list, regression=False, size=[]):
     color_config = ["r", "b", "g", "y", "c", "m"]
 
     # plot each run for each algorithm

@@ -46,6 +46,7 @@ def linear_reg_run(size_lst: list, avg_times: list, name: str):
     log_x, log_y = log_values(size_lst, avg_times)
     k, m, line_y = line_reg(log_x, log_y)
     rounded_k = round(k, 3)
+    print("k value =", k)
     linear_label = f"kx + m\nk = value {rounded_k}"
 
     make_plot("log size list", "log size time", log_x, [log_y, line_y],
