@@ -8,7 +8,7 @@ def make_plot(x_label: str, y_label: str, size: list, time_result: list,
 
     for i in range(len(time_result)):
         color = "-+" + color_config[i]
-        if fluc or (regression and i == 0):
+        if fluc or (regression and i == 0):     # if i is 0 than logx vs logy
             color = color[1:]
 
         plt.plot(size, time_result[i], color, label=labels[i])
@@ -16,5 +16,5 @@ def make_plot(x_label: str, y_label: str, size: list, time_result: list,
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.title(title)
-    plt.legend(loc="best")
+    plt.legend()
     plt.show()

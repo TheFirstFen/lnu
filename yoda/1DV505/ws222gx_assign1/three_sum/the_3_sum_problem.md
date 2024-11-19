@@ -29,7 +29,83 @@ This report covers the 3-sum problem, outlining what the problem is and discussi
 In the 3-sum problem, given a list of integers of size N, the task is to identify all unique combinations of three integers from the list that add up to a specified target value. Each triplet must be distinct, meaning (5, 3, 2) is the same as (2, 3, 5) and (3, 5, 2) and should only be counted once. This requirement makes the problem more complex, especially for larger lists, and challenges us to find efficient ways to solve it.
 
 ### B. Experimental Setup
-The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13.5GiB of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could in theory be any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target. 
+The experiments were conducted on a **Lenovo ideapad 5 pro** that has a AMD Ryzen 7 5000th series with 13.5GiB of ram. When comparing the algorithms against each other the algorithms will have been ran on the same size list and with the same elements in that list. The operating system that was used was arch linux. The target for each test started at 20 and increased by 10 each time the list size increase. The target could in theory be any value because all three algorithms in this report is based on going through the whole list to find the three values that sum to the target.
+
+To find the average times for each experiment and fluctuations between each run the following code was ran.
+
+```py
+import time
+from .plotting import make_plot
+
+
+def benchmark_function(test_func, range_values: tuple, trials: int = 5):
+    target = 10
+    size_lst = list(range(*range_values))
+    avg_times = []
+
+    for size in size_lst:
+        times = []
+        lst = list(range(1, size + 1))
+
+        for trial in range(trials):
+            start_time = time.time()
+            test_func(lst, target)
+            elapsed_time = time.time() - start_time
+            times.append(elapsed_time)
+
+        avg_time = sum(times) / trials
+        avg_times.append(avg_time)
+        target += 10
+
+    return avg_times, size_lst
+
+
+def fluctuations(func, name: str, range_values: tuple, trials: int = 3):
+    avg_times_total = []
+    for i in range(trials):
+        current_avg_time = []
+        current_avg_time, size_lst = benchmark_function(func, range_values, 5)
+        avg_times_total.append(current_avg_time)
+
+    labels = [f"Run {i+1}" for i in range(trials)]
+    make_plot("List size", "Time in seconds", size_lst, avg_times_total,
+              labels, f"Fluctuations amongst {trials} for {name}", fluc=True)
+
+```
+
+In short benchmark_function iterates through the size list and for each size of list it iterates over the given algorithm and calculates the average time amongst N runs.
+
+Similar to benchmarking function it tries the algorithm N times using the benchmark_function to than plot these N tries to show if there are any fluctuations between each run.
+
+Given the time results and size of list the experiment now has to show the result in a plot. To do this the following code was used.
+
+```py
+import matplotlib.pyplot as plt
+
+
+def make_plot(x_label: str, y_label: str, size: list, time_result: list,
+              labels: list, title: str, regression=False, fluc=False):
+
+    color_config = ["r", "b", "g", "y", "c", "m"]
+
+    for i in range(len(time_result)):
+        color = "-+" + color_config[i]
+        if fluc or (regression and i == 0):     # if i is 0 than logx vs logy
+            color = color[1:]
+
+        plt.plot(size, time_result[i], color, label=labels[i])
+
+    plt.xlabel(x_label)
+    plt.ylabel(y_label)
+    plt.title(title)
+    plt.legend()
+    plt.show()
+
+```
+
+The make_plot function works by either specifying if a linear regression plot is needed or a fluctuation plot otherwise graph plot will be ra. 
+
+
 
 ### C. Brute Force
 The brute-force approach to the 3-sum problem is a intuitive approach were it uses 3 for loops and goes through the list n³ times
