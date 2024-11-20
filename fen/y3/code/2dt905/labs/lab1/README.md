@@ -42,7 +42,13 @@
 
     - DNS Server IP: 172.25.8.8 (Which I assume to be the router due to it having the websites that I visited cached)
 
-    TODO: Briefly explain your reasoning as to why there is a different amount of IPv4 and IPv6 conversations and explain why this DNS server is used. 
+    - IPv4 vs. IPv6
+
+        There is a significant difference in the number of IPv4 and IPv6 conversations because IPv4 remains the dominant protocol in most networks, with wider use and compatibility. IPv6 is used less frequently due to limited use and is typically only utilized when explicitly required.
+
+    - DNS Server
+
+        The DNS server used in this capture is `172.25.8.8` which is likely the router acting as the DNS server. It caches frequently accessed domain names, providing faster responses and reducing the need for external DNS queries.
 
 - T1-3 
     - QUIC
@@ -51,7 +57,7 @@
 
     - DNS
         
-        A system that translates human-readable domain names (e.g., www.example.com) into IP addresses.
+        A system that translates human-readable domain names like "www.example.com" into IP addresses.
 
 ## Problem 2 
 
@@ -60,11 +66,11 @@
 
     - Other IPs:
 
-        172.25.8.8 
+        - 172.25.8.8 
     
-        142.250.74.100
+        - 142.250.74.100
     
-        128.119.245.12
+        - 128.119.245.12
 
     - Observation of request:
         
@@ -86,9 +92,21 @@
 ## Problem 3 
 
 - T3-1 
+    - Observations:
 
+        First `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding` and `Accept-Language`. 
 
-## Problem 4 
+        First response `Status Code: 200 (OK)`, `Content Length: 371`, `Last-Modified: Wed, 20 Nov 2024 06:59:01 GMT`.
+
+        Second `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `Cache-Control`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding`, `Accept-Language`, `If-None-Match` and `If-Modified-Since`. The headers that are new for the second request are `Cache-Control`, `If-None-Match` and `If-Modified-Since`.
+
+        Second response `Status Code: 304 (Not Modified)`.
+
+    - Explanation of second request and response:
+
+        The three new headers in the `GET` request which assists in validation that the resource has not been changed since last visit and the server can then avoid a redundant data transfer by confirming the resource has gone unmodified. Hence the Response `Status Code: 304 (Not Modified)`.
+
+## Problem 4 : TODO : Data exists 
 
 - T4-1 
 
@@ -102,7 +120,7 @@
 
 
 
-## Problem 5 
+## Problem 5 : TODO : Data exists
 
 - T5-1 
 
