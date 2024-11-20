@@ -12,13 +12,11 @@
 - Projects done on school time
 - School assignments
 
-A proper shit show of a repo
-
-## GIT COMMAND RECOMMENDATIONS (WiP)
+## GIT COMMAND RECOMMENDATIONS
 
 ### For version control
 
-1. `git add .`
+1. `git add 'path/to/file'`
 
 2. `git commit -m '$1'`
 
@@ -44,18 +42,21 @@ A proper shit show of a repo
 
 ### For Ulv, Yoda & Soppa
 
-- C
+- Learn C
 
 ## Tech for studies
 
-- GO-lang
+- GO
 - JAVA
 - Python
 - C
-- arm Assembly
+- ARM Assembly
 - MATLAB (cursed)
 - OpenGL
+- Pygame
 - JAVAFX
 - MYSQL
 - Docker
+- Wireshark
+- Drawio (UML Diagrams)
 
