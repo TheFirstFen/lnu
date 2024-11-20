@@ -30,7 +30,11 @@ A proper shit show of a repo
 
 1. `git clone --recurse-submodules URL/SSH`
 
-2. `git lfs pull` (make sure git lfs is installed on system)
+2. `cd "repo-name"`
+
+3. `git lfs install` (make sure git lfs is installed on system)
+
+4. `git lfs pull` 
 
 ## Tech to look in to
 
