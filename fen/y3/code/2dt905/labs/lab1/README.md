@@ -4,10 +4,10 @@
 
 - T1-1 
     - ARP (Address Resolution Protocol)
-        A protocol used to map a network address (e.g., an IP address) to a physical address (MAC address) on a local network.
+        A protocol used to map a network address like an IP address to a physical address (MAC address) on a local network.
 
     - DNS (Domain Name System)
-        A system that translates human-readable domain names (e.g., www.example.com) into IP addresses.
+        A system that translates human-readable domain names like "www.example.com" into IP addresses.
 
     - TCP (Transmission Control Protocol)
         A connection-oriented protocol that ensures reliable data transmission by establishing a connection and performing error checking.
