@@ -1,3 +1,5 @@
+# rerun the plots and save them to images than done. 
+
 from algorithms.bf import brute_force
 from utils.linear_regression import linear_reg_run
 from utils.testing import benchmark_function, fluctuations
