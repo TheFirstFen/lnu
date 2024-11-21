@@ -96,15 +96,15 @@
 
         First `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding` and `Accept-Language`. 
 
-        First response Status Code: `200 (OK)`, Content Length: `371`, Last-Modified: `Wed, 20 Nov 2024 06:59:01 GMT`.
+        First response: Status Code: `200 (OK)`, Content Length: `371`, Last-Modified: `Wed, 20 Nov 2024 06:59:01 GMT`.
 
         Second `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `Cache-Control`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding`, `Accept-Language`, `If-None-Match` and `If-Modified-Since`. The headers that are new for the second request are `Cache-Control`, `If-None-Match` and `If-Modified-Since`.
 
-        Second response Status Code: `304 (Not Modified)`.
+        Second response: Status Code: `304 (Not Modified)`.
 
     - Explanation of second request and response:
 
-        The three new headers in the `GET` request which assists in validation that the resource has not been changed since last visit and the server can then avoid a redundant data transfer by confirming the resource has gone unmodified. Hence the Response `Status Code: 304 (Not Modified)`.
+        The three new headers in the `GET` request which assists in validation that the resource has not been changed since last visit and the server can then avoid a redundant data transfer by confirming the resource has gone unmodified. Hence the response `Status Code: 304 (Not Modified)`.
 
 ## Problem 4 : TODO : Data exists 
 
