@@ -3,6 +3,7 @@ import ctypes
 from OpenGL.GL import *
 import numpy as np
 from OpenGL.GL.shaders import compileProgram, compileShader
+import os
 
 class App:
     def __init__(self):
