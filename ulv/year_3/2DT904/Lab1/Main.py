@@ -1,48 +1,97 @@
-import pygame as pg
-import ctypes
+import pygame
 from OpenGL.GL import *
-from OpenGL.GL.shaders import compileProgram, compileShader
-import numpy as np
-import sys
 
-class App:
-    def __init__(self, screenSize = [512, 512]):
-        pg.init()
-        displayFlags = pg.DOUBLEBUF | pg.OPENGL
-        pg.display.gl_set_attribute(pg.GL_MULTISAMPLEBUFFERS, 1)
-        pg.display.gl_set_attribute(pg.GL_MULTISAMPLESAMPLES, 4)
-        pg.display.gl_set_attribute(pg.GL_CONTEXT_PROFILE_MASK, pg.GL_CONTEXT_PROFILE_CORE)
-        self.screen = pg.display.set_mode(screenSize, displayFlags)
-        pg.display.set_caption("Graphics window")
-        self.running = True
-        self.clock = pg.time.Clock()
 
-    def initialize(self):
-        pass
+def initializeShader(shaderCode, shaderType):
+    shaderCode = '#version 330\n' + shaderCode
 
-    def update(self):
-        pass
+    ref = glCreateShader(shaderType)
+    glShaderSource(ref, shaderCode)
+    glCompileShader(ref)
 
-    def run(self):
-        self.initialize()
+    success = glGetShaderiv(ref, GL_COMPILE_STATUS)
+    if not success:
+        message = glGetShaderInfoLog(ref)
+        glDeleteShader(ref)
 
-        while self.running:
-            self.update()
+        message = '\n' + message.decode('utf-8')
+        raise Exception(message)
+    return ref
 
-            pg.display.flip()
-            self.clock.tick(60)
 
-        pg.quit()
-        sys.exit()
+def initializeProgram(vsCode, fsCode):
+    vsRef = initializeShader(vsCode, GL_VERTEX_SHADER)
+    fsRef = initializeShader(fsCode, GL_FRAGMENT_SHADER)
 
-class Input(object):
-    def __init__(self):
-        self.quit = False
-    
-    def update(self):
-        
+    ref = glCreateProgram()
+    glAttachShader(ref, vsRef)
+    glAttachShader(ref, fsRef)
 
-    
+    glLinkProgram(ref)
 
-if __name__ == '__main__':
-    myApp = App()
+    success = glGetProgramiv(ref, GL_LINK_STATUS)
+    if not success:
+        message = glGetProgramInfoLog(ref)
+        glDeleteProgram(ref)
+
+        message = '\n' + message.decode('utf-8')
+        raise Exception(message)
+
+    return ref
+
+
+vsCode = """
+void main()
+{
+  gl_Position = vec4(0.0, 0.0, 0.0, 1.0);
+}
+"""
+
+fsCode = """
+
+out vec4 fragColor;
+void main()
+{
+  fragColor = vec4(1.0, 1.0, 0.0, 1.0);
+}
+"""
+
+
+def main():
+    # init pygame modules
+    pygame.init()
+    title = "2DT904 - Setting the stage"
+    screenSize = [512, 512]
+    displayFlags = pygame.DOUBLEBUF | pygame.OPENGL
+
+    # use a core ogl profile for cross-platform compatibility
+    pygame.display.gl_set_attribute(
+        pygame.GL_CONTEXT_PROFILE_MASK, pygame.GL_CONTEXT_PROFILE_CORE)
+
+    # create and display the window
+    pygame.display.set_mode(screenSize, displayFlags)
+    pygame.display.set_caption(title)
+
+    program = initializeProgram(vsCode, fsCode)
+
+    vao = glGenVertexArrays(1)
+    glBindVertexArray(vao)
+
+    glPointSize(5)
+
+    glUseProgram(program)
+    glDrawArrays(GL_POINTS, 0, 1)
+
+    pygame.display.flip()
+
+    running = True
+    while running:
+        # Handle events
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+
+    pygame.quit()
+
+
+main()

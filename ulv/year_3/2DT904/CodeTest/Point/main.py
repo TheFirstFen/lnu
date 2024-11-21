@@ -62,7 +62,7 @@ class App:
 
             # Update the angles to rotate the points
             for i in range(self.num_points):
-                self.angles[i] += 1  # Increment each angle for rotation
+                self.angles[i] += 0  # Increment each angle for rotation
                 if self.angles[i] >= 360:
                     self.angles[i] = 0
 
