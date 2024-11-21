@@ -98,7 +98,7 @@
 
         First response: Status Code: `200 (OK)`, Content Length: `371`, Last-Modified: `Wed, 20 Nov 2024 06:59:01 GMT`.
 
-        Second `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `Cache-Control`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding`, `Accept-Language`, `If-None-Match` and `If-Modified-Since`. The headers that are new for the second request are `Cache-Control`, `If-None-Match` and `If-Modified-Since`.
+        Second `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the same headers as the first `GET` request and the following new ones: `Cache-Control`, `If-None-Match` and `If-Modified-Since`.
 
         Second response: Status Code: `304 (Not Modified)`.
 
