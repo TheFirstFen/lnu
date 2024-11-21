@@ -40,7 +40,7 @@
 
     - IPv6 conversations: 1 
 
-    - DNS Server IP: 172.25.8.8 (Which I assume to be the router due to it having the websites that I visited cached)
+    - DNS Server IP: `172.25.8.8` (Which I assume to be the router due to it having the websites that I visited cached)
 
     - IPv4 vs. IPv6
 
@@ -62,30 +62,30 @@
 ## Problem 2 
 
 - T2-1 
-    - My computers IP: 172.27.140.238
+    - My computers IP: `172.27.140.238`
 
     - Other IPs:
 
-        - 172.25.8.8 
+        - `172.25.8.8` 
     
-        - 142.250.74.100
+        - `142.250.74.100`
     
-        - 128.119.245.12
+        - `128.119.245.12`
 
     - Observation of request:
         
         Using `GET` on URI `/wireshark-labs/HTTP-wireshark-file1.html` and specifying request version as `HTTP/1.1`. 
 
 - T2-2 
-    - Status Code: 200 (OK)
+    - Status Code: `200 (OK)`
         
         Refers to the request being accepted and going through.
 
-    - Content Length: 128
+    - Content Length: `128`
         
         Refers to the size of the response.
 
-    - Wed, 20 Nov 2024 06:59:01 GMT
+    - Last-Modified: `Wed, 20 Nov 2024 06:59:01 GMT`
         
         Refers to the last time the file was modified.
 
@@ -96,11 +96,11 @@
 
         First `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding` and `Accept-Language`. 
 
-        First response `Status Code: 200 (OK)`, `Content Length: 371`, `Last-Modified: Wed, 20 Nov 2024 06:59:01 GMT`.
+        First response Status Code: `200 (OK)`, Content Length: `371`, Last-Modified: `Wed, 20 Nov 2024 06:59:01 GMT`.
 
         Second `GET` request on URI `/wireshark-labs/HTTP-wireshark-file2.html` specifying version as `HTTP/1.1`. Includes the following headers: `Host`, `Connection`, `Cache-Control`, `DNT`, `Upgrade-Insecure-Requests`, `User-Agent`, `Accept`, `Accept-Encoding`, `Accept-Language`, `If-None-Match` and `If-Modified-Since`. The headers that are new for the second request are `Cache-Control`, `If-None-Match` and `If-Modified-Since`.
 
-        Second response `Status Code: 304 (Not Modified)`.
+        Second response Status Code: `304 (Not Modified)`.
 
     - Explanation of second request and response:
 
