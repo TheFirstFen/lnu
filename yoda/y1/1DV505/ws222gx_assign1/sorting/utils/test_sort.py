@@ -2,24 +2,26 @@ import random
 import time
 
 
-def make_lst(size):
-    lst = []
-    for i in range(size):
-        value = random.randint(1, size*10)
-        lst.append(value)
+def make_lst(size: int, orderd):
+    if not orderd:
+        lst = []
+        for i in range(size):
+            value = random.randint(1, size*10)
+            lst.append(value)
+    else:
+        lst = [i for i in range(size, 0, -1)]
     return lst
 
 
-def test_algorithm(funcs, trials: int, range_values: tuple):
+def test_algorithm(funcs: list, trials: int, range_values: tuple,
+                   orderd=False):
     # stores the avg time for each function for each trial
     algo_time_results = {key: [] for key in range(len(funcs))}
     sizes = []
 
-    for i in range(range_values[0], range_values[1], range_values[2]):
-        # 0, 1000, 100
-        lst = make_lst(i)
+    for i in range(*range_values):
+        lst = make_lst(i, orderd)
         sizes.append(i)
-
         # stores every time for each trial for each function
         total_times = {key: 0 for key in range(len(funcs))}
 

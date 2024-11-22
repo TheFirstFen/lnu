@@ -1,11 +1,11 @@
-from n2_sort.bubble_sort import bubble_sort
-from n2_sort.selection_sort import selection_sort
-from n2_sort.insertion_sort import insertion_sort
+from sort_algorithms.bubble_sort import bubble_sort
+from sort_algorithms.selection_sort import selection_sort
+from sort_algorithms.insertion_sort import insertion_sort
 from utils.plotting import make_plot
 from utils.test_sort import test_algorithm
 from utils.linear_regression import linear_reg_run
 
-range_values = (0, 1000, 100)
+range_values = (100, 6500, 100)
 trials = 5
 
 n2_sort_times, sizes = test_algorithm([bubble_sort, selection_sort,

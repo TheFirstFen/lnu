@@ -14,13 +14,13 @@ def Sxx(x: list):
 
 def Sxy(x: list, y: list):
     summa = 0
-    for i, j in zip(x, y):
-        summa += (i*j)
+    for i in range(len(x)):
+        summa += x[i]*y[i]
     return summa
 
 
 def log_values(x: list, y: list):
-    # log(1) = 0 while log(0) = domain error
+    # log(1) = 0 due to log(0) = domain error
     log_x = [math.log(i) if i > 0 else math.log(1) for i in x]
     log_y = [math.log(i) for i in y]
     return log_x, log_y

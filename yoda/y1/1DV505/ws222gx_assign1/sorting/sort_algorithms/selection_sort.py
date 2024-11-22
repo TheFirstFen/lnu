@@ -1,4 +1,5 @@
 def selection_sort(lst):
+    # base case already sorted
     if len(lst) <= 1:
         return lst
 

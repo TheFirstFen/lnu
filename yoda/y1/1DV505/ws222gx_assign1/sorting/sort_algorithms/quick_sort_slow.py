@@ -1,5 +1,5 @@
 def partion_lst(lst):
-    pivot_element = lst[0]
+    pivot_element = lst[1]
     left_lst = []
     right_lst = []
 
