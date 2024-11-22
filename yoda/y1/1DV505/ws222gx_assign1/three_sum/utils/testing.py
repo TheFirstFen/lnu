@@ -33,4 +33,4 @@ def fluctuations(func, name: str, range_values: tuple, trials: int = 3):
 
     labels = [f"Run {i+1}" for i in range(trials)]
     make_plot("List size", "Time in seconds", size_lst, avg_times_total,
-              labels, f"Fluctuations amongst {trials} for {name}", fluc=True)
+              labels, f"Fluctuations amongst {trials} for {name}")
