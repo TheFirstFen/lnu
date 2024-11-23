@@ -8,7 +8,7 @@ def make_plot(x_label: str, y_label: str, size: list, time_result: list,
     symbol_config = ["o", "x", "+"]
 
     for i in range(len(time_result)):
-        color = symbol_config[i] + color_config[i] 
+        color = symbol_config[i] + color_config[i]
         if regression and i > 0:
             color = "-" + color
 

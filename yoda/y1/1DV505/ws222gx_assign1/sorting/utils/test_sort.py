@@ -14,7 +14,7 @@ def make_lst(size: int, orderd):
 
 
 def test_algorithm(funcs: list, trials: int, range_values: tuple,
-                   orderd=False):
+                   orderd):
     # stores the avg time for each function for each trial
     algo_time_results = {key: [] for key in range(len(funcs))}
     sizes = []
