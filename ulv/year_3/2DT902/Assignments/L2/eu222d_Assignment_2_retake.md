@@ -62,8 +62,9 @@ Adaptation from task 3 are that the  database is exanged for the data storage. T
 |Task 1|Use case diagram|
 |Task 1|Text describing the diagram|
 |Task 2|QAS 2 changed|
-|Task 3| |
-|Task 4|Component diagram and text |
+|Task 3|Description of the components in the diagram|
+|Task 3|Component diagram|
+|Task 4|Component diagram and text|
 
 ### Extra
 
