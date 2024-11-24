@@ -21,12 +21,12 @@ QAS 1:
 
 QAS 2:
 
-* Source: Identified user
-* Stimulus: Tries to login from a new device
-* Artifact: Authentication
+* Source: Unidentifid user
+* Stimulus: Tries to make a purchase
+* Artifact: Purchase management
 * Environment: Normal operation
-* Responce: Detects a new device and asks what authentication medthod they would like to use
-* Response Measure: Send a two factor authentication code to the accounts email address or phone number
+* Responce: Notifie the user that they need to be loged in to continue
+* Response Measure: User is forced to login to procide with the purchase
 
 QAS 3:
 
