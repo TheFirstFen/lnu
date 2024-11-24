@@ -1,4 +1,4 @@
-# 1ED901 : HS1 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
+# 1ED902 : HS1 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
 
 ## Problem 1 
 
@@ -38,4 +38,4 @@
 
 ## Problem 8 
 
-![8](8.jpg)
+![8](./img/8.jpg)
