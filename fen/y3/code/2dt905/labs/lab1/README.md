@@ -113,6 +113,7 @@
 There is only one request packet sent to the server. The packet length encompasses the size of the file that is requested by the client.
 
 ![T4](./img/T4-1.png)
+*Note: I am aware that there technically should be a header in this image called "[X reassembled]"*
 
 - T4-2 
 
