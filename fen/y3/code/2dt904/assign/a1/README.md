@@ -5,7 +5,9 @@
 **Given:**
 - $R_y$: 4x4 homogeneous rotation matrix around the Y-axis.  
 - $T(x, y, z)$: 4x4 homogeneous translation matrix.  
-- $p = \begin{bmatrix} 10 \\ 15 \\ 2 \\ 1 \end{bmatrix}$: Homogeneous 3D point.
+- $$
+p = \begin{bmatrix} 10 \\ 15 \\ 2 \\ 1 \end{bmatrix}
+$$: Homogeneous 3D point.
 
 #### **a. Calculate \( p_t = T(1, 2, 3)p \).**
 Using the translation matrix $T(x, y, z)$:
