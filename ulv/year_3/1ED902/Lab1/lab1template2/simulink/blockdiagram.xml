@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModelInformation Version="1.0">
+  <Model>
+    <P Name="SavedCharacterEncoding">windows-1252</P>
+    <P Name="ScopeRefreshTime">0.035000</P>
+    <P Name="OverrideScopeRefreshTime">on</P>
+    <P Name="DisableAllScopes">off</P>
+    <P Name="DataTypeOverride">UseLocalSettings</P>
+    <P Name="DataTypeOverrideAppliesTo">AllNumericTypes</P>
+    <P Name="MinMaxOverflowLogging">UseLocalSettings</P>
+    <P Name="MinMaxOverflowArchiveMode">Overwrite</P>
+    <P Name="FPTRunName">Run 1</P>
+    <P Name="MaxMDLFileLineLength">120</P>
+    <P Name="LastSavedArchitecture">win64</P>
+    <Object PropName="BdWindowsInfo" ObjectID="1" ClassName="Simulink.BDWindowsInfo">
+      <Object PropName="WindowsInfo" ObjectID="2" ClassName="Simulink.WindowInfo">
+        <P Name="IsActive" Class="logical">1</P>
+        <P Name="Location" Class="double">[147.0, 177.0, 947.0, 722.0]</P>
+        <Object PropName="ModelBrowserInfo" ObjectID="3" ClassName="Simulink.ModelBrowserInfo">
+          <P Name="Visible" Class="logical">0</P>
+          <P Name="DockPosition" Class="char">Left</P>
+          <P Name="Width" Class="int32">50</P>
+          <P Name="Height" Class="int32">50</P>
+          <P Name="Filter" Class="int32">9</P>
+        </Object>
+        <Object PropName="ExplorerBarInfo" ObjectID="4" ClassName="Simulink.ExplorerBarInfo">
+          <P Name="Visible" Class="logical">1</P>
+        </Object>
+        <Object PropName="EditorsInfo" ObjectID="5" ClassName="Simulink.EditorInfo">
+          <P Name="IsActive" Class="logical">1</P>
+          <P Name="ViewObjType" Class="char">SimulinkTopLevel</P>
+          <P Name="LoadSaveID" Class="char">0</P>
+          <P Name="Extents" Class="double">[893.0, 541.0]</P>
+          <P Name="ZoomFactor" Class="double">1.0</P>
+          <P Name="Offset" Class="double">[-61.5, -38.0]</P>
+        </Object>
+        <Object PropName="DockComponentsInfo" ObjectID="6" ClassName="Simulink.DockComponentInfo">
+          <P Name="Type" Class="char">GLUE2:PropertyInspector</P>
+          <P Name="ID" Class="char">Property Inspector</P>
+          <P Name="Visible" Class="logical">0</P>
+          <P Name="CreateCallback" Class="char"/>
+          <P Name="UserData" Class="char"/>
+          <P Name="Floating" Class="logical">0</P>
+          <P Name="DockPosition" Class="char">Right</P>
+          <P Name="Width" Class="int32">640</P>
+          <P Name="Height" Class="int32">480</P>
+        </Object>
+        <P Name="WindowState" Class="char">AAAA/wAAAAD9AAAAAgAAAAAAAAC9AAAB+PwCAAAAA/sAAAAWAEQAbwBjAGsAVwBpAGQAZwBlAHQAMwEAAAAxAAAB+AAAAAAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABjAP///wAAAAEAAAAAAAAAAPwCAAAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZQBjAHQAbwByAAAAAAD/////AAAAKwD///8AAAOjAAACVgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAB5/////wAAAAAAAAAA/////wEAAADa/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAFT/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAKg/////wAAAAAAAAAA/////wEAAALP/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA</P>
+      </Object>
+    </Object>
+    <P Name="HideAutomaticNames">on</P>
+    <ConfigManagerSettings>
+      <P Name="UpdateHistory">UpdateHistoryNever</P>
+      <P Name="ModifiedByFormat">%&lt;Auto&gt;</P>
+      <P Name="ModifiedDateFormat">%&lt;Auto&gt;</P>
+      <P Name="RTWModifiedTimeStamp">491252457</P>
+      <P Name="ModelVersionFormat">1.%&lt;AutoIncrement:5&gt;</P>
+    </ConfigManagerSettings>
+    <EditorSettings>
+      <P Name="SampleTimeColors">off</P>
+      <P Name="SampleTimeAnnotations">off</P>
+      <P Name="LibraryLinkDisplay">disabled</P>
+      <P Name="WideLines">off</P>
+      <P Name="ShowLineDimensions">off</P>
+      <P Name="ShowPortDataTypes">off</P>
+      <P Name="PortDataTypeDisplayFormat">AliasTypeOnly</P>
+      <P Name="ShowEditTimeErrors">on</P>
+      <P Name="ShowEditTimeWarnings">on</P>
+      <P Name="ShowEditTimeAdvisorChecks">off</P>
+      <P Name="ShowPortUnits">off</P>
+      <P Name="ShowDesignRanges">off</P>
+      <P Name="ShowLoopsOnError">on</P>
+      <P Name="IgnoreBidirectionalLines">off</P>
+      <P Name="ShowStorageClass">off</P>
+      <P Name="ShowTestPointIcons">on</P>
+      <P Name="ShowSignalResolutionIcons">on</P>
+      <P Name="ShowViewerIcons">on</P>
+      <P Name="SortedOrder">off</P>
+      <P Name="VariantCondition">off</P>
+      <P Name="ShowSubsystemDomainSpec">off</P>
+      <P Name="ExecutionContextIcon">off</P>
+      <P Name="ShowLinearizationAnnotations">on</P>
+      <P Name="ShowVisualizeInsertedRTB">on</P>
+      <P Name="ShowMarkup">on</P>
+      <P Name="BlockNameDataTip">off</P>
+      <P Name="BlockParametersDataTip">off</P>
+      <P Name="BlockDescriptionStringDataTip">off</P>
+      <P Name="BlockVariantConditionDataTip">off</P>
+      <P Name="ToolBar">on</P>
+      <P Name="StatusBar">on</P>
+      <P Name="BrowserShowLibraryLinks">off</P>
+      <P Name="FunctionConnectors">off</P>
+      <P Name="BrowserLookUnderMasks">off</P>
+      <P Name="MultiThreadCoSim">on</P>
+    </EditorSettings>
+    <SimulationSettings>
+      <P Name="SimulationMode">external</P>
+      <P Name="VisualizeLoggedSignalsWhenLoggingToFile">off</P>
+      <P Name="PauseTimes">5</P>
+      <P Name="NumberOfSteps">1</P>
+      <P Name="SnapshotBufferSize">10</P>
+      <P Name="SnapshotInterval">10</P>
+      <P Name="NumberOfLastSnapshots">0</P>
+      <P Name="EnablePacing">off</P>
+      <P Name="PacingRate">1</P>
+      <P Name="LinearizationMsg">none</P>
+      <P Name="Profile">off</P>
+      <P Name="ParamWorkspaceSource">MATLABWorkspace</P>
+      <P Name="AccelSystemTargetFile">accel.tlc</P>
+      <P Name="AccelTemplateMakefile">accel_default_tmf</P>
+      <P Name="AccelMakeCommand">make_rtw</P>
+      <P Name="TryForcingSFcnDF">off</P>
+      <Object PropName="DataLoggingOverride" ObjectID="7" ClassName="Simulink.SimulationData.ModelLoggingInfo">
+        <P Name="model_" Class="char">$bdroot</P>
+        <P Name="overrideMode_" Class="uint32">0U</P>
+        <Array PropName="logAsSpecifiedByModels_" Type="Cell" Dimension="1*1">
+          <Cell Class="char">$bdroot</Cell>
+        </Array>
+        <Array PropName="logAsSpecifiedByModelsSSIDs_" Type="Cell" Dimension="1*1">
+          <Cell>[]</Cell>
+        </Array>
+      </Object>
+    </SimulationSettings>
+    <ExternalMode>
+      <P Name="ExtModeBatchMode">off</P>
+      <P Name="ExtModeEnableFloating">on</P>
+      <P Name="ExtModeTrigType">manual</P>
+      <P Name="ExtModeTrigMode">normal</P>
+      <P Name="ExtModeTrigPort">1</P>
+      <P Name="ExtModeTrigElement">any</P>
+      <P Name="ExtModeTrigDuration">2</P>
+      <P Name="ExtModeTrigDurationFloating">auto</P>
+      <P Name="ExtModeTrigHoldOff">0</P>
+      <P Name="ExtModeTrigDelay">0</P>
+      <P Name="ExtModeTrigDirection">rising</P>
+      <P Name="ExtModeTrigLevel">0</P>
+      <P Name="ExtModeArchiveMode">off</P>
+      <P Name="ExtModeAutoIncOneShot">off</P>
+      <P Name="ExtModeIncDirWhenArm">off</P>
+      <P Name="ExtModeAddSuffixToVar">off</P>
+      <P Name="ExtModeWriteAllDataToWs">off</P>
+      <P Name="ExtModeArmWhenConnect">on</P>
+      <P Name="ExtModeSkipDownloadWhenConnect">off</P>
+      <P Name="ExtModeLogAll">on</P>
+      <P Name="ExtModeAutoUpdateStatusClock">on</P>
+    </ExternalMode>
+    <ModelReferenceSettings>
+      <P Name="ShowModelReferenceBlockVersion">off</P>
+      <P Name="ShowModelReferenceBlockIO">off</P>
+      <P Name="OrderedModelArguments">on</P>
+    </ModelReferenceSettings>
+    <ConcurrentExecutionSettings>
+      <Object PropName="DataTransfer" ObjectID="8" ClassName="Simulink.GlobalDataTransfer">
+        <P Name="DefaultTransitionBetweenSyncTasks" Class="char">Ensure deterministic transfer (maximum delay)</P>
+        <P Name="DefaultTransitionBetweenAsyncTasks" Class="char">Ensure data integrity only</P>
+        <P Name="DefaultTransitionBetweenContTasks" Class="char">Ensure deterministic transfer (minimum delay)</P>
+        <P Name="DefaultExtrapolationMethodBetweenContTasks" Class="char">None</P>
+        <P Name="AutoInsertRateTranBlk" Class="logical">0</P>
+      </Object>
+      <P Name="ExplicitPartitioning">off</P>
+    </ConcurrentExecutionSettings>
+    <System>
+      <P Name="Location">[147, 177, 1094, 899]</P>
+      <P Name="Open">on</P>
+      <P Name="SetDomainSpec">off</P>
+      <P Name="DomainSpecType">Deduce</P>
+      <P Name="ReportName">simulink-default.rpt</P>
+      <P Name="SIDHighWatermark">17</P>
+      <Block BlockType="Reference" Name="Discrete Derivative" SID="10">
+        <P Name="Ports">[1, 1]</P>
+        <P Name="Position">[575, 207, 635, 243]</P>
+        <P Name="ZOrder">768</P>
+        <P Name="LibraryVersion">1.441</P>
+        <P Name="SourceBlock">simulink/Discrete/Discrete Derivative</P>
+        <P Name="SourceType">Discrete Derivative</P>
+        <P Name="SourceProductName">Simulink</P>
+        <P Name="SourceProductBaseCode">SL</P>
+        <InstanceData>
+          <P Name="ContentPreviewEnabled">on</P>
+          <P Name="gainval">1.0</P>
+          <P Name="ICPrevScaledInput">0.0</P>
+          <P Name="InputProcessing">Elements as channels (sample based)</P>
+          <P Name="OutMin">[]</P>
+          <P Name="OutMax">[]</P>
+          <P Name="OutDataTypeStr">double</P>
+          <P Name="OutputDataTypeScalingMode">double</P>
+          <P Name="OutDataType">fixdt(1, 16)</P>
+          <P Name="OutScaling">2^-10</P>
+          <P Name="LockScale">off</P>
+          <P Name="RndMeth">Floor</P>
+          <P Name="DoSatur">off</P>
+        </InstanceData>
+      </Block>
+      <Block BlockType="Gain" Name="Gain" SID="4">
+        <P Name="Position">[495, 210, 525, 240]</P>
+        <P Name="ZOrder">714</P>
+        <P Name="Gain">2*pi/720</P>
+        <P Name="ParamDataTypeStr">Inherit: Inherit via internal rule</P>
+        <P Name="OutDataTypeStr">Inherit: Inherit via internal rule</P>
+        <P Name="SaturateOnIntegerOverflow">off</P>
+      </Block>
+      <Block BlockType="SubSystem" Name="MinSeg motor" SID="7">
+        <P Name="Ports">[1, 1]</P>
+        <P Name="Position">[255, 195, 455, 255]</P>
+        <P Name="ZOrder">767</P>
+        <P Name="RequestExecContextInheritance">off</P>
+        <P Name="ContentPreviewEnabled">on</P>
+        <System>
+          <P Name="Location">[147, 177, 1094, 899]</P>
+          <P Name="SetDomainSpec">off</P>
+          <P Name="DomainSpecType">Deduce</P>
+          <Block BlockType="Inport" Name="Motor voltage request" SID="8">
+            <P Name="Position">[20, 33, 50, 47]</P>
+            <P Name="ZOrder">767</P>
+            <P Name="IconDisplay">Port number</P>
+          </Block>
+          <Block BlockType="Reference" Name="M1V4  Middle Motor Driver&#xA;PWM5, D4 FST1" SID="1">
+            <P Name="Ports">[1]</P>
+            <P Name="Position">[140, 23, 225, 57]</P>
+            <P Name="ZOrder">711</P>
+            <P Name="LibraryVersion">1.99</P>
+            <P Name="SourceBlock">MinSegLibrary_M1V4/M1V4  Middle Motor Driver
+PWM5, D4 FST</P>
+            <P Name="SourceType">Motor Driver</P>
+            <P Name="SourceProductName">Rensselaer Arduino Support Package</P>
+            <InstanceData>
+              <P Name="ContentPreviewEnabled">off</P>
+              <P Name="Vsupply">4.5</P>
+            </InstanceData>
+          </Block>
+          <Block BlockType="Reference" Name="M1V4 Middle Connector 2,3" SID="6">
+            <P Name="Ports">[0, 1]</P>
+            <P Name="Position">[270, 27, 380, 53]</P>
+            <P Name="ZOrder">766</P>
+            <P Name="LibraryVersion">1.99</P>
+            <P Name="SourceBlock">MinSegLibrary_M1V4/M1V4 Middle Connector 2,3</P>
+            <P Name="SourceType">Encoder_arduino</P>
+            <P Name="SourceProductName">Rensselaer Arduino Support Package</P>
+            <InstanceData>
+              <P Name="Encoder">0</P>
+              <P Name="PinA">3</P>
+              <P Name="PinB">2</P>
+            </InstanceData>
+          </Block>
+          <Block BlockType="Outport" Name="Encoder reading" SID="9">
+            <P Name="Position">[435, 33, 465, 47]</P>
+            <P Name="ZOrder">768</P>
+            <P Name="IconDisplay">Port number</P>
+          </Block>
+          <Line>
+            <P Name="ZOrder">7</P>
+            <P Name="Src">6#out:1</P>
+            <P Name="Dst">9#in:1</P>
+          </Line>
+          <Line>
+            <P Name="ZOrder">6</P>
+            <P Name="Src">8#out:1</P>
+            <P Name="Dst">1#in:1</P>
+          </Line>
+        </System>
+      </Block>
+      <Block BlockType="DiscretePulseGenerator" Name="Pulse&#xA;Generator" SID="16">
+        <P Name="Ports">[0, 1]</P>
+        <P Name="Position">[45, 209, 75, 241]</P>
+        <P Name="ZOrder">774</P>
+        <P Name="Period">60</P>
+        <P Name="PulseWidth">35</P>
+        <P Name="SampleTime">-1</P>
+      </Block>
+      <Block BlockType="Reference" Name="Slider&#xA;Gain" SID="3">
+        <P Name="Ports">[1, 1]</P>
+        <P Name="Position">[145, 210, 175, 240]</P>
+        <P Name="ZOrder">713</P>
+        <P Name="LibraryVersion">1.441</P>
+        <P Name="SourceBlock">simulink/Math
+Operations/Slider
+Gain</P>
+        <P Name="SourceType">Slider Gain</P>
+        <P Name="SourceProductName">Simulink</P>
+        <P Name="SourceProductBaseCode">SL</P>
+        <InstanceData>
+          <P Name="ContentPreviewEnabled">on</P>
+          <P Name="gain">4.500</P>
+          <P Name="low">0</P>
+          <P Name="high">4.5</P>
+        </InstanceData>
+      </Block>
+      <Block BlockType="ToWorkspace" Name="To Workspace" SID="17">
+        <P Name="Ports">[1]</P>
+        <P Name="Position">[665, 210, 725, 240]</P>
+        <P Name="ZOrder">775</P>
+        <P Name="VariableName">step_resp</P>
+        <P Name="MaxDataPoints">inf</P>
+        <P Name="Save2DSignal">3-D array (concatenate along third dimension)</P>
+        <P Name="FixptAsFi">on</P>
+        <P Name="SampleTime">-1</P>
+      </Block>
+      <Line>
+        <P Name="ZOrder">22</P>
+        <P Name="Src">16#out:1</P>
+        <P Name="Dst">3#in:1</P>
+      </Line>
+      <Line>
+        <P Name="ZOrder">6</P>
+        <P Name="Src">3#out:1</P>
+        <P Name="Dst">7#in:1</P>
+      </Line>
+      <Line>
+        <P Name="ZOrder">7</P>
+        <P Name="Src">7#out:1</P>
+        <P Name="Dst">4#in:1</P>
+      </Line>
+      <Line>
+        <P Name="ZOrder">23</P>
+        <P Name="Src">10#out:1</P>
+        <P Name="Dst">17#in:1</P>
+      </Line>
+      <Line>
+        <P Name="ZOrder">4</P>
+        <P Name="Src">4#out:1</P>
+        <P Name="Dst">10#in:1</P>
+      </Line>
+    </System>
+  </Model>
+</ModelInformation>
