@@ -1,4 +1,5 @@
 clc
+clear
 
 syms x1 x2 u
 
@@ -22,4 +23,5 @@ disp(A_eq)
 disp(B_eq)
 disp(C_eq)
 disp(D_eq)
+
 
