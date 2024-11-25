@@ -1,9 +1,10 @@
 """
-COMMENT: Expected result: first test should go through the second will
-show a plot only for quick sort fast.
-Second should give an error because the "left lists" in the algorithm
-will be empty there for we will get
-recursion error which is expected on the last test for quick sort slow
+1. Test shows that both algorithms work
+2. This test will show that quick sort fast does work with a reversed ordered
+list.
+3. Test is expected to fail and give an error because it will show the flaw in
+having the pivot element as the first element rather than the median
+
 """
 
 from sort_algorithms.quick_sort_slow import quick_sort_slow
@@ -20,13 +21,18 @@ range_values = (0, 2000, 100)
 quick_sort_times, sizes = test_algorithm(algorithms, trials, range_values,
                                          False)
 
-make_plot("Number sorted", "Time in seconds",
+make_plot("Numbers sorted", "Time in seconds",
           "Randomly ordered list", quick_sort_times,
           labels=labels, size=sizes)
 
 
-# Flaw in slow quick sort
-print("Flaw detected")
 range_values = (0, 2000, 250)
-quick_sort_times, sizes = test_algorithm(algorithms, trials, range_values,
+quick_sort_times, sizes = test_algorithm([algorithms[0]], trials, range_values,
+                                         True)
+make_plot("Numbers sorted", "Time in seconds", "Reversed ordered list for fast"
+          " quick sort",  quick_sort_times, labels=labels, size=sizes)
+
+
+print("Flaw detected: <- intentional")
+quick_sort_times, sizes = test_algorithm([algorithms[1]], trials, range_values,
                                          True)
