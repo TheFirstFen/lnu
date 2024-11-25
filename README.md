@@ -40,6 +40,7 @@
 - home/personal networking (optimization)
 - slidev
 - Markdown LaTeX syntax integration
+- LaTeX
 
 ### For Ulv, Yoda & Soppa
 
