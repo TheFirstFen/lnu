@@ -39,6 +39,7 @@
 - proper use of git
 - home/personal networking (optimization)
 - slidev
+- Markdown LaTeX syntax integration
 
 ### For Ulv, Yoda & Soppa
 
@@ -46,6 +47,7 @@
 
 ## Tech for studies
 
+- Markdown 
 - GO
 - JAVA
 - Python
