@@ -16,20 +16,23 @@ def partion_lst(lst):
     pivot_element = pivot_median(lst)
     left_lst = []
     right_lst = []
+    middle_lst = []
 
     for i in range(len(lst)):
-        if pivot_element > lst[i]:
+        if pivot_element < lst[i]:
             left_lst.append(lst[i])
-        elif pivot_element < lst[i]:
+        elif pivot_element > lst[i]:
             right_lst.append(lst[i])
+        else:
+            middle_lst.append(lst[i])
 
-    return pivot_element, left_lst, right_lst
+    return left_lst, middle_lst, right_lst
 
 
 def quick_sort(lst):
     if len(lst) <= 1:   # already sorted
         return lst
-    pivot_element, left_lst, right_lst = partion_lst(lst)
+    left_lst, middle, right_lst = partion_lst(lst)
     left_sorted = quick_sort(left_lst)
     right_sorted = quick_sort(right_lst)
-    return left_sorted + [pivot_element] + right_sorted
+    return right_sorted + middle + left_sorted
