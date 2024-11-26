@@ -51,13 +51,18 @@
         The DNS server used in this capture is `172.25.8.8` which is likely the router acting as the DNS server. It caches frequently accessed domain names, providing faster responses and reducing the need for external DNS queries.
 
 - T1-3 
+    - UDP (User Datagram Protocol)
+        
+        A connectionless protocol that sends data without establishing a reliable connection, often used for streaming or real-time communications.
     - QUIC
         
         A transport layer protocol designed by Google that aims to reduce latency and improve connection speeds, using UDP instead of TCP.
-
     - DNS
         
         A system that translates human-readable domain names like "www.example.com" into IP addresses.
+    - ICMP (Internet Control Message Protocol)
+        
+        A network layer protocol used for diagnostic and error reporting, such as pinging to test connectivity.
 
 ## Problem 2 
 
