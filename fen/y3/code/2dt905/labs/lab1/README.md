@@ -148,3 +148,5 @@ Human readable explanation of status code. Useful for debugging or to display fo
 2. Second `GET` request and response 
     * Client resends the request with the `Authorization` header including the login and password. They are `Base64-encoded` to the following string `d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=` which is decoded to `wireshark-students:network`
     * Server responds with `200 OK` confirming the credentials being correct and authentication going through and providing the requested resource.
+3. Problems
+    * The `Basic` authentication transmits the credentials as Base64-encoded plaintext which is a secure as storing the user details in pure plaintext. The "best" and "simplest" solution to this type of problem would be to implement everything the same but instead of using HTTP protocol using HTTPS which would solve the encryption and plaintext data issues.
