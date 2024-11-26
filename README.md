@@ -41,6 +41,8 @@
 - slidev
 - Markdown LaTeX syntax integration
 - LaTeX
+- Pandoc template.tex creation
+- YAML
 
 ### For Ulv, Yoda & Soppa
 
