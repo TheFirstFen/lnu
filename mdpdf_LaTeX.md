@@ -1,3 +1,10 @@
+---
+header-includes:
+  - \usepackage{mhchem}
+geometry: margin=1in
+documentclass: article
+---
+
 # Example Document
 
 Einstein's famous equation is $E = mc^2$.
