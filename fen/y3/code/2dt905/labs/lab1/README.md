@@ -106,7 +106,7 @@
 
         The three new headers in the `GET` request which assists in validation that the resource has not been changed since last visit and the server can then avoid a redundant data transfer by confirming the resource has gone unmodified. Hence the response `Status Code: 304 (Not Modified)`.
 
-## Problem 4 : TODO : Data exists 
+## Problem 4 
 
 - T4-1 
 
