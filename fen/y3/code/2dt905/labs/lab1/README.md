@@ -110,10 +110,15 @@
 
 - T4-1 
 
-There is only one request packet sent to the server. The packet length encompasses the size of the file that is requested by the client.
+There is only one request packet sent to the server when doing it on Linux and the response is all in the HTTP response. On Windows there is one request packet but there are 3 response TCP packets with data and the remaining data is sent in the HTTP response. 
 
-![T4](./img/T4-1.png)
-*Note: I am aware that there technically should be a header in this image called "[X reassembled]"*
+TCP has a minimum header size of 20 bytes, the IP header size is 20 bytes and the maximum segment size for a TCP segment is 1500 bytes (which is negotiated at the handshake interaction). By doing simple math we can conclude that the data size for each TCP segment should max out at $1500 - 20 - 20 = 1460 bytes$ which you can see in the capture on my Windows machine. Also according to this the fact that I am getting all the data in the HTTP response points to that my Linux machine negotiated a larger maximum segment size during the handshake.  
+
+![T4-linux](./img/T4-1-linux.png)
+*Note: When doing the capture on my Linux machine.*
+
+![T4-win](./img/T4-1-win.png)
+*Note: When doing the capture on my Windows machine.*
 
 - T4-2 
 
