@@ -132,13 +132,19 @@ HTTP relies on TCP for the data transmission. When a client requests a large fil
     * **3xx (Redirection)**: Further action required to complete the request.
     * **4xx (Client Error)**: Problem with the request.
     * **5xx (Server Error)**: Server failed to fulfill a valid request.
-
 2. **Reason Phrase**
 
 Human readable explanation of status code. Useful for debugging or to display for end-user.
 
 
-## Problem 5 : TODO : Data exists
+## Problem 5 
 
 - T5-1 
 
+1. First `GET` request and response
+    * Requests a password-protected resource `HTTP-wireshark-file5.html`.
+    * Server responds with `401 Unauthorized` which indicates that the client did not include valid credentials in the request.
+    * The header `WWW-Authenticate` in the response specifies `Basic` authentication with a realm `"wireshark-students only"` prompting the client to provide credentials.
+2. Second `GET` request and response 
+    * Client resends the request with the `Authorization` header including the login and password. They are `Base64-encoded` to the following string `d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=` which is decoded to `wireshark-students:network`
+    * Server responds with `200 OK` confirming the credentials being correct and authentication going through and providing the requested resource.
