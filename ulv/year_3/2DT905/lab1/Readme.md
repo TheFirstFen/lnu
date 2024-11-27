@@ -61,18 +61,30 @@ HTTP/1.1 200 OK (text/html)
 
 HTTP/1.1 404 Not Found (text/html)
 
+Status codes are used to indicate the result of a servers attempt to complete thee request. Content length indicates on how many bytes the responds are. Modified last time indicates when the respons was last modified.
+
 ### Task 3
 
 #### T3-1
+
+
 
 ### Task 4
 
 #### T4-1
 
+
+
 #### T4-2
 
+
+
 #### T4-3
+
+
 
 ### Task5
 
 #### T5-1
+
+
