@@ -13,6 +13,12 @@ public class Main {
   private static final String DIR = "public";
 
   public static void main(String[] args) {
+    if (args.length != 2) {
+      System.out.println("There should be 2 arguments: {PORT} {DIR_NAME}");
+      System.out.println("Example execution: java Main 8888 public");
+      System.exit(1);
+    }
+
     ExecutorService threadPool = Executors.newFixedThreadPool(TPOOL_SIZE);
 
     try (ServerSocket serverSocket = new ServerSocket(PORT)) {
