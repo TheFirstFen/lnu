@@ -67,17 +67,16 @@
 ## Problem 2 
 
 - T2-1 
-    - My computers IP: `172.27.140.238`
+    1. My computers IP: `172.27.140.238`
 
-    - Other IPs:
-
-        - `172.25.8.8` 
+    2. Other IPs:
+        * IP: `172.25.8.8` 
     
-        - `142.250.74.100`
+        * IP: `142.250.74.100`
     
-        - `128.119.245.12`
+        * IP: `128.119.245.12`
 
-    - Observation of request:
+    3. Observation of request:
         
         Using `GET` on URI `/wireshark-labs/HTTP-wireshark-file1.html` and specifying request version as `HTTP/1.1`. 
 
