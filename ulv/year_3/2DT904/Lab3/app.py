@@ -7,7 +7,7 @@ def readFile(name: str):
         return f.read()
 
 
-def run(title: str, init: Callable[[], None], update: Callable[[float, float], None], screenSize = [512, 512]):
+def run(title: str, init: Callable[[], None], update: Callable[[float, float], None], screenSize = [800, 800]):
     pygame.init()
     displayFlags = pygame.DOUBLEBUF | pygame.OPENGL
 
