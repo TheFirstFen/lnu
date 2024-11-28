@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload PNG File</title>
+    <title>Upload PNG</title>
 </head>
 <body>
-    <h1>Upload a PNG File</h1>
+    <h1>Upload a PNG Image</h1>
     <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="file">Select PNG file:</label>
-        <input type="file" id="file" name="file" accept=".png" required>
+        <input type="file" name="file" accept="image/png" required>
         <button type="submit">Upload</button>
     </form>
 </body>
 </html>
-

@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
   private static int PORT;
@@ -34,6 +35,8 @@ public class Main {
       while(true) {
         try {
           Socket socket = serverSocket.accept();
+          socket.setReceiveBufferSize(131072);
+          socket.setSoTimeout(30000);
           System.out.println("New client connected");
 
           threadPool.submit(new ClientHandler(socket, DIR));
@@ -140,8 +143,7 @@ class ClientHandler implements Runnable {
     }
   }
 
-private void handlePOST(BufferedReader reader, InputStream input, PrintWriter writer, String filePath) throws IOException {
-    // Check if the filePath matches /upload
+  private void handlePOST(BufferedReader reader, InputStream input, PrintWriter writer, String filePath) throws IOException {
     if (!"/upload".equals(filePath)) {
         sendResponse(writer, "HTTP/1.1 404 Not Found\r\n\r\nPage not found");
         return;
@@ -151,53 +153,76 @@ private void handlePOST(BufferedReader reader, InputStream input, PrintWriter wr
     int contentLength = 0;
     String boundary = null;
 
-    // Parse headers for content-length and boundary
+    // Parse headers
+    System.out.println("Parsing headers...");
     while (!(line = reader.readLine()).isEmpty()) {
+        System.out.println(line); // Debugging headers
         if (line.toLowerCase().startsWith("content-length:")) {
             contentLength = Integer.parseInt(line.split(":")[1].trim());
         } else if (line.toLowerCase().startsWith("content-type:") && line.contains("boundary=")) {
-            boundary = "--" + line.split("boundary=")[1].trim();  // Adding '--' to the boundary
+            boundary = "--" + line.split("boundary=")[1].trim();
         }
     }
 
-    if (boundary == null) {
-        sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nMissing Boundary");
+    // Validate headers
+    if (contentLength == 0 || boundary == null) {
+        sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nMissing Content-Length or Boundary");
         return;
     }
 
-    // Read the request body (the actual file and form data)
-    byte[] body = input.readNBytes(contentLength);
-    String bodyString = new String(body);
+    System.out.println("Content-Length: " + contentLength);
+    System.out.println("Boundary: " + boundary);
 
-    // Ensure boundary is at both the start and end of the body
-    if (!bodyString.startsWith(boundary) || !bodyString.endsWith(boundary + "--")) {
-        sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nInvalid boundary in multipart form data");
-        return;
+    // Read body in chunks
+    ByteArrayOutputStream bodyStream = new ByteArrayOutputStream();
+    byte[] buffer = new byte[8192]; // 8 KB buffer
+    int totalRead = 0, bytesRead;
+
+    InputStream inputStream = socket.getInputStream();
+    while (totalRead < contentLength) {
+        bytesRead = inputStream.read(buffer);
+        if (bytesRead == -1) {
+            System.out.println("Unexpected end of stream. Read " + totalRead + " out of " + contentLength);
+            sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nIncomplete body received");
+            return;
+        }
+        bodyStream.write(buffer, 0, bytesRead);
+        totalRead += bytesRead;
+        System.out.println("Read " + bytesRead + " bytes, Total: " + totalRead + "/" + contentLength);
     }
 
-    // Split the body by the boundary (ignore leading and trailing boundary markers)
+    // Process multipart data
+    String bodyString = bodyStream.toString(StandardCharsets.UTF_8);
+    System.out.println("Body received. Processing...");
+
     String[] parts = bodyString.split(boundary);
     for (String part : parts) {
         if (part.contains("Content-Disposition") && part.contains("filename=")) {
-            String fileName = part.split("filename=")[1].split("\"")[1];
-            
-            if (!fileName.endsWith(".png")) {
+            String[] headers = part.split("\r\n");
+            String fileName = null;
+
+            // Extract file name
+            for (String header : headers) {
+                if (header.contains("filename=")) {
+                    fileName = header.split("filename=")[1].replace("\"", "");
+                }
+            }
+
+            if (fileName == null || !fileName.endsWith(".png")) {
                 sendResponse(writer, "HTTP/1.1 415 Unsupported Media Type\r\n\r\nOnly PNG files are allowed");
                 return;
             }
 
-            // Find the actual file data in the part
-            int start = part.indexOf("\r\n\r\n") + 4;  // Skip headers and empty lines
-            int end = part.lastIndexOf("\r\n--");  // Look for the end of the part
-
-            if (start == -1 || end == -1 || start >= end) {
+            int dataStart = part.indexOf("\r\n\r\n") + 4;
+            int dataEnd = part.lastIndexOf("\r\n");
+            if (dataStart == -1 || dataEnd == -1 || dataStart >= dataEnd) {
                 sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nInvalid part structure");
                 return;
             }
 
-            byte[] fileData = part.substring(start, end).getBytes();
+            byte[] fileData = part.substring(dataStart, dataEnd).getBytes();
 
-            // Create the upload directory if it doesn't exist
+            // Save file
             Path uploadDir = Paths.get(path, "uploads").normalize();
             if (!Files.exists(uploadDir)) {
                 Files.createDirectories(uploadDir);
