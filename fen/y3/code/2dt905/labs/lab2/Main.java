@@ -155,6 +155,7 @@ class ClientHandler implements Runnable {
 
     // Parse headers
     while (!(line = reader.readLine()).isEmpty()) {
+        System.out.println(line); // Debugging headers
         if (line.toLowerCase().startsWith("content-length:")) {
             contentLength = Integer.parseInt(line.split(":")[1].trim());
         } else if (line.toLowerCase().startsWith("content-type:") && line.contains("boundary=")) {
