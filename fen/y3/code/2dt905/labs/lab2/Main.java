@@ -154,9 +154,7 @@ class ClientHandler implements Runnable {
     String boundary = null;
 
     // Parse headers
-    System.out.println("Parsing headers...");
     while (!(line = reader.readLine()).isEmpty()) {
-        System.out.println(line); // Debugging headers
         if (line.toLowerCase().startsWith("content-length:")) {
             contentLength = Integer.parseInt(line.split(":")[1].trim());
         } else if (line.toLowerCase().startsWith("content-type:") && line.contains("boundary=")) {
@@ -173,35 +171,51 @@ class ClientHandler implements Runnable {
     System.out.println("Content-Length: " + contentLength);
     System.out.println("Boundary: " + boundary);
 
-    // Read body in chunks
+    // Read the body in chunks and ensure the exact number of bytes are read
     ByteArrayOutputStream bodyStream = new ByteArrayOutputStream();
     byte[] buffer = new byte[8192]; // 8 KB buffer
     int totalRead = 0, bytesRead;
 
+    // Open the input stream directly
     InputStream inputStream = socket.getInputStream();
     while (totalRead < contentLength) {
-        bytesRead = inputStream.read(buffer);
+        bytesRead = inputStream.read();
         if (bytesRead == -1) {
             System.out.println("Unexpected end of stream. Read " + totalRead + " out of " + contentLength);
             sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nIncomplete body received");
             return;
         }
+
+        // Add the bytes read to the body stream
         bodyStream.write(buffer, 0, bytesRead);
         totalRead += bytesRead;
         System.out.println("Read " + bytesRead + " bytes, Total: " + totalRead + "/" + contentLength);
+
+        // Ensure that we read exactly Content-Length bytes
+        if (totalRead > contentLength) {
+            System.out.println("Mismatch: Expected " + contentLength + " bytes, but read " + totalRead);
+            sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nMismatch between Content-Length and actual data");
+            return;
+        }
     }
 
     // Process multipart data
     String bodyString = bodyStream.toString(StandardCharsets.UTF_8);
-    System.out.println("Body received. Processing...");
 
+    // If the last boundary part is included, trim it
+    if (bodyString.endsWith(boundary + "--")) {
+        bodyString = bodyString.substring(0, bodyString.length() - (boundary.length() + 2)); // Remove trailing boundary
+    }
+
+    // Split by boundary and process each part
     String[] parts = bodyString.split(boundary);
+
     for (String part : parts) {
         if (part.contains("Content-Disposition") && part.contains("filename=")) {
             String[] headers = part.split("\r\n");
             String fileName = null;
 
-            // Extract file name
+            // Extract file name from the header
             for (String header : headers) {
                 if (header.contains("filename=")) {
                     fileName = header.split("filename=")[1].replace("\"", "");
@@ -222,7 +236,7 @@ class ClientHandler implements Runnable {
 
             byte[] fileData = part.substring(dataStart, dataEnd).getBytes();
 
-            // Save file
+            // Save file to the uploads directory
             Path uploadDir = Paths.get(path, "uploads").normalize();
             if (!Files.exists(uploadDir)) {
                 Files.createDirectories(uploadDir);
@@ -239,6 +253,7 @@ class ClientHandler implements Runnable {
     sendResponse(writer, "HTTP/1.1 400 Bad Request\r\n\r\nInvalid multipart form data");
 }
 
+ 
   private void sendRedirect(PrintWriter writer, String location) {
     writer.write("HTTP/1.1 302 Found\r\n");
     writer.write("Location: " + location + "\r\n");
