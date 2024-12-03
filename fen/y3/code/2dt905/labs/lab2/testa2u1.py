@@ -1,11 +1,11 @@
-# Simple script to test the 1DV701 webserver. 
+# Simple script to test the 1DV701 webserver.
 
 import requests
 from pathlib import Path
 import re
 import hashlib
 
-# Assumes the server runs on localhost, port 80. 
+# Assumes the server runs on localhost, port 80.
 server = '127.0.0.1'
 port = 8888
 
@@ -15,16 +15,20 @@ dirbase = Path('./public')
 # Allow for .htm solutions
 fe = '.html'
 
+
 def killWS(s):
     return re.sub(r'\s', '', s)
+
 
 def loadPage(fn):
     s = open(dirbase / fn).read()
     return killWS(s)
 
+
 def loadImage(fn):
     s = open(dirbase / fn, 'rb').read()
     return s
+
 
 def requestPageOK(p, pn):
     # Assumes 'index.html' should be added if p is not a file
@@ -51,19 +55,21 @@ def requestPageOK(p, pn):
     print(f'OK: {pn}')
     return True
 
+
 def requestPageNotOK(p, pn, code):
     r = requests.get(f'http://{server}:{port}/{p}')
 
     if r.status_code == requests.codes.ok:
-        print(f'Error: {pn} succeeded with code {r.status_code}')       
+        print(f'Error: {pn} succeeded with code {r.status_code}')
         return False
 
     if r.status_code != code:
         print(f'Error: {pn} expected code {code}, got {r.status_code}')
-        return False    
+        return False
 
     print(f'OK: {pn}')
     return True
+
 
 def requestImage(p, pn):
     r = requests.get(f'http://{server}:{port}/{p}')
@@ -72,11 +78,13 @@ def requestImage(p, pn):
         print(f'Error: {pn} failed with code {r.status_code}')
         return False
 
-    if r.headers['content-type'] != 'image/png' and r.headers['content-type'] != 'image/x-png':
+    if (r.headers['content-type'] != 'image/png' and
+            r.headers['content-type'] != 'image/x-png'):
         print(f'Error: {pn} has content type {r.headers["content-type"]}')
         return False
 
-    ## (2022 ls223qx) - Kudos to Albert - ah225ex for finding a problem here and providing a fix!
+    # (2022 ls223qx) - Kudos to Albert - ah225ex for finding a problem here
+    # and providing a fix!
     image = loadImage(p)
     if 'content-length' in r.headers:
         contentLengthVar = r.headers['content-length']
@@ -86,7 +94,8 @@ def requestImage(p, pn):
             return False
         elif int(r.headers['content-length']) != len(image):
             print(f'Error: {pn} content length incorrect')
-            print(f'Image len is {len(image)} and contentlength is {contentLengthVar}.')
+            print(f'Image len is {len(image)} and contentlength is {
+                  contentLengthVar}.')
             return False
     else:
         print(f'Notice: {pn} has no content length header')
@@ -102,6 +111,7 @@ def requestImage(p, pn):
 
     print(f'OK: {pn}')
     return True
+
 
 # Test main index
 requestPageOK('', 'Main index page')
