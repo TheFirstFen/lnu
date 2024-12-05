@@ -50,9 +50,10 @@ def setupSquare(programId, sideLength=2):
     glVertexAttribPointer(posAttrLocation, 3, GL_FLOAT,
                           False, NumComponents * FloatSize, c_void_p(0))
     glEnableVertexAttribArray(posAttrLocation)
-    glVertexAttribPointer(uvAttrLocation, 2, GL_FLOAT,
-                          False, NumComponents * FloatSize, c_void_p(3*FloatSize))
-    glEnableVertexAttribArray(uvAttrLocation)
+    if uvAttrLocation != -1:
+        glVertexAttribPointer(uvAttrLocation, 2, GL_FLOAT, False, NumComponents * FloatSize, c_void_p(3*FloatSize))
+        glEnableVertexAttribArray(uvAttrLocation)
+
 
     return len(vertexData) // NumComponents
 

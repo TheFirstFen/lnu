@@ -4,9 +4,11 @@ from app import run, readFile
 from glslprogram import Program
 from meshes import setupSquare
 from math import pi
+import os 
+os.environ["SDL_VIDEO_X11_FORCE_EGL"] = "1"
 
-vsCode = readFile('./lab4/2-fragment-shading-vs.glsl')
-fsCode = readFile('./lab4/2-fragment-shading-fs.glsl')
+vsCode = readFile('./2-fragment-shading-vs.glsl')
+fsCode = readFile('./2-fragment-shading-fs.glsl')
 
 
 def init():

@@ -7,8 +7,8 @@ from math import pi
 import os 
 os.environ["SDL_VIDEO_X11_FORCE_EGL"] = "1"
 
-vsCode = readFile('./lab4/transform-vs.glsl')
-fsCode = readFile('./lab4/varying-color-fs.glsl')
+vsCode = readFile('./transform-vs.glsl')
+fsCode = readFile('./varying-color-fs.glsl')
 
 
 def init():
@@ -27,21 +27,26 @@ def init():
     program.setUniformMat4('mModel', Matrix.makeIdentity())
     program.setUniformMat4('mProjView', mProjView)
 
+    glEnable(GL_CULL_FACE)
+    glEnable(GL_DEPTH_TEST)
+
 
 def update(dt, time):
-    glClear(GL_COLOR_BUFFER_BIT)
-
-    # Draw cube far away
-    mModel = Matrix.makeTranslation(0, 0, -20) @ Matrix.makeRotationZ(
-        time*pi / 3.5) @ Matrix.makeRotationX(time*pi / 2.5) @ Matrix.makeRotationY(pi / 5.5)
-    program.setUniformMat4('mModel', mModel)
-    glDrawArrays(GL_TRIANGLES, 0, drawCount)
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # Draw cube near
     mModel = Matrix.makeRotationZ(
         time*pi / 2.5) @ Matrix.makeRotationX(time*pi / 5.5) @ Matrix.makeRotationY(pi / 3.5)
     program.setUniformMat4('mModel', mModel)
     glDrawArrays(GL_TRIANGLES, 0, drawCount)
+
+    # Draw cube far away
+    mModel = Matrix.makeTranslation(0, 8, -20) @ Matrix.makeRotationZ(
+        time*pi / 3.5) @ Matrix.makeRotationX(time*pi / 2.5) @ Matrix.makeRotationY(pi / 5.5)
+    program.setUniformMat4('mModel', mModel)
+    glDrawArrays(GL_TRIANGLES, 0, drawCount)
+
+    
 
 
 run("2DT904 - Rasterization", init=init,
