@@ -22,8 +22,6 @@
 
 ![4ab](./img/4ab.jpg)
 
-![4bcd](./img/4bcd.jpg)
-
 ## Problem 5 
 
 ![5](./img/5.jpg)
