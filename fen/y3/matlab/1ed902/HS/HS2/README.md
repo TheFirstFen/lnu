@@ -1,4 +1,4 @@
-# 1ED902 : HS1 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
+# 1ED902 : HS2 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
 
 ## Problem 1 
 
