@@ -6,7 +6,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.nio.charset.StandardCharsets;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Main {
     private static int PORT;
@@ -160,84 +161,7 @@ class ClientHandler implements Runnable {
 
     private void handlePOST(BufferedReader reader, InputStream input, PrintWriter writer, String filePath)
             throws IOException {
-        System.out.println("handlePOST called with filePath: " + filePath);
 
-        String boundary = null;
-        if ("/upload".equals(filePath)) {
-            String line;
-            while ((line = reader.readLine()) != null && !line.isEmpty()) {
-                System.out.println("Reading header line: " + line);
-                if (line.startsWith("Content-Type: multipart/form-data; boundary=")) {
-                    boundary = line.split("boundary=")[1];
-                    System.out.println("Boundary found: " + boundary);
-                    break;
-                }
-            }
-        }
-
-        if (boundary == null) {
-            System.out.println("Boundary not found, sending 400 response");
-            sendResponse(writer,
-                    "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html\r\n\r\n<h1>400 Invalid Request</h1>");
-            return;
-        }
-
-        System.out.println("Boundary: " + boundary);
-
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        byte[] data = new byte[1024];
-        int bytesRead;
-        try {
-            while ((bytesRead = input.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, bytesRead);
-            }
-            buffer.flush();
-            System.out.println("Read " + buffer.size() + " bytes from input stream");
-        } catch (IOException e) {
-            System.err.println("Error reading input stream: " + e.getMessage());
-            sendResponse(writer,
-                    "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>500 Internal Server Error</h1>");
-            return;
-        }
-
-        String body = new String(buffer.toByteArray(), StandardCharsets.UTF_8);
-        System.out.println("Body length: " + body.length());
-
-        String[] parts = body.split("--" + boundary);
-        System.out.println("Number of parts: " + parts.length);
-
-        for (String part : parts) {
-            System.out.println("Processing part: " + part);
-            if (part.contains("Content-Disposition: form-data; name=\"file\"; filename=\"")) {
-                String filename = part.split("filename=\"")[1].split("\"")[0];
-                System.out.println("Filename: " + filename);
-                if (!filename.endsWith(".png")) {
-                    System.out.println("Invalid file type, sending 400 response");
-                    sendResponse(writer,
-                            "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html\r\n\r\n<h1>400 Invalid File Type</h1>");
-                    return;
-                }
-
-                // Extract file data
-                int fileDataStart = part.indexOf("\r\n\r\n") + 4;
-                int fileDataEnd = part.lastIndexOf("\r\n--");
-                byte[] fileData = part.substring(fileDataStart, fileDataEnd).getBytes(StandardCharsets.ISO_8859_1);
-                System.out.println("Extracted file data, length: " + fileData.length);
-
-                // Save the file (example path, adjust as needed)
-                Path outputPath = Paths.get("./public/uploads", filename);
-                Files.write(outputPath, fileData);
-                System.out.println("File saved to: " + outputPath.toString());
-
-                sendResponse(writer,
-                        "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n<h1>File Uploaded Successfully</h1>");
-                return;
-            }
-        }
-
-        System.out.println("No valid file part found, sending 400 response");
-        sendResponse(writer,
-                "HTTP/1.1 400 Bad Request\r\nContent-Type: text/html\r\n\r\n<h1>400 Invalid Request</h1>");
     }
 
     private void sendRedirect(PrintWriter writer, String location) {
