@@ -6,8 +6,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 
 public class Main {
     private static int PORT;
@@ -16,7 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         if (args.length != 2) {
-            System.out.println("There should be 2 arguments: {PORT} {DIR_NAME}");
+            System.out.println("There should be 2 arguments: {PORT} {SOURCE_DIR}");
             System.out.println("Example execution: java Main 8888 public");
             System.exit(1);
         }
@@ -55,6 +53,7 @@ public class Main {
 class ClientHandler implements Runnable {
     private final Socket socket;
     private final String path;
+    private static int numberOfImages = 0;
 
     public ClientHandler(Socket socket, String path) {
         this.socket = socket;
@@ -64,6 +63,7 @@ class ClientHandler implements Runnable {
     @Override
     public void run() {
         try (InputStream input = socket.getInputStream();
+                DataOutputStream out = new DataOutputStream(socket.getOutputStream());
                 BufferedReader reader = new BufferedReader(new InputStreamReader(input));
                 OutputStream output = socket.getOutputStream();
                 PrintWriter writer = new PrintWriter(output, true)) {
@@ -87,9 +87,11 @@ class ClientHandler implements Runnable {
             System.out.println("Method: " + method + "\nRequested file: " + filePath);
 
             if ("GET".equalsIgnoreCase(method)) {
+                System.out.println("GET request received");
                 handleGET(writer, output, filePath);
             } else if ("POST".equalsIgnoreCase(method)) {
-                handlePOST(reader, input, writer, filePath);
+                System.out.println("POST request received");
+                handlePOST(reader, input, output, writer, filePath);
             } else {
                 sendResponse(writer,
                         "HTTP/1.1 405 Method Not Allowed\r\nContent-Type: text/html\r\n\r\n<h1>Method Not Allowed</h1>");
@@ -159,9 +161,66 @@ class ClientHandler implements Runnable {
         }
     }
 
-    private void handlePOST(BufferedReader reader, InputStream input, PrintWriter writer, String filePath)
-            throws IOException {
+    private void handlePOST(BufferedReader reader, InputStream input, OutputStream out, PrintWriter writer,
+            String filePath) {
+        System.out.println("Entered handlePOST method");
 
+        try {
+            // Read the headers
+            String line;
+            while (!(line = reader.readLine()).isEmpty()) {
+                System.out.println("Header: " + line);
+            }
+
+            // Read the body
+            StringBuilder body = new StringBuilder();
+            while (reader.ready()) {
+                body.append((char) reader.read());
+            }
+            System.out.println("Body: " + body.toString());
+
+            // Process the request body and generate a response
+            String response = processPostRequest(body.toString(), filePath, numberOfImages);
+            numberOfImages++;
+            sendResponse(writer, response);
+
+        } catch (IOException e) {
+            System.err.println("Error in handlePOST: " + e.getMessage());
+            sendResponse(writer,
+                    "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>Internal Server Error</h1>");
+        } finally {
+            try {
+                input.close();
+                out.close();
+            } catch (IOException e) {
+                System.err.println("Error closing streams: " + e.getMessage());
+            }
+        }
+    }
+
+    private String processPostRequest(String body, String filePath, int numberOfImages) {
+        // Log the received body for debugging purposes
+        System.out.println("Processing POST request for file: " + filePath);
+        System.out.println("Request body: " + body);
+
+        String imagePath = filePath + "s/uploaded_image_" + numberOfImages + ".png";
+
+        // Example processing: Save the body content to a file
+        try (FileWriter fileWriter = new FileWriter(path + imagePath)) {
+            fileWriter.write(body);
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+            return "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>Internal Server Error</h1>";
+        }
+
+        // Generate a success response with the image displayed
+        String response = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\n" +
+                "<html><body>" +
+                "<h1>POST Request Processed Successfully</h1>" +
+                "<img src=\"" + imagePath + "\" alt=\"Uploaded Image\" />" +
+                "</body></html>";
+
+        return response;
     }
 
     private void sendRedirect(PrintWriter writer, String location) {

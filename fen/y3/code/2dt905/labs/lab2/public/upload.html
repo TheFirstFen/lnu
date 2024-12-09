@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload PNG</title>
-</head>
-<body>
-    <h1>Upload a PNG Image</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file" accept="image/png" required>
-        <button type="submit">Upload</button>
-    </form>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Upload PNG</title>
+    </head>
+    <body>
+        <h1>Upload a PNG Image</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" id="fileSelector" name="fileToUpload" />
+            <input type="submit" value="Upload Image" name="submit" />
+            <i id="size">N/A</i>
+        </form>
+
+        <script>
+            document.getElementById("fileSelector").onchange = function () {
+                const file = document.getElementById("fileSelector").files[0];
+                document.getElementById("size").innerHTML =
+                    file.size + " bytes";
+                if (file.size > 1048576) {
+                    alert("Image is bigger than 1MB!");
+                }
+                if (!file.name.endsWith(".png")) {
+                    alert("File is not of type PNG!");
+                }
+            };
+        </script>
+    </body>
 </html>
