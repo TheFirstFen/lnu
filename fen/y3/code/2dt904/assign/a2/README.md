@@ -1,6 +1,6 @@
 # 2DT904 : Assignment 2 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
 
-## Rasterization
+## 1. Rasterization
 
 $$
 x_{\text{clip}} = 2 \cdot \left( \frac{x_{\text{viewport}}}{\text{width}} \right) - 1, \quad y_{\text{clip}} = 1 - 2 \cdot \left( \frac{y_{\text{viewport}}}{\text{height}} \right)
@@ -34,7 +34,7 @@ $$
 \quad \text{Since} \quad E_{31} \quad \text{is negative, the pixel} \quad (−0.5,−0.25) \quad \text{lies outside the triangle.}
 $$
 
-## Interpolation
+## 2. Interpolation
 
 $$
 x_{\text{clip}} = 2 \cdot \left( \frac{x_{\text{viewport}}}{\text{width}} \right) - 1, \quad y_{\text{clip}} = 1 - 2 \cdot \left( \frac{y_{\text{viewport}}}{\text{height}} \right)
@@ -127,7 +127,7 @@ $$
 C = (0.60, 0.60, 1.0)
 $$
 
-## Lighting
+## 3. Lighting
 
 $$
 L = (2, 6, 3)
@@ -138,7 +138,7 @@ $$
 L_{\text{norm}} = \frac{L}{\|L\|}
 $$
 
-First, calculate the magnitude \( \|L\| \) :
+First, calculate the magnitude $\|L\|$ :
 $$
 \|L\| = \sqrt{2^2 + 6^2 + 3^2} = \sqrt{4 + 36 + 9} = \sqrt{49} = 7
 $$
@@ -147,4 +147,83 @@ Thus, the normalized light direction vector is:
 $$
 L_{\text{norm}} = \left( \frac{2}{7}, \frac{6}{7}, \frac{3}{7} \right)
 $$
+
+$$
+I_{\text{diffuse}} = k_d \cdot I_d \cdot \max(0, N \cdot L)
+$$
+
+Where:
+$k_{d} = 1.0$ (since the triangle is completely diffuse),
+
+$I_{d} = (1.0, 1.0, 0.7)$ (directional light color),
+
+$N = (0, 0, 1)$ (normal vector),
+
+$L_{\text{norm}} = \left( \frac{2}{7}, \frac{6}{7}, \frac{3}{7} \right)$ .
+
+First, compute the dot product $(N \cdot L)$:
+$$
+N \cdot L = (0)(\frac{2}{7}) + (0)(\frac{6}{7}) + (1)(\frac{3}{7}) = \frac{3}{7}
+$$
+
+Now compute the diffuse lighting:
+$$
+I_{\text{diffuse}} = 1.0 \cdot (1.0, 1.0, 0.7) \cdot \frac{3}{7} = \left( \frac{3}{7}, \frac{3}{7}, \frac{2.1}{7} \right)
+$$
+
+Thus:
+$$
+I_{\text{diffuse}} = \left( 0.43, 0.43, 0.30 \right)
+$$
+
+$$
+I_{\text{ambient}} = k_a \cdot I_a
+$$
+
+Where:
+$k_{a} = 1.0$ (full reflection),
+
+$I_{a} = (0.2, 0.2, 0.2)$ (ambient light color).
+
+Thus:
+$$
+I_{\text{ambient}} = 1.0 \cdot (0.2, 0.2, 0.2) = (0.2, 0.2, 0.2)
+$$
+
+$$
+I = I_{\text{ambient}} + I_{\text{diffuse}} = (0.2, 0.2, 0.2) + (0.43, 0.43, 0.30)
+$$
+
+Thus:
+$$
+I = (0.2 + 0.43, 0.2 + 0.43, 0.2 + 0.30) = (0.63, 0.63, 0.50)
+$$
+
+$$
+C_{\text{final}} = \alpha C_1 + \beta C_2 + \gamma C_3
+$$
+
+Substitute the vertex colors:
+$$
+C_{\text{final}} = 0.41(1, 1, 1) + 0.05(0, 0, 0) + 0.63(0.3, 0.3, 1.0)
+$$
+
+Simplify each component:
+$$
+C_{\text{final},x} = 0.41(1) + 0.05(0) + 0.63(0.3) = 0.41 + 0 + 0.189 = 0.60
+$$
+$$
+C_{\text{final},y} = 0.41(1) + 0.05(0) + 0.63(0.3) = 0.41 + 0 + 0.189 = 0.60
+$$
+$$
+C_{\text{final},z} = 0.41(1) + 0.05(0) + 0.63(1.0) = 0.41 + 0 + 0.63 = 1.04 \approx 1.0
+$$
+
+Thus, the final interpolated color is:
+$$
+C_{\text{final}} = (0.60, 0.60, 1.0)
+$$
+
+## 4. Texturing
+
 
