@@ -31,7 +31,7 @@ E_{12} = 2.005 \quad (\text{positive}), \quad E_{23} = 1.305 \quad (\text{positi
 $$
 
 $$
-\quad \text{Since} \quad E_{31} \quad \text{is negative, the pixel} \quad (−0.5,−0.25) \quad \text{lies **outside** the triangle.}
+\quad \text{Since} \quad E_{31} \quad \text{is negative, the pixel} \quad (−0.5,−0.25) \quad \text{lies outside the triangle.}
 $$
 
 ## Interpolation
@@ -39,18 +39,18 @@ $$
 $$
 x_{\text{clip}} = 2 \cdot \left( \frac{x_{\text{viewport}}}{\text{width}} \right) - 1, \quad y_{\text{clip}} = 1 - 2 \cdot \left( \frac{y_{\text{viewport}}}{\text{height}} \right)
 $$
+For $\( (x_{\text{viewport}}, y_{\text{viewport}}) = (2, 5) \)$, we get:
 
-For \( (x_{\text{viewport}}, y_{\text{viewport}}) = (2, 5) \), we get:
 $$
 x_{\text{clip}} = 2 \cdot \left( \frac{2}{8} \right) - 1 = -0.5, \quad y_{\text{clip}} = 1 - 2 \cdot \left( \frac{5}{8} \right) = 1 - 1.25 = -0.25
 $$
-Thus, the pixel’s center in clip space is \( (-0.5, -0.25) \).
+Thus, the pixel’s center in clip space is $\( (-0.5, -0.25) \)$.
 
 $$
 A_{\text{total}} = \frac{1}{2} \left| x_1(y_2 - y_3) + x_2(y_3 - y_1) + x_3(y_1 - y_2) \right|
 $$
 
-For \( V_1 = (-0.8, 1), V_2 = (0.9, 0.6), V_3 = (-0.2, -1) \):
+For $\( V_1 = (-0.8, 1), V_2 = (0.9, 0.6), V_3 = (-0.2, -1) \)$:
 $$
 A_{\text{total}} = \frac{1}{2} \left| (-0.8)(0.6 - (-1)) + 0.9((-1) - 1) + (-0.2)(1 - 0.6) \right|
 $$
