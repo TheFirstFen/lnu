@@ -7,7 +7,7 @@ import hashlib
 
 # Assumes the server runs on localhost, port 80. 
 server = '127.0.0.1'
-port = 80
+port = 8888
 
 # Points to the files themselves
 dirbase = Path('./public')

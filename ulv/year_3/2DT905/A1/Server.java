@@ -1,72 +1,132 @@
-import java.net.*;
 import java.io.*;
+import java.net.*;
 import java.nio.file.*;
+import java.util.concurrent.*;
 
 public class Server {
-    public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage : java Server <port> <relative-path-to-public>");
-            return;
+
+    private final int port;
+    private final File publicDir;
+
+    public Server(int port, String publicDirPath) {
+        this.port = port;
+        this.publicDir = new File(publicDirPath);
+
+        if (!this.publicDir.exists() || !this.publicDir.isDirectory()) {
+            throw new IllegalArgumentException("Invalid public directory path.");
         }
+    }
 
-        int port;
-        String publicDir;
+    public void start() {
+        System.out.println("Starting server on port " + port);
+        System.out.println("Serving files from: " + publicDir.getAbsolutePath());
 
-        try {
-            port = Integer.parseInt(args[0]);
-            publicDir = args[1];
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid port number");
-            return;
-        }
+        try (ServerSocket serverSocket = new ServerSocket(port)) {
+            ExecutorService threadPool = Executors.newCachedThreadPool();
 
-        File publicDirectory = new File(publicDir);
-        if (!publicDirectory.isDirectory()) {
-            System.out.println("Invalid public directory: " + publicDir);
-            return;
-        }
-
-        System.out.println("Starting server on port " + port + "serving files from " + publicDir);
-
-        try (ServerSocket serverSocket = new ServerSocket(port)){
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("New connection from " + clientSocket.getInetAddress());
-
-                new ClientHandler(clientSocket, publicDirectory).start();
+                threadPool.submit(() -> handleClient(clientSocket));
             }
-        } catch (Exception e) {
-            System.out.println("Server error: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error starting server: " + e.getMessage());
         }
     }
-}
 
-class ClientHandler extends Thread {
-    private final Socket socket;
-    private final File publicDirectory;
-
-    public ClientHandler(Socket socket, File publicDirectory) {
-        this.socket = socket;
-        this.publicDirectory = publicDirectory;
-    }
-
-    @Override
-    public void run() {
+    private void handleClient(Socket clientSocket) {
         try (
-            InputStream input = socket.getInputStream();
-            OutputStream output = socket.getOutputStream();
-            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            InputStream input = clientSocket.getInputStream();
+            OutputStream output = clientSocket.getOutputStream()
         ) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             String requestLine = reader.readLine();
-            if (requestLine == null || !requestLine.startsWith("GET")){
-                sendResponse(output, 400, "Bad Request", "text/plain");
+
+            if (requestLine == null || !requestLine.startsWith("GET")) {
+                sendErrorResponse(output, 400, "Bad Request");
                 return;
             }
 
             String[] requestParts = requestLine.split(" ");
-            String requestPath = requestParts[1];
+            if (requestParts.length < 2) {
+                sendErrorResponse(output, 400, "Bad Request");
+                return;
+            }
 
-            Path requestedPath = publicDirectory.toPath().resolve(requestPath.substring(1)).normalize();
+            String requestedPath = requestParts[1];
+            if (requestedPath.equals("/")) {
+                requestedPath = "/index.html";
+            }
+
+            File requestedFile = new File(publicDir, requestedPath);
+
+            if (requestedFile.isDirectory()) {
+                requestedFile = new File(requestedFile, "index.html");
+            }
+
+            if (!requestedFile.getCanonicalPath().startsWith(publicDir.getCanonicalPath())) {
+                sendErrorResponse(output, 403, "Forbidden");
+                return;
+            }
+
+            if (!requestedFile.exists() || requestedFile.isDirectory()) {
+                sendErrorResponse(output, 404, "Not Found");
+                return;
+            }
+
+            sendFileResponse(output, requestedFile);
+
+        } catch (IOException e) {
+            System.err.println("Error handling client: " + e.getMessage());
+        } finally {
+            try {
+                clientSocket.close();
+            } catch (IOException e) {
+                System.err.println("Error closing client socket: " + e.getMessage());
+            }
+        }
+    }
+
+    private void sendErrorResponse(OutputStream output, int statusCode, String message) throws IOException {
+        String response = "HTTP/1.1 " + statusCode + " " + message + "\r\n" +
+                "Content-Type: text/html\r\n" +
+                "\r\n" +
+                "<html><body><h1>" + message + "</h1></body></html>";
+        output.write(response.getBytes());
+    }
+
+    private void sendFileResponse(OutputStream output, File file) throws IOException {
+        String contentType = Files.probeContentType(file.toPath());
+        if (contentType == null) {
+            contentType = "application/octet-stream";
+        }
+
+        byte[] fileBytes = Files.readAllBytes(file.toPath());
+        String responseHeaders = "HTTP/1.1 200 OK\r\n" +
+                "Content-Type: " + contentType + "\r\n" +
+                "Content-Length: " + fileBytes.length + "\r\n" +
+                "\r\n";
+
+        output.write(responseHeaders.getBytes());
+        output.write(fileBytes);
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 2) {
+            System.err.println("Usage: java SimpleWebServer <port> <public_directory>");
+            return;
+        }
+
+        try {
+            int port = Integer.parseInt(args[0]);
+            String publicDirPath = args[1];
+
+            Server server = new Server(port, publicDirPath);
+            server.start();
+
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid port number.");
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
         }
     }
 }
