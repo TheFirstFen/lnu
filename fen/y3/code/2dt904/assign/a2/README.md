@@ -46,5 +46,5 @@ E_{12} = 2.005 \quad (\text{positive}), \quad E_{23} = 1.305 \quad (\text{positi
 $$
 
 $$
-(\text{Since}) E_{31} (\text{is negative, the pixel}) (−0.5,−0.25) (\text{lies **outside** the triangle.})
+\quad (\text{Since}) \quad E_{31} \quad (\text{is negative, the pixel}) \quad (−0.5,−0.25) \quad (\text{lies **outside** the triangle.})
 $$
