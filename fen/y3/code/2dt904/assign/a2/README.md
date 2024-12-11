@@ -45,5 +45,6 @@ $$
 E_{12} = 2.005 \quad (\text{positive}), \quad E_{23} = 1.305 \quad (\text{positive}), \quad E_{31} = -0.15 \quad (\text{negative})
 $$
 
-Since $E_{31}$ is negative, the pixel $(−0.5,−0.25)$ lies **outside** the triangle.
-
+$$
+(\text{Since}) E_{31} (\text{is negative, the pixel}) (−0.5,−0.25) (\text{lies **outside** the triangle.})
+$$
