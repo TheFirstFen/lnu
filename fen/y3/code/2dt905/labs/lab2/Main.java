@@ -6,22 +6,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
 
 public class Main {
-    private static int PORT = 8888;
+    private static int PORT;
     private static final int TPOOL_SIZE = 10;
-    private static String DIR = "public/";
+    private static String DIR;
 
     public static void main(String[] args) {
-        if (args.length == 2) {
+        if (args.length != 2) {
             System.out.println("There should be 2 arguments: {PORT} {SOURCE_DIR}");
             System.out.println("Example execution: java Main 8888 public");
             System.exit(1);
         }
-        // PORT = Integer.parseInt(args[0]);
-        // DIR = args[1];
+        PORT = Integer.parseInt(args[0]);
+        DIR = args[1];
 
         ExecutorService threadPool = Executors.newFixedThreadPool(TPOOL_SIZE);
 
@@ -162,103 +160,7 @@ class ClientHandler implements Runnable {
             sendResponse(writer, "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>File Not Found</h1>");
         }
     }
-
-    private void handlePOST(BufferedReader reader, InputStream input, OutputStream out, PrintWriter writer,
-            String filePath) {
-        System.out.println("Entered handlePOST method");
-
-        try {
-            // Read the headers
-            String line;
-            while (!(line = reader.readLine()).isEmpty()) {
-                System.out.println("Header: " + line);
-            }
-
-            // Read the body
-            StringBuilder body = new StringBuilder();
-            while (reader.ready()) {
-                body.append((char) reader.read());
-            }
-            System.out.println("Body: " + body.toString());
-
-            byte[] bodyBytes = body.toString().getBytes();
-
-            // Process the request body and generate a response
-            String response = processPostRequest(bodyBytes, filePath, numberOfImages);
-            numberOfImages++;
-            sendResponse(writer, response);
-
-        } catch (IOException e) {
-            System.err.println("Error in handlePOST: " + e.getMessage());
-            sendResponse(writer,
-                    "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>Internal Server Error</h1>");
-        } finally {
-            try {
-                input.close();
-                out.close();
-            } catch (IOException e) {
-                System.err.println("Error closing streams: " + e.getMessage());
-            }
-        }
-    }
-
-    private String processPostRequest(byte[] body, String filePath, int numberOfImages) {
-        String response = "";
-        byte[] imageAr = new byte[1];
-        String s = "";
-        boolean catched = false;
-        int j = 0;
-        int size = 0;
-        try {
-            for (byte i : body) {
-                if ((char) i == '\n') {
-                    if (s.contains("PNG")) { // the png image data starts with 'ﾉPNG'
-                        catched = true;
-                        imageAr = new byte[size + 1];
-                        for (int x = 0; x < s.length(); x++) { // Error 500 Internal Server Error
-                            imageAr[j] = (byte) s.charAt(x);
-                            j++;
-                        }
-                    } else if (s.contains("------") && catched) { // the binary data ends with ------webkit..
-                        break;
-                    } else if (s.contains("Content-Length:")) {
-                        String string = (s.split(" ")[1]);
-                        string = string.substring(0, string.length() - 1); // because of unwanted last byte 'null'
-                        size = Integer.parseInt(string);
-
-                        if (size > 1048576) {
-                            throw new Exception("size over the limit");
-                        }
-                    }
-                    s = "";
-                } else {
-                    s += (char) i;
-                }
-                if (catched) {
-                    imageAr[j] = i;
-                    j++;
-                }
-                if (s.equals("Upload Image")) { // last line in inputstream is the value of the upload button in
-                    if (!catched)
-                        throw new Exception("File is not of type png");
-                    break;
-                }
-            }
-            BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageAr));
-            String imagePath = filePath + "s/uploaded_image_" + numberOfImages + ".png";
-            File file = new File(imagePath);
-            ImageIO.write(image, "png", file);
-            response = "HTTP/1.1 200 OK\r\nContent-Length: " + file.length()
-                    + "\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n<h1>Image uploaded successfully!</h1>\r\n<a href='"
-                    + imagePath + "'> <img src='" + imagePath + "'/> </a>";
-            System.out.println("Image uploaded successfully to " + file.getPath());
-        } catch (Exception e) {
-            response = "HTTP/1.1 500 Internal Server Error\r\nConnection: close\r\nContent-Type: text/html\r\n\r\n<h1>500 Internal Server Error!</h1>";
-            System.err.println("File failed to upload! " + e.getMessage());
-        }
-        return response;
-    }
-
+ 
     private void sendRedirect(PrintWriter writer, String location) {
         writer.write("HTTP/1.1 302 Found\r\n");
         writer.write("Location: " + location + "\r\n");
