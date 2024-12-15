@@ -1,18 +1,18 @@
 # 2DT905 : Lab 2 : [Samuel Berg](mailto:sb224sc@student.lnu.se)
 
-- Compile
+- Compile Server
 
 Linux: `javac *.java`
 
 Windows: `javac Main.java`
 
-- Run
+- Run Server
 
 Linux: `java Main [port] [source_directory]`
 
 Windows: `java Main.class [port] [source_directory]`
 
-- Test the server(including concurrency and POST)
+- Test Server
     
     `python testa2u1.py` (Included test file)
 
