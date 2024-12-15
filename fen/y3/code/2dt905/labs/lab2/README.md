@@ -12,6 +12,8 @@
 
     Windows: `java Main.class [port] [source_directory]`
 
+    Recommended parameters for testing to work without modification: port = 8888 & source_directory = public
+
 - Test Server
     
     `python testa2u1.py` (Included test file)
