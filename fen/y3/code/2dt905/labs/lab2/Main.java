@@ -53,7 +53,6 @@ public class Main {
 class ClientHandler implements Runnable {
     private final Socket socket;
     private final String path;
-    private static int numberOfImages = 0;
 
     public ClientHandler(Socket socket, String path) {
         this.socket = socket;
@@ -89,16 +88,13 @@ class ClientHandler implements Runnable {
             if ("GET".equalsIgnoreCase(method)) {
                 System.out.println("GET request received");
                 handleGET(writer, output, filePath);
-            } else if ("POST".equalsIgnoreCase(method)) {
-                System.out.println("POST request received");
-                handlePOST(reader, input, output, writer, filePath);
             } else {
                 sendResponse(writer,
                         "HTTP/1.1 405 Method Not Allowed\r\nContent-Type: text/html\r\n\r\n<h1>Method Not Allowed</h1>");
             }
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e.getMessage());
-            sendResponseOnException(e);
+
         } finally {
             try {
                 socket.close();
@@ -116,7 +112,9 @@ class ClientHandler implements Runnable {
         }
 
         if ("/error".equals(filePath)) {
-            throw new RuntimeException("Simulated server error");
+            sendResponse(writer,
+                    "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>500 Internal Server Error</h1>");
+            return;
         }
 
         Path file = Paths.get(path, filePath).normalize();
@@ -160,7 +158,7 @@ class ClientHandler implements Runnable {
             sendResponse(writer, "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>File Not Found</h1>");
         }
     }
- 
+
     private void sendRedirect(PrintWriter writer, String location) {
         writer.write("HTTP/1.1 302 Found\r\n");
         writer.write("Location: " + location + "\r\n");
@@ -172,18 +170,5 @@ class ClientHandler implements Runnable {
         System.out.println("Response: " + response);
         writer.write(response);
         writer.flush();
-    }
-
-    private void sendResponseOnException(Exception e) {
-        try (OutputStream output = socket.getOutputStream();
-                PrintWriter writer = new PrintWriter(output, true)) {
-
-            String errorResponse = "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>Internal Server Error: "
-                    + e.getMessage() + "</h1>";
-            writer.write(errorResponse);
-            writer.flush();
-        } catch (IOException ex) {
-            System.err.println("Failed to send 500 response: " + ex.getMessage());
-        }
     }
 }

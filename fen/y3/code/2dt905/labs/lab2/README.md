@@ -19,3 +19,9 @@
     `python testa2u1.py` (Included test file)
 
     `python test.py` (Concurrency test file)
+
+- Status codes
+
+    To get a 302 Redirect go to localhost:{port}/redirect
+    
+    To get a 500 Internal Server Error got to localhost:{port}/error
