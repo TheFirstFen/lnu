@@ -106,14 +106,14 @@ class ClientHandler implements Runnable {
         }
     }
 
-    private void handleGET(PrintWriter writer, OutputStream output, String filePath) throws Exception {
+    private void handleGET(PrintWriter writer, OutputStream output, String filePath) throws IOException {
         if ("/redirect".equals(filePath)) {
             sendRedirect(writer, "/index.html");
             return;
         }
 
         if ("/error".equals(filePath)) {
-            throw new Exception();
+            throw new IOException("Simulated Internal Server Error");
             // sendResponse(writer, "HTTP/1.1 500 Internal Server Error\r\nContent-Type:
             // text/html\r\n\r\n<h1>500 Internal Server Error</h1>");
             // return;
@@ -142,7 +142,7 @@ class ClientHandler implements Runnable {
             output.write(fileBytes);
             output.flush();
         } else if (filePath.endsWith(".htm")) {
-            file = Paths.get(path, filePath + "l").normalize(); // Try to serve .html if .htm is requested
+            file = Paths.get(path, filePath + "l").normalize();
             if (Files.exists(file) && !Files.isDirectory(file)) {
                 String mimeType = Files.probeContentType(file);
                 byte[] fileBytes = Files.readAllBytes(file);
@@ -153,14 +153,14 @@ class ClientHandler implements Runnable {
                 output.write(fileBytes);
                 output.flush();
             } else {
-                sendResponse(writer,
-                        "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>File Not Found</h1>");
+                sendResponseNotFound(writer);
             }
         } else {
-            sendResponse(writer, "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>File Not Found</h1>");
+            sendResponseNotFound(writer);
         }
     }
 
+    // Send redirect response
     private void sendRedirect(PrintWriter writer, String location) {
         writer.write("HTTP/1.1 302 Found\r\n");
         writer.write("Location: " + location + "\r\n");
@@ -168,12 +168,18 @@ class ClientHandler implements Runnable {
         writer.flush();
     }
 
+    // Handles general responses
     private void sendResponse(PrintWriter writer, String response) {
         System.out.println("Response: " + response);
         writer.write(response);
         writer.flush();
     }
 
+    private void sendResponseNotFound(PrintWriter writer) {
+        sendResponse(writer, "HTTP/1.1 404 Not Found\r\nContent-Type: text/html\r\n\r\n<h1>404 File Not Found</h1>");
+    }
+
+    // Sends 500 response in case of exception
     private void sendResponseOnException(Exception e) {
         try (OutputStream output = socket.getOutputStream();
                 PrintWriter writer = new PrintWriter(output, true)) {
