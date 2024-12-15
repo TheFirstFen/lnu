@@ -94,6 +94,7 @@ class ClientHandler implements Runnable {
             }
         } catch (Exception e) {
             System.err.println("Unexpected error: " + e.getMessage());
+            sendResponseOnException(e);
 
         } finally {
             try {
@@ -105,16 +106,17 @@ class ClientHandler implements Runnable {
         }
     }
 
-    private void handleGET(PrintWriter writer, OutputStream output, String filePath) throws IOException {
+    private void handleGET(PrintWriter writer, OutputStream output, String filePath) throws Exception {
         if ("/redirect".equals(filePath)) {
             sendRedirect(writer, "/index.html");
             return;
         }
 
         if ("/error".equals(filePath)) {
-            sendResponse(writer,
-                    "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>500 Internal Server Error</h1>");
-            return;
+            throw new Exception();
+            // sendResponse(writer, "HTTP/1.1 500 Internal Server Error\r\nContent-Type:
+            // text/html\r\n\r\n<h1>500 Internal Server Error</h1>");
+            // return;
         }
 
         Path file = Paths.get(path, filePath).normalize();
@@ -170,5 +172,18 @@ class ClientHandler implements Runnable {
         System.out.println("Response: " + response);
         writer.write(response);
         writer.flush();
+    }
+
+    private void sendResponseOnException(Exception e) {
+        try (OutputStream output = socket.getOutputStream();
+                PrintWriter writer = new PrintWriter(output, true)) {
+
+            String errorResponse = "HTTP/1.1 500 Internal Server Error\r\nContent-Type: text/html\r\n\r\n<h1>Internal Server Error: "
+                    + e.getMessage() + "</h1>";
+            writer.write(errorResponse);
+            writer.flush();
+        } catch (IOException ex) {
+            System.err.println("Failed to send 500 response: " + ex.getMessage());
+        }
     }
 }
