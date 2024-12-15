@@ -2,15 +2,15 @@
 
 - Compile Server
 
-Linux: `javac *.java`
+    Linux: `javac *.java`
 
-Windows: `javac Main.java`
+    Windows: `javac Main.java`
 
 - Run Server
 
-Linux: `java Main [port] [source_directory]`
+    Linux: `java Main [port] [source_directory]`
 
-Windows: `java Main.class [port] [source_directory]`
+    Windows: `java Main.class [port] [source_directory]`
 
 - Test Server
     
