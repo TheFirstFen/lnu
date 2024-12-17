@@ -2,7 +2,7 @@
 
 ## Emil Ulvagården (<eu222dq@student.lnu.se>)
 
-### Task 1
+### Task 1a
 
 $$ p = \begin{bmatrix}
 10\\
@@ -11,8 +11,6 @@ $$ p = \begin{bmatrix}
 1\\
 \end{bmatrix}
 $$
-
-#### Part a
 
 $$ T(1,2,3) = \begin{bmatrix}
 1 & 0 & 0 & 1\\
@@ -59,7 +57,7 @@ $$ pt = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-#### Part b
+### Task 1b
 
 $$ R(30^\circ) = \begin{bmatrix}
 cosθ & 0 & sinθ & 0\\
@@ -103,7 +101,7 @@ $$ Pr = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-#### Part c
+### Task 1c
 
 The transformation is devided in three different steps.
 
@@ -170,12 +168,28 @@ plt.show()
 
 ```
 
-![picture of translation and rotation](./.png)
+![picture of translation and rotation](./Task2.png)
 
-### Task 3
+### Task 3a
 
-#### Part a
+For each triangle in the mesh there must be a set of data that correspondes to that triangle, more data storage is requierd. Each triangle is treated individualy so the data needs to be indexed.
 
+### Task 3b
 
+The data that needs to be uploaded to the GPU will be increased and the fragment shader might use the data directly.
 
-#### Part b
+### Task 4a
+
+### Task 4b
+
+### Task 4c
+
+### Task 5a
+
+The two crutial transformation are view - and projection transformation.
+
+#### part 5b
+
+View transformation works by first placing a camera in the 3D space at some coordinates with a given direction. Then converting all object from a global coordinate system to a local one with the camera as origo.
+
+Projection transformation mapps 3D coordinates to a 2D plane and to create a sense of depth in the 2D plane a projection matrix is used.
