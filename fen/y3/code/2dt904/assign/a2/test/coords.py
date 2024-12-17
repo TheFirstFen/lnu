@@ -35,7 +35,8 @@ ax.add_patch(triangle)
 ax.plot([V1[0], V2[0], V3[0]], [V1[1], V2[1], V3[1]],
         'r*')  # Red points for vertices
 # Plot the point (2, -5)
-ax.plot(2.5, -5.5, 'bx')  # Blue point for (2, -5)
+p = (2, -5)
+ax.plot(p[0] + 0.5, p[1] - 0.5, 'bx')  # Blue point for (2, -5)
 
 # Show the plot
 plt.show()
