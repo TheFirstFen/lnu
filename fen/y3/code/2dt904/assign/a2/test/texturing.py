@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 file_path = './data/mario_texture'
 
@@ -16,6 +17,28 @@ def parse_texture(file_path):
                 row.append(rgb)
             texture.append(row)
     return np.array(texture)
+
+
+def visualize_texture(texture_data, x0=None, y0=None, x1=None, y1=None):
+    plt.imshow(texture_data, extent=(
+        0, texture_data.shape[1], texture_data.shape[0], 0))
+    plt.colorbar()
+    plt.title('Texture Data Visualization')
+    plt.xlabel('X Coordinate')
+    plt.ylabel('Y Coordinate')
+    plt.grid(True)
+
+    if x0 is not None and y0 is not None:
+        plt.plot(y0 + 0.5, x0 + 0.5, 'gx', label='Point (x0, y0)')
+    if x0 is not None and y1 is not None:
+        plt.plot(y1 + 0.5, x0 + 0.5, 'rx', label='Point (x1, y0)')
+    if x1 is not None and y0 is not None:
+        plt.plot(y0 + 0.5, x1 + 0.5, 'bx', label='Point (x0, y1)')
+    if x1 is not None and y1 is not None:
+        plt.plot(y1 + 0.5, x1 + 0.5, 'yx', label='Point (x1, y1)')
+
+    plt.legend()
+    plt.show()
 
 
 texture_data = parse_texture(file_path)
@@ -37,15 +60,17 @@ x1, y1 = min(x0 + 1, height - 1), min(y0 + 1, width - 1)
 wx1, wy1 = x - x0, y - y0
 wx0, wy0 = 1 - wx1, 1 - wy1
 
-c00 = texture_data[x0, y0]
-c01 = texture_data[x0, y1]
-c10 = texture_data[x1, y0]
-c11 = texture_data[x1, y1]
+c00 = texture_data[y0, x0]
+c01 = texture_data[y1, x0]
+c10 = texture_data[y0, x1]
+c11 = texture_data[y1, x1]
+print(c00, c01, c10, c11)
 
-bilinear_color = (wx0 * wy0) * c00 + (wx0 * wy1) * c01 + \
-    (wx1 * wy0) * c10 + (wx1 * wy1) * c11
+visualize_texture(texture_data, x0, y0, x1, y1)
 
-nearest_color, bilinear_color
+bilinear_color = (wx0 * wy0) * c00 + (wx0 * wy1) * c10 + \
+    (wx1 * wy0) * c01 + (wx1 * wy1) * c11
+
 print(nearest_color, bilinear_color)
 
 print('---------------------')
@@ -57,6 +82,8 @@ texture_data = parse_texture(file_path)
 print(texture_data.shape)
 
 height_head, width_head, _ = texture_data.shape
+
+visualize_texture(texture_data)
 
 
 def compute_uv(x, y):
