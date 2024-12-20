@@ -113,61 +113,6 @@ The last step is to translate the object with the matrix $T(10,0,10)$
 
 ### Task 2
 
-```Python
-
-import numpy as np
-import matplotlib.pyplot as plt
-
-def rotate(point, angle):
-    radians = np.radians(angle)
-    rotation_matrix = np.array([
-        [np.cos(radians), -np.sin(radians)],
-        [np.sin(radians), np.cos(radians)]
-    ])
-    return np.dot(rotation_matrix, point)
-    
-house = np.array([
-    [2, 1],
-    [2, 2],
-    [2.5, 2.5],
-    [3, 2],
-    [3, 1],
-    [2, 1],
-    [2, 2],
-    [3, 2]
-])
-
-rotation_angle = 45 
-translation_vector = np.array([3, 1])
-
-transformed_house = []
-
-for point in house:
-    translated = point + translation_vector
-    rotated = rotate(translated, rotation_angle)
-    transformed_house.append(rotated)
-    print(f"Original Point: {point}, Translated Point: {translated}, Rotated Point: {rotated}")
-
-transformed_house = np.array(transformed_house)
-
-plt.figure(figsize=(8, 8))
-plt.axis('equal')
-
-plt.plot(house[:, 0], house[:, 1], label="Original House", linestyle='--', marker='o')
-
-plt.plot(transformed_house[:, 0], transformed_house[:, 1], label="Transformed House", marker='o')
-
-plt.title("House Transformation: Translation + Rotation")
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.legend()
-
-plt.grid()
-plt.show()
-
-
-```
-
 ![picture of translation and rotation](./Task2.png)
 
 ### Task 3a
@@ -180,9 +125,15 @@ The data that needs to be uploaded to the GPU will be increased and the fragment
 
 ### Task 4a
 
+The Z-buffer works by comparing depth values stored in a buffer and if the new data is closer to the camera it replaces the existing pixel. The Z-buffer is implemented in the fragment shader during rasterization. The algorithm works on the depth values of the pixels. Limitations for the Z-buffer are when working with transparent objects as it automatically assumes that closer objects obscure objects farther away.
+
 ### Task 4b
 
+Frustum culling works by determining if an object is within the cameras viewing. Objects outside the view are considered invisible and not processed further. Frustum culling is implemented at the application level or before sending data to the GPU. The algorithm opperates on the bounding region for a set of objects. Limitation for the frustum culling is that it does not account for objects hidden behind other objects.
+
 ### Task 4c
+
+Backface culling works by determening the orientaion of the face and if its determined to face away from the camera its considered invisible and not rendered. Backface culling is implemented in the geometry pipeline before rasterization. The data the algorithm operates on is the orientation of the face and the camera position. Limitation for the backface culling are that it does not work with transparent backfases or objects that needs to be rendered.
 
 ### Task 5a
 
