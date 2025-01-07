@@ -1,0 +1,39 @@
+12 vertices are searched in this DFS order:
+Chicago Seattle San Francisco Los Angeles Denver Kansas City New York Boston Atlanta Miami Houston Dallas
+
+parent of Seattle is Chicago
+parent of San Francisco is Seattle
+parent of Los Angeles is San Francisco
+parent of Denver is Los Angeles
+parent of Kansas City is Denver
+parent of Boston is New York
+parent of New York is Kansas City
+parent of Atlanta is New York
+parent of Miami is Atlanta
+parent of Dallas is Houston
+parent of Houston is Miami
+
+12 vertices are searched in this BFS order:
+Chicago Seattle Denver Kansas City Boston New York San Francisco Los Angeles Atlanta Dallas Miami Houston
+
+parent of Seattle is Chicago
+parent of San Francisco is Seattle
+parent of Los Angeles is Denver
+parent of Denver is Chicago
+parent of Kansas City is Chicago
+parent of Boston is Chicago
+parent of New York is Chicago
+parent of Atlanta is Kansas City
+parent of Miami is Atlanta
+parent of Dallas is Kansas City
+parent of Houston is Atlanta
+
+
+# The output using the second test data 
+
+4 vertices are searched in this DFS order:
+David Fiona George Helen
+
+
+4 vertices are searched in this BFS order:
+David Fiona George Helen
