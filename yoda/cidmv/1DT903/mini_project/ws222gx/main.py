@@ -10,7 +10,7 @@ from gui import welcome_msg, print_invoice
 from gui import standard_gui, print_book_information
 
 
-_CONFS = {"host": "localhost", "user": "", "password": "",
+_CONFS = {"host": "localhost", "user": "root", "password": "Schroder13",
           "database": "book_store"}
 
 
