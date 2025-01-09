@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
+import numpy as np
 from datapoints import createDatapoints
 
 # Initialize Pygame and OpenGL
@@ -9,45 +10,84 @@ def initialize():
     pygame.init()
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
-    glEnable(GL_POINT_SMOOTH)
-    glPointSize(10)
-    glOrtho(-10, 60, -10, 50, -1, 1)  # Set up an orthographic projection
+    glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+    gluOrtho2D(-10, 60, -10, 60)  # Set up 2D coordinate system
 
-# Draw data points
-def draw_points(data):
-    glBegin(GL_POINTS)
-    for point in data:
-        x, y, weight = point
+# Draw a data point as a circle
+def draw_circle(x, y, radius, color):
+    glPushMatrix()
+    glTranslatef(x, y, 0)
+    glColor4f(*color)
 
-        # Scale the weight for point size and color intensity
-        scaled_weight = max(1, min(weight * 10, 50))
-        color_intensity = min(1, weight / 10)
-
-        glColor3f(color_intensity, 0.5 * (1 - color_intensity), 1 - color_intensity)
-        glVertex2f(x, y)
+    glBegin(GL_TRIANGLE_FAN)
+    glVertex2f(0, 0)  # Center of the circle
+    for angle in np.linspace(0, 2 * np.pi, 50):
+        glVertex2f(radius * np.cos(angle), radius * np.sin(angle))
     glEnd()
 
-# Animate data visualization
-def animate():
-    data = createDatapoints()  # Get the data points
+    glPopMatrix()
 
-    while True:
+# Draw the x and y axes with increments
+def draw_axes():
+    glColor3f(0, 0, 0)  # Black color for the axes
+
+    # Draw x-axis
+    glBegin(GL_LINES)
+    glVertex2f(-10, 0)
+    glVertex2f(60, 0)
+    glEnd()
+
+    # Draw y-axis
+    glBegin(GL_LINES)
+    glVertex2f(0, -10)
+    glVertex2f(0, 60)
+    glEnd()
+
+    # Draw x-axis increments
+    for x in range(-10, 61, 10):
+        glBegin(GL_LINES)
+        glVertex2f(x, -0.5)
+        glVertex2f(x, 0.5)
+        glEnd()
+
+    # Draw y-axis increments
+    for y in range(-10, 61, 10):
+        glBegin(GL_LINES)
+        glVertex2f(-0.5, y)
+        glVertex2f(0.5, y)
+        glEnd()
+
+# Visualize the dataset
+def visualize_data():
+    datapoints = createDatapoints()
+    max_weight = max([point[2] for point in datapoints])
+
+    running = True
+    while running:
         for event in pygame.event.get():
             if event.type == QUIT:
-                pygame.quit()
-                quit()
+                running = False
 
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        glClearColor(1, 1, 1, 1)  # White background
+        glClear(GL_COLOR_BUFFER_BIT)
 
-        # Draw the data points
-        draw_points(data)
+        draw_axes()  # Draw axes
+
+        for point in datapoints:
+            x, y, weight = point
+            radius = weight / max_weight * 2  # Scale radius based on weight
+            color = (weight / max_weight, 0.2, 1 - weight / max_weight, 0.8)  # Color gradient
+            draw_circle(x, y, radius, color)
 
         pygame.display.flip()
+
+    pygame.quit()
 
 # Main function
 def main():
     initialize()
-    animate()
+    visualize_data()
 
 if __name__ == "__main__":
     main()
