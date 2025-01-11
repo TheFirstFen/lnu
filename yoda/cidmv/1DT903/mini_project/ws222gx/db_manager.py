@@ -7,16 +7,16 @@ class Database:
         self.prefs = settings
 
     def connect_to_db(self):
-        try:
-            self.conn = connect(
-                host=self.prefs["host"],
-                user=self.prefs["user"],
-                password=self.prefs["password"],
-                database=self.prefs["database"]
-            )
-            return True
-        except Error as e:
-            print(e)
+        
+        self.conn = connect(
+            host=self.prefs["host"],
+            user=self.prefs["user"],
+            password=self.prefs["password"],
+            database=self.prefs["database"],
+            charset="utf8mb4",  # Ensure utf8mb4 is used
+            collation="utf8mb4_unicode_ci"  # Use utf8mb4_unicode_ci collation
+        )
+        return True
 
     def insert_delete(self, query, data):
         try:

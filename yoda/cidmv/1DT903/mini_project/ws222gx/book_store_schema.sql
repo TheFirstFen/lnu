@@ -14,8 +14,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema book_store
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `book_store` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
-USE `book_store` ;
+CREATE SCHEMA IF NOT EXISTS `book_store` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;;
+USE `book_store`;
 
 -- -----------------------------------------------------
 -- Table `book_store`.`books`
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `book_store`.`books` (
   PRIMARY KEY (`isbn`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_unicode_ci;;
 
 
 -- -----------------------------------------------------
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `book_store`.`members` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 13
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_unicode_ci;;
 
 
 -- -----------------------------------------------------
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `book_store`.`cart` (
     REFERENCES `book_store`.`members` (`userid`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_unicode_ci;;
 
 
 -- -----------------------------------------------------
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `book_store`.`orders` (
 ENGINE = InnoDB
 AUTO_INCREMENT = 70
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_unicode_ci;;
 
 
 -- -----------------------------------------------------
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `book_store`.`odetails` (
     REFERENCES `book_store`.`orders` (`ono`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_unicode_ci;;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

@@ -18,7 +18,7 @@ CURR_USR = None
 
 
 # Member registration class
-class Registration:
+class Registration: 
     # checks if values are valid for the database
     @staticmethod
     def is_regex(regex, value, key):
@@ -489,14 +489,6 @@ def main():
 
 
 if __name__ == '__main__':
-    print("""Before the offical start of program
-          you will have to setup the database connection""")
-    _CONFS["host"] = input("Enter your host: ")
-    _CONFS["user"] = input("Enter your user: ")
-    _CONFS["password"] = getpass("Enter your password: ")
-
-    print("To make sure there is a connection "
-          "there will be a test run for the connection")
 
     DB = Database(_CONFS)     # global so to make it easier
 
