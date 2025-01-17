@@ -11,9 +11,9 @@ def initialize():
     display = (800, 600)
     pygame.display.set_mode(display, DOUBLEBUF | OPENGL)
     glEnable(GL_DEPTH_TEST)
-    glEnable(GL_LIGHTING)
-    glEnable(GL_LIGHT0)
-    glLightfv(GL_LIGHT0, GL_POSITION, [0, 0, 0, 1])
+    # glEnable(GL_LIGHTING)
+    # glEnable(GL_LIGHT0)
+    # glLightfv(GL_LIGHT0, GL_POSITION, [0, 0, 0, 1])
 
     gluPerspective(45, display[0] / display[1], 0.1, 100.0)
     glTranslatef(0.0, 0.0, -30)
@@ -55,25 +55,6 @@ def draw_sphere(position, scale, texture_id, rotation_angle):
     glPopMatrix()
 
 
-def draw_sun():
-    glPushMatrix()
-    glTranslatef(0, 0, 0)
-    glScalef(2, 2, 2)
-
-    glBindTexture(GL_TEXTURE_2D, load_texture("./img/sun.png"))
-    glEnable(GL_TEXTURE_2D)
-
-    sphere_data = generateSphere()
-    glBegin(GL_TRIANGLES)
-    for vertex in sphere_data:
-        glNormal3fv(vertex)
-        glVertex3fv(vertex)
-    glEnd()
-
-    glDisable(GL_TEXTURE_2D)
-    glPopMatrix()
-
-
 def animate():
     clock = pygame.time.Clock()
     angle = 0
@@ -99,7 +80,6 @@ def animate():
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         draw_sphere((0, 0, 0), 2, load_texture("./img/sun.png"), 0)
-        # draw_sun()
 
         num_planets = 4
         for i in range(num_planets):
