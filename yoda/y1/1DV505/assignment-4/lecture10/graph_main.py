@@ -51,13 +51,13 @@ graph = Graph(vertices, edges)  # Create a Graph
 # Perform and print DFS result
 dfs = graph.dfs(graph.getIndex("Chicago"))
 print_search_result(graph, dfs, "DFS")
-
+dfs.printTree()
 
 
 # Perform and print BFS result
 bfs = graph.bfs(graph.getIndex("Chicago"))
 print_search_result(graph, bfs, "BFS")
-
+bfs.printTree()
 
 # second test data
 # 1. Friendship Network (Social Media Model): create a graph where vertices represent people, and edges represent friendships between them. 
@@ -73,8 +73,9 @@ graph = Graph(vertices, edges)  # Create a Graph
 
 dfs = graph.dfs(graph.getIndex("David"))
 print_search_result(graph, dfs, "DFS")
-
+dfs.printTree()
 
 # Perform and print BFS result
 bfs = graph.bfs(graph.getIndex("David"))
 print_search_result(graph, bfs, "BFS")
+bfs.printTree()

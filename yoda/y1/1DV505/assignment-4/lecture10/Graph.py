@@ -9,9 +9,7 @@ class Graph:
 
     # Return a list of adjacency lists for edges
     def getAdjacencyLists(self, edges):
-        neighbors = []
-        for v in range(len(self.vertices)):
-            neighbors.append([])
+        neighbors = [[] for _ in range(len(self.vertices))]
 
         for i in range(len(edges)):
             u = edges[i][0]
@@ -92,7 +90,9 @@ class Graph:
         queue = Queue()
         queue.enqueue(v)
 
+        # Makes a list of the vertices that is not visited
         isVisited = [False] * len(self.vertices)
+        # makes vertice v visited as it is the root
         isVisited[v] = True
 
         parent = [-1] * len(self.vertices)
@@ -104,9 +104,9 @@ class Graph:
 
             for w in self.getNeighbors(u):
                 if not isVisited[w]:
-                    queue.enqueue(w)
-                    isVisited[w] = True
                     parent[w] = u
+                    isVisited[w] = True
+                    queue.enqueue(w)
         return Tree(v, parent, traversed_vertices, self.vertices)
 
 

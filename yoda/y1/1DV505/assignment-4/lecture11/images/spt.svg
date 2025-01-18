@@ -1,0 +1,157 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="570pt" height="424pt" viewBox="0.00 0.00 570.34 424.00">
+<g id="graph0" class="graph" transform="translate(4,420) scale(1)" data-name="SPT">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-420 566.34,-420 566.34,4 -4,4" style=""/>
+<text text-anchor="middle" x="281.17" y="-8.2" font-family="Times,serif" font-size="14.00" style="">Total Cost: 37</text>
+<!-- Lion -->
+<g id="node1" class="node" pointer-events="visible" data-name="Lion">
+
+<ellipse fill="none" stroke="black" cx="323.22" cy="-398" rx="29.05" ry="18" style=""/>
+<text text-anchor="middle" x="323.22" y="-393.8" font-family="Times,serif" font-size="14.00" style="">Lion</text>
+</g>
+<!-- Tiger -->
+<g id="node2" class="node" pointer-events="visible" data-name="Tiger">
+
+<ellipse fill="none" stroke="black" cx="139.22" cy="-309.2" rx="31.9" ry="18" style=""/>
+<text text-anchor="middle" x="139.22" y="-305" font-family="Times,serif" font-size="14.00" style="">Tiger</text>
+</g>
+<!-- Lion&#45;&gt;Tiger -->
+<g id="edge1" class="edge" data-name="Lion-&gt;Tiger">
+
+<path fill="none" stroke="black" d="M300.66,-386.36C268.87,-371.36 210.63,-343.88 173.48,-326.36" style=""/>
+<polygon fill="black" stroke="black" points="175.04,-323.23 164.51,-322.13 172.06,-329.56 175.04,-323.23" style=""/>
+<text text-anchor="middle" x="251.72" y="-349.4" font-family="Times,serif" font-size="14.00" style="">3</text>
+</g>
+<!-- Elephant -->
+<g id="node3" class="node" pointer-events="visible" data-name="Elephant">
+
+<ellipse fill="none" stroke="black" cx="323.22" cy="-309.2" rx="45.22" ry="18" style=""/>
+<text text-anchor="middle" x="323.22" y="-305" font-family="Times,serif" font-size="14.00" style="">Elephant</text>
+</g>
+<!-- Lion&#45;&gt;Elephant -->
+<g id="edge2" class="edge" data-name="Lion-&gt;Elephant">
+
+<path fill="none" stroke="black" d="M323.22,-379.85C323.22,-368.16 323.22,-352.39 323.22,-338.82" style=""/>
+<polygon fill="black" stroke="black" points="326.72,-339.12 323.22,-329.12 319.72,-339.12 326.72,-339.12" style=""/>
+<text text-anchor="middle" x="326.72" y="-349.4" font-family="Times,serif" font-size="14.00" style="">2</text>
+</g>
+<!-- Zebra -->
+<g id="node5" class="node" pointer-events="visible" data-name="Zebra">
+
+<ellipse fill="none" stroke="black" cx="473.22" cy="-309.2" rx="33.6" ry="18" style=""/>
+<text text-anchor="middle" x="473.22" y="-305" font-family="Times,serif" font-size="14.00" style="">Zebra</text>
+</g>
+<!-- Lion&#45;&gt;Zebra -->
+<g id="edge4" class="edge" data-name="Lion-&gt;Zebra">
+
+<path fill="none" stroke="black" d="M344.08,-384.93C369.28,-370.35 411.95,-345.65 441.3,-328.67" style=""/>
+<polygon fill="black" stroke="black" points="442.87,-331.81 449.77,-323.77 439.36,-325.75 442.87,-331.81" style=""/>
+<text text-anchor="middle" x="415.72" y="-349.4" font-family="Times,serif" font-size="14.00" style="">4</text>
+</g>
+<!-- Monkey -->
+<g id="node6" class="node" pointer-events="visible" data-name="Monkey">
+
+<ellipse fill="none" stroke="black" cx="43.22" cy="-220.4" rx="43.45" ry="18" style=""/>
+<text text-anchor="middle" x="43.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Monkey</text>
+</g>
+<!-- Tiger&#45;&gt;Monkey -->
+<g id="edge5" class="edge" data-name="Tiger-&gt;Monkey">
+
+<path fill="none" stroke="black" d="M122.94,-293.48C108.18,-280.13 86.18,-260.24 69.03,-244.73" style=""/>
+<polygon fill="black" stroke="black" points="71.45,-242.2 61.69,-238.09 66.76,-247.4 71.45,-242.2" style=""/>
+<text text-anchor="middle" x="103.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">5</text>
+</g>
+<!-- Panda -->
+<g id="node7" class="node" pointer-events="visible" data-name="Panda">
+
+<ellipse fill="none" stroke="black" cx="139.22" cy="-220.4" rx="34.77" ry="18" style=""/>
+<text text-anchor="middle" x="139.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Panda</text>
+</g>
+<!-- Tiger&#45;&gt;Panda -->
+<g id="edge6" class="edge" data-name="Tiger-&gt;Panda">
+
+<path fill="none" stroke="black" d="M139.22,-291.05C139.22,-279.36 139.22,-263.59 139.22,-250.02" style=""/>
+<polygon fill="black" stroke="black" points="142.72,-250.32 139.22,-240.32 135.72,-250.32 142.72,-250.32" style=""/>
+<text text-anchor="middle" x="142.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">2</text>
+</g>
+<!-- Giraffe -->
+<g id="node4" class="node" pointer-events="visible" data-name="Giraffe">
+
+<ellipse fill="none" stroke="black" cx="231.22" cy="-220.4" rx="38.83" ry="18" style=""/>
+<text text-anchor="middle" x="231.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Giraffe</text>
+</g>
+<!-- Elephant&#45;&gt;Giraffe -->
+<g id="edge3" class="edge" data-name="Elephant-&gt;Giraffe">
+
+<path fill="none" stroke="black" d="M306.35,-292.28C292.26,-278.98 271.97,-259.84 256.02,-244.8" style=""/>
+<polygon fill="black" stroke="black" points="258.46,-242.28 248.78,-237.97 253.65,-247.37 258.46,-242.28" style=""/>
+<text text-anchor="middle" x="289.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">4</text>
+</g>
+<!-- Rhino -->
+<g id="node11" class="node" pointer-events="visible" data-name="Rhino">
+
+<ellipse fill="none" stroke="black" cx="323.22" cy="-220.4" rx="34.79" ry="18" style=""/>
+<text text-anchor="middle" x="323.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Rhino</text>
+</g>
+<!-- Elephant&#45;&gt;Rhino -->
+<g id="edge10" class="edge" data-name="Elephant-&gt;Rhino">
+
+<path fill="none" stroke="black" d="M323.22,-291.05C323.22,-279.36 323.22,-263.59 323.22,-250.02" style=""/>
+<polygon fill="black" stroke="black" points="326.72,-250.32 323.22,-240.32 319.72,-250.32 326.72,-250.32" style=""/>
+<text text-anchor="middle" x="326.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">6</text>
+</g>
+<!-- Hippo -->
+<g id="node12" class="node" pointer-events="visible" data-name="Hippo">
+
+<ellipse fill="none" stroke="black" cx="411.22" cy="-220.4" rx="35.36" ry="18" style=""/>
+<text text-anchor="middle" x="411.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Hippo</text>
+</g>
+<!-- Elephant&#45;&gt;Hippo -->
+<g id="edge11" class="edge" data-name="Elephant-&gt;Hippo">
+
+<path fill="none" stroke="black" d="M339.36,-292.28C352.84,-278.98 372.25,-259.84 387.5,-244.8" style=""/>
+<polygon fill="black" stroke="black" points="389.74,-247.5 394.4,-237.99 384.83,-242.52 389.74,-247.5" style=""/>
+<text text-anchor="middle" x="378.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">3</text>
+</g>
+<!-- Kangaroo -->
+<g id="node8" class="node" pointer-events="visible" data-name="Kangaroo">
+
+<ellipse fill="none" stroke="black" cx="513.22" cy="-220.4" rx="49.23" ry="18" style=""/>
+<text text-anchor="middle" x="513.22" y="-216.2" font-family="Times,serif" font-size="14.00" style="">Kangaroo</text>
+</g>
+<!-- Zebra&#45;&gt;Kangaroo -->
+<g id="edge7" class="edge" data-name="Zebra-&gt;Kangaroo">
+
+<path fill="none" stroke="black" d="M480.94,-291.46C486.54,-279.29 494.26,-262.56 500.74,-248.49" style=""/>
+<polygon fill="black" stroke="black" points="503.76,-250.3 504.76,-239.76 497.4,-247.37 503.76,-250.3" style=""/>
+<text text-anchor="middle" x="500.72" y="-260.6" font-family="Times,serif" font-size="14.00" style="">3</text>
+</g>
+<!-- Flamingo -->
+<g id="node10" class="node" pointer-events="visible" data-name="Flamingo">
+
+<ellipse fill="none" stroke="black" cx="139.22" cy="-131.6" rx="48.11" ry="18" style=""/>
+<text text-anchor="middle" x="139.22" y="-127.4" font-family="Times,serif" font-size="14.00" style="">Flamingo</text>
+</g>
+<!-- Panda&#45;&gt;Flamingo -->
+<g id="edge9" class="edge" data-name="Panda-&gt;Flamingo">
+
+<path fill="none" stroke="black" d="M139.22,-202.25C139.22,-190.56 139.22,-174.79 139.22,-161.22" style=""/>
+<polygon fill="black" stroke="black" points="142.72,-161.52 139.22,-151.52 135.72,-161.52 142.72,-161.52" style=""/>
+<text text-anchor="middle" x="142.72" y="-171.8" font-family="Times,serif" font-size="14.00" style="">1</text>
+</g>
+<!-- Penguin -->
+<g id="node9" class="node" pointer-events="visible" data-name="Penguin">
+
+<ellipse fill="none" stroke="black" cx="139.22" cy="-42.8" rx="42.88" ry="18" style=""/>
+<text text-anchor="middle" x="139.22" y="-38.6" font-family="Times,serif" font-size="14.00" style="">Penguin</text>
+</g>
+<!-- Flamingo&#45;&gt;Penguin -->
+<g id="edge8" class="edge" data-name="Flamingo-&gt;Penguin">
+
+<path fill="none" stroke="black" d="M139.22,-113.45C139.22,-101.76 139.22,-85.99 139.22,-72.42" style=""/>
+<polygon fill="black" stroke="black" points="142.72,-72.72 139.22,-62.72 135.72,-72.72 142.72,-72.72" style=""/>
+<text text-anchor="middle" x="142.72" y="-83" font-family="Times,serif" font-size="14.00" style="">4</text>
+</g>
+</g>
+</svg>

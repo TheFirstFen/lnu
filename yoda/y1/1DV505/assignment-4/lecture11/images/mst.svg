@@ -1,0 +1,146 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="411pt" height="424pt" viewBox="0.00 0.00 411.34 424">
+<g id="graph0" class="graph" transform="translate(4,420) scale(1)" data-name="MST">
+
+<polygon fill="white" stroke="none" points="-4,4 -4,-420 407.34,-420 407.34,4 -4,4"/>
+<text text-anchor="middle" x="201.67" y="-8.2" font-family="Times,serif" font-size="14.00">Total Weight: 32</text>
+<!-- Lion -->
+<g id="node1" class="node" pointer-events="visible" data-name="Lion">
+
+<ellipse fill="none" stroke="black" cx="252.22" cy="-398" rx="29.05" ry="18"/>
+<text text-anchor="middle" x="252.22" y="-393.8" font-family="Times,serif" font-size="14.00">Lion</text>
+</g>
+<!-- Tiger -->
+<g id="node2" class="node" pointer-events="visible" data-name="Tiger">
+
+<ellipse fill="none" stroke="black" cx="156.22" cy="-309.2" rx="31.9" ry="18"/>
+<text text-anchor="middle" x="156.22" y="-305" font-family="Times,serif" font-size="14.00">Tiger</text>
+</g>
+<!-- Lion&#45;&#45;Tiger -->
+<g id="edge1" class="edge" data-name="Lion--Tiger">
+
+<path fill="none" stroke="black" d="M236.37,-382.67C218.69,-366.68 190.24,-340.96 172.42,-324.84"/>
+<text text-anchor="middle" x="216.72" y="-349.4" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- Elephant -->
+<g id="node3" class="node" pointer-events="visible" data-name="Elephant">
+
+<ellipse fill="none" stroke="black" cx="252.22" cy="-309.2" rx="45.22" ry="18"/>
+<text text-anchor="middle" x="252.22" y="-305" font-family="Times,serif" font-size="14.00">Elephant</text>
+</g>
+<!-- Lion&#45;&#45;Elephant -->
+<g id="edge2" class="edge" data-name="Lion--Elephant">
+
+<path fill="none" stroke="black" d="M252.22,-379.85C252.22,-364.73 252.22,-342.81 252.22,-327.61"/>
+<text text-anchor="middle" x="255.72" y="-349.4" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- Zebra -->
+<g id="node5" class="node" pointer-events="visible" data-name="Zebra">
+
+<ellipse fill="none" stroke="black" cx="352.22" cy="-309.2" rx="33.6" ry="18"/>
+<text text-anchor="middle" x="352.22" y="-305" font-family="Times,serif" font-size="14.00">Zebra</text>
+</g>
+<!-- Lion&#45;&#45;Zebra -->
+<g id="edge4" class="edge" data-name="Lion--Zebra">
+
+<path fill="none" stroke="black" d="M268.74,-382.67C287.04,-366.78 316.43,-341.27 335.01,-325.14"/>
+<text text-anchor="middle" x="314.72" y="-349.4" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- Panda -->
+<g id="node7" class="node" pointer-events="visible" data-name="Panda">
+
+<ellipse fill="none" stroke="black" cx="152.22" cy="-220.4" rx="34.77" ry="18"/>
+<text text-anchor="middle" x="152.22" y="-216.2" font-family="Times,serif" font-size="14.00">Panda</text>
+</g>
+<!-- Tiger&#45;&#45;Panda -->
+<g id="edge6" class="edge" data-name="Tiger--Panda">
+
+<path fill="none" stroke="black" d="M155.43,-291.05C154.74,-275.93 153.73,-254.01 153.03,-238.81"/>
+<text text-anchor="middle" x="158.72" y="-260.6" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- Hippo -->
+<g id="node12" class="node" pointer-events="visible" data-name="Hippo">
+
+<ellipse fill="none" stroke="black" cx="252.22" cy="-220.4" rx="35.36" ry="18"/>
+<text text-anchor="middle" x="252.22" y="-216.2" font-family="Times,serif" font-size="14.00">Hippo</text>
+</g>
+<!-- Elephant&#45;&#45;Hippo -->
+<g id="edge11" class="edge" data-name="Elephant--Hippo">
+
+<path fill="none" stroke="black" d="M252.22,-291.05C252.22,-275.93 252.22,-254.01 252.22,-238.81"/>
+<text text-anchor="middle" x="255.72" y="-260.6" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- Giraffe -->
+<g id="node4" class="node" pointer-events="visible" data-name="Giraffe">
+
+<ellipse fill="none" stroke="black" cx="152.22" cy="-42.8" rx="38.83" ry="18"/>
+<text text-anchor="middle" x="152.22" y="-38.6" font-family="Times,serif" font-size="14.00">Giraffe</text>
+</g>
+<!-- Kangaroo -->
+<g id="node8" class="node" pointer-events="visible" data-name="Kangaroo">
+
+<ellipse fill="none" stroke="black" cx="354.22" cy="-220.4" rx="49.23" ry="18"/>
+<text text-anchor="middle" x="354.22" y="-216.2" font-family="Times,serif" font-size="14.00">Kangaroo</text>
+</g>
+<!-- Zebra&#45;&#45;Kangaroo -->
+<g id="edge7" class="edge" data-name="Zebra--Kangaroo">
+
+<path fill="none" stroke="black" d="M352.62,-291.05C352.97,-275.93 353.47,-254.01 353.82,-238.81"/>
+<text text-anchor="middle" x="356.72" y="-260.6" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- Monkey -->
+<g id="node6" class="node" pointer-events="visible" data-name="Monkey">
+
+<ellipse fill="none" stroke="black" cx="43.22" cy="-131.6" rx="43.45" ry="18"/>
+<text text-anchor="middle" x="43.22" y="-127.4" font-family="Times,serif" font-size="14.00">Monkey</text>
+</g>
+<!-- Penguin -->
+<g id="node9" class="node" pointer-events="visible" data-name="Penguin">
+
+<ellipse fill="none" stroke="black" cx="43.22" cy="-42.8" rx="42.88" ry="18"/>
+<text text-anchor="middle" x="43.22" y="-38.6" font-family="Times,serif" font-size="14.00">Penguin</text>
+</g>
+<!-- Monkey&#45;&#45;Penguin -->
+<g id="edge8" class="edge" data-name="Monkey--Penguin">
+
+<path fill="none" stroke="black" d="M43.22,-113.45C43.22,-98.33 43.22,-76.41 43.22,-61.21"/>
+<text text-anchor="middle" x="46.72" y="-83" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- Panda&#45;&#45;Monkey -->
+<g id="edge5" class="edge" data-name="Panda--Monkey">
+
+<path fill="none" stroke="black" d="M133.73,-204.68C113.93,-188.91 82.65,-164 62.54,-147.98"/>
+<text text-anchor="middle" x="111.72" y="-171.8" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- Flamingo -->
+<g id="node10" class="node" pointer-events="visible" data-name="Flamingo">
+
+<ellipse fill="none" stroke="black" cx="152.22" cy="-131.6" rx="48.11" ry="18"/>
+<text text-anchor="middle" x="152.22" y="-127.4" font-family="Times,serif" font-size="14.00">Flamingo</text>
+</g>
+<!-- Panda&#45;&#45;Flamingo -->
+<g id="edge9" class="edge" data-name="Panda--Flamingo">
+
+<path fill="none" stroke="black" d="M152.22,-202.25C152.22,-187.13 152.22,-165.21 152.22,-150.01"/>
+<text text-anchor="middle" x="155.72" y="-171.8" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- Flamingo&#45;&#45;Giraffe -->
+<g id="edge3" class="edge" data-name="Flamingo--Giraffe">
+
+<path fill="none" stroke="black" d="M152.22,-113.45C152.22,-98.33 152.22,-76.41 152.22,-61.21"/>
+<text text-anchor="middle" x="155.72" y="-83" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- Rhino -->
+<g id="node11" class="node" pointer-events="visible" data-name="Rhino">
+
+<ellipse fill="none" stroke="black" cx="253.22" cy="-131.6" rx="34.79" ry="18"/>
+<text text-anchor="middle" x="253.22" y="-127.4" font-family="Times,serif" font-size="14.00">Rhino</text>
+</g>
+<!-- Hippo&#45;&#45;Rhino -->
+<g id="edge10" class="edge" data-name="Hippo--Rhino">
+
+<path fill="none" stroke="black" d="M252.42,-202.25C252.59,-187.13 252.85,-165.21 253.02,-150.01"/>
+<text text-anchor="middle" x="256.72" y="-171.8" font-family="Times,serif" font-size="14.00">5</text>
+</g>
+</g>
+</svg>

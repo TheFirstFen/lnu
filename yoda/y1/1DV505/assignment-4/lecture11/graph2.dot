@@ -1,0 +1,26 @@
+graph MST {
+	Lion;
+	Tiger;
+	Elephant;
+	Giraffe;
+	Zebra;
+	Monkey;
+	Panda;
+	Kangaroo;
+	Penguin;
+	Flamingo;
+	Rhino;
+	Hippo;
+	Lion -- Tiger [label=3];
+	Lion -- Elephant [label=2];
+	Flamingo -- Giraffe [label=2];
+	Lion -- Zebra [label=4];
+	Panda -- Monkey [label=4];
+	Tiger -- Panda [label=2];
+	Zebra -- Kangaroo [label=3];
+	Monkey -- Penguin [label=3];
+	Panda -- Flamingo [label=1];
+	Hippo -- Rhino [label=5];
+	Elephant -- Hippo [label=3];
+	label = "Total Weight: 32";
+}

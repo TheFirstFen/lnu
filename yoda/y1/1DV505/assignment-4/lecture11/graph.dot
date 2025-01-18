@@ -1,0 +1,26 @@
+digraph SPT {
+	Lion;
+	Tiger;
+	Elephant;
+	Giraffe;
+	Zebra;
+	Monkey;
+	Panda;
+	Kangaroo;
+	Penguin;
+	Flamingo;
+	Rhino;
+	Hippo;
+	Lion -> Tiger [label=3];
+	Lion -> Elephant [label=2];
+	Elephant -> Giraffe [label=4];
+	Lion -> Zebra [label=4];
+	Tiger -> Monkey [label=5];
+	Tiger -> Panda [label=2];
+	Zebra -> Kangaroo [label=3];
+	Flamingo -> Penguin [label=4];
+	Panda -> Flamingo [label=1];
+	Elephant -> Rhino [label=6];
+	Elephant -> Hippo [label=3];
+	label = "Total Cost: 37";
+}
