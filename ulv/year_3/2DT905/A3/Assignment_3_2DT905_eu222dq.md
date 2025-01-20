@@ -116,10 +116,8 @@ The lowest cost is first the path R5 -> R3 -> R2 -> R1 and when that path is shu
 
 ### Task 5
 
-TODO: summary
+**Static routing** simple for small networks but complex for larger networks due to manuall updates for possible changes in the metrics. Static routing is effitent due to defiend routes. Fast recovery if other routes are available, in task 2D the amount of packages that are lost are 4 and 2, which is an low amount.
 
-Static routing simple for small networks but complex for larger networks due to manuall updates for possible changes in the metrics. Static routing is effitent due to defiend routes. Fast recovery if other routes are available, in task 2D the amount of packages that are lost are 4 and 2, which is an low amount.
+**RIPv2** relatively simple for small to medium sized networks. Low efficiency due to hop based metric that ignores the bandwidth and speed of the link. Slow recovery if other routes are available, in task 3B the amount of packages that are lost are 8 and 18 which is a high amount compared to static routing and OSPF.
 
-RIPv2 relatively simple for small to medium sized networks. Low efficiency due to hop based metric that ignores the bandwidth and speed of the link. Slow recovery if other routes are available, in task 3B the amount of packages that are lost are 8 and 18 which is a high amount compared to static routing and OSPF.
-
-OSPF is more complex but sutiable for medium to large networks. Very effitent due to the use of metrics based on the bandwidth that a link provides. Relativly fast recovery when other routes are available, in task 4B the amount of packages that are lost are 5 and 5, which is relativly low.
+**OSPF** is more complex but sutiable for medium to large networks. Very effitent due to the use of metrics based on the bandwidth that a link provides. Relativly fast recovery when other routes are available, in task 4B the amount of packages that are lost are 5 and 5, which is relativly low.
