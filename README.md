@@ -56,7 +56,7 @@
 - Python
 - C
 - ARM Assembly
-- MATLAB (cursed)
+- MATLAB
 - OpenGL
 - Pygame
 - JAVAFX
@@ -64,4 +64,5 @@
 - Docker
 - Wireshark
 - Drawio (UML Diagrams)
+- LaTeX (Reports)
 
