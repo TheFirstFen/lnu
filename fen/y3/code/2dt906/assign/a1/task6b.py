@@ -6,9 +6,26 @@ import numpy as np
 from collections import Counter
 
 
-def test_uniformity(input_strings):
+def read_file(filename):
+    """Read lines from a file, stripping newline characters"""
+    try:
+        with open(filename, 'r', encoding='utf-8') as file:
+            return [line.strip() for line in file]
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found")
+        return []
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return []
+
+
+def test_uniformity(filename):
     """Test uniformity of hash distribution"""
-    hash_values = [hash(s) for s in input_strings]
+    lines = read_file(filename)
+    if not lines:
+        return None
+
+    hash_values = [hash(line) for line in lines]
 
     # Calculate distribution
     distribution = Counter(hash_values)
@@ -17,9 +34,6 @@ def test_uniformity(input_strings):
     expected_freq = len(hash_values) / 256
     chi_square = sum((obs - expected_freq) ** 2 / expected_freq
                      for obs in distribution.values())
-
-    # Degrees of freedom = number of possible values - 1
-    df = 255
 
     # Create visualization
     plt.figure(figsize=(15, 5))
@@ -37,40 +51,49 @@ def test_uniformity(input_strings):
     }
 
 
-def test_avalanche(base_strings, num_modifications=100):
+def test_avalanche(filename):
     """Test avalanche effect by making small changes to input"""
-    results = []
+    lines = read_file(filename)
+    if not lines:
+        return None
 
-    for base in base_strings:
-        base_hash = hash(base)
+    hash_changes = []
 
-        # Make small modifications and compare
-        for _ in range(num_modifications):
-            # Modify one random character
-            pos = random.randint(0, len(base)-1)
-            modified = base[:pos] + \
-                random.choice(string.printable) + base[pos+1:]
-            mod_hash = hash(modified)
+    for line in lines:
+        if len(line) > 0:  # Ensure line is not empty
+            # Get original hash
+            original_hash = hash(line)
 
-            # Calculate bit difference
-            bit_diff = bin(base_hash ^ mod_hash).count('1')
-            results.append(bit_diff)
+            # Modify one character and get new hash
+            modified = line[:-1] + \
+                chr((ord(line[-1]) + 1) % 128)  # Change last char
+            modified_hash = hash(modified)
 
-    # Visualize bit differences
-    plt.figure(figsize=(10, 5))
-    plt.hist(results, bins=range(9), align='left')
-    plt.title('Distribution of Bit Changes in Hash Output')
-    plt.xlabel('Number of Bits Changed')
-    plt.ylabel('Frequency')
+            # Calculate absolute difference in hash values
+            hash_diff = abs(modified_hash - original_hash)
+            hash_changes.append(hash_diff)
+
+    # Create visualization of hash changes
+    changes_count = Counter(hash_changes)
+
+    plt.figure(figsize=(15, 5))
+    x_values = sorted(changes_count.keys())
+    y_values = [changes_count[x] for x in x_values]
+
+    plt.bar(x_values, y_values)
+    plt.title('Distribution of Changes in Hash Values')
+    plt.xlabel('Change in Hash Value')
+    plt.ylabel('Number of Strings')
+    plt.grid(True, alpha=0.3)
     plt.show()
 
     return {
-        'avg_bits_changed': np.mean(results),
-        'std_bits_changed': np.std(results),
-        'total_tests': len(results)
+        'avg_change': np.mean(hash_changes),
+        'std_change': np.std(hash_changes),
+        'max_change': max(hash_changes),
+        'min_change': min(hash_changes),
+        'total_tests': len(hash_changes)
     }
-
-# Generate test data (since we don't have the actual files)
 
 
 def generate_test_data(num_strings=100000, min_length=5, max_length=50):
@@ -78,28 +101,25 @@ def generate_test_data(num_strings=100000, min_length=5, max_length=50):
             for _ in range(num_strings)]
 
 
-def uniformity_data():
-    pass
+def main():
+    print("Testing Uniformity...")
+    uniformity_results = test_uniformity("./uniformity_test.txt")
+    if uniformity_results:
+        print("\nUniformity Test Results:")
+        print(f"Total inputs: {uniformity_results['total_inputs']}")
+        print(f"Unique hash values: {uniformity_results['unique_values']}")
+        print(f"Chi-square statistic: {uniformity_results['chi_square']:.2f}")
+
+    print("\nTesting Avalanche Effect...")
+    avalanche_results = test_avalanche("avalanche_test.txt")
+    if avalanche_results:
+        print("\nAvalanche Test Results:")
+        print(f"Average change in hash: {avalanche_results['avg_change']:.2f}")
+        print(f"Standard deviation: {avalanche_results['std_change']:.2f}")
+        print(f"Maximum change: {avalanche_results['max_change']}")
+        print(f"Minimum change: {avalanche_results['min_change']}")
+        print(f"Total tests: {avalanche_results['total_tests']}")
 
 
-def avalanche_data():
-    pass
-
-
-# Run tests
-print("Running uniformity tests...")
-test_strings = generate_test_data()
-uniformity_results = test_uniformity(test_strings)
-
-print("\nUniformity Test Results:")
-print(f"Total inputs: {uniformity_results['total_inputs']}")
-print(f"Unique hash values: {uniformity_results['unique_values']}")
-print(f"Chi-square statistic: {uniformity_results['chi_square']:.2f}")
-
-print("\nRunning avalanche tests...")
-avalanche_results = test_avalanche(test_strings[:10])
-
-print("\nAvalanche Test Results:")
-print(f"Average bits changed: {avalanche_results['avg_bits_changed']:.2f}")
-print(f"Standard deviation: {avalanche_results['std_bits_changed']:.2f}")
-print(f"Total tests: {avalanche_results['total_tests']}")
+if __name__ == "__main__":
+    main()
