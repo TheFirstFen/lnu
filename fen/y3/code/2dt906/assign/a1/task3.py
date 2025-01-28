@@ -1,8 +1,16 @@
 
-alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 
 def create_alphabet(key):
+    """Creates a new alphabet based on the key.
+
+    Args:
+        key (int/str): The key used to create the new alphabet.
+
+    Returns:
+        str: The new alphabet.
+    """
     new_alphabet = ""
     for c in key:
         if c not in new_alphabet:
@@ -18,10 +26,19 @@ def create_alphabet(key):
 
 
 def substitution_encrypt(text, key):
+    """Encrypts a text using the substitution cipher method.
+
+    Args:
+        text (str): The text to be encrypted.
+        key (int/str): The key used to encrypt the text.
+
+    Returns:
+        str: The encrypted text.
+    """
     new_alphabet = create_alphabet(key)
     enc_text = ""
     for char in text:
-        if char.isalpha():
+        if char.isalnum():
             enc_text += new_alphabet[alphabet.index(char)]
         else:
             enc_text += char
@@ -30,10 +47,19 @@ def substitution_encrypt(text, key):
 
 
 def substitution_decrypt(text, key):
+    """Decrypts a text using the substitution cipher method.
+
+    Args:
+        text (str): The text to be decrypted.
+        key (int/str): The key used to encrypt the text.
+
+    Returns:
+        str: The decrypted text.
+    """
     new_alphabet = create_alphabet(key)
     dec_text = ""
     for char in text:
-        if char.isalpha():
+        if char.isalnum():
             dec_text += alphabet[new_alphabet.index(char)]
         else:
             dec_text += char
@@ -42,6 +68,15 @@ def substitution_decrypt(text, key):
 
 
 def transposition_encrypt(text, key):
+    """Encrypts a text using the transposition cipher method.
+
+    Args:
+        text (str): The text to be encrypted.
+        key (int/str): The key used to encrypt the text.
+
+    Returns:
+        str: The encrypted text.
+    """
     key_len = len(str(key))
 
     enc_text = [''] * key_len
@@ -52,11 +87,36 @@ def transposition_encrypt(text, key):
 
 
 def transposition_decrypt(text, key):
-    key_len = len(str(key))
+    """Decrypts a text using the transposition cipher method.
 
-    dec_text = [''] * ((len(text) // key_len) + 1)
-    for i, char in enumerate(text):
-        dec_text[i % len(dec_text)] += char
+    Args:
+        text (str): The text to be decrypted.
+        key (int/str): The key used to encrypt the text.
+
+    Returns:
+        str: The decrypted text.
+    """
+    key_len = len(str(key))
+    text_len = len(text)
+
+    filled_rows = text_len % key_len
+    row_len = text_len // key_len
+    rows = []
+
+    start = 0
+    for i in range(key_len):
+        if i < filled_rows:
+            rows.append(text[start:start + row_len + 1])
+            start += row_len + 1
+        else:
+            rows.append(text[start:start + row_len])
+            start += row_len
+
+    dec_text = []
+    for i in range(row_len + 1):
+        for row in rows:
+            if i < len(row):
+                dec_text.append(row[i])
 
     return ''.join(dec_text)
 
