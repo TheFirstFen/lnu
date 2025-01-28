@@ -68,7 +68,7 @@ def substitution_decrypt(text, key):
 
 
 def transposition_encrypt(text, key):
-    """Encrypts a text using the transposition cipher method.
+    """Encrypts a text using a transposition cipher method.
 
     Args:
         text (str): The text to be encrypted.
@@ -87,11 +87,11 @@ def transposition_encrypt(text, key):
 
 
 def transposition_decrypt(text, key):
-    """Decrypts a text using the transposition cipher method.
+    """Decrypts a text using a transposition cipher method.
 
     Args:
         text (str): The text to be decrypted.
-        key (int/str): The key used to encrypt the text.
+        key (int/str): The key used to decrypt the text.
 
     Returns:
         str: The decrypted text.
