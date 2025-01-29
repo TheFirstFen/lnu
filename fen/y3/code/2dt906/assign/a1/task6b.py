@@ -1,12 +1,10 @@
 from task6a import *
-import random
-import string
 import matplotlib.pyplot as plt
 import numpy as np
 from collections import Counter
 
 
-def read_file(filename):
+def read_file(filename: str) -> list:
     """Read lines from a file, stripping newline characters"""
     try:
         with open(filename, 'r', encoding='utf-8') as file:
@@ -19,7 +17,7 @@ def read_file(filename):
         return []
 
 
-def test_uniformity(filename):
+def test_uniformity(filename: str) -> dict:
     """Test uniformity of hash distribution"""
     lines = read_file(filename)
     if not lines:
@@ -51,7 +49,7 @@ def test_uniformity(filename):
     }
 
 
-def test_avalanche(filename):
+def test_avalanche(filename: str) -> dict:
     """Test avalanche effect by making small changes to input"""
     lines = read_file(filename)
     if not lines:
