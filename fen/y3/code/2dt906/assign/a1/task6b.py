@@ -96,11 +96,6 @@ def test_avalanche(filename):
     }
 
 
-def generate_test_data(num_strings=100000, min_length=5, max_length=50):
-    return [''.join(random.choices(string.printable, k=random.randint(min_length, max_length)))
-            for _ in range(num_strings)]
-
-
 def main():
     print("Testing Uniformity...")
     uniformity_results = test_uniformity("./Uniformity_test.txt")
