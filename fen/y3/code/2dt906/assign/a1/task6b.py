@@ -1,3 +1,8 @@
+# Author: Samuel Berg
+# TODO Date: 2025-0X-XX
+# For: Task 6a in Assignment 1 in course 2DT906 at LNU
+# TODO Completion: WiP!!
+
 from task6a import *
 import matplotlib.pyplot as plt
 import numpy as np
@@ -35,7 +40,7 @@ def test_uniformity(filename: str) -> dict:
     if not lines:
         return None
 
-    hash_values = [hash(line) % 256 for line in lines]
+    hash_values = [hash(line) % 256 for line in lines]  # ? Temporary % 256
 
     # Calculate distribution
     distribution = Counter(hash_values)

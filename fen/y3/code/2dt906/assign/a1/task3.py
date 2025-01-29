@@ -1,3 +1,8 @@
+# Author: Samuel Berg
+# Date: 2025-01-29
+# For: Task 3 in Assignment 1 in course 2DT906 at LNU
+# Completion: Done!
+
 
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 

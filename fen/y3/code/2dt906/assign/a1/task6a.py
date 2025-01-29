@@ -1,3 +1,8 @@
+# Author: Samuel Berg
+# Date: 2025-01-29
+# For: Task 6a in Assignment 1 in course 2DT906 at LNU
+# Completion: Done!
+
 def hash(line: str) -> int:
     """
     Hash function that returns an integer value between 0 and 255
