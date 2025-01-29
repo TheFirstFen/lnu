@@ -8,7 +8,7 @@ def create_alphabet(key: str) -> str:
     Args:
         key (str): String with numerical value to shift the alphabet by
     Returns:
-        Shifted alphabet string
+        str: Shifted alphabet string
     """
     key = int(key) % len(alphabet)
     return alphabet[key:] + alphabet[:key]
