@@ -80,15 +80,25 @@ def key_translation(key: str) -> str:
     new_key = ''
     largest = (0,)
     smallest = (10,)
+    standard_key = '123'
 
     if key_length == 1:
-        return '1'
+        return standard_key[0]
 
     for i, char in enumerate(key):
         if int(char) > largest[0]:
             largest = (int(char), key_length)
         if int(char) < smallest[0]:
             smallest = (int(char), 1)
+
+    # Handles case of all digits being the same
+    if largest[0] == smallest[0]:
+        return standard_key[0:key_length]
+
+    """
+    Implement something that handles the case where 2 digits are the same within the key.
+    Dependent on what the other digit is these same digits should either be replaced '12' or '23' from the standard key
+    """
 
     for i in key:
         if i == str(largest[0]):
