@@ -199,7 +199,7 @@ def main():
     key = input("Input the secret key: ")
     filename = input("Input the name of the file you want to process: ")
 
-    with open(filename, 'r') as file:
+    with open('./input/' + filename, 'r') as file:
         text = file.read()
 
     if method == 'S':
@@ -224,7 +224,7 @@ def main():
 
     output_filename = filename.split(
         '.')[0] + '_enc.txt' if op == 'E' else filename.split('.')[0] + '_dec.txt'
-    with open(output_filename, 'w') as file:
+    with open('./output/' + output_filename, 'w') as file:
         file.write(processed_text)
 
     print(f"The file has been processed and the results have been saved in the file {
