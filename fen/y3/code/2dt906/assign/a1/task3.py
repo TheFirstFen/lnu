@@ -10,14 +10,14 @@ def convert_key(key: str) -> str:
     Returns:
         str: The numeric key
     """
-    temp = ''
+    converted_key = ''
     key_len = len(key)
 
     for char in key:
-        temp += str(ord(char) + key_len * 217)
+        converted_key += str(ord(char) + key_len * 217)
         key_len -= 1
 
-    return str(int(temp) % 256)
+    return str(int(converted_key) % 256)
 
 
 def create_alphabet(key: str) -> str:
@@ -70,7 +70,7 @@ def substitution_decrypt(text: str, key: str) -> str:
 
 def key_translation(key: str) -> str:
     """
-    Translates the key to a new key based on the modulo 3 operation
+    Translates the key to the key that my implementation of transposition cipher can handle
     Args:
         key (str): The key to translate
     Returns:

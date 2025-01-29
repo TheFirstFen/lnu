@@ -11,3 +11,15 @@ def hash(line: str) -> int:
         hash_value = ((hash_value << 5) + hash_value) ^ ord(char)
         hash_value = (hash_value * 33) + i
     return hash_value % 256
+
+
+def main():
+    test_text = ['abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\n',
+                 '\n', 'Hello my name is Samuel Berg, how may I assist you today.',
+                 'aaaaa', 'aaaab', 'aaaac', 'aaaad']
+    for line in test_text:
+        print(f'Hash value for "{line.strip()}": {hash(line)}')
+
+
+if __name__ == '__main__':
+    main()
