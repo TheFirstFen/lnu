@@ -73,7 +73,7 @@ def substitution_decrypt(text: str, key: str) -> str:
     return text.translate(trans_table)
 
 
-def key_translation(key: str) -> str:
+def key_translation(key: str) -> str:   # TODO
     """
     Translates the key to the key that my implementation of transposition cipher can handle
     Args:
