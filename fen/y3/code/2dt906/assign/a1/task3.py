@@ -2,6 +2,24 @@
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 
+def convert_key(key: str) -> str:
+    """
+    Converts a string key to a numeric 8-bit key
+    Args:
+        key (str): The key to convert
+    Returns:
+        str: The numeric key
+    """
+    temp = ''
+    key_len = len(key)
+
+    for char in key:
+        temp += str(ord(char) + key_len * 217)
+        key_len -= 1
+
+    return str(int(temp) % 256)
+
+
 def create_alphabet(key: str) -> str:
     """
     Creates a shifted alphabet based on the input key
@@ -19,11 +37,14 @@ def substitution_encrypt(text: str, key: str) -> str:
     Encrypts text using substitution cipher with given key
     Args:
         text (str): String to encrypt
-        key (str): Integer encryption key
+        key (str): Encryption key
     Returns:
         str: Encrypted string
     """
-    shifted_alphabet = create_alphabet(int(key))
+    if key.isalpha():
+        key = convert_key(key)
+
+    shifted_alphabet = create_alphabet(key)
     trans_table = str.maketrans(alphabet, shifted_alphabet)
 
     return text.translate(trans_table)
@@ -34,14 +55,50 @@ def substitution_decrypt(text: str, key: str) -> str:
     Decrypts text that was encrypted using substitution cipher
     Args:
         text (str): String to decrypt
-        key (str): Integer decryption key (same as encryption key)
+        key (str): Decryption key
     Returns:
         str: Decrypted string
     """
+    if key.isalpha():
+        key = convert_key(key)
+
     shifted_alphabet = create_alphabet(int(key))
     trans_table = str.maketrans(shifted_alphabet, alphabet)
 
     return text.translate(trans_table)
+
+
+def key_translation(key: str) -> str:
+    """
+    Translates the key to a new key based on the modulo 3 operation
+    Args:
+        key (str): The key to translate
+    Returns:
+        str: The new key
+    """
+    key_length = len(key)
+    new_key = ''
+    largest = (0,)
+    smallest = (10,)
+
+    if key_length == 1:
+        return '1'
+
+    for i, char in enumerate(key):
+        if int(char) > largest[0]:
+            largest = (int(char), key_length)
+        if int(char) < smallest[0]:
+            smallest = (int(char), 1)
+
+    for i in key:
+        if i == str(largest[0]):
+            new_key += str(largest[1])
+        elif i == str(smallest[0]):
+            new_key += str(smallest[1])
+        elif key_length == 3:
+            new_key += '2'
+
+    return new_key
 
 
 def transposition_encrypt(text: str, key: str) -> str:
@@ -49,10 +106,14 @@ def transposition_encrypt(text: str, key: str) -> str:
     Encrypts text using columnar transposition cipher while preserving spaces and newlines.
     Args:
         text (str): The plaintext to encrypt
-        key (str): The encryption key (will be converted to numeric key)
+        key (str): The encryption key
     Returns:
         str: The encrypted text with preserved formatting
     """
+    if key.isalpha():
+        key = convert_key(key)
+    key = key_translation(key)
+
     key_order = [int(i)-1 for i in key]
     key_length = len(key_order)
 
@@ -80,10 +141,14 @@ def transposition_decrypt(text: str, key: str) -> str:
     Preserves original spacing and newlines.
     Args:
         text (str): The encrypted text
-        key (str): The encryption key (will be converted to numeric key)
+        key (str): The encryption key
     Returns:
         str: The decrypted text with preserved formatting
     """
+    if key.isalpha():
+        key = convert_key(key)
+    key = key_translation(key)
+
     key_order = [int(i)-1 for i in key]
     key_length = len(key_order)
 
