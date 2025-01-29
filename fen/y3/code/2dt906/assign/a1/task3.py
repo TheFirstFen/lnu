@@ -1,7 +1,7 @@
 # Author: Samuel Berg
 # Date: 2025-01-29
 # For: Task 3 in Assignment 1 in course 2DT906 at LNU
-# Completion: Done!
+# TODO Completion: WiP!!
 
 
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
@@ -127,7 +127,9 @@ def transposition_encrypt(text: str, key: str) -> str:
     """
     if key.isalpha():
         key = convert_key(key)
-    key = key_translation(key)
+
+    if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
+        key = key_translation(key)
 
     key_order = [int(i)-1 for i in key]
     key_length = len(key_order)
@@ -162,7 +164,9 @@ def transposition_decrypt(text: str, key: str) -> str:
     """
     if key.isalpha():
         key = convert_key(key)
-    key = key_translation(key)
+
+    if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
+        key = key_translation(key)
 
     key_order = [int(i)-1 for i in key]
     key_length = len(key_order)
