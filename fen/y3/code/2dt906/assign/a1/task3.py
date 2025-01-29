@@ -1,9 +1,10 @@
 # Author: Samuel Berg
 # Date: 2025-01-29
 # For: Task 3 in Assignment 1 in course 2DT906 at LNU
-# TODO Completion: WiP!!
+# Completion: Done!
 
 
+# ? Numbers ok or not?
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 
@@ -73,7 +74,7 @@ def substitution_decrypt(text: str, key: str) -> str:
     return text.translate(trans_table)
 
 
-def key_translation(key: str) -> str:   # TODO
+def key_translation(key: str) -> str:
     """
     Translates the key to the key that my implementation of transposition cipher can handle
     Args:
@@ -100,11 +101,37 @@ def key_translation(key: str) -> str:   # TODO
     if largest[0] == smallest[0]:
         return standard_key[0:key_length]
 
-    """
-    Implement something that handles the case where 2 digits are the same within the key.
-    Dependent on what the other digit is these same digits should either be replaced '12' or '23' from the standard key
-    """
+    if key_length == 3:
+        # Handle case where 2 digits are the same
+        counts = {}
+        for digit in key:
+            counts[digit] = counts.get(digit, 0) + 1
 
+        repeated_digit = None
+        unique_digit = None
+        for digit, count in counts.items():
+            if count == 2:
+                repeated_digit = int(digit)
+            elif count == 1:
+                unique_digit = int(digit)
+
+        if repeated_digit is not None and unique_digit is not None:
+            for char in key:
+                if int(char) == repeated_digit:
+                    if unique_digit > repeated_digit:
+                        new_key += '1' if len(
+                            new_key) == 0 or new_key[-1] != '1' else '2'
+                    else:
+                        new_key += '2' if len(
+                            new_key) == 0 or new_key[-1] != '2' else '3'
+                else:
+                    if unique_digit > repeated_digit:
+                        new_key += '3'
+                    else:
+                        new_key += '1'
+            return new_key
+
+    # Handle case of 3 or 2 unique digits
     for i in key:
         if i == str(largest[0]):
             new_key += str(largest[1])
