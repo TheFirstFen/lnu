@@ -32,17 +32,13 @@ def compare_files(file1_path, file2_path):
 
 def main():
     try:
-        file1_path = "./input/plaintext.txt"
-        file2_path = "./output/sb224sc_sub_dec.txt"
+        file1_path = "./data/" + \
+            input("Input file1 path and name (ex: taskX/filename.txt): ")
+        file2_path = "./data/" + \
+            input("Input file2 path and name (ex: taskX/filename.txt): ")
 
         result = compare_files(file1_path, file2_path)
-        print("Identical to before encryption?")
-        print("Substitution cipher: ", result)
-
-        file2_path = "./output/sb224sc_transpos_dec.txt"
-
-        result = compare_files(file1_path, file2_path)
-        print("Transposition cipher: ", result)
+        print("Are the content of the files identical? ", result)
 
     except (FileNotFoundError, IOError) as e:
         print(f"Comparison failed: {e}")

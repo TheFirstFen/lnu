@@ -1,7 +1,7 @@
 # Author: Samuel Berg
 # Date: 2025-01-29
 # For: Task 3 in Assignment 1 in course 2DT906 at LNU
-# Completion: Done!
+# ? Completion: Done?
 
 
 # ? Numbers ok or not?
@@ -47,7 +47,7 @@ def substitution_encrypt(text: str, key: str) -> str:
     Returns:
         str: Encrypted string
     """
-    if key.isalpha():
+    if not key.isdigit():
         key = convert_key(key)
 
     shifted_alphabet = create_alphabet(key)
@@ -65,7 +65,7 @@ def substitution_decrypt(text: str, key: str) -> str:
     Returns:
         str: Decrypted string
     """
-    if key.isalpha():
+    if not key.isdigit():
         key = convert_key(key)
 
     shifted_alphabet = create_alphabet(int(key))
@@ -152,7 +152,7 @@ def transposition_encrypt(text: str, key: str) -> str:
     Returns:
         str: The encrypted text with preserved formatting
     """
-    if key.isalpha():
+    if not key.isdigit():
         key = convert_key(key)
 
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
@@ -189,7 +189,7 @@ def transposition_decrypt(text: str, key: str) -> str:
     Returns:
         str: The decrypted text with preserved formatting
     """
-    if key.isalpha():
+    if not key.isdigit():
         key = convert_key(key)
 
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
@@ -224,9 +224,10 @@ def main():
     method = input(
         "Do you want to use substitution (S) or transposition (T)? ").upper()
     key = input("Input the secret key: ")
-    filename = input("Input the name of the file you want to process: ")
+    filename = input(
+        "Input file path and name (ex: taskX/filename.txt) replace X and filename: ")
 
-    with open('./input/' + filename, 'r') as file:
+    with open('./data/' + filename, 'r') as file:
         text = file.read()
 
     if method == 'S':
@@ -251,7 +252,7 @@ def main():
 
     output_filename = filename.split(
         '.')[0] + '_enc.txt' if op == 'E' else filename.split('.')[0] + '_dec.txt'
-    with open('./output/' + output_filename, 'w') as file:
+    with open('./data/' + output_filename, 'w') as file:
         file.write(processed_text)
 
     print(f"The file has been processed and the results have been saved in the file {

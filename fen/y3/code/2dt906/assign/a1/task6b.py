@@ -118,7 +118,7 @@ def test_avalanche(filename: str) -> dict:
 
 def main():
     print("Testing Uniformity...")
-    uniformity_results = test_uniformity("./input/Uniformity_test.txt")
+    uniformity_results = test_uniformity("./data/task6/Uniformity_test.txt")
     if uniformity_results:
         print("\nUniformity Test Results:")
         print(f"Total inputs: {uniformity_results['total_inputs']}")
