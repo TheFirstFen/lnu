@@ -47,8 +47,7 @@ def substitution_encrypt(text: str, key: str) -> str:
     Returns:
         str: Encrypted string
     """
-    if not key.isdigit():
-        key = convert_key(key)
+    key = convert_key(key)
 
     shifted_alphabet = create_alphabet(key)
     trans_table = str.maketrans(alphabet, shifted_alphabet)
@@ -65,8 +64,7 @@ def substitution_decrypt(text: str, key: str) -> str:
     Returns:
         str: Decrypted string
     """
-    if not key.isdigit():
-        key = convert_key(key)
+    key = convert_key(key)
 
     shifted_alphabet = create_alphabet(int(key))
     trans_table = str.maketrans(shifted_alphabet, alphabet)
@@ -152,8 +150,8 @@ def transposition_encrypt(text: str, key: str) -> str:
     Returns:
         str: The encrypted text with preserved formatting
     """
-    if not key.isdigit():
-        key = convert_key(key)
+
+    key = convert_key(key)
 
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
         key = key_translation(key)
@@ -189,8 +187,7 @@ def transposition_decrypt(text: str, key: str) -> str:
     Returns:
         str: The decrypted text with preserved formatting
     """
-    if not key.isdigit():
-        key = convert_key(key)
+    key = convert_key(key)
 
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
         key = key_translation(key)
