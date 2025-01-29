@@ -5,7 +5,13 @@ from collections import Counter
 
 
 def read_file(filename: str) -> list:
-    """Read lines from a file, stripping newline characters"""
+    """
+    Read lines from a file, stripping newline characters
+    Args:
+        filename (str): The name of the file to read
+    Returns:
+        list: List of lines from the file
+    """
     try:
         with open(filename, 'r', encoding='utf-8') as file:
             return [line.strip() for line in file]
@@ -18,12 +24,18 @@ def read_file(filename: str) -> list:
 
 
 def test_uniformity(filename: str) -> dict:
-    """Test uniformity of hash distribution"""
+    """
+    Test uniformity of hash distribution
+    Args:
+        filename (str): The name of the file to read
+    Returns:
+        dict: Results of the uniformity test
+    """
     lines = read_file(filename)
     if not lines:
         return None
 
-    hash_values = [hash(line) for line in lines]
+    hash_values = [hash(line) % 256 for line in lines]
 
     # Calculate distribution
     distribution = Counter(hash_values)
@@ -33,7 +45,6 @@ def test_uniformity(filename: str) -> dict:
     chi_square = sum((obs - expected_freq) ** 2 / expected_freq
                      for obs in distribution.values())
 
-    # Create visualization
     plt.figure(figsize=(15, 5))
     plt.bar(distribution.keys(), distribution.values())
     plt.title('Distribution of Hash Values')
@@ -50,7 +61,13 @@ def test_uniformity(filename: str) -> dict:
 
 
 def test_avalanche(filename: str) -> dict:
-    """Test avalanche effect by making small changes to input"""
+    """
+    Test avalanche effect by making small changes to input
+    Args:
+        filename (str): The name of the file to read
+    Returns:
+        dict: Results of the avalanche test
+    """
     lines = read_file(filename)
     if not lines:
         return None
