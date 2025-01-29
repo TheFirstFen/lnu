@@ -2,123 +2,110 @@
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 
-def create_alphabet(key):
-    """Creates a new alphabet based on the key.
-
-    Args:
-        key (int/str): The key used to create the new alphabet.
-
-    Returns:
-        str: The new alphabet.
+def create_alphabet(key: str) -> str:
     """
-    new_alphabet = ""
-    for c in key:
-        if c not in new_alphabet:
-            new_alphabet += c
-
-    new_alphabet = new_alphabet.replace(" ", "")
-
-    for c in alphabet:
-        if c not in new_alphabet:
-            new_alphabet += c
-
-    return new_alphabet
-
-
-def substitution_encrypt(text, key):
-    """Encrypts a text using the substitution cipher method.
-
+    Creates a shifted alphabet based on the input key
     Args:
-        text (str): The text to be encrypted.
-        key (int/str): The key used to encrypt the text.
-
+        key (str): String with numerical value to shift the alphabet by
     Returns:
-        str: The encrypted text.
+        Shifted alphabet string
     """
-    new_alphabet = create_alphabet(key)
-    enc_text = ""
-    for char in text:
-        if char.isalnum():
-            enc_text += new_alphabet[alphabet.index(char)]
-        else:
-            enc_text += char
-
-    return enc_text
+    key = int(key) % len(alphabet)
+    return alphabet[key:] + alphabet[:key]
 
 
-def substitution_decrypt(text, key):
-    """Decrypts a text using the substitution cipher method.
-
+def substitution_encrypt(text: str, key: str) -> str:
+    """
+    Encrypts text using substitution cipher with given key
     Args:
-        text (str): The text to be decrypted.
-        key (int/str): The key used to encrypt the text.
-
+        text (str): String to encrypt
+        key (str): Integer encryption key
     Returns:
-        str: The decrypted text.
+        str: Encrypted string
     """
-    new_alphabet = create_alphabet(key)
-    dec_text = ""
-    for char in text:
-        if char.isalnum():
-            dec_text += alphabet[new_alphabet.index(char)]
-        else:
-            dec_text += char
+    shifted_alphabet = create_alphabet(int(key))
+    trans_table = str.maketrans(alphabet, shifted_alphabet)
 
-    return dec_text
+    return text.translate(trans_table)
 
 
-def transposition_encrypt(text, key):
-    """Encrypts a text using a transposition cipher method.
-
+def substitution_decrypt(text: str, key: str) -> str:
+    """
+    Decrypts text that was encrypted using substitution cipher
     Args:
-        text (str): The text to be encrypted.
-        key (int/str): The key used to encrypt the text.
-
+        text (str): String to decrypt
+        key (str): Integer decryption key (same as encryption key)
     Returns:
-        str: The encrypted text.
+        str: Decrypted string
     """
-    key_len = len(str(key))
+    shifted_alphabet = create_alphabet(int(key))
+    trans_table = str.maketrans(shifted_alphabet, alphabet)
 
-    enc_text = [''] * key_len
-    for i, char in enumerate(text):
-        enc_text[i % key_len] += char
-
-    return ''.join(enc_text)
+    return text.translate(trans_table)
 
 
-def transposition_decrypt(text, key):
-    """Decrypts a text using a transposition cipher method.
-
+def transposition_encrypt(text: str, key: str) -> str:
+    """
+    Encrypts text using columnar transposition cipher while preserving spaces and newlines.
     Args:
-        text (str): The text to be decrypted.
-        key (int/str): The key used to decrypt the text.
-
+        text (str): The plaintext to encrypt
+        key (str): The encryption key (will be converted to numeric key)
     Returns:
-        str: The decrypted text.
+        str: The encrypted text with preserved formatting
     """
-    key_len = len(str(key))
-    text_len = len(text)
+    key_order = [int(i)-1 for i in key]
+    key_length = len(key_order)
 
-    filled_rows = text_len % key_len
-    row_len = text_len // key_len
-    rows = []
+    num_rows = (len(text) + key_length - 1) // key_length
 
-    start = 0
-    for i in range(key_len):
-        if i < filled_rows:
-            rows.append(text[start:start + row_len + 1])
-            start += row_len + 1
-        else:
-            rows.append(text[start:start + row_len])
-            start += row_len
+    padding_length = num_rows * key_length - len(text)
+    text = text + " " * padding_length
 
-    dec_text = []
-    for i in range(row_len + 1):
-        for row in rows:
-            if i < len(row):
-                dec_text.append(row[i])
+    matrix = []
+    for i in range(0, len(text), key_length):
+        matrix.append(list(text[i:i+key_length]))
 
-    return ''.join(dec_text)
+    ciphertext = ""
+    for col in range(key_length):
+        current_col = key_order.index(col)
+        for row in range(num_rows):
+            ciphertext += matrix[row][current_col]
+
+    return ciphertext
+
+
+def transposition_decrypt(text: str, key: str) -> str:
+    """
+    Decrypts text that was encrypted using columnar transposition cipher.
+    Preserves original spacing and newlines.
+    Args:
+        text (str): The encrypted text
+        key (str): The encryption key (will be converted to numeric key)
+    Returns:
+        str: The decrypted text with preserved formatting
+    """
+    key_order = [int(i)-1 for i in key]
+    key_length = len(key_order)
+
+    num_rows = len(text) // key_length
+
+    matrix = [['' for _ in range(key_length)] for _ in range(num_rows)]
+
+    pos = 0
+    for col in range(key_length):
+        current_col = key_order.index(col)
+        for row in range(num_rows):
+            matrix[row][current_col] = text[pos]
+            pos += 1
+
+    plaintext = ""
+    for row in range(num_rows):
+        for col in range(key_length):
+            plaintext += matrix[row][col]
+
+    plaintext = plaintext.rstrip()
+
+    return plaintext
 
 
 def main():
