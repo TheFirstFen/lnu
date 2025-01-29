@@ -40,7 +40,7 @@ def test_uniformity(filename: str) -> dict:
     if not lines:
         return None
 
-    hash_values = [hash(line) for line in lines[:100]]
+    hash_values = [hash(line) for line in lines]
 
     # Calculate distribution
     distribution = Counter(hash_values)
