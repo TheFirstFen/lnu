@@ -156,17 +156,19 @@ def transposition_encrypt(text: str, key: str) -> str:
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
         key = key_translation(key)
 
-    key_order = [int(i)-1 for i in key]
+    key_order = [int(i) - 1 for i in key]
     key_length = len(key_order)
+    text_length = len(text)
 
-    num_rows = (len(text) + key_length - 1) // key_length
+    num_rows = (text_length + key_length - 1) // key_length
 
-    padding_length = num_rows * key_length - len(text)
+    padding_length = num_rows * key_length - text_length
     text = text + " " * padding_length
 
+    # TODO: Explain in report
     matrix = []
-    for i in range(0, len(text), key_length):
-        matrix.append(list(text[i:i+key_length]))
+    for i in range(0, text_length, key_length):
+        matrix.append(list(text[i:i + key_length]))
 
     ciphertext = ""
     for col in range(key_length):
@@ -177,6 +179,7 @@ def transposition_encrypt(text: str, key: str) -> str:
     return ciphertext
 
 
+# TODO Explain in report
 def transposition_decrypt(text: str, key: str) -> str:
     """
     Decrypts text that was encrypted using columnar transposition cipher.
