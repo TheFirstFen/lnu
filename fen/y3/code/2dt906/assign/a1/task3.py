@@ -162,7 +162,7 @@ def transposition_encrypt(text: str, key: str) -> str:
     padding_length = num_rows * key_length - text_length
     text = text + " " * padding_length
 
-    # TODO: Explain in report
+    # TODO Explain in report
     matrix = []
     for i in range(0, text_length, key_length):
         matrix.append(list(text[i:i + key_length]))
