@@ -79,12 +79,12 @@ def test_avalanche(filename: str) -> dict:
     hash_changes = []
 
     for line in lines:
-        if len(line) > 0:  # Ensure line is not empty
-            original_hash = simple_hash(line) % 256
+        if len(line) > 0:
+            original_hash = my_hash(line) % 256
 
             modified = line[:-1] + \
-                chr((ord(line[-1]) + 1) % 128)  # Change last char
-            modified_hash = simple_hash(modified) % 256
+                chr((ord(line[-1]) + 1) % 128)
+            modified_hash = my_hash(modified) % 256
 
             hash_diff = abs(modified_hash - original_hash)
             hash_changes.append(hash_diff)
