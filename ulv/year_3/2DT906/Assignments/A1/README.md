@@ -4,7 +4,7 @@
 
 ### Setup
 
-
+Im using Arch linux, 
 
 ### Task 1
 
