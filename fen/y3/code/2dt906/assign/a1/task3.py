@@ -112,14 +112,21 @@ def key_translation(key: str) -> str:
                 unique_digit = int(digit)
 
         if repeated_digit is not None and unique_digit is not None:
+            repeat_count = 0
             for char in key:
-                if int(char) == repeated_digit:
+                current_char = int(char)
+                if current_char == repeated_digit:
+                    repeat_count += 1
                     if unique_digit > repeated_digit:
-                        new_key += '1' if len(
-                            new_key) == 0 or new_key[-1] != '1' else '2'
+                        if repeat_count == 1:
+                            new_key += '1'
+                        else:
+                            new_key += '2'
                     else:
-                        new_key += '2' if len(
-                            new_key) == 0 or new_key[-1] != '2' else '3'
+                        if repeat_count == 1:
+                            new_key += '2'
+                        else:
+                            new_key += '3'
                 else:
                     if unique_digit > repeated_digit:
                         new_key += '3'
