@@ -64,12 +64,6 @@ def test_uniformity(filename: str) -> dict:
     }
 
 
-"""
-Note:
-Remember the axies and what they represent
-"""
-
-
 def test_avalanche(filename: str) -> dict:
     """
     Test avalanche effect by making small changes to input
@@ -139,5 +133,9 @@ def main():
         print(f"Total tests: {avalanche_results['total_tests']}")
 
 
+"""
+Note:
+Remember the axies and what they represent
+"""
 if __name__ == "__main__":
     main()
