@@ -64,7 +64,7 @@ def test_uniformity(filename: str) -> dict:
     }
 
 
-def test_avalanche(filename: str) -> dict:
+def test_avalanche(filename: str) -> dict:  # Possible djustment
     """
     Test avalanche effect by making small changes to input
     Args:
