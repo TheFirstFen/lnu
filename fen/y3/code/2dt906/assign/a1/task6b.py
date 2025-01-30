@@ -40,7 +40,7 @@ def test_uniformity(filename: str) -> dict:
     if not lines:
         return None
 
-    hash_values = [hash(line) % 256 for line in lines]
+    hash_values = [my_hash(line) % 256 for line in lines]
 
     distribution = Counter(hash_values)
 
@@ -80,11 +80,11 @@ def test_avalanche(filename: str) -> dict:
 
     for line in lines:
         if len(line) > 0:  # Ensure line is not empty
-            original_hash = hash(line) % 256
+            original_hash = simple_hash(line) % 256
 
             modified = line[:-1] + \
                 chr((ord(line[-1]) + 1) % 128)  # Change last char
-            modified_hash = hash(modified) % 256
+            modified_hash = simple_hash(modified) % 256
 
             hash_diff = abs(modified_hash - original_hash)
             hash_changes.append(hash_diff)
