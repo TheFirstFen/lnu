@@ -1,7 +1,7 @@
 # Author: Samuel Berg
-# TODO Date: 2025-0X-XX
+# Date: 2025-01-30
 # For: Task 6b in Assignment 1 in course 2DT906 at LNU
-# TODO Completion: WiP!!
+# Completion: Done!
 
 from task6a import *
 import matplotlib.pyplot as plt
@@ -40,9 +40,8 @@ def test_uniformity(filename: str) -> dict:
     if not lines:
         return None
 
-    hash_values = [hash(line) for line in lines]
+    hash_values = [hash(line) % 256 for line in lines]
 
-    # Calculate distribution
     distribution = Counter(hash_values)
 
     # Calculate chi-square statistic
@@ -65,6 +64,12 @@ def test_uniformity(filename: str) -> dict:
     }
 
 
+"""
+Note:
+Remember the axies and what they represent
+"""
+
+
 def test_avalanche(filename: str) -> dict:
     """
     Test avalanche effect by making small changes to input
@@ -81,20 +86,18 @@ def test_avalanche(filename: str) -> dict:
 
     for line in lines:
         if len(line) > 0:  # Ensure line is not empty
-            # Get original hash
-            original_hash = hash(line)
+            original_hash = hash(line) % 256
 
-            # Modify one character and get new hash
             modified = line[:-1] + \
                 chr((ord(line[-1]) + 1) % 128)  # Change last char
-            modified_hash = hash(modified)
+            modified_hash = hash(modified) % 256
 
-            # Calculate absolute difference in hash values
             hash_diff = abs(modified_hash - original_hash)
             hash_changes.append(hash_diff)
 
-    # Create visualization of hash changes
     changes_count = Counter(hash_changes)
+
+    print(changes_count)
 
     plt.figure(figsize=(15, 5))
     x_values = sorted(changes_count.keys())
