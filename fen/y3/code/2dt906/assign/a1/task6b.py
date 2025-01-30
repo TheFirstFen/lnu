@@ -126,7 +126,7 @@ def main():
         print(f"Chi-square statistic: {uniformity_results['chi_square']:.2f}")
 
     print("\nTesting Avalanche Effect...")
-    avalanche_results = test_avalanche("./input/Avalanche_test.txt")
+    avalanche_results = test_avalanche("./data/task6/Avalanche_test.txt")
     if avalanche_results:
         print("\nAvalanche Test Results:")
         print(f"Average change in hash: {avalanche_results['avg_change']:.2f}")

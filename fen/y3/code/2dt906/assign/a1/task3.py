@@ -1,10 +1,8 @@
 # Author: Samuel Berg
 # Date: 2025-01-29
 # For: Task 3 in Assignment 1 in course 2DT906 at LNU
-# ? Completion: Done?
+# Completion: Done!
 
-
-# ? Numbers ok or not?
 alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 
@@ -150,7 +148,6 @@ def transposition_encrypt(text: str, key: str) -> str:
     Returns:
         str: The encrypted text with preserved formatting
     """
-
     key = convert_key(key)
 
     if key.count('1') != 1 or key.count('2') != 1 or key.count('3') != 1:
