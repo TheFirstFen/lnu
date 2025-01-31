@@ -24,6 +24,8 @@ def main():
     with open('./data/task5/md223rb_tran_dec.txt', 'w') as file:
         file.write(processed_text)
 
+    print("Decryption complete!")
+
 
 if __name__ == "__main__":
     main()
