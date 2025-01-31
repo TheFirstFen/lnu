@@ -33,3 +33,7 @@ def main():
         file.write(processed_text)
 
     print("Decryption complete!")
+
+
+if __name__ == "__main__":
+    main()
