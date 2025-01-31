@@ -31,3 +31,5 @@ def main():
 
     with open('./data/task5/md223rb_sub_dec.txt', 'w') as file:
         file.write(processed_text)
+
+    print("Decryption complete!")
