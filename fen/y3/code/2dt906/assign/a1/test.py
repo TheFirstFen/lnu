@@ -16,7 +16,7 @@ def transpose_encrypt(text: str, key: int) -> str:
 
 def transpose_decrypt(cipher_text: str, key: int) -> str:
     validate_key(key)
-    columns = key % len(cipher_text) if len(cipher_text) > key else key
+    columns = key
     rows = len(cipher_text) // columns
     extra_chars = len(cipher_text) % columns
 
@@ -37,14 +37,14 @@ def transpose_decrypt(cipher_text: str, key: int) -> str:
 
 
 def main():
-    mode = input("Enter mode (encrypt/decrypt): ").strip().lower()
+    mode = input("Enter mode (e/d): ").strip().lower()
     with open('./data/task5/ms228qc_tran.txt', 'r') as file:
         text = file.read()
     key = int(input("Enter 8-bit key (0-255): ").strip())
 
-    if mode == 'encrypt':
+    if mode == 'e':
         result = transpose_encrypt(text, key)
-    elif mode == 'decrypt':
+    elif mode == 'd':
         result = transpose_decrypt(text, key)
     else:
         print("Invalid mode.")
