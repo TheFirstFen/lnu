@@ -3,10 +3,10 @@
 # For: Task 5 in Assignment 1 in course 2DT906 at LNU
 # Completion: Done!
 
-# For md223rb's files
-alphabet = "abcdefghijklmnopqrstuvwxyz"
+# For ms228qc's files
+alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 # Modify for your shifted alphabet
-shifted_alphabet = "wxyzabcdefghijklmnopqrstuv"
+shifted_alphabet = "hijklmnopqrstuvwxyzabcdefgHIJKLMNOPQRSTUVWXYZABCDEFG"
 
 
 def substitution_decrypt(text: str) -> str:
@@ -24,12 +24,12 @@ def substitution_decrypt(text: str) -> str:
 
 
 def main():
-    with open('./data/task5/md223rb_sub.txt', 'r') as file:
+    with open('./data/task5/ms228qc_sub.txt', 'r') as file:
         text = file.read()
 
     processed_text = substitution_decrypt(text)
 
-    with open('./data/task5/md223rb_sub_dec.txt', 'w') as file:
+    with open('./data/task5/ms228qc_sub_dec.txt', 'w') as file:
         file.write(processed_text)
 
     print("Decryption complete!")
