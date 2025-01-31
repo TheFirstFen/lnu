@@ -44,7 +44,7 @@ def test_uniformity(filename: str) -> dict:
 
     distribution = Counter(hash_values)
 
-    # Calculate chi-square statistic
+    # Computes the chi-square statistic
     expected_freq = len(hash_values) / 256
     chi_square = sum((obs - expected_freq) ** 2 / expected_freq
                      for obs in distribution.values())
@@ -64,7 +64,7 @@ def test_uniformity(filename: str) -> dict:
     }
 
 
-def test_avalanche(filename: str) -> dict:  # Possible djustment
+def test_avalanche(filename: str) -> dict:  # Possible adjustment
     """
     Test avalanche effect by making small changes to input
     Args:
@@ -90,8 +90,6 @@ def test_avalanche(filename: str) -> dict:  # Possible djustment
             hash_changes.append(hash_diff)
 
     changes_count = Counter(hash_changes)
-
-    print(changes_count)
 
     plt.figure(figsize=(15, 5))
     x_values = sorted(changes_count.keys())
