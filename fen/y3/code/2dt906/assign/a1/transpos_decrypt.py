@@ -16,12 +16,12 @@ def transposition_decrypt(text: str) -> str:
 
 
 def main():
-    with open('./data/task5/md223rb_tran.txt', 'r') as file:
+    with open('./data/task5/ms228qc/ms228qc_tran.txt', 'r') as file:
         text = file.read()
 
     processed_text = transposition_decrypt(text)
 
-    with open('./data/task5/md223rb_tran_dec.txt', 'w') as file:
+    with open('./data/task5/ms228qc/ms228qc_tran_dec.txt', 'w') as file:
         file.write(processed_text)
 
     print("Decryption complete!")

@@ -1,3 +1,5 @@
+# ChatGPT generated code
+
 def validate_key(key: int):
     if not (0 <= key <= 255):
         raise ValueError("Key must be an 8-bit integer (0-255).")
