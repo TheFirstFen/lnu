@@ -40,7 +40,7 @@ def test_uniformity(filename: str) -> dict:
     if not lines:
         return None
 
-    hash_values = [my_hash(line) % 256 for line in lines]
+    hash_values = [my_hash(line) % 256 for line in lines if line]
 
     distribution = Counter(hash_values)
 
@@ -60,7 +60,8 @@ def test_uniformity(filename: str) -> dict:
         'chi_square': chi_square,
         'distribution': distribution,
         'unique_values': len(distribution),
-        'total_inputs': len(hash_values)
+        'total_inputs': len(hash_values),
+        'avg_distribution': np.mean(list(distribution.values()))
     }
 
 
@@ -78,13 +79,11 @@ def test_avalanche(filename: str) -> dict:  # Possible adjustment
 
     hash_changes = []
 
-    for line in lines:
+    for i, line in enumerate(lines):
         if len(line) > 0:
             original_hash = my_hash(line) % 256
-
-            modified = line[:-1] + \
-                chr((ord(line[-1]) + 1) % 128)
-            modified_hash = my_hash(modified) % 256
+            if i + 1 < len(lines):
+                modified_hash = my_hash(lines[i+1]) % 256
 
             hash_diff = abs(modified_hash - original_hash)
             hash_changes.append(hash_diff)
@@ -119,6 +118,8 @@ def main():
         print(f"Total inputs: {uniformity_results['total_inputs']}")
         print(f"Unique hash values: {uniformity_results['unique_values']}")
         print(f"Chi-square statistic: {uniformity_results['chi_square']:.2f}")
+        print(f"Average distribution: {
+              uniformity_results['avg_distribution']:.2f}")
 
     print("\nTesting Avalanche Effect...")
     avalanche_results = test_avalanche("./data/task6/Avalanche_test.txt")
