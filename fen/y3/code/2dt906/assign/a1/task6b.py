@@ -79,6 +79,7 @@ def test_avalanche(filename: str) -> dict:  # Possible adjustment
 
     hash_changes = []
 
+    diff0 = 0
     for i, line in enumerate(lines):
         if len(line) > 0:
             original_hash = my_hash(line) % 256
@@ -86,6 +87,8 @@ def test_avalanche(filename: str) -> dict:  # Possible adjustment
                 modified_hash = my_hash(lines[i+1]) % 256
 
             hash_diff = abs(modified_hash - original_hash)
+            if hash_diff == 0:
+                diff0 += 1
             hash_changes.append(hash_diff)
 
     changes_count = Counter(hash_changes)
@@ -106,7 +109,8 @@ def test_avalanche(filename: str) -> dict:  # Possible adjustment
         'std_change': np.std(hash_changes),
         'max_change': max(hash_changes),
         'min_change': min(hash_changes),
-        'total_tests': len(hash_changes)
+        'total_tests': len(hash_changes),
+        'hash_diff0': diff0
     }
 
 
@@ -130,11 +134,9 @@ def main():
         print(f"Maximum change: {avalanche_results['max_change']}")
         print(f"Minimum change: {avalanche_results['min_change']}")
         print(f"Total tests: {avalanche_results['total_tests']}")
+        print(f"Number of hash differences equal to 0: {
+              avalanche_results['hash_diff0']}")
 
 
-"""
-Note:
-Remember the axies and what they represent
-"""
 if __name__ == "__main__":
     main()
