@@ -44,10 +44,14 @@ def transposition_decrypt() -> None:
 
 
 def main():
-    substitution_decrypt()
-    print("Substitution decrypted complete!")
-
-    transposition_decrypt()
+    cipher = input("Task5 - Choose cipher S or T: ")
+    if cipher.lower() == 's':
+        substitution_decrypt()
+    elif cipher.lower() == 't':
+        transposition_decrypt()
+    else:
+        print("Invalid input. Please enter either 'S' or 'T'.")
+        return
     print("Transposition decrypted complete!")
 
 
