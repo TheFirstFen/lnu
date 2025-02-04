@@ -40,7 +40,7 @@ def transpose_decrypt(cipher_text: str, key: int) -> str:
 
 def main():
     mode = input("Enter mode (e/d): ").strip().lower()
-    with open('./data/task5/ms228qc_tran.txt', 'r') as file:
+    with open('./data/task5/ms228qc/ms228qc_tran.txt', 'r') as file:
         text = file.read()
     key = int(input("Enter 8-bit key (0-255): ").strip())
 
@@ -52,7 +52,7 @@ def main():
         print("Invalid mode.")
         return
 
-    with open('./data/task5/ms228qc_tran_dec.txt', 'w') as file:
+    with open('./data/task5/ms228qc/ms228qc_tran_dec.txt', 'w') as file:
         file.write(result)
 
 

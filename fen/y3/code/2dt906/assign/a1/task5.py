@@ -1,7 +1,7 @@
-# Author: Samuel Berg
-# TODO Date: 2025-0X-XX
+# Author: Samuel Berg (Transposition decryption made by ChatGPT)
+# Date: 2025-02-04
 # For: Task 5 in Assignment 1 in course 2DT906 at LNU
-# TODO Completion: WiP!
+# Completion: Done!
 
 def substitution_decrypt() -> None:
     """
@@ -34,12 +34,28 @@ def transposition_decrypt() -> None:
         str: Decrypted string
     """
     pass
-    with open('./data/task5/mw224hw/mw224hw_tra.txt', 'r') as file:
+    with open('./data/task5/ms228qc/ms228qc_tran.txt', 'r') as file:
         text = file.read()
 
-    processed_text = "Stuck!"
+    columns = 3
+    rows = len(text) // columns
+    extra_chars = len(text) % columns
 
-    with open('./data/task5/mw224hw/mw224hw_tra_dec.txt', 'w') as file:
+    grid = [''] * columns
+    index = 0
+    for col in range(columns):
+        size = rows + (1 if col < extra_chars else 0)
+        grid[col] = text[index:index + size]
+        index += size
+
+    plain_text = ''
+    for i in range(rows + 1):
+        for col in range(columns):
+            if i < len(grid[col]):
+                plain_text += grid[col][i]
+    processed_text = plain_text
+
+    with open('./data/task5/ms228qc/ms228qc_tran_dec.txt', 'w') as file:
         file.write(processed_text)
 
 

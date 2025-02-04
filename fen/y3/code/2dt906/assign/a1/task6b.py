@@ -80,13 +80,12 @@ def test_avalanche(filename: str) -> dict:
     hash_changes = []
 
     for i, line in enumerate(lines):
-        if len(line) > 0:
+        if len(line) > 0 and i + 1 < len(lines):
             original_hash = my_hash(line) % 256
-            if i + 1 < len(lines):
-                modified_hash = my_hash(lines[i+1]) % 256
+            modified_hash = my_hash(lines[i+1]) % 256
 
-                hash_diff = abs(modified_hash - original_hash)
-                hash_changes.append(hash_diff)
+            hash_diff = abs(modified_hash - original_hash)
+            hash_changes.append(hash_diff)
 
     changes_count = Counter(hash_changes)
 
