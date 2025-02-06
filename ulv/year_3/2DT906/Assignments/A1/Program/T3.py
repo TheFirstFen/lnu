@@ -38,68 +38,58 @@ def transposition_encrypt(key, plaintext):
 
     if key == 0 or len(plaintext) == 0:
         return plaintext
-    
-    key = str(key)
-    
-    if len(key) == 1:
-        key = "00" + key
 
-    if len(key) == 2:
-        key = "0" + key
-    
-    key_length = len(key)
+    trans_key = ("012", "021", "102", "120", "201", "210")
+    key = trans_key[key % 6]
+    key_order = [int(i) for i in key]  # Convert to zero-based indices
+
     text_length = len(plaintext)
-    
-    matrix = []
-    for i in range(0, text_length, key_length):
-        matrix.append(list(plaintext[i:i+key_length]))
-    
-    cipher_text = ''
-    for col in range(key_length):
-        for row in range(len(matrix)):
-            if col < len(matrix[row]):
-                cipher_text += matrix[row][col]
-    
-    return cipher_text
+    num_cols = len(key_order)
+    num_rows = (text_length + num_cols - 1) // num_cols  # Ceiling division
 
+    padding_len = (num_rows * num_cols) - text_length
+    plaintext += ' ' * padding_len  # Add padding to fill the matrix
+
+    # Construct the matrix row by row
+    matrix = [plaintext[i * num_cols: (i + 1) * num_cols] for i in range(num_rows)]
+
+    cipher_text = ''
+    
+    # Read columns based on key order
+    for col in key_order:
+        for row in range(num_rows):
+            cipher_text += matrix[row][col]
+
+    return cipher_text
 
 def transposition_decrypt(key, cipher_text):
     key = int(key) % 256
 
     if key == 0 or len(cipher_text) == 0:
         return cipher_text
-    
-    key = str(key)
-    
-    if len(key) == 1:
-        key = "00" + key
 
-    if len(key) == 2:
-        key = "0" + key
+    trans_key = ("012", "021", "102", "120", "201", "210")
+    key = trans_key[key % 6]
+    key_order = [int(i) for i in key]  # Convert to zero-based indices
 
-    key_order = [int(i) - 1 for i in key]
-    
-    key_length = len((key_order))
+    num_cols = len(key_order)
+    num_rows = len(cipher_text) // num_cols  # Rows calculated based on cipher length
 
-    text_length = len(cipher_text)
-    num_rows = text_length // key_length
-    
-    matrix = [['' for i in range(key_length)] for _ in range(num_rows)]
+    # Create an empty matrix
+    matrix = [[''] * num_cols for _ in range(num_rows)]
 
-    pos = 0
-    for column in range(key_length):
-        current_column = key_order.index(column)
-        for row in range(len(matrix)):
-            matrix[row][current_column] = cipher_text[pos]
-            pos += 1
+    index = 0  # Position in cipher_text
 
-    plain_text = ''
-    for col in range(key_length):
-        for row in range(len(matrix)):
-            if col < len(matrix[row]):
-                plain_text += matrix[row][col]
-    
-    return plain_text
+    # Fill the matrix column-wise according to the key order
+    for col in key_order:
+        for row in range(num_rows):
+            matrix[row][col] = cipher_text[index]
+            index += 1
+
+    # Read the matrix row-wise to reconstruct plaintext
+    decrypt_text = ''.join([''.join(row) for row in matrix])
+
+    return decrypt_text.strip()  # Remove any trailing padding spaces
 
 def text_reader(file_name):
     text = ''
@@ -109,21 +99,27 @@ def text_reader(file_name):
     
     return text
 
+def file_writer(file_name, cipher_text):
+    with open(file_name, "w") as file:
+        file.write(cipher_text)
+
 def main():
     while True:
         key = input("Enter the key: ")
         print(key)
-        text = text_reader("../Data/text.txt")
+        text = text_reader("../Data/plaintext.txt")
         print("Original text:\n", text, "\n")
 
-        #cipher_substitution = substitution_encryp(key, text)
-        #print("Encoded text:\n", cipher_substitution, "\n")
-#
-        #decrypt_substitution = substitution_decrypt(key, cipher_substitution)
-        #print("Decoded text:\n", decrypt_substitution, "\n")
+        cipher_substitution = substitution_encryp(key, text)
+        print("Encoded text:\n", cipher_substitution, "\n")
+        file_writer("../Data/cipher_substitution.txt", cipher_substitution)
+
+        decrypt_substitution = substitution_decrypt(key, cipher_substitution)
+        print("Decoded text:\n", decrypt_substitution, "\n")
 
         cipher_transposition = transposition_encrypt(key, text)
         print("Transposition Encoded text:\n", cipher_transposition, "\n")
+        file_writer("../Data/cipher_transposition.txt", cipher_transposition)
 
         decrypt_transposition = transposition_decrypt(key, cipher_transposition)
         print("Transposition Decoded text:\n", decrypt_transposition, "\n")
