@@ -38,29 +38,43 @@ def transposition_encrypt(key, plaintext):
 
     if key == 0 or len(plaintext) == 0:
         return plaintext
-
+    
     trans_key = ("012", "021", "102", "120", "201", "210")
-    key = trans_key[key % 6]
-    key_order = [int(i) for i in key]  # Convert to zero-based indices
-
-    text_length = len(plaintext)
-    num_cols = len(key_order)
-    num_rows = (text_length + num_cols - 1) // num_cols  # Ceiling division
-
-    padding_len = (num_rows * num_cols) - text_length
-    plaintext += ' ' * padding_len  # Add padding to fill the matrix
-
-    # Construct the matrix row by row
-    matrix = [plaintext[i * num_cols: (i + 1) * num_cols] for i in range(num_rows)]
-
+    #key = trans_key[key % 6]
+    
+    perm = trans_key[key % len(trans_key)]
     cipher_text = ''
     
-    # Read columns based on key order
-    for col in key_order:
-        for row in range(num_rows):
-            cipher_text += matrix[row][col]
-
+    for i in range(0, len(plaintext), 3):
+        chunk = plaintext[i:i+3]
+        while len(chunk) < 3:
+            chunk += ' '  # Pad if necessary
+        cipher_text += ''.join([chunk[int(p)] for p in perm])
+    
     return cipher_text
+
+    
+    
+    #key_order = [int(i) for i in key]
+#
+    #text_length = len(plaintext)
+    #num_cols = len(key_order)
+    #num_rows = (text_length + num_cols - 1) // num_cols
+#
+    #padding_len = (num_rows * num_cols) - text_length
+    #plaintext += ' ' * padding_len 
+#
+    ## Construct the matrix row by row
+    #matrix = [plaintext[i * num_cols: (i + 1) * num_cols] for i in range(num_rows)]
+#
+    #cipher_text = ''
+    #
+    ## Read columns based on key order
+    #for col in key_order:
+    #    for row in range(num_rows):
+    #        cipher_text += matrix[row][col]
+#
+    #return cipher_text
 
 def transposition_decrypt(key, cipher_text):
     key = int(key) % 256
@@ -69,27 +83,41 @@ def transposition_decrypt(key, cipher_text):
         return cipher_text
 
     trans_key = ("012", "021", "102", "120", "201", "210")
-    key = trans_key[key % 6]
-    key_order = [int(i) for i in key]  # Convert to zero-based indices
+    #key = trans_key[key % 6]
 
-    num_cols = len(key_order)
-    num_rows = len(cipher_text) // num_cols  # Rows calculated based on cipher length
+    perm = trans_key[key % len(trans_key)]
+    reverse_perm = [perm.index(str(i)) for i in range(len(perm))]
+    
+    decrypt_text = ''
+    
+    for i in range(0, len(cipher_text), 3):
+        chunk = cipher_text[i:i+3]
+        chunk = ''.join([chunk[reverse_perm[j]] for j in range(len(perm))])
+        decrypt_text += chunk
+    
+    return decrypt_text.strip()
 
-    # Create an empty matrix
-    matrix = [[''] * num_cols for _ in range(num_rows)]
 
-    index = 0  # Position in cipher_text
-
-    # Fill the matrix column-wise according to the key order
-    for col in key_order:
-        for row in range(num_rows):
-            matrix[row][col] = cipher_text[index]
-            index += 1
-
-    # Read the matrix row-wise to reconstruct plaintext
-    decrypt_text = ''.join([''.join(row) for row in matrix])
-
-    return decrypt_text.strip()  # Remove any trailing padding spaces
+    #key_order = [int(i) for i in key]  # Convert to zero-based indices
+#
+    #num_cols = len(key_order)
+    #num_rows = len(cipher_text) // num_cols  # Rows calculated based on cipher length
+#
+    ## Create an empty matrix
+    #matrix = [[''] * num_cols for _ in range(num_rows)]
+#
+    #index = 0  # Position in cipher_text
+#
+    ## Fill the matrix column-wise according to the key order
+    #for col in key_order:
+    #    for row in range(num_rows):
+    #        matrix[row][col] = cipher_text[index]
+    #        index += 1
+#
+    ## Read the matrix row-wise to reconstruct plaintext
+    #decrypt_text = ''.join([''.join(row) for row in matrix])
+#
+    #return decrypt_text.strip()  # Remove any trailing padding spaces
 
 def text_reader(file_name):
     text = ''
