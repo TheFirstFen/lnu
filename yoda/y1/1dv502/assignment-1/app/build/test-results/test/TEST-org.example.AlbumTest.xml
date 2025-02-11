@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.AlbumTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2025-02-04T07:48:09" hostname="archlinux" time="0.006">
+  <properties/>
+  <testcase name="testSetArtistNull()" classname="org.example.AlbumTest" time="0.001"/>
+  <testcase name="testAlbum()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetNameNull()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetNameToShort()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetYearTooLow()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetArtist()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetArtistToShort()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetName()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetYear()" classname="org.example.AlbumTest" time="0.0"/>
+  <testcase name="testSetYearTooHigh()" classname="org.example.AlbumTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

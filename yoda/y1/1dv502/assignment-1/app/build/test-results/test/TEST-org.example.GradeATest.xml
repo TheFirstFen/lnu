@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.GradeATest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-02-04T07:48:09" hostname="archlinux" time="0.003">
+  <properties/>
+  <testcase name="calculator_testSqrt()" classname="org.example.GradeATest" time="0.001"/>
+  <testcase name="arrays3d_test()" classname="org.example.GradeATest" time="0.0"/>
+  <testcase name="genre_test()" classname="org.example.GradeATest" time="0.0"/>
+  <testcase name="calculator_testFactorial()" classname="org.example.GradeATest" time="0.001"/>
+  <testcase name="calculator_testSquare()" classname="org.example.GradeATest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

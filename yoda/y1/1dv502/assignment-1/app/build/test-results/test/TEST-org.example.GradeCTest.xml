@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.GradeCTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-02-04T07:48:09" hostname="archlinux" time="0.018">
+  <properties/>
+  <testcase name="band_test()" classname="org.example.GradeCTest" time="0.012"/>
+  <testcase name="calculator_testMultiply()" classname="org.example.GradeCTest" time="0.001"/>
+  <testcase name="calculator_testAdd()" classname="org.example.GradeCTest" time="0.001"/>
+  <testcase name="calculator_testSubtract()" classname="org.example.GradeCTest" time="0.001"/>
+  <testcase name="calculator_testDivide()" classname="org.example.GradeCTest" time="0.001"/>
+  <testcase name="arrays2d_test()" classname="org.example.GradeCTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
