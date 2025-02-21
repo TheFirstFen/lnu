@@ -20,7 +20,9 @@
 
 [Video Game Physics Tutorial](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)
 
-### Deep Learning Library
+### Deep Learning Library (Compleated)
+
+The Deep Learning Library is completed and in the folder Deep Learning Library. It can currently solve xor and FizzBuzz as tested. No other tests have been done so might be other problems that needs to be looked in to and the algorithm can be inproved.
 
 [Building a Deep Learning Library](https://www.youtube.com/watch?v=o64FV-ez6Gw)
 
@@ -31,3 +33,7 @@
 ### Recommender System in python
 
 [Beginner Tutorial: Recommender System in Python](https://www.datacamp.com/community/tutorials/recommender-systems-python)
+
+### Redis
+
+[Build Your Own Redis/](https://build-your-own.org/redis/)

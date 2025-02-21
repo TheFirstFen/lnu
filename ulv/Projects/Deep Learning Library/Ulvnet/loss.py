@@ -3,7 +3,7 @@ A loss function measures how good our predictions are,
 we can use this to adjust: the parameters of our network
 """
 import numpy as np
-from net.tensor import Tensor
+from Ulvnet.tensor import Tensor
 
 class Loss:
     def loss(self, predicted: Tensor, actual: Tensor) -> float:
