@@ -20,7 +20,7 @@
 
 [Video Game Physics Tutorial](https://www.toptal.com/game/video-game-physics-part-i-an-introduction-to-rigid-body-dynamics)
 
-### Deep Learning Library (Compleated)
+### Deep Learning Library (Completed)
 
 The Deep Learning Library is completed and in the folder Deep Learning Library. It can currently solve xor and FizzBuzz as tested. No other tests have been done so might be other problems that needs to be looked in to and the algorithm can be inproved.
 
